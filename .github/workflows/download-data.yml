@@ -1,0 +1,59 @@
+name: Download LLM Data
+
+on:
+  push:
+    branches: [master]
+  schedule:
+    # 每天 UTC 2:17 (北京时间 10:17)
+    - cron: '17 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout data branch
+        id: checkout-data
+        run: |
+          git clone --filter=blob:none https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git .
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # 检查 data 分支是否存在
+          if git ls-remote --exit-code --heads origin data; then
+            git checkout data
+            # 将 master 合并进来（不提交），获取最新代码
+            git merge origin/master --no-commit --no-ff --allow-unrelated-histories || true
+            # 合并后移除 .gitignore 中对 /data 的忽略
+            sed -i '/^\/data$/d' .gitignore
+          else
+            # data 分支不存在，基于 master 创建
+            git checkout -b data origin/master
+            # 移除 .gitignore 中对 /data 的忽略
+            sed -i '/^\/data$/d' .gitignore
+          fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run downloader
+        run: python downloader.py
+
+      - name: Commit and push
+        run: |
+          git add -A
+          # 检查是否有变化
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: update llm data $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push origin data
+          fi
