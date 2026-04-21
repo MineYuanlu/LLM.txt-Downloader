@@ -4,7 +4,7 @@ Combine labels, controls, and help text to compose accessible form fields and gr
 
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
-[Open source, local first apps](https://github.com/EpicenterHQ/epicenter)
+[Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
 
 [Special Sponsor](https://github.com/EpicenterHQ/epicenter)
 

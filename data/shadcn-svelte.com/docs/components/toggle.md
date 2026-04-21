@@ -8,7 +8,7 @@ A two-state button that can be either on or off.
 
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
-[Open source, local first apps](https://github.com/EpicenterHQ/epicenter)
+[Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
 
 [Special Sponsor](https://github.com/EpicenterHQ/epicenter)
 

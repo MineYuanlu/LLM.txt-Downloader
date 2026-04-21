@@ -8,7 +8,7 @@ Extends the Dialog component to display content that complements the main conten
 
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
-[Open source, local first apps](https://github.com/EpicenterHQ/epicenter)
+[Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
 
 [Special Sponsor](https://github.com/EpicenterHQ/epicenter)
 

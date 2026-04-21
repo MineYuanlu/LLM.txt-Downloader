@@ -8,7 +8,7 @@ A control that allows the user to toggle between checked and not checked.
 
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
-[Open source, local first apps](https://github.com/EpicenterHQ/epicenter)
+[Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
 
 [Special Sponsor](https://github.com/EpicenterHQ/epicenter)
 

@@ -8,7 +8,7 @@ Displays a menu to the user  such as a set of actions or functions  triggered by
 
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
-[Open source, local first apps](https://github.com/EpicenterHQ/epicenter)
+[Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
 
 [Special Sponsor](https://github.com/EpicenterHQ/epicenter)
 
