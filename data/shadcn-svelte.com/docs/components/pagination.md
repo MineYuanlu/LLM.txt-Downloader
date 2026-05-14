@@ -20,7 +20,7 @@ Pagination with page navigation, next and previous links.
   {#snippet children({ pages, currentPage })}
     <Pagination.Content>
       <Pagination.Item>
-        <Pagination.PrevButton />
+        <Pagination.Previous />
       </Pagination.Item>
       {#each pages as page (page.key)}
         {#if page.type === "ellipsis"}
@@ -39,7 +39,7 @@ Pagination with page navigation, next and previous links.
         <Pagination.Ellipsis />
       </Pagination.Item>
       <Pagination.Item>
-        <Pagination.NextButton />
+        <Pagination.Next />
       </Pagination.Item>
     </Pagination.Content>
   {/snippet}
