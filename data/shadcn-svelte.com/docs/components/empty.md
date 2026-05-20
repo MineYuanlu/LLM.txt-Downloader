@@ -1,6 +1,6 @@
 # Empty
 
-Use the Empty component to display a empty state.
+Use the Empty component to display an empty state.
 
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
@@ -82,7 +82,7 @@ bun x shadcn-svelte@latest add empty
 
 ### Outline
 
-Use the `border` utility class to create a outline empty state.
+Use the `border` utility class to create an outline empty state.
 
 ```svelte
 <script lang="ts">

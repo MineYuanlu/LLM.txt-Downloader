@@ -71,7 +71,7 @@
 
 - [Alert](../shadcn-svelte.com/docs/components/alert.md): Displays a callout for user attention.
 - [Badge](../shadcn-svelte.com/docs/components/badge.md): Displays a badge or a component that looks like a badge.
-- [Empty](../shadcn-svelte.com/docs/components/empty.md): Use the Empty component to display a empty state.
+- [Empty](../shadcn-svelte.com/docs/components/empty.md): Use the Empty component to display an empty state.
 - [Progress](../shadcn-svelte.com/docs/components/progress.md): Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
 - [Skeleton](../shadcn-svelte.com/docs/components/skeleton.md): Use to show a placeholder while content is loading.
 - [Sonner](../shadcn-svelte.com/docs/components/sonner.md): An opinionated toast component for Svelte.
