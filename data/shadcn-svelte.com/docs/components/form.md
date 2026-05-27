@@ -136,9 +136,9 @@ src/routes/settings/settings-form.svelte
     superForm,
   } from "sveltekit-superforms";
   import { zod4Client } from "sveltekit-superforms/adapters";
-  let { data }: { data: { form: SuperValidated<Infer<FormSchema>> } } =
+  let { form: initialForm }: { form: SuperValidated<Infer<FormSchema>> } =
     $props();
-  const form = superForm(data.form, {
+  const form = superForm(initialForm, {
     validators: zod4Client(formSchema),
   });
   const { form: formData, enhance } = form;
@@ -172,7 +172,7 @@ src/routes/settings/+page.svelte
   import SettingsForm from "./settings-form.svelte";
   let { data }: { data: PageData } = $props();
 </script>
-<SettingsForm {data} />
+<SettingsForm form={data.form} />
 ```
 
 ### Create an Action
