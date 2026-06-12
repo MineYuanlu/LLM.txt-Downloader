@@ -2,10 +2,6 @@
 
 An interactive component which expands/collapses a panel.
 
-[Docs](https://bits-ui.com/docs/components/collapsible)
-
-[API Reference](https://bits-ui.com/docs/components/collapsible#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

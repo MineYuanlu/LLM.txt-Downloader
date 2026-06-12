@@ -2,10 +2,6 @@
 
 A set of two-state buttons that can be toggled on or off.
 
-[Docs](https://bits-ui.com/docs/components/toggle-group)
-
-[API Reference](https://bits-ui.com/docs/components/toggle-group#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

@@ -2,10 +2,6 @@
 
 Renders an accessible label associated with controls.
 
-[Docs](https://bits-ui.com/docs/components/label)
-
-[API Reference](https://bits-ui.com/docs/components/label#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

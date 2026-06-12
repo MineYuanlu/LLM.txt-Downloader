@@ -2,10 +2,6 @@
 
 A two-state button that can be either on or off.
 
-[Docs](https://bits-ui.com/docs/components/toggle)
-
-[API Reference](https://bits-ui.com/docs/components/toggle#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

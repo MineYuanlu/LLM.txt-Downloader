@@ -2,10 +2,6 @@
 
 Displays content within a desired ratio.
 
-[Docs](https://bits-ui.com/docs/components/aspect-ratio)
-
-[API Reference](https://bits-ui.com/docs/components/aspect-ratio#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

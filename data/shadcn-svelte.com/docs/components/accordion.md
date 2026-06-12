@@ -2,10 +2,6 @@
 
 A vertically stacked set of interactive headings that each reveal a section of content.
 
-[Docs](https://bits-ui.com/docs/components/accordion)
-
-[API Reference](https://bits-ui.com/docs/components/accordion#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

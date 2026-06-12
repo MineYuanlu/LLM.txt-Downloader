@@ -2,10 +2,6 @@
 
 A visually persistent menu common in desktop applications that provides quick access to a consistent set of commands.
 
-[Docs](https://bits-ui.com/docs/components/menubar)
-
-[API Reference](https://bits-ui.com/docs/components/menubar#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

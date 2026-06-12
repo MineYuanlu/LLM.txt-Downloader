@@ -2,10 +2,6 @@
 
 Accessible resizable panel groups and layouts with keyboard support.
 
-[Docs](https://www.paneforge.com)
-
-[API Reference](https://www.paneforge.com/docs/components/pane-group)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

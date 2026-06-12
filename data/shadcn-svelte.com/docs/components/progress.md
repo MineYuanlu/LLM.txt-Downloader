@@ -2,10 +2,6 @@
 
 Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
 
-[Docs](https://bits-ui.com/docs/components/progress)
-
-[API Reference](https://bits-ui.com/docs/components/progress#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

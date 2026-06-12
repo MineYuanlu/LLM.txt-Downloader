@@ -2,10 +2,6 @@
 
 Displays a menu to the user  such as a set of actions or functions  triggered by right click.
 
-[Docs](https://bits-ui.com/docs/components/context-menu)
-
-[API Reference](https://bits-ui.com/docs/components/context-menu#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

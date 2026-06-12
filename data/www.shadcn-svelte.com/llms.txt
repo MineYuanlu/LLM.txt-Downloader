@@ -30,7 +30,6 @@
 - [Combobox](../shadcn-svelte.com/docs/components/combobox.md): Autocomplete input and command palette with a list of suggestions.
 - [Date Picker](../shadcn-svelte.com/docs/components/date-picker.md): A date picker component with range and presets.
 - [Field](../shadcn-svelte.com/docs/components/field.md): Combine labels, controls, and help text to compose accessible form fields and grouped inputs.
-- [Formsnap](../shadcn-svelte.com/docs/components/form.md): Building forms with Formsnap, Superforms, & Zod.
 - [Input](../shadcn-svelte.com/docs/components/input.md): Displays a form input field or a component that looks like an input field.
 - [Input Group](../shadcn-svelte.com/docs/components/input-group.md): Display additional information or actions to an input or textarea.
 - [Input OTP](../shadcn-svelte.com/docs/components/input-otp.md): Accessible one-time password component with copy paste functionality.

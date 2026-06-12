@@ -2,8 +2,6 @@
 
 A drawer component for Svelte.
 
-[Docs](https://github.com/huntabyte/vaul-svelte)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

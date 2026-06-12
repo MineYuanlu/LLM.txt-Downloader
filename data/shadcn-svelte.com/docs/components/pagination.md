@@ -2,10 +2,6 @@
 
 Pagination with page navigation, next and previous links.
 
-[Docs](https://bits-ui.com/docs/components/pagination)
-
-[API Reference](https://bits-ui.com/docs/components/pagination#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

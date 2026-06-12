@@ -2,10 +2,6 @@
 
 A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
 
-[Docs](https://bits-ui.com/docs/components/dialog)
-
-[API Reference](https://bits-ui.com/docs/components/dialog#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

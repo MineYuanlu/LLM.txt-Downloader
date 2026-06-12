@@ -2,10 +2,6 @@
 
 A calendar component that allows users to select dates.
 
-[Docs](https://bits-ui.com/docs/components/calendar)
-
-[API Reference](https://bits-ui.com/docs/components/calendar#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

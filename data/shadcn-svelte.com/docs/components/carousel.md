@@ -2,10 +2,6 @@
 
 A carousel with motion and swipe built using Embla.
 
-[Docs](https://www.embla-carousel.com/get-started/svelte)
-
-[API Reference](https://www.embla-carousel.com/api)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

@@ -2,10 +2,6 @@
 
 A set of layered sections of contentknown as tab panelsthat are displayed one at a time.
 
-[Docs](https://bits-ui.com/docs/components/tabs)
-
-[API Reference](https://bits-ui.com/docs/components/tabs#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

@@ -2,10 +2,6 @@
 
 An image element with a fallback for representing the user.
 
-[Docs](https://bits-ui.com/docs/components/avatar)
-
-[API Reference](https://bits-ui.com/docs/components/avatar#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

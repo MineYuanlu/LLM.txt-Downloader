@@ -2,10 +2,6 @@
 
 Displays a list of options for the user to pick fromtriggered by a button.
 
-[Docs](https://bits-ui.com/docs/components/select)
-
-[API Reference](https://bits-ui.com/docs/components/select#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

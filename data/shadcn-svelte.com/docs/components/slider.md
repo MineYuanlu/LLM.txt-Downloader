@@ -2,10 +2,6 @@
 
 An input where the user selects a value from within a given range.
 
-[Docs](https://bits-ui.com/docs/components/slider)
-
-[API Reference](https://bits-ui.com/docs/components/slider#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

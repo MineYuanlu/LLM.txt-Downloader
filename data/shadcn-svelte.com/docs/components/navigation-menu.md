@@ -2,10 +2,6 @@
 
 A collection of links for navigating websites.
 
-[Docs](https://bits-ui.com/docs/components/navigation-menu)
-
-[API Reference](https://bits-ui.com/docs/components/navigation-menu#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

@@ -2,10 +2,6 @@
 
 Augments native scroll functionality for custom, cross-browser styling.
 
-[Docs](https://bits-ui.com/docs/components/scroll-area)
-
-[API Reference](https://bits-ui.com/docs/components/scroll-area#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

@@ -2,10 +2,6 @@
 
 Displays rich content in a portal, triggered by a button.
 
-[Docs](https://bits-ui.com/docs/components/popover)
-
-[API Reference](https://bits-ui.com/docs/components/popover#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

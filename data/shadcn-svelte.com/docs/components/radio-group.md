@@ -2,10 +2,6 @@
 
 A set of checkable buttonsknown as radio buttonswhere no more than one of the buttons can be checked at a time.
 
-[Docs](https://bits-ui.com/docs/components/radio-group)
-
-[API Reference](https://bits-ui.com/docs/components/radio-group#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

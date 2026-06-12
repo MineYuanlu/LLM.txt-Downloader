@@ -2,10 +2,6 @@
 
 A control that allows the user to toggle between checked and not checked.
 
-[Docs](https://bits-ui.com/docs/components/switch)
-
-[API Reference](https://bits-ui.com/docs/components/switch#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

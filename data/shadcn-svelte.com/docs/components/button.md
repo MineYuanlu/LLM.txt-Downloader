@@ -2,8 +2,6 @@
 
 Displays a button or a component that looks like a button.
 
-[API Reference](https://bits-ui.com/docs/components/button#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

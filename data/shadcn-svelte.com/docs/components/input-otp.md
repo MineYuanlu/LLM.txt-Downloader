@@ -2,10 +2,6 @@
 
 Accessible one-time password component with copy paste functionality.
 
-[Docs](https://bits-ui.com/docs/components/pin-input)
-
-[API Reference](https://bits-ui.com/docs/components/pin-input#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

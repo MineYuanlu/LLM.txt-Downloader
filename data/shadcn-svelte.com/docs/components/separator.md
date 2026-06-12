@@ -2,10 +2,6 @@
 
 Visually or semantically separates content.
 
-[Docs](https://bits-ui.com/docs/components/separator)
-
-[API Reference](https://bits-ui.com/docs/components/separator#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)

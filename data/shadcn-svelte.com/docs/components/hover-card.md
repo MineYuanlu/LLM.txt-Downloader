@@ -2,10 +2,6 @@
 
 For sighted users to preview content available behind a link.
 
-[Docs](https://bits-ui.com/docs/components/link-preview)
-
-[API Reference](https://bits-ui.com/docs/components/link-preview#api-reference)
-
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
