@@ -2,6 +2,10 @@
 
 A vertically stacked set of interactive headings that each reveal a section of content.
 
+[Docs](https://bits-ui.com/docs/components/accordion)
+
+[API Reference](https://bits-ui.com/docs/components/accordion#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -58,7 +62,7 @@ A vertically stacked set of interactive headings that each reveal a section of c
 </Accordion.Root>
 ```
 
-## Installation
+## [Installation](accordion.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add accordion
@@ -72,7 +76,7 @@ npx shadcn-svelte@latest add accordion
 bun x shadcn-svelte@latest add accordion
 ```
 
-## Usage
+## [Usage](accordion.md#usage)
 
 ```svelte
 <script lang="ts">

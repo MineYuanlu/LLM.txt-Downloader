@@ -10,7 +10,7 @@ Use CSS Variables to customize the look and feel of your application.
 
 We use CSS variables for styling. This allows you to easily change the colors of components without having to update class names.
 
-## Convention
+## [Convention](theming.md#convention)
 
 We use a simple `background` and `foreground` convention for colors. The `background` variable is used for the background color of the component and the `foreground` variable is used for the text color.
 
@@ -29,7 +29,7 @@ The `background` color of the following component will be `var(--primary)` and t
 <div class="bg-primary text-primary-foreground">Hello</div>
 ```
 
-## List of variables
+## [List of variables](theming.md#list-of-variables)
 
 Here's the list of variables available for customization:
 
@@ -105,7 +105,7 @@ src/routes/layout.css
 }
 ```
 
-## Adding new colors
+## [Adding new colors](theming.md#adding-new-colors)
 
 To add new colors, you need to add them to your CSS file.
 
@@ -132,15 +132,15 @@ You can now use the `warning` utility class in your components.
 <div class="bg-warning text-warning-foreground"></div>
 ```
 
-## Other color formats
+## [Other color formats](theming.md#other-color-formats)
 
 See the [Tailwind CSS documentation](https://tailwindcss.com/docs/colors) for more information on using colors in Tailwind CSS.
 
-## Base Colors
+## [Base Colors](theming.md#base-colors)
 
 For reference, here's a list of the base colors that are available.
 
-### Neutral
+### [Neutral](theming.md#neutral)
 
 Expand
 
@@ -218,7 +218,7 @@ src/routes/layout.css
 
 Expand
 
-### Stone
+### [Stone](theming.md#stone)
 
 Expand
 
@@ -296,7 +296,7 @@ src/routes/layout.css
 
 Expand
 
-### Zinc
+### [Zinc](theming.md#zinc)
 
 Expand
 
@@ -374,7 +374,7 @@ src/routes/layout.css
 
 Expand
 
-### Gray
+### [Gray](theming.md#gray)
 
 Expand
 
@@ -452,7 +452,7 @@ src/routes/layout.css
 
 Expand
 
-### Slate
+### [Slate](theming.md#slate)
 
 Expand
 

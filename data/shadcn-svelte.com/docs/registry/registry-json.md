@@ -34,11 +34,11 @@ registry.json
 }
 ```
 
-## Definitions
+## [Definitions](registry-json.md#definitions)
 
 You can see the JSON Schema for `registry.json` [here](../../schema/registry.json).
 
-### $schema
+### [$schema](registry-json.md#schema)
 
 The `$schema` property is used to specify the schema for the `registry.json` file.
 
@@ -50,7 +50,7 @@ registry.json
 }
 ```
 
-### name
+### [name](registry-json.md#name)
 
 The `name` property is used to specify the name of your registry. This is used for data attributes and other metadata.
 
@@ -62,7 +62,7 @@ registry.json
 }
 ```
 
-### homepage
+### [homepage](registry-json.md#homepage)
 
 The homepage of your registry. This is used for data attributes and other metadata.
 
@@ -74,7 +74,7 @@ registry.json
 }
 ```
 
-### items
+### [items](registry-json.md#items)
 
 The `items` in your registry. Each item must implement the [registry-item schema specification](../../schema/registry-item.json).
 
@@ -101,7 +101,7 @@ registry.json
 
 See the [registry-item schema documentation](registry-item-json) for more information.
 
-### aliases `aliases` define how your registry's internal import paths will be transformed when users install your components. These should match how you import components within your registry code.
+### [aliases](registry-json.md#aliases) `aliases` define how your registry's internal import paths will be transformed when users install your components. These should match how you import components within your registry code.
 
 For example, if your registry's component has:
 
@@ -146,7 +146,7 @@ registry.json
 }
 ```
 
-### overrideDependencies `overrideDependencies` lets you force specific version ranges for dependencies, overriding what `shadcn-svelte registry build` detects in your `package.json`.
+### [overrideDependencies](registry-json.md#overridedependencies) `overrideDependencies` lets you force specific version ranges for dependencies, overriding what `shadcn-svelte registry build` detects in your `package.json`.
 
 Common use cases:
 

@@ -2,6 +2,10 @@
 
 An image element with a fallback for representing the user.
 
+[Docs](https://bits-ui.com/docs/components/avatar)
+
+[API Reference](https://bits-ui.com/docs/components/avatar#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -40,7 +44,7 @@ An image element with a fallback for representing the user.
 </div>
 ```
 
-## Installation
+## [Installation](avatar.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add avatar
@@ -54,7 +58,7 @@ npx shadcn-svelte@latest add avatar
 bun x shadcn-svelte@latest add avatar
 ```
 
-## Usage
+## [Usage](avatar.md#usage)
 
 ```svelte
 <script lang="ts">

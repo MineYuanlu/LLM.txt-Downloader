@@ -2,6 +2,10 @@
 
 A control that allows the user to toggle between checked and not checked.
 
+[Docs](https://bits-ui.com/docs/components/checkbox)
+
+[API Reference](https://bits-ui.com/docs/components/checkbox#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -49,7 +53,7 @@ A control that allows the user to toggle between checked and not checked.
 </div>
 ```
 
-## Installation
+## [Installation](checkbox.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add checkbox
@@ -63,7 +67,7 @@ npx shadcn-svelte@latest add checkbox
 bun x shadcn-svelte@latest add checkbox
 ```
 
-## Usage
+## [Usage](checkbox.md#usage)
 
 ```svelte
 <script lang="ts">

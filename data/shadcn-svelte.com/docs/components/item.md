@@ -49,7 +49,7 @@ You can pretty much achieve the same result with the `div` element and some clas
 </div>
 ```
 
-## Installation
+## [Installation](item.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add item
@@ -63,7 +63,7 @@ npx shadcn-svelte@latest add item
 bun x shadcn-svelte@latest add item
 ```
 
-## Usage
+## [Usage](item.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -84,15 +84,15 @@ bun x shadcn-svelte@latest add item
 </Item.Root>
 ```
 
-## Item vs Field
+## [Item vs Field](item.md#item-vs-field)
 
 Use Field if you need to display a form input such as a checkbox, input, radio, or select.
 
 If you only need to display content such as a title, description, and actions, use `Item`.
 
-## Examples
+## [Examples](item.md#examples)
 
-### Variants
+### [Variants](item.md#variants)
 
 ```svelte
 <script lang="ts">
@@ -136,7 +136,7 @@ If you only need to display content such as a title, description, and actions, u
 </div>
 ```
 
-### Size
+### [Size](item.md#size)
 
 The `Item` component has different sizes for different use cases. For example, you can use the `sm` size for a compact item or the default size for a standard item.
 
@@ -177,7 +177,7 @@ The `Item` component has different sizes for different use cases. For example, y
 </div>
 ```
 
-### Icon
+### [Icon](item.md#icon)
 
 ```svelte
 <script lang="ts">
@@ -203,7 +203,7 @@ The `Item` component has different sizes for different use cases. For example, y
 </div>
 ```
 
-### Avatar
+### [Avatar](item.md#avatar)
 
 ```svelte
 <script lang="ts">
@@ -273,7 +273,7 @@ The `Item` component has different sizes for different use cases. For example, y
 </div>
 ```
 
-### Image
+### [Image](item.md#image)
 
 ```svelte
 <script lang="ts">
@@ -332,7 +332,7 @@ The `Item` component has different sizes for different use cases. For example, y
 </div>
 ```
 
-### Group
+### [Group](item.md#group)
 
 ```svelte
 <script lang="ts">
@@ -385,7 +385,7 @@ The `Item` component has different sizes for different use cases. For example, y
 </div>
 ```
 
-### Header
+### [Header](item.md#header)
 
 ```svelte
 <script lang="ts">
@@ -437,7 +437,7 @@ The `Item` component has different sizes for different use cases. For example, y
 </div>
 ```
 
-### Link
+### [Link](item.md#link)
 
 To render an item as a link, use the the `child` snippet. The hover and focus states will be applied to the anchor element.
 
@@ -481,7 +481,7 @@ To render an item as a link, use the the `child` snippet. The hover and focus st
 </div>
 ```
 
-### Dropdown
+### [Dropdown](item.md#dropdown)
 
 ```svelte
 <script lang="ts">

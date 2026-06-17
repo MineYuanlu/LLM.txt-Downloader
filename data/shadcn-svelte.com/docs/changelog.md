@@ -10,7 +10,7 @@ Rhea started from a simple request we've heard a lot: Luma, but more compact. We
 
 Rhea keeps the same rounded foundation, but makes it more compact for product interfaces where space matters. Buttons, inputs, menus, cards, and lists all sit a little tighter so the UI can carry more without feeling crowded.
 
-## Why a new style?
+## [Why a new style?](changelog.md#why-a-new-style)
 
 We considered making this a spacing tweak for Luma, but `--spacing` is a multiplier. Changing it would change what familiar utilities mean across your app. `p-2`, `w-4`, and `m-16` would no longer mean the same size.
 

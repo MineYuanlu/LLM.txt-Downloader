@@ -2,6 +2,10 @@
 
 A visually persistent menu common in desktop applications that provides quick access to a consistent set of commands.
 
+[Docs](https://bits-ui.com/docs/components/menubar)
+
+[API Reference](https://bits-ui.com/docs/components/menubar#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -106,7 +110,7 @@ A visually persistent menu common in desktop applications that provides quick ac
 </Menubar.Root>
 ```
 
-## Installation
+## [Installation](menubar.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add menubar
@@ -120,7 +124,7 @@ npx shadcn-svelte@latest add menubar
 bun x shadcn-svelte@latest add menubar
 ```
 
-## Usage
+## [Usage](menubar.md#usage)
 
 ```svelte
 <script lang="ts">

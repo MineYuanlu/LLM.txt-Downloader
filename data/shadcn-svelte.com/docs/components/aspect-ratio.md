@@ -2,6 +2,10 @@
 
 Displays content within a desired ratio.
 
+[Docs](https://bits-ui.com/docs/components/aspect-ratio)
+
+[API Reference](https://bits-ui.com/docs/components/aspect-ratio#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -21,7 +25,7 @@ Displays content within a desired ratio.
 </AspectRatio>
 ```
 
-## Installation
+## [Installation](aspect-ratio.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add aspect-ratio
@@ -35,7 +39,7 @@ npx shadcn-svelte@latest add aspect-ratio
 bun x shadcn-svelte@latest add aspect-ratio
 ```
 
-## Usage
+## [Usage](aspect-ratio.md#usage)
 
 ```svelte
 <script lang="ts">

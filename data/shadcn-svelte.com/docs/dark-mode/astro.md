@@ -12,9 +12,9 @@ Just like in regular Svelte, we use the `class` strategy from Tailwind CSS to su
 
 How you add the `dark` class to the `html` element is up to you. In this guide, we'll take a look at enabling dark mode toggling with [mode-watcher](https://github.com/svecosystem/mode-watcher).
 
-## Usage
+## [Usage](astro.md#usage)
 
-### Create an inline theme script
+### [Create an inline theme script](astro.md#create-an-inline-theme-script)
 
 This script will, in part, keep and track the dark mode value in `localStorage` and prevent [FUOC](https://en.wikipedia.org/wiki/Flash_of_unstyled_content).
 
@@ -54,7 +54,7 @@ import "../styles/global.css";
 </script>
 ```
 
-### Install mode-watcher
+### [Install mode-watcher](astro.md#install-mode-watcher)
 
 ```bash
 pnpm i mode-watcher@0.5.1
@@ -68,7 +68,7 @@ npm i mode-watcher@0.5.1
 bun install mode-watcher@0.5.1
 ```
 
-### Add the ModeWatcher component
+### [Add the ModeWatcher component](astro.md#add-the-modewatcher-component)
 
 Import the `ModeWatcher` component and use it in your page with the `client:load` directive:
 
@@ -88,11 +88,11 @@ import { ModeWatcher } from "mode-watcher";
 </html>
 ```
 
-### Create a mode toggle
+### [Create a mode toggle](astro.md#create-a-mode-toggle)
 
 Create a mode toggle on your site to toggle between light and dark mode:
 
-#### Light switch
+#### [Light switch](astro.md#light-switch)
 
 ```svelte
 <script lang="ts">
@@ -112,7 +112,7 @@ Create a mode toggle on your site to toggle between light and dark mode:
 </Button>
 ```
 
-#### Dropdown menu
+#### [Dropdown menu](astro.md#dropdown-menu)
 
 ```svelte
 <script lang="ts">
@@ -143,7 +143,7 @@ Create a mode toggle on your site to toggle between light and dark mode:
 </DropdownMenu.Root>
 ```
 
-### Add mode toggle to page
+### [Add mode toggle to page](astro.md#add-mode-toggle-to-page)
 
 Add the mode toggle to the page (also with the `client:load` directive):
 

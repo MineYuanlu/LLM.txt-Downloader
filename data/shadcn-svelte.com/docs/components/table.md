@@ -85,7 +85,7 @@ A responsive table component.
 </Table.Root>
 ```
 
-## Installation
+## [Installation](table.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add table
@@ -99,7 +99,7 @@ npx shadcn-svelte@latest add table
 bun x shadcn-svelte@latest add table
 ```
 
-## Usage
+## [Usage](table.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -129,7 +129,7 @@ bun x shadcn-svelte@latest add table
 </Table.Root>
 ```
 
-## Data Table
+## [Data Table](table.md#data-table)
 
 You can use the `<Table />` component to build more complex data tables. Combine it with [@tanstack/table](https://tanstack.com/table) to create tables with sorting, filtering and pagination.
 

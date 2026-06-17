@@ -15,7 +15,7 @@ Displays a form textarea or a component that looks like a textarea.
 <Textarea placeholder="Type your message here." />
 ```
 
-## Installation
+## [Installation](textarea.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add textarea
@@ -29,7 +29,7 @@ npx shadcn-svelte@latest add textarea
 bun x shadcn-svelte@latest add textarea
 ```
 
-## Usage
+## [Usage](textarea.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -41,9 +41,9 @@ bun x shadcn-svelte@latest add textarea
 <Textarea />
 ```
 
-## Examples
+## [Examples](textarea.md#examples)
 
-### Default
+### [Default](textarea.md#default)
 
 ```svelte
 <script lang="ts">
@@ -52,7 +52,7 @@ bun x shadcn-svelte@latest add textarea
 <Textarea placeholder="Type your message here." />
 ```
 
-### Disabled
+### [Disabled](textarea.md#disabled)
 
 ```svelte
 <script lang="ts">
@@ -61,7 +61,7 @@ bun x shadcn-svelte@latest add textarea
 <Textarea disabled placeholder="Type your message here." />
 ```
 
-### With Label
+### [With Label](textarea.md#with-label)
 
 ```svelte
 <script lang="ts">
@@ -74,7 +74,7 @@ bun x shadcn-svelte@latest add textarea
 </div>
 ```
 
-### With Text
+### [With Text](textarea.md#with-text)
 
 ```svelte
 <script lang="ts">
@@ -90,7 +90,7 @@ bun x shadcn-svelte@latest add textarea
 </div>
 ```
 
-### With Button
+### [With Button](textarea.md#with-button)
 
 ```svelte
 <script lang="ts">

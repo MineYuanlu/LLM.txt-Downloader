@@ -142,7 +142,7 @@ We do not ship any typography styles by default. This page is an example of how 
 </div>
 ```
 
-## h1
+## [h1](typography.md#h1)
 
 ```svelte
 <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
@@ -150,7 +150,7 @@ We do not ship any typography styles by default. This page is an example of how 
 </h1>
 ```
 
-## h2
+## [h2](typography.md#h2)
 
 ```svelte
 <h2
@@ -160,13 +160,13 @@ We do not ship any typography styles by default. This page is an example of how 
 </h2>
 ```
 
-## h3
+## [h3](typography.md#h3)
 
 ```svelte
 <h3 class="scroll-m-20 text-2xl font-semibold tracking-tight">The Joke Tax</h3>
 ```
 
-## h4
+## [h4](typography.md#h4)
 
 ```svelte
 <h4 class="scroll-m-20 text-xl font-semibold tracking-tight">
@@ -174,7 +174,7 @@ We do not ship any typography styles by default. This page is an example of how 
 </h4>
 ```
 
-## p
+## [p](typography.md#p)
 
 ```svelte
 <p class="leading-7 [&:not(:first-child)]:mt-6">
@@ -183,7 +183,7 @@ We do not ship any typography styles by default. This page is an example of how 
 </p>
 ```
 
-## blockquote
+## [blockquote](typography.md#blockquote)
 
 ```svelte
 <blockquote class="mt-6 border-s-2 ps-6 italic">
@@ -192,7 +192,7 @@ We do not ship any typography styles by default. This page is an example of how 
 </blockquote>
 ```
 
-## table
+## [table](typography.md#table)
 
 ```svelte
 <div class="my-6 w-full overflow-y-auto">
@@ -253,7 +253,7 @@ We do not ship any typography styles by default. This page is an example of how 
 </div>
 ```
 
-## list
+## [list](typography.md#list)
 
 ```svelte
 <ul class="my-6 ms-6 list-disc [&>li]:mt-2">
@@ -263,7 +263,7 @@ We do not ship any typography styles by default. This page is an example of how 
 </ul>
 ```
 
-## Inline code
+## [Inline code](typography.md#inline-code)
 
 ```svelte
 <code
@@ -273,7 +273,7 @@ We do not ship any typography styles by default. This page is an example of how 
 </code>
 ```
 
-## Lead
+## [Lead](typography.md#lead)
 
 ```svelte
 <p class="text-muted-foreground text-xl">
@@ -282,19 +282,19 @@ We do not ship any typography styles by default. This page is an example of how 
 </p>
 ```
 
-## Large
+## [Large](typography.md#large)
 
 ```svelte
 <div class="text-lg font-semibold">Are you sure absolutely sure?</div>
 ```
 
-## Small
+## [Small](typography.md#small)
 
 ```svelte
 <small class="text-sm leading-none font-medium">Email address</small>
 ```
 
-## Muted
+## [Muted](typography.md#muted)
 
 ```svelte
 <p class="text-muted-foreground text-sm">Enter your email address.</p>

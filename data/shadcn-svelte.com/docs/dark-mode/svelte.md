@@ -8,7 +8,7 @@ Adding dark mode to your Svelte site.
 
 [Special Sponsor](https://github.com/EpicenterHQ/epicenter)
 
-## Install mode-watcher
+## [Install mode-watcher](svelte.md#install-mode-watcher)
 
 Start by installing `mode-watcher`:
 
@@ -24,7 +24,7 @@ npm i mode-watcher
 bun install mode-watcher
 ```
 
-## Add the ModeWatcher component
+## [Add the ModeWatcher component](svelte.md#add-the-modewatcher-component)
 
 Import the `ModeWatcher` component and use it in your root layout:
 
@@ -40,7 +40,7 @@ src/routes/+layout.svelte
 {@render children?.()}
 ```
 
-## Add a mode toggle
+## [Add a mode toggle](svelte.md#add-a-mode-toggle)
 
 Place a mode toggle on your site to toggle between light and dark mode.
 

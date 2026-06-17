@@ -2,6 +2,10 @@
 
 An interactive component which expands/collapses a panel.
 
+[Docs](https://bits-ui.com/docs/components/collapsible)
+
+[API Reference](https://bits-ui.com/docs/components/collapsible#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -38,7 +42,7 @@ An interactive component which expands/collapses a panel.
 </Collapsible.Root>
 ```
 
-## Installation
+## [Installation](collapsible.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add collapsible
@@ -52,7 +56,7 @@ npx shadcn-svelte@latest add collapsible
 bun x shadcn-svelte@latest add collapsible
 ```
 
-## Usage
+## [Usage](collapsible.md#usage)
 
 ```svelte
 <script lang="ts">

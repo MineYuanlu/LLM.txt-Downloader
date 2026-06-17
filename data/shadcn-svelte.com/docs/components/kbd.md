@@ -27,7 +27,7 @@ Used to display textual user input from keyboard.
 </div>
 ```
 
-## Installation
+## [Installation](kbd.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add kbd
@@ -41,7 +41,7 @@ npx shadcn-svelte@latest add kbd
 bun x shadcn-svelte@latest add kbd
 ```
 
-## Usage
+## [Usage](kbd.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -53,9 +53,9 @@ bun x shadcn-svelte@latest add kbd
 <Kbd.Root>B</Kbd.Root>
 ```
 
-## Examples
+## [Examples](kbd.md#examples)
 
-### Group
+### [Group](kbd.md#group)
 
 Use the `Kbd.Group` component to group keyboard keys together.
 
@@ -75,7 +75,7 @@ Use the `Kbd.Group` component to group keyboard keys together.
 </div>
 ```
 
-### Button
+### [Button](kbd.md#button)
 
 Use the `Kbd.Root` component inside a `Button` component to display a keyboard key inside a button.
 
@@ -94,7 +94,7 @@ Use the `Kbd.Root` component inside a `Button` component to display a keyboard k
 </div>
 ```
 
-### Tooltip
+### [Tooltip](kbd.md#tooltip)
 
 You can use the `Kbd.Root` component inside a `Tooltip` component to display a tooltip with a keyboard key.
 
@@ -139,7 +139,7 @@ You can use the `Kbd.Root` component inside a `Tooltip` component to display a t
 </div>
 ```
 
-### Input Group
+### [Input Group](kbd.md#input-group)
 
 You can use the `Kbd.Root` component inside a `InputGroup.Addon` component to display a keyboard key inside an input group.
 

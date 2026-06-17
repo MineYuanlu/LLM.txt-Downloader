@@ -45,11 +45,11 @@ registry-item.json
 
 [See more examples](examples)
 
-## Definitions
+## [Definitions](registry-item-json.md#definitions)
 
 You can see the JSON Schema for `registry-item.json` [here](../../schema/registry-item.json).
 
-### $schema
+### [$schema](registry-item-json.md#schema)
 
 The `$schema` property is used to specify the schema for the `registry-item.json` file.
 
@@ -61,7 +61,7 @@ registry-item.json
 }
 ```
 
-### name
+### [name](registry-item-json.md#name)
 
 The name of the item. This is used to identify the item in the registry. It should be unique for your registry.
 
@@ -73,7 +73,7 @@ registry-item.json
 }
 ```
 
-### title
+### [title](registry-item-json.md#title)
 
 A human-readable title for your registry item. Keep it short and descriptive.
 
@@ -85,7 +85,7 @@ registry-item.json
 }
 ```
 
-### description
+### [description](registry-item-json.md#description)
 
 A description of your registry item. This can be longer and more detailed than the `title`.
 
@@ -97,7 +97,7 @@ registry-item.json
 }
 ```
 
-### type
+### [type](registry-item-json.md#type)
 
 The `type` property is used to specify the type of your registry item. This is used to determine the type and target path of the item when resolved for a project.
 
@@ -123,7 +123,7 @@ The following types are supported:
 | `registry:style`     | Use for registry styles. eg. `new-york` |
 | `registry:theme`     | Use for themes.                         |
 
-### author
+### [author](registry-item-json.md#author)
 
 The `author` property is used to specify the author of the registry item.
 
@@ -137,7 +137,7 @@ registry-item.json
 }
 ```
 
-### dependencies
+### [dependencies](registry-item-json.md#dependencies)
 
 The `dependencies` property is used to specify the dependencies of your registry item. This is for `npm` packages.
 
@@ -151,13 +151,13 @@ registry-item.json
 }
 ```
 
-### registryDependencies
+### [registryDependencies](registry-item-json.md#registrydependencies)
 
 Defines other registry items that this item depends on.
 
 Each entry may be one of the following:
 
-#### shadcn-svelte Registry Item
+#### [shadcn-svelte Registry Item](registry-item-json.md#shadcn-svelte-registry-item)
 
 The name of a shadcn-svelte registry item (e.g., `'button'`, `'input'`, `'select'`), which will resolve to that item in the shadcn-svelte registry.
 
@@ -169,7 +169,7 @@ registry-item.json
 }
 ```
 
-#### Remote URL
+#### [Remote URL](registry-item-json.md#remote-url)
 
 A full URL to a custom registry item (e.g. `https://example.com/r/hello-world.json`)
 
@@ -181,7 +181,7 @@ registry-item.json
 }
 ```
 
-#### Local alias (when building with the CLI)
+#### [Local alias (when building with the CLI)](registry-item-json.md#local-alias-when-building-with-the-cli)
 
 If you're defining the item in `registry.json` and using the CLI to build the registry, you can use a name prefixed with `local:` (e.g. `local:stepper`) to reference an item in the current registry. The CLI will convert this to a relative path (e.g. `./stepper.json`) in the output `registry-item.json` file.
 
@@ -208,7 +208,7 @@ registry-item.json
 }
 ```
 
-#### Relative Path
+#### [Relative Path](registry-item-json.md#relative-path)
 
 If you're not using the CLI and defining the item directly in its `registry-item.json` file, you can specify a relative path, which is relative to the current item, to reference another item in the registry (e.g. `./stepper.json`).
 
@@ -220,7 +220,7 @@ registry-item.json
 }
 ```
 
-### files
+### [files](registry-item-json.md#files)
 
 The `files` property is used to specify the files of your registry item. Each file has a `path`, `type` and `target` (optional) property.
 
@@ -253,15 +253,15 @@ registry-item.json
 }
 ```
 
-#### path
+#### [path](registry-item-json.md#path)
 
 The `path` property is used to specify the path to the file in your registry. This path is used by the build script to parse, transform and build the registry JSON payload.
 
-#### type
+#### [type](registry-item-json.md#type-1)
 
 The `type` property is used to specify the type of the file. See the [type](registry-item-json.md#type) section for more information.
 
-#### target
+#### [target](registry-item-json.md#target)
 
 The `target` property is used to indicate where the file should be placed in a project. This is optional and only required for `registry:page` and `registry:file` types.
 
@@ -269,7 +269,7 @@ By default, the `shadcn-svelte` cli will read a project's `components.json` file
 
 Use `~` to refer to the root of the project e.g `~/foo.config.js`.
 
-### cssVars
+### [cssVars](registry-item-json.md#cssvars)
 
 Use to define CSS variables for your registry item.
 
@@ -292,7 +292,7 @@ registry-item.json
 }
 ```
 
-### css
+### [css](registry-item-json.md#css)
 
 Use `css` to add new rules to the project's CSS file eg. `@layer base`, `@layer components`, `@utility`, `@keyframes`, etc.
 
@@ -329,7 +329,7 @@ registry-item.json
 }
 ```
 
-### docs
+### [docs](registry-item-json.md#docs)
 
 Use `docs` to show custom documentation or message when installing your registry item via the CLI.
 
@@ -341,7 +341,7 @@ registry-item.json
 }
 ```
 
-### categories
+### [categories](registry-item-json.md#categories)
 
 Use `categories` to organize your registry item.
 
@@ -353,7 +353,7 @@ registry-item.json
 }
 ```
 
-### meta
+### [meta](registry-item-json.md#meta)
 
 Use `meta` to add additional metadata to your registry item. You can add any key/value pair that you want to be available to the registry item.
 

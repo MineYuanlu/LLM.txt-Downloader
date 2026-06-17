@@ -10,7 +10,7 @@ How to use shadcn-svelte with Tailwind v4 and Svelte 5.
 
 This documentation site is now running Tailwind v4. If you're looking for the old Tailwind v3 docs, you can find them here: [https://tw3.shadcn-svelte.com](https://tw3.shadcn-svelte.com).
 
-## What's New
+## [What's New](tailwind-v4.md#whats-new)
 
 - The `@latest` CLI can now initialize projects with Tailwind v4 and Svelte 5.
 - Full support for the new `@theme` directive and `@theme inline` option.
@@ -21,13 +21,13 @@ This documentation site is now running Tailwind v4. If you're looking for the ol
 - We're deprecating the `default` style. New projects will use `new-york` .
 - HSL colors are now converted to OKLCH. **Note: this is non-breaking. Your existing apps with Tailwind v3 will continue to work. When you add new components, they'll still be in Tailwind v3 with the style configured in `components.json` until you upgrade. Only new projects start with Tailwind v4.**
 
-## See it Live
+## [See it Live](tailwind-v4.md#see-it-live)
 
 This documentation site is now using Tailwind v4 and Svelte 5, but for a more complete example, checkout the demo site here: [https://v4.shadcn-svelte.com](https://v4.shadcn-svelte.com).
 
 If you find any bugs, please us know on [GitHub](https://github.com/huntabyte/shadcn-svelte/issues).
 
-## Try It Out
+## [Try It Out](tailwind-v4.md#try-it-out)
 
 You can start using Tailwind v4 and Svelte 5 today using the `@latest` CLI. See the specific install docs
 
@@ -39,7 +39,7 @@ You can start using Tailwind v4 and Svelte 5 today using the `@latest` CLI. See 
 
 [Manual](../installation/manual)
 
-## Upgrade Your Project
+## [Upgrade Your Project](tailwind-v4.md#upgrade-your-project)
 
 **Note**: This guide assumes you are coming from a Svelte 5 and Tailwind 3 project. If you are coming from a Svelte 4 project, you should first follow the [Svelte 4 and Tailwind 3 to Svelte 5](svelte-5) guide.
 
@@ -51,16 +51,18 @@ This means when a dependency has a new release, you can just follow the official
 
 Here's how to upgrade your existing projects:
 
-### 1. Follow the Tailwind v4 Upgrade Guide
+### [1. Follow the Tailwind v4 Upgrade Guide](tailwind-v4.md#1-follow-the-tailwind-v4-upgrade-guide)
 
 - Upgrade to Tailwind v4 by following the official upgrade guide: <https://tailwindcss.com/docs/upgrade-guide>
 - Use the `@tailwindcss/upgrade` codemod to remove deprecated utility classes and update the tailwind config.
 
-### 2. Replace PostCSS with Vite
+### [2. Replace PostCSS with Vite](tailwind-v4.md#2-replace-postcss-with-vite)
 
 The upgrade script will automatically migrate your project to the latest PostCSS configuration of Tailwind v4, but the Tailwind team recommends using Vite instead, so we'll use that instead.
 
-#### Delete `postcss.config.js` postcss.config.js
+#### [Delete `postcss.config.js`](tailwind-v4.md#delete-postcssconfigjs)
+
+postcss.config.js
 
 ```diff
 - export default {
@@ -70,7 +72,9 @@ The upgrade script will automatically migrate your project to the latest PostCSS
 - };
 ```
 
-#### Uninstall `@tailwindcss/postcss` ```bash
+#### [Uninstall `@tailwindcss/postcss`](tailwind-v4.md#uninstall-tailwindcsspostcss)
+
+```bash
 pnpm remove @tailwindcss/postcss
 ```
 
@@ -82,7 +86,9 @@ npm uninstall @tailwindcss/postcss
 bun remove @tailwindcss/postcss
 ```
 
-#### Install `@tailwindcss/vite` ```bash
+#### [Install `@tailwindcss/vite`](tailwind-v4.md#install-tailwindcssvite)
+
+```bash
 pnpm i @tailwindcss/vite -D
 ```
 
@@ -94,7 +100,9 @@ npm i @tailwindcss/vite -D
 bun install @tailwindcss/vite -D
 ```
 
-#### Update `vite.config.ts` vite.config.ts
+#### [Update `vite.config.ts`](tailwind-v4.md#update-viteconfigts)
+
+vite.config.ts
 
 ```diff
 import { sveltekit } from '@sveltejs/kit/vite';
@@ -106,7 +114,7 @@ export default defineConfig({
 });
 ```
 
-#### Verify the upgrade
+#### [Verify the upgrade](tailwind-v4.md#verify-the-upgrade)
 
 Start your dev server and verify that all your styles are working as expected.
 
@@ -122,7 +130,7 @@ npm run dev
 bun run dev
 ```
 
-### 2. Update your `app.css` file
+### [2. Update your `app.css` file](tailwind-v4.md#2-update-your-appcss-file)
 
 The codemod will update your `app.css` file to look something like this, where it's defining the colors as CSS variables and importing your existing `tailwind.config.ts` file:
 
@@ -218,7 +226,9 @@ The codemod will update your `app.css` file to look something like this, where i
 
 In the following steps, we'll update this to completely remove the `tailwind.config.ts` and adopt the CSS-based config.
 
-#### Replace `tailwind-css-animate` with `tw-animate-css` We've deprecated `tailwindcss-animate` in favor of `tw-animate-css`, which has support for Tailwind v4.
+#### [Replace `tailwind-css-animate` with `tw-animate-css`](tailwind-v4.md#replace-tailwind-css-animate-with-tw-animate-css)
+
+We've deprecated `tailwindcss-animate` in favor of `tw-animate-css`, which has support for Tailwind v4.
 
 ```bash
 pnpm remove tailwindcss-animate
@@ -244,7 +254,9 @@ npm i tw-animate-css -D
 bun install tw-animate-css -D
 ```
 
-#### Import `tw-animate-css` app.css
+#### [Import `tw-animate-css`](tailwind-v4.md#import-tw-animate-css)
+
+app.css
 
 ```diff
   @import "tailwindcss";
@@ -252,7 +264,7 @@ bun install tw-animate-css -D
 /* ... */
 ```
 
-#### Add the custom variant for dark mode
+#### [Add the custom variant for dark mode](tailwind-v4.md#add-the-custom-variant-for-dark-mode)
 
 app.css
 
@@ -263,7 +275,7 @@ app.css
 /* ... */
 ```
 
-#### Remove the compatibility styles
+#### [Remove the compatibility styles](tailwind-v4.md#remove-the-compatibility-styles)
 
 We override the styles applied here so this is just dead code.
 
@@ -292,7 +304,7 @@ app.css
 - }
 ```
 
-#### CSS Variables and Theme Config
+#### [CSS Variables and Theme Config](tailwind-v4.md#css-variables-and-theme-config)
 
 We'll move the CSS variables to the `:root` and `.dark` selectors, wrap the colors values in `hsl()`, and set up an `@theme inline` directive to replace our Tailwind v3 config.
 
@@ -407,7 +419,7 @@ app.css
 }
 ```
 
-#### Verify the update
+#### [Verify the update](tailwind-v4.md#verify-the-update)
 
 Restart your dev server and verify that all your styles are working as expected.
 
@@ -423,11 +435,11 @@ npm run dev
 bun run dev
 ```
 
-#### Remove the `tailwind.config` file
+#### [Remove the `tailwind.config` file](tailwind-v4.md#remove-the-tailwindconfig-file)
 
 Once you've verified that your styles are working as expected, you can remove the `tailwind.config.ts` file.
 
-### 3. Use new `size-*` utility
+### [3. Use new `size-*` utility](tailwind-v4.md#3-use-new-size--utility)
 
 The new `size-*` utility (added in Tailwind v3.4), is now fully supported by `tailwind-merge`. You can replace `w-* h-*` with the new `size-*` utility:
 
@@ -436,7 +448,7 @@ The new `size-*` utility (added in Tailwind v3.4), is now fully supported by `ta
 + size-4
 ```
 
-### 4. Update your dependencies
+### [4. Update your dependencies](tailwind-v4.md#4-update-your-dependencies)
 
 ```bash
 pnpm i bits-ui@latest @lucide/svelte@latest tailwind-variants@latest tailwind-merge@latest clsx@latest svelte-sonner@latest paneforge@next vaul-svelte@next formsnap@latest
@@ -450,7 +462,7 @@ npm i bits-ui@latest @lucide/svelte@latest tailwind-variants@latest tailwind-mer
 bun install bits-ui@latest @lucide/svelte@latest tailwind-variants@latest tailwind-merge@latest clsx@latest svelte-sonner@latest paneforge@next vaul-svelte@next formsnap@latest
 ```
 
-### 5. Update your utils (optional)
+### [5. Update your utils (optional)](tailwind-v4.md#5-update-your-utils-optional)
 
 If you're planning on adding additional components in the future or plan to update your existing components to the latest versions, you'll need to update your `utils.ts` file.
 
@@ -485,7 +497,7 @@ card.svelte
 </script>
 ```
 
-### 6. Update Your Colors (optional)
+### [6. Update Your Colors (optional)](tailwind-v4.md#6-update-your-colors-optional)
 
 The dark mode colors have been revisited and updated to be more accessible, as you can see in these docs as well as the [v4.shadcn-svelte.com](https://v4.shadcn-svelte.com) demo site.
 
@@ -522,6 +534,6 @@ Review Changes
 
 Review and re-apply any changes you've made to your components using the git diffs.
 
-## Footnotes
+## [Footnotes](tailwind-v4.md#footnote-label)
 
 1. Updating your components will overwrite your existing components. [](tailwind-v4.md#user-content-fnref-1)

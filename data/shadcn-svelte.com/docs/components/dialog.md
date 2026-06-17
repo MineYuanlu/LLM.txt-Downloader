@@ -2,6 +2,10 @@
 
 A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
 
+[Docs](https://bits-ui.com/docs/components/dialog)
+
+[API Reference](https://bits-ui.com/docs/components/dialog#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -54,7 +58,7 @@ A window overlaid on either the primary window or another dialog window, renderi
 </Dialog.Root>
 ```
 
-## Installation
+## [Installation](dialog.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add dialog
@@ -68,7 +72,7 @@ npx shadcn-svelte@latest add dialog
 bun x shadcn-svelte@latest add dialog
 ```
 
-## Usage
+## [Usage](dialog.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -91,9 +95,9 @@ bun x shadcn-svelte@latest add dialog
 </Dialog.Root>
 ```
 
-## Examples
+## [Examples](dialog.md#examples)
 
-### Custom close button
+### [Custom close button](dialog.md#custom-close-button)
 
 ```svelte
 <script lang="ts">

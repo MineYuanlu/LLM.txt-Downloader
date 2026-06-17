@@ -2,6 +2,10 @@
 
 Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
 
+[Docs](https://bits-ui.com/docs/components/progress)
+
+[API Reference](https://bits-ui.com/docs/components/progress#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -21,7 +25,7 @@ Displays an indicator showing the completion progress of a task, typically displ
 <Progress {value} max={100} class="w-[60%]" />
 ```
 
-## Installation
+## [Installation](progress.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add progress
@@ -35,7 +39,7 @@ npx shadcn-svelte@latest add progress
 bun x shadcn-svelte@latest add progress
 ```
 
-## Usage
+## [Usage](progress.md#usage)
 
 ```svelte
 <script lang="ts">

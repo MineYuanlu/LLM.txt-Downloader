@@ -2,6 +2,10 @@
 
 A calendar component that allows users to select a range of dates.
 
+[Docs](https://bits-ui.com/docs/components/range-calendar)
+
+[API Reference](https://bits-ui.com/docs/components/range-calendar#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -22,15 +26,15 @@ A calendar component that allows users to select a range of dates.
 <RangeCalendar bind:value class="rounded-md border" />
 ```
 
-## About
+## [About](range-calendar.md#about)
 
 The `<RangeCalendar />` component is built on top of the [Bits Range Calendar](https://www.bits-ui.com/docs/components/range-calendar) component, which uses the [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html) package to handle dates.
 
-## Blocks
+## [Blocks](range-calendar.md#blocks)
 
 You can see the `RangeCalendar` component in action in the 30+ [Calendar Blocks](../../blocks/calendar) we've built.
 
-## Installation
+## [Installation](range-calendar.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add range-calendar

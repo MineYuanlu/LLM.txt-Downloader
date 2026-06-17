@@ -44,7 +44,7 @@ Displays the path to the current resource using a hierarchy of links.
 </Breadcrumb.Root>
 ```
 
-## Installation
+## [Installation](breadcrumb.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add breadcrumb
@@ -58,7 +58,7 @@ npx shadcn-svelte@latest add breadcrumb
 bun x shadcn-svelte@latest add breadcrumb
 ```
 
-## Usage
+## [Usage](breadcrumb.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -84,9 +84,9 @@ bun x shadcn-svelte@latest add breadcrumb
 </Breadcrumb.Root>
 ```
 
-## Examples
+## [Examples](breadcrumb.md#examples)
 
-### Custom separator
+### [Custom separator](breadcrumb.md#custom-separator)
 
 Use a custom component in the `<slot>` of `<Breadcrumb.Separator />` to create a custom separator.
 
@@ -138,7 +138,7 @@ Use a custom component in the `<slot>` of `<Breadcrumb.Separator />` to create a
 
 ***
 
-### Dropdown
+### [Dropdown](breadcrumb.md#dropdown)
 
 You can compose `<Breadcrumb.Item />` with a `<DropdownMenu />` to create a dropdown in the breadcrumb.
 
@@ -205,7 +205,7 @@ You can compose `<Breadcrumb.Item />` with a `<DropdownMenu />` to create a drop
 
 ***
 
-### Collapsed
+### [Collapsed](breadcrumb.md#collapsed)
 
 We provide a `<Breadcrumb.Ellipsis />` component to show a collapsed state when the breadcrumb is too long.
 
@@ -251,7 +251,7 @@ We provide a `<Breadcrumb.Ellipsis />` component to show a collapsed state when 
 
 ***
 
-### Link component
+### [Link component](breadcrumb.md#link-component)
 
 To use a link just add the `href` prop to `<Breadcrumb.Link />`.
 
@@ -292,7 +292,7 @@ To use a link just add the `href` prop to `<Breadcrumb.Link />`.
 
 ***
 
-### Responsive
+### [Responsive](breadcrumb.md#responsive)
 
 Here's an example of a responsive breadcrumb that composes `<Breadcrumb.Item />` with `<Breadcrumb.Ellipsis />`, `<DropdownMenu />`, and `<Drawer />`.
 

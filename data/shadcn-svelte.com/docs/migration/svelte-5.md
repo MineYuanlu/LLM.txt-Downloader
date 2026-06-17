@@ -10,13 +10,13 @@ How to migrate from Svelte 4 and Tailwind 3 to Svelte 5.
 
 **Note**: With Svelte 5 comes significant changes to this project, along with the headless UI library used [bits-ui](https://bits-ui.com). This guide is specifically focused on migrating the shadcn-svelte portions and does not cover the migration of `bits-ui`. See [Bits UI's migration guide](https://bits-ui.com/docs/migration-guide) for more information.
 
-## Svelte 4 to Svelte 5
+## [Svelte 4 to Svelte 5](svelte-5.md#svelte-4-to-svelte-5)
 
 This first guide will take your project from Svelte 4 with Tailwind 3 to Svelte 5 and Tailwind 3.
 
 Once you've completed this guide and you're comfortable everything is working, you can move on to the next guide to migrate to Tailwind 4.
 
-## Prerequisites
+## [Prerequisites](svelte-5.md#prerequisites)
 
 1. 
    Ensure you have read up on the changes from Svelte 4 to Svelte 5. Svelte provides a comprehensive guide for this on their
@@ -31,11 +31,13 @@ Once you've completed this guide and you're comfortable everything is working, y
    [`sv-migrate`](https://svelte.dev/docs/cli/sv-migrate)
    to help you migrate your project to Svelte 5.
 
-## Update Configs
+## [Update Configs](svelte-5.md#update-configs)
 
 The `components.json`, `utils`, and the global CSS file have changed for Svelte 5.
 
-### Update `components.json` Add the `registry` to the root object, and add `hooks`, `ui`, and `lib` keys under `aliases`.
+### [Update `components.json`](svelte-5.md#update-componentsjson)
+
+Add the `registry` to the root object, and add `hooks`, `ui`, and `lib` keys under `aliases`.
 
 ```diff
 {
@@ -57,7 +59,9 @@ The `components.json`, `utils`, and the global CSS file have changed for Svelte 
 }
 ```
 
-### Update `tailwind.config.js` Add `tailwindcss-animate`.
+### [Update `tailwind.config.js`](svelte-5.md#update-tailwindconfigjs)
+
+Add `tailwindcss-animate`.
 
 ```bash
 pnpm i tailwindcss-animate
@@ -132,7 +136,9 @@ const config: Config = {
 export default config;
 ```
 
-### Update `utils.ts` **Note**: You may not want to do this step until after you've updated your components, as some components may rely on the now removed `flyAndScale` function. `utils.ts` now only exports the `cn` function and a few utility types.
+### [Update `utils.ts`](svelte-5.md#update-utilsts)
+
+**Note**: You may not want to do this step until after you've updated your components, as some components may rely on the now removed `flyAndScale` function. `utils.ts` now only exports the `cn` function and a few utility types.
 
 src/lib/utils.ts
 
@@ -154,9 +160,9 @@ export type WithElementRef<T, U extends HTMLElement = HTMLElement> = T & {
 };
 ```
 
-## Upgrade Components
+## [Upgrade Components](svelte-5.md#upgrade-components)
 
-### Alias Dependencies (optional)
+### [Alias Dependencies (optional)](svelte-5.md#alias-dependencies-optional)
 
 If you plan to slowly migrate components, it's recommended to alias the old versions of the major dependencies, like `bits-ui`, in your `package.json` file so that you can use both versions of the library in your project while you migrate.
 
@@ -184,7 +190,7 @@ src/lib/components/ui/dialog-content.svelte
 
 You can do the same for any of the other dependencies that you're using in your project.
 
-### Update Dependencies
+### [Update Dependencies](svelte-5.md#update-dependencies)
 
 The following dependencies have been updated to support Svelte 5:
 
@@ -203,7 +209,7 @@ npm i bits-ui@latest svelte-sonner@latest @lucide/svelte@latest paneforge@next v
 bun install bits-ui@latest svelte-sonner@latest @lucide/svelte@latest paneforge@next vaul-svelte@next mode-watcher@latest -D
 ```
 
-### Start Migrating Components
+### [Start Migrating Components](svelte-5.md#start-migrating-components)
 
 Now you're ready to begin updating your components to their new versions. The CLI doesn't actually *update* your components, it simply replaces them with the new versions, so be sure to commit your changes before running the CLI.
 
@@ -228,11 +234,11 @@ bun x shadcn-svelte@latest add dialog --overwrite
 
 Review the diff to see what was updated and make any necessary adjustments. Rinse and repeat for each component you want to migrate.
 
-## Remove Unused Dependencies
+## [Remove Unused Dependencies](svelte-5.md#remove-unused-dependencies)
 
 Once you've updated all your components, you can remove the old dependencies from your `package.json` file.
 
-### cmdk-sv `cmdk-sv` has been replaced with Bits UI's `Command` component.
+### [cmdk-sv](svelte-5.md#cmdk-sv) `cmdk-sv` has been replaced with Bits UI's `Command` component.
 
 ```bash
 pnpm remove cmdk-sv
@@ -246,7 +252,7 @@ npm uninstall cmdk-sv
 bun remove cmdk-sv
 ```
 
-### svelte-headless-table `svelte-headless-table` has been replaced with `@tanstack/table-core`.
+### [svelte-headless-table](svelte-5.md#svelte-headless-table) `svelte-headless-table` has been replaced with `@tanstack/table-core`.
 
 ```bash
 pnpm remove svelte-headless-table
@@ -260,7 +266,7 @@ npm uninstall svelte-headless-table
 bun remove svelte-headless-table
 ```
 
-### svelte-radix `svelte-radix` has been replaced with `@lucide/svelte`.
+### [svelte-radix](svelte-5.md#svelte-radix) `svelte-radix` has been replaced with `@lucide/svelte`.
 
 ```bash
 pnpm remove svelte-radix
@@ -274,7 +280,7 @@ npm uninstall svelte-radix
 bun remove svelte-radix
 ```
 
-### lucide-svelte `lucide-svelte` has been replaced with `@lucide/svelte`.
+### [lucide-svelte](svelte-5.md#lucide-svelte) `lucide-svelte` has been replaced with `@lucide/svelte`.
 
 ```bash
 pnpm remove lucide-svelte
@@ -288,6 +294,6 @@ npm uninstall lucide-svelte
 bun remove lucide-svelte
 ```
 
-## Next Steps
+## [Next Steps](svelte-5.md#next-steps)
 
 Once you've completed this guide and you're comfortable everything is working as expected, you can move on to the [Tailwind 4 Guide](tailwind-v4).

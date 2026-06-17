@@ -2,6 +2,10 @@
 
 Augments native scroll functionality for custom, cross-browser styling.
 
+[Docs](https://bits-ui.com/docs/components/scroll-area)
+
+[API Reference](https://bits-ui.com/docs/components/scroll-area#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -28,7 +32,7 @@ Augments native scroll functionality for custom, cross-browser styling.
 </ScrollArea>
 ```
 
-## Installation
+## [Installation](scroll-area.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add scroll-area
@@ -42,7 +46,7 @@ npx shadcn-svelte@latest add scroll-area
 bun x shadcn-svelte@latest add scroll-area
 ```
 
-## Usage
+## [Usage](scroll-area.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -61,9 +65,9 @@ bun x shadcn-svelte@latest add scroll-area
 </ScrollArea>
 ```
 
-## Examples
+## [Examples](scroll-area.md#examples)
 
-### Horizontal Scrolling
+### [Horizontal Scrolling](scroll-area.md#horizontal-scrolling)
 
 Set the `orientation` prop to `"horizontal"` to enable horizontal scrolling.
 

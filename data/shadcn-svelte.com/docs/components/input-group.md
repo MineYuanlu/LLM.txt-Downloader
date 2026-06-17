@@ -96,7 +96,7 @@ Display additional information or actions to an input or textarea.
 </div>
 ```
 
-## Installation
+## [Installation](input-group.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add input-group
@@ -110,7 +110,7 @@ npx shadcn-svelte@latest add input-group
 bun x shadcn-svelte@latest add input-group
 ```
 
-## Usage
+## [Usage](input-group.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -131,9 +131,9 @@ bun x shadcn-svelte@latest add input-group
 </InputGroup.Root>
 ```
 
-## Examples
+## [Examples](input-group.md#examples)
 
-### Icon
+### [Icon](input-group.md#icon)
 
 ```svelte
 <script lang="ts">
@@ -177,7 +177,7 @@ bun x shadcn-svelte@latest add input-group
 </div>
 ```
 
-### Text
+### [Text](input-group.md#text)
 
 Display additional text information alongside inputs.
 
@@ -221,7 +221,7 @@ Display additional text information alongside inputs.
 </div>
 ```
 
-### Button
+### [Button](input-group.md#button)
 
 Add buttons to perform actions within the input group.
 
@@ -296,7 +296,7 @@ Add buttons to perform actions within the input group.
 </div>
 ```
 
-### Tooltip
+### [Tooltip](input-group.md#tooltip)
 
 Add tooltips to provide additional context or help.
 
@@ -377,7 +377,7 @@ Add tooltips to provide additional context or help.
 </div>
 ```
 
-### Textarea
+### [Textarea](input-group.md#textarea)
 
 Input groups also work with textarea components. Use `block-start` or `block-end` for alignment.
 
@@ -417,7 +417,7 @@ Input groups also work with textarea components. Use `block-start` or `block-end
 </div>
 ```
 
-### Spinner
+### [Spinner](input-group.md#spinner)
 
 Show loading indicators while processing input.
 
@@ -461,7 +461,7 @@ Show loading indicators while processing input.
 </div>
 ```
 
-### Label
+### [Label](input-group.md#label)
 
 Add labels within input groups to improve accessibility.
 
@@ -506,7 +506,7 @@ Add labels within input groups to improve accessibility.
 </div>
 ```
 
-### Dropdown
+### [Dropdown](input-group.md#dropdown)
 
 Pair input groups with dropdown menus for complex interactions.
 
@@ -568,7 +568,7 @@ Pair input groups with dropdown menus for complex interactions.
 </div>
 ```
 
-### Button Group
+### [Button Group](input-group.md#button-group)
 
 Wrap input groups with button groups to create prefixes and suffixes.
 
@@ -595,7 +595,7 @@ Wrap input groups with button groups to create prefixes and suffixes.
 </div>
 ```
 
-### Custom Input
+### [Custom Input](input-group.md#custom-input)
 
 Add the `data-slot="input-group-control"` attribute to your custom input for automatic behavior and focus state handling.
 

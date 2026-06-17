@@ -40,7 +40,7 @@ Use the Empty component to display an empty state.
 </Empty.Root>
 ```
 
-## Installation
+## [Installation](empty.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add empty
@@ -54,7 +54,7 @@ npx shadcn-svelte@latest add empty
 bun x shadcn-svelte@latest add empty
 ```
 
-## Usage
+## [Usage](empty.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -78,9 +78,9 @@ bun x shadcn-svelte@latest add empty
 </Empty.Root>
 ```
 
-## Examples
+## [Examples](empty.md#examples)
 
-### Outline
+### [Outline](empty.md#outline)
 
 Use the `border` utility class to create an outline empty state.
 
@@ -106,7 +106,7 @@ Use the `border` utility class to create an outline empty state.
 </Empty.Root>
 ```
 
-### Background
+### [Background](empty.md#background)
 
 Use the `bg-*` and `bg-gradient-*` utilities to add a background to the empty state.
 
@@ -138,7 +138,7 @@ Use the `bg-*` and `bg-gradient-*` utilities to add a background to the empty st
 </Empty.Root>
 ```
 
-### Avatar
+### [Avatar](empty.md#avatar)
 
 Use the `EmptyMedia` component to display an avatar in the empty state.
 
@@ -168,7 +168,7 @@ Use the `EmptyMedia` component to display an avatar in the empty state.
 </Empty.Root>
 ```
 
-### Avatar Group
+### [Avatar Group](empty.md#avatar-group)
 
 Use the `EmptyMedia` component to display an avatar group in the empty state.
 
@@ -217,7 +217,7 @@ Use the `EmptyMedia` component to display an avatar group in the empty state.
 </Empty.Root>
 ```
 
-### InputGroup
+### [InputGroup](empty.md#inputgroup)
 
 You can add an `InputGroup` component to the `EmptyContent` component.
 

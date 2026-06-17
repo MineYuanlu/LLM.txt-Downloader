@@ -2,6 +2,10 @@
 
 A set of two-state buttons that can be toggled on or off.
 
+[Docs](https://bits-ui.com/docs/components/toggle-group)
+
+[API Reference](https://bits-ui.com/docs/components/toggle-group#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -43,7 +47,7 @@ A set of two-state buttons that can be toggled on or off.
 </ToggleGroup.Root>
 ```
 
-## Installation
+## [Installation](toggle-group.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add toggle-group
@@ -57,7 +61,7 @@ npx shadcn-svelte@latest add toggle-group
 bun x shadcn-svelte@latest add toggle-group
 ```
 
-## Usage
+## [Usage](toggle-group.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -73,9 +77,9 @@ bun x shadcn-svelte@latest add toggle-group
 </ToggleGroup.Root>
 ```
 
-## Examples
+## [Examples](toggle-group.md#examples)
 
-### Outline
+### [Outline](toggle-group.md#outline)
 
 ```svelte
 <script lang="ts">
@@ -97,7 +101,7 @@ bun x shadcn-svelte@latest add toggle-group
 </ToggleGroup.Root>
 ```
 
-### Single
+### [Single](toggle-group.md#single)
 
 ```svelte
 <script lang="ts">
@@ -119,7 +123,7 @@ bun x shadcn-svelte@latest add toggle-group
 </ToggleGroup.Root>
 ```
 
-### Small
+### [Small](toggle-group.md#small)
 
 ```svelte
 <script lang="ts">
@@ -141,7 +145,7 @@ bun x shadcn-svelte@latest add toggle-group
 </ToggleGroup.Root>
 ```
 
-### Large
+### [Large](toggle-group.md#large)
 
 ```svelte
 <script lang="ts">
@@ -163,7 +167,7 @@ bun x shadcn-svelte@latest add toggle-group
 </ToggleGroup.Root>
 ```
 
-### Disabled
+### [Disabled](toggle-group.md#disabled)
 
 ```svelte
 <script lang="ts">
@@ -185,7 +189,7 @@ bun x shadcn-svelte@latest add toggle-group
 </ToggleGroup.Root>
 ```
 
-### Spacing
+### [Spacing](toggle-group.md#spacing)
 
 Use `spacing={2}` to add spacing between toggle group items.
 

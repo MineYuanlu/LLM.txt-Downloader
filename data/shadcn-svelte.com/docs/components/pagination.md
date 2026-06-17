@@ -2,6 +2,10 @@
 
 Pagination with page navigation, next and previous links.
 
+[Docs](https://bits-ui.com/docs/components/pagination)
+
+[API Reference](https://bits-ui.com/docs/components/pagination#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -42,7 +46,7 @@ Pagination with page navigation, next and previous links.
 </Pagination.Root>
 ```
 
-## Installation
+## [Installation](pagination.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add pagination
@@ -56,7 +60,7 @@ npx shadcn-svelte@latest add pagination
 bun x shadcn-svelte@latest add pagination
 ```
 
-## Usage
+## [Usage](pagination.md#usage)
 
 ```svelte
 <script lang="ts">

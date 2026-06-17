@@ -2,6 +2,8 @@
 
 A drawer component for Svelte.
 
+[Docs](https://github.com/huntabyte/vaul-svelte)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -139,11 +141,11 @@ A drawer component for Svelte.
 </Drawer.Root>
 ```
 
-## About
+## [About](drawer.md#about)
 
 Drawer is built on top of [Vaul Svelte](https://vaul-svelte.com), which is a Svelte port of [Vaul](https://vaul.emilkowal.ski) by [Emil Kowalski](https://twitter.com/emilkowalski_).
 
-## Installation
+## [Installation](drawer.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add drawer
@@ -157,7 +159,7 @@ npx shadcn-svelte@latest add drawer
 bun x shadcn-svelte@latest add drawer
 ```
 
-## Usage
+## [Usage](drawer.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -181,9 +183,9 @@ bun x shadcn-svelte@latest add drawer
 </Drawer.Root>
 ```
 
-## Examples
+## [Examples](drawer.md#examples)
 
-### Sides
+### [Sides](drawer.md#sides)
 
 Use the `direction` prop to set the side of the drawer. Available options are `top`, `right`, `bottom`, and `left`.
 
@@ -234,7 +236,7 @@ Use the `direction` prop to set the side of the drawer. Available options are `t
 </div>
 ```
 
-### Responsive Dialog
+### [Responsive Dialog](drawer.md#responsive-dialog)
 
 You can combine the `Dialog` and `Drawer` components to create a responsive dialog. This renders a `Dialog` on desktop and a `Drawer` on mobile.
 

@@ -2,6 +2,10 @@
 
 Renders an accessible label associated with controls.
 
+[Docs](https://bits-ui.com/docs/components/label)
+
+[API Reference](https://bits-ui.com/docs/components/label#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -21,7 +25,7 @@ Renders an accessible label associated with controls.
 </div>
 ```
 
-## Installation
+## [Installation](label.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add label
@@ -35,7 +39,7 @@ npx shadcn-svelte@latest add label
 bun x shadcn-svelte@latest add label
 ```
 
-## Usage
+## [Usage](label.md#usage)
 
 ```svelte
 <script lang="ts">

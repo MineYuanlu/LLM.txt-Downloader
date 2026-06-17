@@ -8,7 +8,7 @@ How to setup shadcn-svelte in an Astro project.
 
 [Special Sponsor](https://github.com/EpicenterHQ/epicenter)
 
-### Create project
+### [Create project](astro.md#create-project)
 
 Start by creating a new Astro project:
 
@@ -24,7 +24,7 @@ npm create astro@latest
 bun create astro@latest
 ```
 
-### Configure your Astro project
+### [Configure your Astro project](astro.md#configure-your-astro-project)
 
 You will be asked a few questions to configure your project:
 
@@ -39,7 +39,7 @@ Yes
 Yes/No
 ```
 
-### Add Svelte to your project
+### [Add Svelte to your project](astro.md#add-svelte-to-your-project)
 
 Install Svelte using the Astro CLI:
 
@@ -57,7 +57,7 @@ bun x astro add svelte
 
 Answer `Yes` to all the question prompted by the CLI when installing Svelte.
 
-### Add TailwindCSS to your project
+### [Add TailwindCSS to your project](astro.md#add-tailwindcss-to-your-project)
 
 Add Tailwind CSS using the Astro CLI:
 
@@ -75,7 +75,7 @@ bun x astro add tailwind
 
 Answer `Yes` to all the question prompted by the CLI when installing TailwindCSS.
 
-### Import the global CSS file
+### [Import the global CSS file](astro.md#import-the-global-css-file)
 
 Import the `global.css` file in the `src/pages/index.astro` file:
 
@@ -87,7 +87,7 @@ import "../styles/global.css";
 ---
 ```
 
-### Setup path aliases
+### [Setup path aliases](astro.md#setup-path-aliases)
 
 Add the following code to the `tsconfig.json` file to resolve paths:
 
@@ -109,7 +109,7 @@ tsconfig.json
 
 If needed, adapt the path aliases to your specific needs ([learn more about it](https://docs.astro.build/en/guides/aliases/)).
 
-### Run the CLI
+### [Run the CLI](astro.md#run-the-cli)
 
 Run the `shadcn-svelte` init command to setup your project:
 
@@ -125,7 +125,7 @@ npx shadcn-svelte@latest init
 bun x shadcn-svelte@latest init
 ```
 
-### Configure components.json
+### [Configure components.json](astro.md#configure-componentsjson)
 
 You will be asked a few questions to configure `components.json`:
 
@@ -139,7 +139,7 @@ Configure the import alias for hooks:  $lib/hooks
 Configure the import alias for ui:  $lib/components/ui
 ```
 
-### That's it
+### [That's it](astro.md#thats-it)
 
 You can now start adding components to your project.
 

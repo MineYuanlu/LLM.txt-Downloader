@@ -28,7 +28,7 @@ An indicator that can be used to show a loading state.
 </div>
 ```
 
-## Installation
+## [Installation](spinner.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add spinner
@@ -42,7 +42,7 @@ npx shadcn-svelte@latest add spinner
 bun x shadcn-svelte@latest add spinner
 ```
 
-## Usage
+## [Usage](spinner.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -54,7 +54,7 @@ bun x shadcn-svelte@latest add spinner
 <Spinner />
 ```
 
-## Customization
+## [Customization](spinner.md#customization)
 
 You can replace the default spinner icon with any other icon by editing the `Spinner` component.
 
@@ -74,9 +74,9 @@ You can replace the default spinner icon with any other icon by editing the `Spi
 />
 ```
 
-## Examples
+## [Examples](spinner.md#examples)
 
-### Size
+### [Size](spinner.md#size)
 
 Use the `size-*` utility class to change the size of the spinner.
 
@@ -92,7 +92,7 @@ Use the `size-*` utility class to change the size of the spinner.
 </div>
 ```
 
-### Color
+### [Color](spinner.md#color)
 
 Use the `text-*` utility class to change the color of the spinner.
 
@@ -109,7 +109,7 @@ Use the `text-*` utility class to change the color of the spinner.
 </div>
 ```
 
-### Button
+### [Button](spinner.md#button)
 
 Add a spinner to a button to indicate a loading state. The `<Button />` will handle the spacing between the spinner and the text.
 
@@ -134,7 +134,7 @@ Add a spinner to a button to indicate a loading state. The `<Button />` will han
 </div>
 ```
 
-### Badge
+### [Badge](spinner.md#badge)
 
 You can also use a spinner inside a badge.
 
@@ -159,7 +159,7 @@ You can also use a spinner inside a badge.
 </div>
 ```
 
-### Input Group
+### [Input Group](spinner.md#input-group)
 
 Input Group can have spinners inside `<InputGroup.Addon>`.
 
@@ -189,7 +189,7 @@ Input Group can have spinners inside `<InputGroup.Addon>`.
 </div>
 ```
 
-### Empty
+### [Empty](spinner.md#empty)
 
 ```svelte
 <script lang="ts">
@@ -213,7 +213,7 @@ Input Group can have spinners inside `<InputGroup.Addon>`.
 </Empty.Root>
 ```
 
-### Item
+### [Item](spinner.md#item)
 
 Use the spinner inside `<Item.Media>` to indicate a loading state.
 

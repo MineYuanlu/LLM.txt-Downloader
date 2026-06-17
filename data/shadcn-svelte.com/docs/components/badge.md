@@ -43,7 +43,7 @@ Displays a badge or a component that looks like a badge.
 </div>
 ```
 
-## Installation
+## [Installation](badge.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add badge
@@ -57,7 +57,7 @@ npx shadcn-svelte@latest add badge
 bun x shadcn-svelte@latest add badge
 ```
 
-## Usage
+## [Usage](badge.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -69,7 +69,7 @@ bun x shadcn-svelte@latest add badge
 <Badge variant="outline">Badge</Badge>
 ```
 
-### Link
+### [Link](badge.md#link)
 
 You can use the `badgeVariants` helper to create a link that looks like a badge.
 

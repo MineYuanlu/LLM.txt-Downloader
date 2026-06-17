@@ -54,7 +54,7 @@ Displays a card with header, content, and footer.
 </Card.Root>
 ```
 
-## Installation
+## [Installation](card.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add card
@@ -68,7 +68,7 @@ npx shadcn-svelte@latest add card
 bun x shadcn-svelte@latest add card
 ```
 
-## Usage
+## [Usage](card.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -91,7 +91,7 @@ bun x shadcn-svelte@latest add card
 </Card.Root>
 ```
 
-## Examples
+## [Examples](card.md#examples)
 
 ```svelte
 <script lang="ts">

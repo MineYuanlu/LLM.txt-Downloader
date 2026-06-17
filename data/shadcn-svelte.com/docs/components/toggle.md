@@ -2,6 +2,10 @@
 
 A two-state button that can be either on or off.
 
+[Docs](https://bits-ui.com/docs/components/toggle)
+
+[API Reference](https://bits-ui.com/docs/components/toggle#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -24,7 +28,7 @@ A two-state button that can be either on or off.
 </Toggle>
 ```
 
-## Installation
+## [Installation](toggle.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add toggle
@@ -38,7 +42,7 @@ npx shadcn-svelte@latest add toggle
 bun x shadcn-svelte@latest add toggle
 ```
 
-## Usage
+## [Usage](toggle.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -50,9 +54,9 @@ bun x shadcn-svelte@latest add toggle
 <Toggle>Toggle</Toggle>
 ```
 
-## Examples
+## [Examples](toggle.md#examples)
 
-### Default
+### [Default](toggle.md#default)
 
 ```svelte
 <script lang="ts">
@@ -70,7 +74,7 @@ bun x shadcn-svelte@latest add toggle
 </Toggle>
 ```
 
-### Outline
+### [Outline](toggle.md#outline)
 
 ```svelte
 <script lang="ts">
@@ -82,7 +86,7 @@ bun x shadcn-svelte@latest add toggle
 </Toggle>
 ```
 
-### With Text
+### [With Text](toggle.md#with-text)
 
 ```svelte
 <script lang="ts">
@@ -95,7 +99,7 @@ bun x shadcn-svelte@latest add toggle
 </Toggle>
 ```
 
-### Small
+### [Small](toggle.md#small)
 
 ```svelte
 <script lang="ts">
@@ -107,7 +111,7 @@ bun x shadcn-svelte@latest add toggle
 </Toggle>
 ```
 
-### Large
+### [Large](toggle.md#large)
 
 ```svelte
 <script lang="ts">
@@ -119,7 +123,7 @@ bun x shadcn-svelte@latest add toggle
 </Toggle>
 ```
 
-### Disabled
+### [Disabled](toggle.md#disabled)
 
 ```svelte
 <script lang="ts">

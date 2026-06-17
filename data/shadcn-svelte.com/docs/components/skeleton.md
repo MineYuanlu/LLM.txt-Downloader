@@ -21,7 +21,7 @@ Use to show a placeholder while content is loading.
 </div>
 ```
 
-## Installation
+## [Installation](skeleton.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add skeleton
@@ -35,7 +35,7 @@ npx shadcn-svelte@latest add skeleton
 bun x shadcn-svelte@latest add skeleton
 ```
 
-## Usage
+## [Usage](skeleton.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -47,9 +47,9 @@ bun x shadcn-svelte@latest add skeleton
 <Skeleton class="h-[20px] w-[100px] rounded-full" />
 ```
 
-## Examples
+## [Examples](skeleton.md#examples)
 
-## Card
+## [Card](skeleton.md#card)
 
 ```svelte
 <script lang="ts">

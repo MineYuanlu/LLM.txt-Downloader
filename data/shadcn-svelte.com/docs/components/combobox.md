@@ -97,13 +97,13 @@ Autocomplete input and command palette with a list of suggestions.
 </Popover.Root>
 ```
 
-## Installation
+## [Installation](combobox.md#installation)
 
 The Combobox is built using a composition of the `<Popover />` and the `<Command />` components.
 
 See installation instructions for the [Popover](popover#installation) and the [Command](command#installation) components.
 
-## Usage
+## [Usage](combobox.md#usage)
 
 Expand
 
@@ -203,9 +203,9 @@ lib/components/example-combobox.svelte
 
 Expand
 
-## Examples
+## [Examples](combobox.md#examples)
 
-### Combobox
+### [Combobox](combobox.md#combobox)
 
 ```svelte
 <script lang="ts">
@@ -296,7 +296,7 @@ Expand
 </Popover.Root>
 ```
 
-### Popover
+### [Popover](combobox.md#popover)
 
 ```svelte
 <script lang="ts">
@@ -411,7 +411,7 @@ Expand
 </div>
 ```
 
-### Dropdown menu
+### [Dropdown menu](combobox.md#dropdown-menu)
 
 ```svelte
 <script lang="ts">
@@ -516,7 +516,7 @@ Expand
 </div>
 ```
 
-### Responsive
+### [Responsive](combobox.md#responsive)
 
 You can create a responsive combobox by using the `<Popover />` on desktop and the `<Drawer />` components on mobile.
 

@@ -23,7 +23,7 @@ For a styled select component, see the [Select](select) component.
 </NativeSelect.Root>
 ```
 
-## Installation
+## [Installation](native-select.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add native-select
@@ -37,7 +37,7 @@ npx shadcn-svelte@latest add native-select
 bun x shadcn-svelte@latest add native-select
 ```
 
-## Usage
+## [Usage](native-select.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -56,9 +56,9 @@ bun x shadcn-svelte@latest add native-select
 </NativeSelect.Root>
 ```
 
-## Examples
+## [Examples](native-select.md#examples)
 
-### With Groups
+### [With Groups](native-select.md#with-groups)
 
 Organize options using `NativeSelect.OptGroup` for better categorization.
 
@@ -110,7 +110,7 @@ Organize options using `NativeSelect.OptGroup` for better categorization.
 </NativeSelect.Root>
 ```
 
-### Disabled State
+### [Disabled State](native-select.md#disabled-state)
 
 Disable individual options or the entire select component.
 
@@ -127,7 +127,7 @@ Disable individual options or the entire select component.
 </NativeSelect.Root>
 ```
 
-### Invalid State
+### [Invalid State](native-select.md#invalid-state)
 
 Show validation errors with the `aria-invalid` attribute and error styling.
 
@@ -153,14 +153,14 @@ Show validation errors with the `aria-invalid` attribute and error styling.
 </NativeSelect.Root>
 ```
 
-## Native Select vs Select
+## [Native Select vs Select](native-select.md#native-select-vs-select)
 
 - Use `NativeSelect` when you need native browser behavior, better performance, or mobile-optimized dropdowns.
 - Use `Select` when you need custom styling, animations, or complex interactions.
 
 The `NativeSelect` component provides native HTML select functionality with consistent styling that matches your design system.
 
-## Accessibility
+## [Accessibility](native-select.md#accessibility)
 
 - The component maintains all native HTML select accessibility features.  
 - Screen readers can navigate through options using arrow keys.  
@@ -175,9 +175,9 @@ The `NativeSelect` component provides native HTML select functionality with cons
 </NativeSelect.Root>
 ```
 
-## API Reference
+## [API Reference](native-select.md#api-reference)
 
-### NativeSelect.Root
+### [NativeSelect.Root](native-select.md#nativeselectroot)
 
 The main select component that wraps the native HTML select element.
 
@@ -194,7 +194,7 @@ All other props are passed through to the underlying `<select>` element.
 </NativeSelect.Root>
 ```
 
-### NativeSelect.Option
+### [NativeSelect.Option](native-select.md#nativeselectoption)
 
 Represents an individual option within the select.
 
@@ -211,7 +211,7 @@ All other props are passed through to the underlying `<option>` element.
 <NativeSelect.Option value="banana" disabled>Banana</NativeSelect.Option>
 ```
 
-### NativeSelect.OptGroup
+### [NativeSelect.OptGroup](native-select.md#nativeselectoptgroup)
 
 Groups related options together for better organization.
 

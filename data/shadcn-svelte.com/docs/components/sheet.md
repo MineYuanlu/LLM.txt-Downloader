@@ -2,6 +2,10 @@
 
 Extends the Dialog component to display content that complements the main content of the screen.
 
+[Docs](https://bits-ui.com/docs/components/dialog)
+
+[API Reference](https://bits-ui.com/docs/components/dialog#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -47,7 +51,7 @@ Extends the Dialog component to display content that complements the main conten
 </Sheet.Root>
 ```
 
-## Installation
+## [Installation](sheet.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add sheet
@@ -61,7 +65,7 @@ npx shadcn-svelte@latest add sheet
 bun x shadcn-svelte@latest add sheet
 ```
 
-## Usage
+## [Usage](sheet.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -84,13 +88,13 @@ bun x shadcn-svelte@latest add sheet
 </Sheet.Root>
 ```
 
-## Examples
+## [Examples](sheet.md#examples)
 
-### Side
+### [Side](sheet.md#side)
 
 Pass the `side` property to `<Sheet.Content />` to indicate the edge of the screen where the component will appear. The values can be `top`, `right`, `bottom` or `left`.
 
-### Size
+### [Size](sheet.md#size)
 
 You can adjust the size of the sheet using CSS classes:
 

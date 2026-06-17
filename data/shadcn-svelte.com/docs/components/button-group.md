@@ -107,7 +107,7 @@ A container that groups related buttons together with consistent styling.
 </ButtonGroup.Root>
 ```
 
-## Installation
+## [Installation](button-group.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add button-group
@@ -121,7 +121,7 @@ npx shadcn-svelte@latest add button-group
 bun x shadcn-svelte@latest add button-group
 ```
 
-## Usage
+## [Usage](button-group.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -136,7 +136,7 @@ bun x shadcn-svelte@latest add button-group
 </ButtonGroup.Root>
 ```
 
-## Accessibility
+## [Accessibility](button-group.md#accessibility)
 
 - The `ButtonGroup` component has the `role` attribute set to `group` .
 - Use `tabindex` to navigate between the buttons in the group.
@@ -149,14 +149,14 @@ bun x shadcn-svelte@latest add button-group
 </ButtonGroup>
 ```
 
-## ButtonGroup vs ToggleGroup
+## [ButtonGroup vs ToggleGroup](button-group.md#buttongroup-vs-togglegroup)
 
 - Use the `ButtonGroup` component when you want to group buttons that perform an action.
 - Use the `ToggleGroup` component when you want to group buttons that toggle a state.
 
-## Examples
+## [Examples](button-group.md#examples)
 
-### Orientation
+### [Orientation](button-group.md#orientation)
 
 Set the `orientation` prop to change the button group layout.
 
@@ -181,7 +181,7 @@ Set the `orientation` prop to change the button group layout.
 </ButtonGroup.Root>
 ```
 
-### Size
+### [Size](button-group.md#size)
 
 Control the size of buttons using the `size` prop on individual buttons.
 
@@ -219,7 +219,7 @@ Control the size of buttons using the `size` prop on individual buttons.
 </div>
 ```
 
-### Nested
+### [Nested](button-group.md#nested)
 
 Nest `ButtonGroup` components to create button groups with spacing.
 
@@ -249,7 +249,7 @@ Nest `ButtonGroup` components to create button groups with spacing.
 </ButtonGroup.Root>
 ```
 
-### Separator
+### [Separator](button-group.md#separator)
 
 The `ButtonGroupSeparator` component visually divides buttons within a group.
 
@@ -267,7 +267,7 @@ Buttons with variant `outline` do not need a separator since they have a border.
 </ButtonGroup.Root>
 ```
 
-### Split
+### [Split](button-group.md#split)
 
 Create a split button group by adding two buttons separated by a `ButtonGroupSeparator`.
 
@@ -286,7 +286,7 @@ Create a split button group by adding two buttons separated by a `ButtonGroupSep
 </ButtonGroup.Root>
 ```
 
-### Input
+### [Input](button-group.md#input)
 
 Wrap an `Input` component with buttons.
 
@@ -305,7 +305,7 @@ Wrap an `Input` component with buttons.
 </ButtonGroup.Root>
 ```
 
-### Input Group
+### [Input Group](button-group.md#input-group)
 
 Wrap an `InputGroup` component to create complex input layouts.
 
@@ -357,7 +357,7 @@ Wrap an `InputGroup` component to create complex input layouts.
 </ButtonGroup.Root>
 ```
 
-### Dropdown Menu
+### [Dropdown Menu](button-group.md#dropdown-menu)
 
 Create a split button group with a `DropdownMenu` component.
 
@@ -424,7 +424,7 @@ Create a split button group with a `DropdownMenu` component.
 </ButtonGroup.Root>
 ```
 
-### Select
+### [Select](button-group.md#select)
 
 Pair with a `Select` component.
 
@@ -476,7 +476,7 @@ Pair with a `Select` component.
 </ButtonGroup.Root>
 ```
 
-### Popover
+### [Popover](button-group.md#popover)
 
 Use with a `Popover` component.
 

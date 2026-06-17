@@ -143,7 +143,7 @@ Combine labels, controls, and help text to compose accessible form fields and gr
 </div>
 ```
 
-## Installation
+## [Installation](field.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add field
@@ -157,7 +157,7 @@ npx shadcn-svelte@latest add field
 bun x shadcn-svelte@latest add field
 ```
 
-## Usage
+## [Usage](field.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -190,7 +190,7 @@ bun x shadcn-svelte@latest add field
 </Field.Set>
 ```
 
-## Anatomy
+## [Anatomy](field.md#anatomy)
 
 The `Field` family is designed for composing accessible forms. A typical field is structured as follows:
 
@@ -206,9 +206,9 @@ The `Field` family is designed for composing accessible forms. A typical field i
 - `Field.Content` is a flex column that groups label and description. Not required if you have no description.
 - Wrap related fields with `Field.Group` , and use `Field.Set` with `Field.Legend` for semantic grouping.
 
-## Examples
+## [Examples](field.md#examples)
 
-### Input
+### [Input](field.md#input)
 
 ```svelte
 <script lang="ts">
@@ -237,7 +237,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
 </div>
 ```
 
-### Textarea
+### [Textarea](field.md#textarea)
 
 ```svelte
 <script lang="ts">
@@ -263,7 +263,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
 </div>
 ```
 
-### Select
+### [Select](field.md#select)
 
 ```svelte
 <script lang="ts">
@@ -305,7 +305,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
 </div>
 ```
 
-### Slider
+### [Slider](field.md#slider)
 
 ```svelte
 <script lang="ts">
@@ -336,7 +336,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
 </div>
 ```
 
-### Fieldset
+### [Fieldset](field.md#fieldset)
 
 ```svelte
 <script lang="ts">
@@ -369,7 +369,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
 </div>
 ```
 
-### Checkbox
+### [Checkbox](field.md#checkbox)
 
 ```svelte
 <script lang="ts">
@@ -435,7 +435,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
 </div>
 ```
 
-### Radio
+### [Radio](field.md#radio)
 
 ```svelte
 <script lang="ts">
@@ -473,7 +473,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
 </div>
 ```
 
-### Switch
+### [Switch](field.md#switch)
 
 ```svelte
 <script lang="ts">
@@ -494,7 +494,7 @@ The `Field` family is designed for composing accessible forms. A typical field i
 </div>
 ```
 
-### Choice Card
+### [Choice Card](field.md#choice-card)
 
 Wrap `Field` components inside `FieldLabel` to create selectable field groups. This works with `RadioItem`, `Checkbox` and `Switch` components.
 
@@ -542,7 +542,7 @@ Wrap `Field` components inside `FieldLabel` to create selectable field groups. T
 </div>
 ```
 
-### Field Group
+### [Field Group](field.md#field-group)
 
 Stack `Field` components with `Field.Group`. Add `Field.Separator` to divide them.
 
@@ -594,7 +594,7 @@ Stack `Field` components with `Field.Group`. Add `Field.Separator` to divide the
 </div>
 ```
 
-### Responsive Layout
+### [Responsive Layout](field.md#responsive-layout)
 
 - **Vertical fields:** Default orientation stacks label, control, and helper textideal for mobile-first layouts.
 - **Horizontal fields:** Set `orientation="horizontal"` on `Field` to align the label and control side-by-side. Pair with `Field.Content` to keep descriptions aligned.
@@ -650,7 +650,7 @@ Stack `Field` components with `Field.Group`. Add `Field.Separator` to divide the
 </div>
 ```
 
-## Validation and Errors
+## [Validation and Errors](field.md#validation-and-errors)
 
 - Add `data-invalid` to `Field` to switch the entire block into an error state.
 - Add `aria-invalid` on the input itself for assistive technologies.
@@ -664,7 +664,7 @@ Stack `Field` components with `Field.Group`. Add `Field.Separator` to divide the
 </Field.Field>
 ```
 
-## Accessibility
+## [Accessibility](field.md#accessibility)
 
 - `Field.Set` and `Field.Legend` keep related controls grouped for keyboard and assistive tech users.
 - `Field` outputs `role="group"` so nested controls inherit labeling from `Field.Label` and `Field.Legend` when combined.

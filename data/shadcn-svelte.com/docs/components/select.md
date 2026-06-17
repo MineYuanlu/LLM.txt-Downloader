@@ -2,6 +2,10 @@
 
 Displays a list of options for the user to pick fromtriggered by a button.
 
+[Docs](https://bits-ui.com/docs/components/select)
+
+[API Reference](https://bits-ui.com/docs/components/select#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -44,7 +48,7 @@ Displays a list of options for the user to pick fromtriggered by a button.
 </Select.Root>
 ```
 
-## Installation
+## [Installation](select.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add select
@@ -58,7 +62,7 @@ npx shadcn-svelte@latest add select
 bun x shadcn-svelte@latest add select
 ```
 
-## Usage
+## [Usage](select.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -77,9 +81,9 @@ bun x shadcn-svelte@latest add select
 </Select.Root>
 ```
 
-## Examples
+## [Examples](select.md#examples)
 
-### Scrollable
+### [Scrollable](select.md#scrollable)
 
 ```svelte
 <script lang="ts">

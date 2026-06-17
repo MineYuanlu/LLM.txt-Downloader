@@ -2,6 +2,10 @@
 
 Displays rich content in a portal, triggered by a button.
 
+[Docs](https://bits-ui.com/docs/components/popover)
+
+[API Reference](https://bits-ui.com/docs/components/popover#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -50,7 +54,7 @@ Displays rich content in a portal, triggered by a button.
 </Popover.Root>
 ```
 
-## Installation
+## [Installation](popover.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add popover
@@ -64,7 +68,7 @@ npx shadcn-svelte@latest add popover
 bun x shadcn-svelte@latest add popover
 ```
 
-## Usage
+## [Usage](popover.md#usage)
 
 ```svelte
 <script lang="ts">

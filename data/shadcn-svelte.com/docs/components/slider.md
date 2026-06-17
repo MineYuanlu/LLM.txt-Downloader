@@ -2,6 +2,10 @@
 
 An input where the user selects a value from within a given range.
 
+[Docs](https://bits-ui.com/docs/components/slider)
+
+[API Reference](https://bits-ui.com/docs/components/slider#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -16,7 +20,7 @@ An input where the user selects a value from within a given range.
 <Slider type="single" bind:value max={100} step={1} class="max-w-[70%]" />
 ```
 
-## Installation
+## [Installation](slider.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add slider
@@ -30,7 +34,7 @@ npx shadcn-svelte@latest add slider
 bun x shadcn-svelte@latest add slider
 ```
 
-## Usage
+## [Usage](slider.md#usage)
 
 ```svelte
 <script lang="ts">

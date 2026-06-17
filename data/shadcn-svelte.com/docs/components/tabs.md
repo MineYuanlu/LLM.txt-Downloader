@@ -2,6 +2,10 @@
 
 A set of layered sections of contentknown as tab panelsthat are displayed one at a time.
 
+[Docs](https://bits-ui.com/docs/components/tabs)
+
+[API Reference](https://bits-ui.com/docs/components/tabs#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -72,7 +76,7 @@ A set of layered sections of contentknown as tab panelsthat are displayed one at
 </div>
 ```
 
-## Installation
+## [Installation](tabs.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add tabs
@@ -86,7 +90,7 @@ npx shadcn-svelte@latest add tabs
 bun x shadcn-svelte@latest add tabs
 ```
 
-## Usage
+## [Usage](tabs.md#usage)
 
 ```svelte
 <script lang="ts">

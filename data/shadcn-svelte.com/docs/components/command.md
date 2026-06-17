@@ -2,6 +2,10 @@
 
 Fast, composable, unstyled command menu for Svelte.
 
+[Docs](https://bits-ui.com/docs/components/command)
+
+[API Reference](https://bits-ui.com/docs/components/command#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -58,7 +62,7 @@ Fast, composable, unstyled command menu for Svelte.
 </Command.Root>
 ```
 
-## Installation
+## [Installation](command.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add command
@@ -72,7 +76,7 @@ npx shadcn-svelte@latest add command
 bun x shadcn-svelte@latest add command
 ```
 
-## Usage
+## [Usage](command.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -100,9 +104,9 @@ bun x shadcn-svelte@latest add command
 </Command.Root>
 ```
 
-## Examples
+## [Examples](command.md#examples)
 
-### Dialog
+### [Dialog](command.md#dialog)
 
 ```svelte
 <script lang="ts">
@@ -200,12 +204,12 @@ lib/components/example-command-menu.svelte
 </Command.Dialog>
 ```
 
-### Combobox
+### [Combobox](command.md#combobox)
 
 You can use the `<Command />` component as a combobox. See the [Combobox](combobox) page for more information.
 
-## Changelog
+## [Changelog](command.md#changelog)
 
-### 2024-10-30 Classes for icons
+### [2024-10-30 Classes for icons](command.md#2024-10-30-classes-for-icons)
 
 - Added `gap-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0` to the `<Command.Item>` component to automatically style the icons inside.

@@ -2,6 +2,10 @@
 
 A set of checkable buttonsknown as radio buttonswhere no more than one of the buttons can be checked at a time.
 
+[Docs](https://bits-ui.com/docs/components/radio-group)
+
+[API Reference](https://bits-ui.com/docs/components/radio-group#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -29,7 +33,7 @@ A set of checkable buttonsknown as radio buttonswhere no more than one of the bu
 </RadioGroup.Root>
 ```
 
-## Installation
+## [Installation](radio-group.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add radio-group
@@ -43,7 +47,7 @@ npx shadcn-svelte@latest add radio-group
 bun x shadcn-svelte@latest add radio-group
 ```
 
-## Usage
+## [Usage](radio-group.md#usage)
 
 ```svelte
 <script lang="ts">

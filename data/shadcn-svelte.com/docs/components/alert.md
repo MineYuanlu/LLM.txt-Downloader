@@ -44,7 +44,7 @@ Displays a callout for user attention.
 </div>
 ```
 
-## Installation
+## [Installation](alert.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add alert
@@ -58,7 +58,7 @@ npx shadcn-svelte@latest add alert
 bun x shadcn-svelte@latest add alert
 ```
 
-## Usage
+## [Usage](alert.md#usage)
 
 ```svelte
 <script lang="ts">

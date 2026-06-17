@@ -15,7 +15,7 @@ Displays a form input field or a component that looks like an input field.
 <Input type="email" placeholder="Email" class="max-w-xs" />
 ```
 
-## Installation
+## [Installation](input.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add input
@@ -29,7 +29,7 @@ npx shadcn-svelte@latest add input
 bun x shadcn-svelte@latest add input
 ```
 
-## Usage
+## [Usage](input.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -41,9 +41,9 @@ bun x shadcn-svelte@latest add input
 <Input />
 ```
 
-## Examples
+## [Examples](input.md#examples)
 
-### Default
+### [Default](input.md#default)
 
 ```svelte
 <script lang="ts">
@@ -52,7 +52,7 @@ bun x shadcn-svelte@latest add input
 <Input type="email" placeholder="Email" class="max-w-xs" />
 ```
 
-### File
+### [File](input.md#file)
 
 ```svelte
 <script lang="ts">
@@ -65,7 +65,7 @@ bun x shadcn-svelte@latest add input
 </div>
 ```
 
-### Disabled
+### [Disabled](input.md#disabled)
 
 ```svelte
 <script lang="ts">
@@ -74,7 +74,7 @@ bun x shadcn-svelte@latest add input
 <Input disabled type="email" placeholder="Email" class="max-w-sm" />
 ```
 
-### With Label
+### [With Label](input.md#with-label)
 
 ```svelte
 <script lang="ts">
@@ -88,7 +88,7 @@ bun x shadcn-svelte@latest add input
 </div>
 ```
 
-### With Button
+### [With Button](input.md#with-button)
 
 ```svelte
 <script lang="ts">

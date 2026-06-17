@@ -2,6 +2,10 @@
 
 Displays a menu to the user  such as a set of actions or functions  triggered by right click.
 
+[Docs](https://bits-ui.com/docs/components/context-menu)
+
+[API Reference](https://bits-ui.com/docs/components/context-menu#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -67,7 +71,7 @@ Displays a menu to the user  such as a set of actions or functions  triggered by
 </ContextMenu.Root>
 ```
 
-## Installation
+## [Installation](context-menu.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add context-menu
@@ -81,7 +85,7 @@ npx shadcn-svelte@latest add context-menu
 bun x shadcn-svelte@latest add context-menu
 ```
 
-## Usage
+## [Usage](context-menu.md#usage)
 
 ```svelte
 <script lang="ts">

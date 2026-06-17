@@ -2,6 +2,10 @@
 
 Visually or semantically separates content.
 
+[Docs](https://bits-ui.com/docs/components/separator)
+
+[API Reference](https://bits-ui.com/docs/components/separator#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -30,7 +34,7 @@ Visually or semantically separates content.
 </div>
 ```
 
-## Installation
+## [Installation](separator.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add separator
@@ -44,7 +48,7 @@ npx shadcn-svelte@latest add separator
 bun x shadcn-svelte@latest add separator
 ```
 
-## Usage
+## [Usage](separator.md#usage)
 
 ```svelte
 <script lang="ts">

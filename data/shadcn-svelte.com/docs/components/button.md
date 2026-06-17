@@ -2,6 +2,8 @@
 
 Displays a button or a component that looks like a button.
 
+[API Reference](https://bits-ui.com/docs/components/button#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -30,7 +32,7 @@ Displays a button or a component that looks like a button.
 </Button>
 ```
 
-## Installation
+## [Installation](button.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add button
@@ -44,7 +46,7 @@ npx shadcn-svelte@latest add button
 bun x shadcn-svelte@latest add button
 ```
 
-## Usage
+## [Usage](button.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -53,9 +55,9 @@ bun x shadcn-svelte@latest add button
 <Button variant="outline">Button</Button>
 ```
 
-## Examples
+## [Examples](button.md#examples)
 
-### Size
+### [Size](button.md#size)
 
 ```svelte
 <script lang="ts">
@@ -102,7 +104,7 @@ bun x shadcn-svelte@latest add button
 </Button>
 ```
 
-### Default
+### [Default](button.md#default)
 
 ```svelte
 <script lang="ts">
@@ -115,7 +117,7 @@ bun x shadcn-svelte@latest add button
 <Button>Button</Button>
 ```
 
-### Outline
+### [Outline](button.md#outline)
 
 ```svelte
 <script lang="ts">
@@ -128,7 +130,7 @@ bun x shadcn-svelte@latest add button
 <Button variant="outline">Outline</Button>
 ```
 
-### Secondary
+### [Secondary](button.md#secondary)
 
 ```svelte
 <script lang="ts">
@@ -141,7 +143,7 @@ bun x shadcn-svelte@latest add button
 <Button variant="secondary">Secondary</Button>
 ```
 
-### Ghost
+### [Ghost](button.md#ghost)
 
 ```svelte
 <script lang="ts">
@@ -154,7 +156,7 @@ bun x shadcn-svelte@latest add button
 <Button variant="ghost">Ghost</Button>
 ```
 
-### Destructive
+### [Destructive](button.md#destructive)
 
 ```svelte
 <script lang="ts">
@@ -167,7 +169,7 @@ bun x shadcn-svelte@latest add button
 <Button variant="destructive">Destructive</Button>
 ```
 
-### Link
+### [Link](button.md#link)
 
 ```svelte
 <script lang="ts">
@@ -180,7 +182,7 @@ bun x shadcn-svelte@latest add button
 <Button variant="link">Link</Button>
 ```
 
-### Icon
+### [Icon](button.md#icon)
 
 ```svelte
 <script lang="ts">
@@ -198,7 +200,7 @@ bun x shadcn-svelte@latest add button
 </Button>
 ```
 
-### With Icon
+### [With Icon](button.md#with-icon)
 
 The spacing between the icon and the text is automatically adjusted based on the size of the button. You do not need any margin on the icon.
 
@@ -218,7 +220,7 @@ The spacing between the icon and the text is automatically adjusted based on the
 </Button>
 ```
 
-### Rounded
+### [Rounded](button.md#rounded)
 
 Use the `rounded-full` class to make the button rounded.
 
@@ -240,7 +242,7 @@ Use the `rounded-full` class to make the button rounded.
 </Button>
 ```
 
-### Spinner
+### [Spinner](button.md#spinner)
 
 ```svelte
 <script lang="ts">
@@ -260,7 +262,7 @@ Use the `rounded-full` class to make the button rounded.
 </Button>
 ```
 
-### Button Group
+### [Button Group](button.md#button-group)
 
 To create a button group, use the `ButtonGroup` component. See the [Button Group](button-group) documentation for more details.
 
@@ -447,7 +449,7 @@ To create a button group, use the `ButtonGroup` component. See the [Button Group
 </ButtonGroup.Root>
 ```
 
-### Link
+### [Link](button.md#link-1)
 
 You can convert the `<button>` into an `<a>` element by simply passing an `href` as a prop.
 
@@ -469,9 +471,9 @@ Alternatively, you can use the `buttonVariants` helper to create a link that loo
 </a>
 ```
 
-## Changelog
+## [Changelog](button.md#changelog)
 
-### 2025-09-24 New sizes
+### [2025-09-24 New sizes](button.md#2025-09-24-new-sizes)
 
 We have added two new sizes to the button component: `icon-sm` and `icon-lg`. These sizes are used to create icon buttons. To add them, edit `button.svelte` and add the following code under `size` in `buttonVariants`:
 

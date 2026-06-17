@@ -2,6 +2,10 @@
 
 Accessible one-time password component with copy paste functionality.
 
+[Docs](https://bits-ui.com/docs/components/pin-input)
+
+[API Reference](https://bits-ui.com/docs/components/pin-input#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -29,11 +33,11 @@ Accessible one-time password component with copy paste functionality.
 </InputOTP.Root>
 ```
 
-## About
+## [About](input-otp.md#about)
 
 Input OTP is built on top of Bits UI's [PinInput](https://bits-ui.com/docs/components/pin-input) which is inspired by [@guilherme\_rodz](https://twitter.com/guilherme_rodz)'s Input OTP component.
 
-## Installation
+## [Installation](input-otp.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add input-otp
@@ -47,7 +51,7 @@ npx shadcn-svelte@latest add input-otp
 bun x shadcn-svelte@latest add input-otp
 ```
 
-## Usage
+## [Usage](input-otp.md#usage)
 
 ```svelte
 <script lang="ts">
@@ -73,9 +77,9 @@ bun x shadcn-svelte@latest add input-otp
 </InputOTP.Root>
 ```
 
-## Examples
+## [Examples](input-otp.md#examples)
 
-### Pattern
+### [Pattern](input-otp.md#pattern)
 
 Use the `pattern` prop to define a custom pattern for the OTP input.
 
@@ -104,7 +108,7 @@ Use the `pattern` prop to define a custom pattern for the OTP input.
 </InputOTP.Root>
 ```
 
-### Separator
+### [Separator](input-otp.md#separator)
 
 You can use the `InputOTP.Separator` component to add a separator between the groups of cells.
 
@@ -156,7 +160,7 @@ You can use the `InputOTP.Separator` component to add a separator between the gr
 </InputOTP.Root>
 ```
 
-### Controlled
+### [Controlled](input-otp.md#controlled)
 
 ```svelte
 <script lang="ts">
@@ -179,7 +183,7 @@ You can use the `InputOTP.Separator` component to add a separator between the gr
 </div>
 ```
 
-### Form
+### [Form](input-otp.md#form)
 
 ```svelte
 <script lang="ts" module>

@@ -2,6 +2,10 @@
 
 A modal dialog that interrupts the user with important content and expects a response.
 
+[Docs](https://bits-ui.com/docs/components/alert-dialog)
+
+[API Reference](https://bits-ui.com/docs/components/alert-dialog#api-reference)
+
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
 [Local-first, open source apps](https://github.com/EpicenterHQ/epicenter)
@@ -33,7 +37,7 @@ A modal dialog that interrupts the user with important content and expects a res
 </AlertDialog.Root>
 ```
 
-## Installation
+## [Installation](alert-dialog.md#installation)
 
 ```bash
 pnpm dlx shadcn-svelte@latest add alert-dialog
@@ -47,7 +51,7 @@ npx shadcn-svelte@latest add alert-dialog
 bun x shadcn-svelte@latest add alert-dialog
 ```
 
-## Usage
+## [Usage](alert-dialog.md#usage)
 
 ```svelte
 <script lang="ts">
