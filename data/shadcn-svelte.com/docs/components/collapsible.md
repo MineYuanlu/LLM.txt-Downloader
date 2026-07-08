@@ -42,6 +42,8 @@ An interactive component which expands/collapses a panel.
 </Collapsible.Root>
 ```
 
+View Code
+
 ## [Installation](collapsible.md#installation)
 
 ```bash

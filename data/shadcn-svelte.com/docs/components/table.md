@@ -85,6 +85,8 @@ A responsive table component.
 </Table.Root>
 ```
 
+View Code
+
 ## [Installation](table.md#installation)
 
 ```bash

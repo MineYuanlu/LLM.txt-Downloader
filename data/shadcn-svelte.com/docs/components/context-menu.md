@@ -71,6 +71,8 @@ Displays a menu to the user  such as a set of actions or functions  triggered by
 </ContextMenu.Root>
 ```
 
+View Code
+
 ## [Installation](context-menu.md#installation)
 
 ```bash

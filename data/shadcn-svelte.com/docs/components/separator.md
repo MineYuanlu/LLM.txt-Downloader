@@ -34,6 +34,8 @@ Visually or semantically separates content.
 </div>
 ```
 
+View Code
+
 ## [Installation](separator.md#installation)
 
 ```bash

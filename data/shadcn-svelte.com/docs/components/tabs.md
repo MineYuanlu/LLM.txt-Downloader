@@ -76,6 +76,8 @@ A set of layered sections of contentknown as tab panelsthat are displayed one at
 </div>
 ```
 
+View Code
+
 ## [Installation](tabs.md#installation)
 
 ```bash

@@ -25,6 +25,8 @@ Displays a button or a component that looks like a button.
 </div>
 ```
 
+View Code
+
 ```svelte
 <Button variant="outline">Button</Button>
 <Button variant="outline" size="icon" aria-label="Submit">
@@ -86,6 +88,8 @@ bun x shadcn-svelte@latest add button
 </div>
 ```
 
+View Code
+
 ```svelte
 
 <Button size="sm" variant="outline">Small</Button>
@@ -113,6 +117,8 @@ bun x shadcn-svelte@latest add button
 <Button>Button</Button>
 ```
 
+View Code
+
 ```svelte
 <Button>Button</Button>
 ```
@@ -125,6 +131,8 @@ bun x shadcn-svelte@latest add button
 </script>
 <Button variant="outline">Outline</Button>
 ```
+
+View Code
 
 ```svelte
 <Button variant="outline">Outline</Button>
@@ -139,6 +147,8 @@ bun x shadcn-svelte@latest add button
 <Button variant="secondary">Secondary</Button>
 ```
 
+View Code
+
 ```svelte
 <Button variant="secondary">Secondary</Button>
 ```
@@ -151,6 +161,8 @@ bun x shadcn-svelte@latest add button
 </script>
 <Button variant="ghost">Ghost</Button>
 ```
+
+View Code
 
 ```svelte
 <Button variant="ghost">Ghost</Button>
@@ -165,6 +177,8 @@ bun x shadcn-svelte@latest add button
 <Button variant="destructive">Destructive</Button>
 ```
 
+View Code
+
 ```svelte
 <Button variant="destructive">Destructive</Button>
 ```
@@ -177,6 +191,8 @@ bun x shadcn-svelte@latest add button
 </script>
 <Button variant="link">Link</Button>
 ```
+
+View Code
 
 ```svelte
 <Button variant="link">Link</Button>
@@ -193,6 +209,8 @@ bun x shadcn-svelte@latest add button
   <CircleFadingArrowUpIcon />
 </Button>
 ```
+
+View Code
 
 ```svelte
 <Button variant="outline" size="icon" aria-label="Submit">
@@ -213,6 +231,8 @@ The spacing between the icon and the text is automatically adjusted based on the
   <IconGitBranch /> New Branch
 </Button>
 ```
+
+View Code
 
 ```svelte
 <Button variant="outline" size="sm">
@@ -236,6 +256,8 @@ Use the `rounded-full` class to make the button rounded.
 </div>
 ```
 
+View Code
+
 ```svelte
 <Button variant="outline" size="icon" className="rounded-full">
   <ArrowUpRightIcon />
@@ -254,6 +276,8 @@ Use the `rounded-full` class to make the button rounded.
   Submit
 </Button>
 ```
+
+View Code
 
 ```svelte
 <Button size="sm" variant="outline" disabled>
@@ -364,6 +388,8 @@ To create a button group, use the `ButtonGroup` component. See the [Button Group
   </ButtonGroup.Root>
 </ButtonGroup.Root>
 ```
+
+View Code
 
 ```svelte
 <ButtonGroup.Root>

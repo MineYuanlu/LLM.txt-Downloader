@@ -62,6 +62,8 @@ Place a mode toggle on your site to toggle between light and dark mode.
 </Button>
 ```
 
+View Code
+
 ```svelte
 <script lang="ts">
   import SunIcon from "@lucide/svelte/icons/sun";
@@ -90,3 +92,5 @@ Place a mode toggle on your site to toggle between light and dark mode.
   </DropdownMenu.Content>
 </DropdownMenu.Root>
 ```
+
+View Code

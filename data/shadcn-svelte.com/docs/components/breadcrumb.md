@@ -44,6 +44,8 @@ Displays the path to the current resource using a hierarchy of links.
 </Breadcrumb.Root>
 ```
 
+View Code
+
 ## [Installation](breadcrumb.md#installation)
 
 ```bash
@@ -116,6 +118,8 @@ Use a custom component in the `<slot>` of `<Breadcrumb.Separator />` to create a
 </Breadcrumb.Root>
 ```
 
+View Code
+
 ```svelte
 <script lang="ts">
   import SlashIcon from "@lucide/svelte/icons/slash";
@@ -180,6 +184,8 @@ You can compose `<Breadcrumb.Item />` with a `<DropdownMenu />` to create a drop
 </Breadcrumb.Root>
 ```
 
+View Code
+
 ```svelte
 <script lang="ts">
   import ChevronDownIcon from "@lucide/svelte/icons/chevron-down";
@@ -234,6 +240,8 @@ We provide a `<Breadcrumb.Ellipsis />` component to show a collapsed state when 
 </Breadcrumb.Root>
 ```
 
+View Code
+
 ```svelte
 <script lang="ts">
  import * as Breadcrumb from "$lib/components/ui/breadcrumb/index.js";
@@ -275,6 +283,8 @@ To use a link just add the `href` prop to `<Breadcrumb.Link />`.
   </Breadcrumb.List>
 </Breadcrumb.Root>
 ```
+
+View Code
 
 ```svelte
 <script lang="ts">
@@ -394,3 +404,5 @@ It displays a dropdown on desktop and a drawer on mobile.
   </Breadcrumb.List>
 </Breadcrumb.Root>
 ```
+
+View Code

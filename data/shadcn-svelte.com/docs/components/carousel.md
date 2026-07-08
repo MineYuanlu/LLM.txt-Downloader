@@ -38,6 +38,8 @@ A carousel with motion and swipe built using Embla.
 </Carousel.Root>
 ```
 
+View Code
+
 ## [About](carousel.md#about)
 
 The carousel component is built using the [Embla Carousel](https://www.embla-carousel.com/get-started/svelte/) library.
@@ -113,6 +115,8 @@ To set the size of the items, you can use the `basis` utility class on the `<Car
 </Carousel.Root>
 ```
 
+View Code
+
 ```svelte
 
 <Carousel.Root>
@@ -164,6 +168,8 @@ To set the spacing between the items, we use a `ps-[VALUE]` utility on the `<Car
   <Carousel.Next />
 </Carousel.Root>
 ```
+
+View Code
 
 ```svelte
 <Carousel.Root>
@@ -218,6 +224,8 @@ Use the `orientation` prop to set the orientation of the carousel.
   <Carousel.Next />
 </Carousel.Root>
 ```
+
+View Code
 
 ```svelte
 <Carousel.Root orientation="vertical | horizontal">
@@ -295,6 +303,8 @@ Use reactive state and the `setApi` callback to get an instance of the carousel 
   </div>
 </div>
 ```
+
+View Code
 
 ```svelte
 <script lang="ts">
@@ -398,5 +408,7 @@ You can use the `plugins` prop to add plugins to the carousel.
   <Carousel.Next />
 </Carousel.Root>
 ```
+
+View Code
 
 See the [Embla Carousel docs](https://www.embla-carousel.com/api/plugins/) for more information on using plugins.

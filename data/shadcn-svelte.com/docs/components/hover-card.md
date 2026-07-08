@@ -48,6 +48,8 @@ For sighted users to preview content available behind a link.
 </HoverCard.Root>
 ```
 
+View Code
+
 ## [Installation](hover-card.md#installation)
 
 ```bash

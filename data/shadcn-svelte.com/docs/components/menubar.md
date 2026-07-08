@@ -110,6 +110,8 @@ A visually persistent menu common in desktop applications that provides quick ac
 </Menubar.Root>
 ```
 
+View Code
+
 ## [Installation](menubar.md#installation)
 
 ```bash

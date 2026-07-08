@@ -47,6 +47,8 @@ A set of two-state buttons that can be toggled on or off.
 </ToggleGroup.Root>
 ```
 
+View Code
+
 ## [Installation](toggle-group.md#installation)
 
 ```bash
@@ -101,6 +103,8 @@ bun x shadcn-svelte@latest add toggle-group
 </ToggleGroup.Root>
 ```
 
+View Code
+
 ### [Single](toggle-group.md#single)
 
 ```svelte
@@ -122,6 +126,8 @@ bun x shadcn-svelte@latest add toggle-group
   </ToggleGroup.Item>
 </ToggleGroup.Root>
 ```
+
+View Code
 
 ### [Small](toggle-group.md#small)
 
@@ -145,6 +151,8 @@ bun x shadcn-svelte@latest add toggle-group
 </ToggleGroup.Root>
 ```
 
+View Code
+
 ### [Large](toggle-group.md#large)
 
 ```svelte
@@ -167,6 +175,8 @@ bun x shadcn-svelte@latest add toggle-group
 </ToggleGroup.Root>
 ```
 
+View Code
+
 ### [Disabled](toggle-group.md#disabled)
 
 ```svelte
@@ -188,6 +198,8 @@ bun x shadcn-svelte@latest add toggle-group
   </ToggleGroup.Item>
 </ToggleGroup.Root>
 ```
+
+View Code
 
 ### [Spacing](toggle-group.md#spacing)
 
@@ -227,3 +239,5 @@ Use `spacing={2}` to add spacing between toggle group items.
   </ToggleGroup.Item>
 </ToggleGroup.Root>
 ```
+
+View Code

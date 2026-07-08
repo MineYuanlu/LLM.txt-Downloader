@@ -29,6 +29,8 @@ A popup that displays information related to an element when the element receive
 </Tooltip.Provider>
 ```
 
+View Code
+
 ## [Installation](tooltip.md#installation)
 
 ```bash

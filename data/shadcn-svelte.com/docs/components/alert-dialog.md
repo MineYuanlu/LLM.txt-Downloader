@@ -37,6 +37,8 @@ A modal dialog that interrupts the user with important content and expects a res
 </AlertDialog.Root>
 ```
 
+View Code
+
 ## [Installation](alert-dialog.md#installation)
 
 ```bash

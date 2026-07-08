@@ -25,6 +25,8 @@ Renders an accessible label associated with controls.
 </div>
 ```
 
+View Code
+
 ## [Installation](label.md#installation)
 
 ```bash

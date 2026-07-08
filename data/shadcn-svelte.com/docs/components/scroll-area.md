@@ -32,6 +32,8 @@ Augments native scroll functionality for custom, cross-browser styling.
 </ScrollArea>
 ```
 
+View Code
+
 ## [Installation](scroll-area.md#installation)
 
 ```bash
@@ -120,3 +122,5 @@ Set the `orientation` prop to `"horizontal"` to enable horizontal scrolling.
   </div>
 </ScrollArea>
 ```
+
+View Code

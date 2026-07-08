@@ -112,6 +112,8 @@ Create a mode toggle on your site to toggle between light and dark mode:
 </Button>
 ```
 
+View Code
+
 #### [Dropdown menu](astro.md#dropdown-menu)
 
 ```svelte
@@ -142,6 +144,8 @@ Create a mode toggle on your site to toggle between light and dark mode:
   </DropdownMenu.Content>
 </DropdownMenu.Root>
 ```
+
+View Code
 
 ### [Add mode toggle to page](astro.md#add-mode-toggle-to-page)
 

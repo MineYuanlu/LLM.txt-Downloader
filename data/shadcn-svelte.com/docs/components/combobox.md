@@ -97,6 +97,8 @@ Autocomplete input and command palette with a list of suggestions.
 </Popover.Root>
 ```
 
+View Code
+
 ## [Installation](combobox.md#installation)
 
 The Combobox is built using a composition of the `<Popover />` and the `<Command />` components.
@@ -296,6 +298,8 @@ Expand
 </Popover.Root>
 ```
 
+View Code
+
 ### [Popover](combobox.md#popover)
 
 ```svelte
@@ -411,6 +415,8 @@ Expand
 </div>
 ```
 
+View Code
+
 ### [Dropdown menu](combobox.md#dropdown-menu)
 
 ```svelte
@@ -515,6 +521,8 @@ Expand
   </DropdownMenu.Root>
 </div>
 ```
+
+View Code
 
 ### [Responsive](combobox.md#responsive)
 
@@ -628,3 +636,5 @@ You can create a responsive combobox by using the `<Popover />` on desktop and t
   </Drawer.Root>
 {/if}
 ```
+
+View Code

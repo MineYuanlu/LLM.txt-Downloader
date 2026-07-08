@@ -43,6 +43,8 @@ Displays a badge or a component that looks like a badge.
 </div>
 ```
 
+View Code
+
 ## [Installation](badge.md#installation)
 
 ```bash

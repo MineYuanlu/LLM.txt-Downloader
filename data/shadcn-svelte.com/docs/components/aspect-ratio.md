@@ -25,6 +25,8 @@ Displays content within a desired ratio.
 </AspectRatio>
 ```
 
+View Code
+
 ## [Installation](aspect-ratio.md#installation)
 
 ```bash

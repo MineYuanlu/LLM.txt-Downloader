@@ -338,6 +338,8 @@ Powerful table and datagrids built using TanStack Table.
 </div>
 ```
 
+View Code
+
 ## [Introduction](data-table.md#introduction)
 
 Data tables are difficult to componentize because of the wide variety of features they support, and the uniqueness of every data set.

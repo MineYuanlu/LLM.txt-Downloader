@@ -44,6 +44,8 @@ Displays a callout for user attention.
 </div>
 ```
 
+View Code
+
 ## [Installation](alert.md#installation)
 
 ```bash

@@ -58,6 +58,8 @@ A window overlaid on either the primary window or another dialog window, renderi
 </Dialog.Root>
 ```
 
+View Code
+
 ## [Installation](dialog.md#installation)
 
 ```bash
@@ -134,3 +136,5 @@ bun x shadcn-svelte@latest add dialog
   </Dialog.Content>
 </Dialog.Root>
 ```
+
+View Code

@@ -51,6 +51,8 @@ Extends the Dialog component to display content that complements the main conten
 </Sheet.Root>
 ```
 
+View Code
+
 ## [Installation](sheet.md#installation)
 
 ```bash

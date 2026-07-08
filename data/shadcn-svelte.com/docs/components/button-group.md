@@ -107,6 +107,8 @@ A container that groups related buttons together with consistent styling.
 </ButtonGroup.Root>
 ```
 
+View Code
+
 ## [Installation](button-group.md#installation)
 
 ```bash
@@ -181,6 +183,8 @@ Set the `orientation` prop to change the button group layout.
 </ButtonGroup.Root>
 ```
 
+View Code
+
 ### [Size](button-group.md#size)
 
 Control the size of buttons using the `size` prop on individual buttons.
@@ -219,6 +223,8 @@ Control the size of buttons using the `size` prop on individual buttons.
 </div>
 ```
 
+View Code
+
 ### [Nested](button-group.md#nested)
 
 Nest `ButtonGroup` components to create button groups with spacing.
@@ -249,6 +255,8 @@ Nest `ButtonGroup` components to create button groups with spacing.
 </ButtonGroup.Root>
 ```
 
+View Code
+
 ### [Separator](button-group.md#separator)
 
 The `ButtonGroupSeparator` component visually divides buttons within a group.
@@ -266,6 +274,8 @@ Buttons with variant `outline` do not need a separator since they have a border.
   <Button variant="secondary" size="sm">Paste</Button>
 </ButtonGroup.Root>
 ```
+
+View Code
 
 ### [Split](button-group.md#split)
 
@@ -286,6 +296,8 @@ Create a split button group by adding two buttons separated by a `ButtonGroupSep
 </ButtonGroup.Root>
 ```
 
+View Code
+
 ### [Input](button-group.md#input)
 
 Wrap an `Input` component with buttons.
@@ -304,6 +316,8 @@ Wrap an `Input` component with buttons.
   </Button>
 </ButtonGroup.Root>
 ```
+
+View Code
 
 ### [Input Group](button-group.md#input-group)
 
@@ -356,6 +370,8 @@ Wrap an `InputGroup` component to create complex input layouts.
   </ButtonGroup.Root>
 </ButtonGroup.Root>
 ```
+
+View Code
 
 ### [Dropdown Menu](button-group.md#dropdown-menu)
 
@@ -424,6 +440,8 @@ Create a split button group with a `DropdownMenu` component.
 </ButtonGroup.Root>
 ```
 
+View Code
+
 ### [Select](button-group.md#select)
 
 Pair with a `Select` component.
@@ -475,6 +493,8 @@ Pair with a `Select` component.
   </ButtonGroup.Root>
 </ButtonGroup.Root>
 ```
+
+View Code
 
 ### [Popover](button-group.md#popover)
 
@@ -528,3 +548,5 @@ Use with a `Popover` component.
   </Popover.Root>
 </ButtonGroup.Root>
 ```
+
+View Code

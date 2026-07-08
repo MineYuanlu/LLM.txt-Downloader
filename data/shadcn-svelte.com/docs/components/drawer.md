@@ -141,6 +141,8 @@ A drawer component for Svelte.
 </Drawer.Root>
 ```
 
+View Code
+
 ## [About](drawer.md#about)
 
 Drawer is built on top of [Vaul Svelte](https://vaul-svelte.com), which is a Svelte port of [Vaul](https://vaul.emilkowal.ski) by [Emil Kowalski](https://twitter.com/emilkowalski_).
@@ -236,6 +238,8 @@ Use the `direction` prop to set the side of the drawer. Available options are `t
 </div>
 ```
 
+View Code
+
 ### [Responsive Dialog](drawer.md#responsive-dialog)
 
 You can combine the `Dialog` and `Drawer` components to create a responsive dialog. This renders a `Dialog` on desktop and a `Drawer` on mobile.
@@ -309,3 +313,5 @@ You can combine the `Dialog` and `Drawer` components to create a responsive dial
   </Drawer.Root>
 {/if}
 ```
+
+View Code

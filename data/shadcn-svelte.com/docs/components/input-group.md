@@ -96,6 +96,8 @@ Display additional information or actions to an input or textarea.
 </div>
 ```
 
+View Code
+
 ## [Installation](input-group.md#installation)
 
 ```bash
@@ -177,6 +179,8 @@ bun x shadcn-svelte@latest add input-group
 </div>
 ```
 
+View Code
+
 ### [Text](input-group.md#text)
 
 Display additional text information alongside inputs.
@@ -220,6 +224,8 @@ Display additional text information alongside inputs.
   </InputGroup.Root>
 </div>
 ```
+
+View Code
 
 ### [Button](input-group.md#button)
 
@@ -295,6 +301,8 @@ Add buttons to perform actions within the input group.
   </InputGroup.Root>
 </div>
 ```
+
+View Code
 
 ### [Tooltip](input-group.md#tooltip)
 
@@ -377,6 +385,8 @@ Add tooltips to provide additional context or help.
 </div>
 ```
 
+View Code
+
 ### [Textarea](input-group.md#textarea)
 
 Input groups also work with textarea components. Use `block-start` or `block-end` for alignment.
@@ -416,6 +426,8 @@ Input groups also work with textarea components. Use `block-start` or `block-end
   </InputGroup.Root>
 </div>
 ```
+
+View Code
 
 ### [Spinner](input-group.md#spinner)
 
@@ -461,6 +473,8 @@ Show loading indicators while processing input.
 </div>
 ```
 
+View Code
+
 ### [Label](input-group.md#label)
 
 Add labels within input groups to improve accessibility.
@@ -505,6 +519,8 @@ Add labels within input groups to improve accessibility.
   </InputGroup.Root>
 </div>
 ```
+
+View Code
 
 ### [Dropdown](input-group.md#dropdown)
 
@@ -568,6 +584,8 @@ Pair input groups with dropdown menus for complex interactions.
 </div>
 ```
 
+View Code
+
 ### [Button Group](input-group.md#button-group)
 
 Wrap input groups with button groups to create prefixes and suffixes.
@@ -595,6 +613,8 @@ Wrap input groups with button groups to create prefixes and suffixes.
 </div>
 ```
 
+View Code
+
 ### [Custom Input](input-group.md#custom-input)
 
 Add the `data-slot="input-group-control"` attribute to your custom input for automatic behavior and focus state handling.
@@ -620,3 +640,5 @@ No style is applied to the custom input. Apply your own styles using the `class`
   </InputGroup.Root>
 </div>
 ```
+
+View Code

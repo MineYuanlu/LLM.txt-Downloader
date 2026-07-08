@@ -23,6 +23,8 @@ A control that allows the user to toggle between checked and not checked.
 </div>
 ```
 
+View Code
+
 ## [Installation](switch.md#installation)
 
 ```bash

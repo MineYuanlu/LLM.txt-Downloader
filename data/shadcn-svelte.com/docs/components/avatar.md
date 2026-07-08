@@ -44,6 +44,8 @@ An image element with a fallback for representing the user.
 </div>
 ```
 
+View Code
+
 ## [Installation](avatar.md#installation)
 
 ```bash

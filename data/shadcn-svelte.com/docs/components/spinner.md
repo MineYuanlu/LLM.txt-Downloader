@@ -28,6 +28,8 @@ An indicator that can be used to show a loading state.
 </div>
 ```
 
+View Code
+
 ## [Installation](spinner.md#installation)
 
 ```bash
@@ -74,6 +76,8 @@ You can replace the default spinner icon with any other icon by editing the `Spi
 />
 ```
 
+View Code
+
 ## [Examples](spinner.md#examples)
 
 ### [Size](spinner.md#size)
@@ -92,6 +96,8 @@ Use the `size-*` utility class to change the size of the spinner.
 </div>
 ```
 
+View Code
+
 ### [Color](spinner.md#color)
 
 Use the `text-*` utility class to change the color of the spinner.
@@ -108,6 +114,8 @@ Use the `text-*` utility class to change the color of the spinner.
   <Spinner class="size-6 text-purple-500" />
 </div>
 ```
+
+View Code
 
 ### [Button](spinner.md#button)
 
@@ -134,6 +142,8 @@ Add a spinner to a button to indicate a loading state. The `<Button />` will han
 </div>
 ```
 
+View Code
+
 ### [Badge](spinner.md#badge)
 
 You can also use a spinner inside a badge.
@@ -158,6 +168,8 @@ You can also use a spinner inside a badge.
   </Badge>
 </div>
 ```
+
+View Code
 
 ### [Input Group](spinner.md#input-group)
 
@@ -189,6 +201,8 @@ Input Group can have spinners inside `<InputGroup.Addon>`.
 </div>
 ```
 
+View Code
+
 ### [Empty](spinner.md#empty)
 
 ```svelte
@@ -212,6 +226,8 @@ Input Group can have spinners inside `<InputGroup.Addon>`.
   </Empty.Content>
 </Empty.Root>
 ```
+
+View Code
 
 ### [Item](spinner.md#item)
 
@@ -242,3 +258,5 @@ Use the spinner inside `<Item.Media>` to indicate a loading state.
   </Item.Root>
 </div>
 ```
+
+View Code

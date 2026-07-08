@@ -56,6 +56,8 @@ A date picker component with range and presets.
 </div>
 ```
 
+View Code
+
 ## [Installation](date-picker.md#installation)
 
 The Date Picker is built using a composition of the `<Popover />` and either the `<Calendar />` or `<RangeCalendar />` components.
@@ -157,7 +159,11 @@ lib/components/example-date-picker.svelte
 </div>
 ```
 
+View Code
+
 ### [Picker with Input](date-picker.md#picker-with-input)
+
+View Code
 
 ### [Date and Time Picker](date-picker.md#date-and-time-picker)
 
@@ -217,6 +223,8 @@ lib/components/example-date-picker.svelte
   </div>
 </div>
 ```
+
+View Code
 
 ### [Natural Language Picker](date-picker.md#natural-language-picker)
 
@@ -321,3 +329,5 @@ This component uses the `chrono-node` library to parse natural language dates.
   </div>
 </div>
 ```
+
+View Code

@@ -48,6 +48,8 @@ Displays a list of options for the user to pick fromtriggered by a button.
 </Select.Root>
 ```
 
+View Code
+
 ## [Installation](select.md#installation)
 
 ```bash
@@ -146,3 +148,5 @@ bun x shadcn-svelte@latest add select
   </Select.Content>
 </Select.Root>
 ```
+
+View Code

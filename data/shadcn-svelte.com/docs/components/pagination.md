@@ -46,6 +46,8 @@ Pagination with page navigation, next and previous links.
 </Pagination.Root>
 ```
 
+View Code
+
 ## [Installation](pagination.md#installation)
 
 ```bash

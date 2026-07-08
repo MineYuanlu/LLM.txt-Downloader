@@ -25,6 +25,8 @@ Displays an indicator showing the completion progress of a task, typically displ
 <Progress {value} max={100} class="w-[60%]" />
 ```
 
+View Code
+
 ## [Installation](progress.md#installation)
 
 ```bash

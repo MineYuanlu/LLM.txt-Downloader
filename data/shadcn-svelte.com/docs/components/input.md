@@ -15,6 +15,8 @@ Displays a form input field or a component that looks like an input field.
 <Input type="email" placeholder="Email" class="max-w-xs" />
 ```
 
+View Code
+
 ## [Installation](input.md#installation)
 
 ```bash
@@ -52,6 +54,8 @@ bun x shadcn-svelte@latest add input
 <Input type="email" placeholder="Email" class="max-w-xs" />
 ```
 
+View Code
+
 ### [File](input.md#file)
 
 ```svelte
@@ -65,6 +69,8 @@ bun x shadcn-svelte@latest add input
 </div>
 ```
 
+View Code
+
 ### [Disabled](input.md#disabled)
 
 ```svelte
@@ -73,6 +79,8 @@ bun x shadcn-svelte@latest add input
 </script>
 <Input disabled type="email" placeholder="Email" class="max-w-sm" />
 ```
+
+View Code
 
 ### [With Label](input.md#with-label)
 
@@ -88,6 +96,8 @@ bun x shadcn-svelte@latest add input
 </div>
 ```
 
+View Code
+
 ### [With Button](input.md#with-button)
 
 ```svelte
@@ -100,3 +110,5 @@ bun x shadcn-svelte@latest add input
   <Button type="submit" variant="outline">Subscribe</Button>
 </div>
 ```
+
+View Code

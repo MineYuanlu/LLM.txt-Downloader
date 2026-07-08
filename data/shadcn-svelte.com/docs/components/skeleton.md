@@ -21,6 +21,8 @@ Use to show a placeholder while content is loading.
 </div>
 ```
 
+View Code
+
 ## [Installation](skeleton.md#installation)
 
 ```bash
@@ -63,3 +65,5 @@ bun x shadcn-svelte@latest add skeleton
   </div>
 </div>
 ```
+
+View Code

@@ -54,6 +54,8 @@ Displays rich content in a portal, triggered by a button.
 </Popover.Root>
 ```
 
+View Code
+
 ## [Installation](popover.md#installation)
 
 ```bash

@@ -15,6 +15,8 @@ Displays a form textarea or a component that looks like a textarea.
 <Textarea placeholder="Type your message here." />
 ```
 
+View Code
+
 ## [Installation](textarea.md#installation)
 
 ```bash
@@ -52,6 +54,8 @@ bun x shadcn-svelte@latest add textarea
 <Textarea placeholder="Type your message here." />
 ```
 
+View Code
+
 ### [Disabled](textarea.md#disabled)
 
 ```svelte
@@ -60,6 +64,8 @@ bun x shadcn-svelte@latest add textarea
 </script>
 <Textarea disabled placeholder="Type your message here." />
 ```
+
+View Code
 
 ### [With Label](textarea.md#with-label)
 
@@ -73,6 +79,8 @@ bun x shadcn-svelte@latest add textarea
   <Textarea placeholder="Type your message here." id="message" />
 </div>
 ```
+
+View Code
 
 ### [With Text](textarea.md#with-text)
 
@@ -90,6 +98,8 @@ bun x shadcn-svelte@latest add textarea
 </div>
 ```
 
+View Code
+
 ### [With Button](textarea.md#with-button)
 
 ```svelte
@@ -102,3 +112,5 @@ bun x shadcn-svelte@latest add textarea
   <Button>Send message</Button>
 </div>
 ```
+
+View Code

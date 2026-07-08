@@ -20,6 +20,8 @@ An input where the user selects a value from within a given range.
 <Slider type="single" bind:value max={100} step={1} class="max-w-[70%]" />
 ```
 
+View Code
+
 ## [Installation](slider.md#installation)
 
 ```bash

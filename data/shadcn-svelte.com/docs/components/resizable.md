@@ -41,6 +41,8 @@ Accessible resizable panel groups and layouts with keyboard support.
 </Resizable.PaneGroup>
 ```
 
+View Code
+
 ## [About](resizable.md#about)
 
 The `Resizable` component is built on top of [PaneForge](https://github.com/svecosystem/paneforge) by [Huntabyte](https://github.com/huntabyte). Visit the [PaneForge documentation](https://paneforge.com) for all the available props and abilities of the `Resizable` component.
@@ -103,6 +105,8 @@ Use the `direction` prop to set the direction of the resizable panels.
 </Resizable.PaneGroup>
 ```
 
+View Code
+
 ```svelte
 <script lang="ts">
   import * as Resizable from "$lib/components/ui/resizable/index.js";
@@ -139,6 +143,8 @@ You can set or hide the handle by using the `withHandle` prop on the `ResizableH
   </Resizable.Pane>
 </Resizable.PaneGroup>
 ```
+
+View Code
 
 ```svelte
 <script lang="ts">

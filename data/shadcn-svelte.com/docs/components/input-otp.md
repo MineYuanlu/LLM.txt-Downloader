@@ -33,6 +33,8 @@ Accessible one-time password component with copy paste functionality.
 </InputOTP.Root>
 ```
 
+View Code
+
 ## [About](input-otp.md#about)
 
 Input OTP is built on top of Bits UI's [PinInput](https://bits-ui.com/docs/components/pin-input) which is inspired by [@guilherme\_rodz](https://twitter.com/guilherme_rodz)'s Input OTP component.
@@ -99,6 +101,8 @@ Use the `pattern` prop to define a custom pattern for the OTP input.
 </InputOTP.Root>
 ```
 
+View Code
+
 ```svelte
 <script lang="ts">
   import * as InputOTP from "$lib/components/ui/input-otp/index.js";
@@ -138,6 +142,8 @@ You can use the `InputOTP.Separator` component to add a separator between the gr
   {/snippet}
 </InputOTP.Root>
 ```
+
+View Code
 
 ```svelte
 <script lang="ts">
@@ -182,6 +188,8 @@ You can use the `InputOTP.Separator` component to add a separator between the gr
   </div>
 </div>
 ```
+
+View Code
 
 ### [Form](input-otp.md#form)
 
@@ -237,3 +245,5 @@ You can use the `InputOTP.Separator` component to add a separator between the gr
   <Form.Button>Submit</Form.Button>
 </form>
 ```
+
+View Code

@@ -33,6 +33,8 @@ A set of checkable buttonsknown as radio buttonswhere no more than one of the bu
 </RadioGroup.Root>
 ```
 
+View Code
+
 ## [Installation](radio-group.md#installation)
 
 ```bash

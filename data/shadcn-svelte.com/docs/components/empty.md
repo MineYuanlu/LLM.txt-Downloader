@@ -40,6 +40,8 @@ Use the Empty component to display an empty state.
 </Empty.Root>
 ```
 
+View Code
+
 ## [Installation](empty.md#installation)
 
 ```bash
@@ -106,6 +108,8 @@ Use the `border` utility class to create an outline empty state.
 </Empty.Root>
 ```
 
+View Code
+
 ### [Background](empty.md#background)
 
 Use the `bg-*` and `bg-gradient-*` utilities to add a background to the empty state.
@@ -138,6 +142,8 @@ Use the `bg-*` and `bg-gradient-*` utilities to add a background to the empty st
 </Empty.Root>
 ```
 
+View Code
+
 ### [Avatar](empty.md#avatar)
 
 Use the `EmptyMedia` component to display an avatar in the empty state.
@@ -167,6 +173,8 @@ Use the `EmptyMedia` component to display an avatar in the empty state.
   </Empty.Content>
 </Empty.Root>
 ```
+
+View Code
 
 ### [Avatar Group](empty.md#avatar-group)
 
@@ -217,6 +225,8 @@ Use the `EmptyMedia` component to display an avatar group in the empty state.
 </Empty.Root>
 ```
 
+View Code
+
 ### [InputGroup](empty.md#inputgroup)
 
 You can add an `InputGroup` component to the `EmptyContent` component.
@@ -251,3 +261,5 @@ You can add an `InputGroup` component to the `EmptyContent` component.
   </Empty.Content>
 </Empty.Root>
 ```
+
+View Code

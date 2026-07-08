@@ -26,6 +26,8 @@ A calendar component that allows users to select dates.
 />
 ```
 
+View Code
+
 ## [Blocks](calendar.md#blocks)
 
 We have built a collection of 30+ calendar blocks that you can use to build your own calendar components.
@@ -73,6 +75,8 @@ You can use the `<Calendar />` component to build a date picker. See the [Date P
   numberOfMonths={2}
 />
 ```
+
+View Code
 
 ### [Month and Year Selector](calendar.md#month-and-year-selector)
 
@@ -129,6 +133,8 @@ You can use the `<Calendar />` component to build a date picker. See the [Date P
 </div>
 ```
 
+View Code
+
 ### [Date of Birth Picker](calendar.md#date-of-birth-picker)
 
 ```svelte
@@ -178,6 +184,8 @@ You can use the `<Calendar />` component to build a date picker. See the [Date P
   </Popover.Root>
 </div>
 ```
+
+View Code
 
 ### [Date and Time Picker](calendar.md#date-and-time-picker)
 
@@ -237,6 +245,8 @@ You can use the `<Calendar />` component to build a date picker. See the [Date P
   </div>
 </div>
 ```
+
+View Code
 
 ### [Natural Language Picker](calendar.md#natural-language-picker)
 
@@ -341,6 +351,8 @@ This component uses the `chrono-node` library to parse natural language dates.
   </div>
 </div>
 ```
+
+View Code
 
 ## [Upgrade Guide](calendar.md#upgrade-guide)
 

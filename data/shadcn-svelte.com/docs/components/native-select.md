@@ -10,6 +10,8 @@ A styled native HTML select element with consistent design system integration.
 
 For a styled select component, see the [Select](select) component.
 
+View Code
+
 ```svelte
 <script lang="ts">
   import * as NativeSelect from "$lib/components/ui/native-select/index.js";
@@ -94,6 +96,8 @@ Organize options using `NativeSelect.OptGroup` for better categorization.
 </NativeSelect.Root>
 ```
 
+View Code
+
 ```svelte
 <NativeSelect.Root>
   <NativeSelect.Option value="">Select a food</NativeSelect.Option>
@@ -127,6 +131,8 @@ Disable individual options or the entire select component.
 </NativeSelect.Root>
 ```
 
+View Code
+
 ### [Invalid State](native-select.md#invalid-state)
 
 Show validation errors with the `aria-invalid` attribute and error styling.
@@ -143,6 +149,8 @@ Show validation errors with the `aria-invalid` attribute and error styling.
   <NativeSelect.Option value="guest">Guest</NativeSelect.Option>
 </NativeSelect.Root>
 ```
+
+View Code
 
 ```svelte
 <NativeSelect.Root aria-invalid="true">

@@ -27,6 +27,8 @@ Used to display textual user input from keyboard.
 </div>
 ```
 
+View Code
+
 ## [Installation](kbd.md#installation)
 
 ```bash
@@ -75,6 +77,8 @@ Use the `Kbd.Group` component to group keyboard keys together.
 </div>
 ```
 
+View Code
+
 ### [Button](kbd.md#button)
 
 Use the `Kbd.Root` component inside a `Button` component to display a keyboard key inside a button.
@@ -93,6 +97,8 @@ Use the `Kbd.Root` component inside a `Button` component to display a keyboard k
   </Button>
 </div>
 ```
+
+View Code
 
 ### [Tooltip](kbd.md#tooltip)
 
@@ -139,6 +145,8 @@ You can use the `Kbd.Root` component inside a `Tooltip` component to display a t
 </div>
 ```
 
+View Code
+
 ### [Input Group](kbd.md#input-group)
 
 You can use the `Kbd.Root` component inside a `InputGroup.Addon` component to display a keyboard key inside an input group.
@@ -162,3 +170,5 @@ You can use the `Kbd.Root` component inside a `InputGroup.Addon` component to di
   </InputGroup.Root>
 </div>
 ```
+
+View Code

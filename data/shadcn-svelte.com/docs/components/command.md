@@ -62,6 +62,8 @@ Fast, composable, unstyled command menu for Svelte.
 </Command.Root>
 ```
 
+View Code
+
 ## [Installation](command.md#installation)
 
 ```bash
@@ -173,6 +175,8 @@ bun x shadcn-svelte@latest add command
   </Command.List>
 </Command.Dialog>
 ```
+
+View Code
 
 To show the command menu in a dialog, use the `<Command.Dialog />` component instead of `<Command.Root />`. It accepts props for both the `<Dialog.Root />` and `<Command.Root />` components.
 

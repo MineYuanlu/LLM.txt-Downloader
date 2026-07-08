@@ -28,6 +28,8 @@ A two-state button that can be either on or off.
 </Toggle>
 ```
 
+View Code
+
 ## [Installation](toggle.md#installation)
 
 ```bash
@@ -74,6 +76,8 @@ bun x shadcn-svelte@latest add toggle
 </Toggle>
 ```
 
+View Code
+
 ### [Outline](toggle.md#outline)
 
 ```svelte
@@ -85,6 +89,8 @@ bun x shadcn-svelte@latest add toggle
   <ItalicIcon class="size-4" />
 </Toggle>
 ```
+
+View Code
 
 ### [With Text](toggle.md#with-text)
 
@@ -99,6 +105,8 @@ bun x shadcn-svelte@latest add toggle
 </Toggle>
 ```
 
+View Code
+
 ### [Small](toggle.md#small)
 
 ```svelte
@@ -110,6 +118,8 @@ bun x shadcn-svelte@latest add toggle
   <ItalicIcon class="size-4" />
 </Toggle>
 ```
+
+View Code
 
 ### [Large](toggle.md#large)
 
@@ -123,6 +133,8 @@ bun x shadcn-svelte@latest add toggle
 </Toggle>
 ```
 
+View Code
+
 ### [Disabled](toggle.md#disabled)
 
 ```svelte
@@ -134,3 +146,5 @@ bun x shadcn-svelte@latest add toggle
   <UnderlineIcon class="size-4" />
 </Toggle>
 ```
+
+View Code

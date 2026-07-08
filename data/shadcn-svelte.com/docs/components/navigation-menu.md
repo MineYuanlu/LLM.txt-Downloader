@@ -221,6 +221,8 @@ A collection of links for navigating websites.
 </NavigationMenu.Root>
 ```
 
+View Code
+
 ## [Installation](navigation-menu.md#installation)
 
 ```bash

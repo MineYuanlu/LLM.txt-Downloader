@@ -62,6 +62,8 @@ A vertically stacked set of interactive headings that each reveal a section of c
 </Accordion.Root>
 ```
 
+View Code
+
 ## [Installation](accordion.md#installation)
 
 ```bash

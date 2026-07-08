@@ -73,6 +73,8 @@ Displays a menu to the user  such as a set of actions or functions  triggered by
 </DropdownMenu.Root>
 ```
 
+View Code
+
 ## [Installation](dropdown-menu.md#installation)
 
 ```bash
@@ -147,6 +149,8 @@ bun x shadcn-svelte@latest add dropdown-menu
 </DropdownMenu.Root>
 ```
 
+View Code
+
 ### [Radio Group](dropdown-menu.md#radio-group)
 
 ```svelte
@@ -174,6 +178,8 @@ bun x shadcn-svelte@latest add dropdown-menu
   </DropdownMenu.Content>
 </DropdownMenu.Root>
 ```
+
+View Code
 
 ### [Dialog](dropdown-menu.md#dialog)
 
@@ -277,6 +283,8 @@ This example shows how to open a dialog from a dropdown menu.
   </Dialog.Content>
 </Dialog.Root>
 ```
+
+View Code
 
 ## [Changelog](dropdown-menu.md#changelog)
 

@@ -49,6 +49,8 @@ You can pretty much achieve the same result with the `div` element and some clas
 </div>
 ```
 
+View Code
+
 ## [Installation](item.md#installation)
 
 ```bash
@@ -136,6 +138,8 @@ If you only need to display content such as a title, description, and actions, u
 </div>
 ```
 
+View Code
+
 ### [Size](item.md#size)
 
 The `Item` component has different sizes for different use cases. For example, you can use the `sm` size for a compact item or the default size for a standard item.
@@ -177,6 +181,8 @@ The `Item` component has different sizes for different use cases. For example, y
 </div>
 ```
 
+View Code
+
 ### [Icon](item.md#icon)
 
 ```svelte
@@ -202,6 +208,8 @@ The `Item` component has different sizes for different use cases. For example, y
   </Item.Root>
 </div>
 ```
+
+View Code
 
 ### [Avatar](item.md#avatar)
 
@@ -273,6 +281,8 @@ The `Item` component has different sizes for different use cases. For example, y
 </div>
 ```
 
+View Code
+
 ### [Image](item.md#image)
 
 ```svelte
@@ -332,6 +342,8 @@ The `Item` component has different sizes for different use cases. For example, y
 </div>
 ```
 
+View Code
+
 ### [Group](item.md#group)
 
 ```svelte
@@ -385,6 +397,8 @@ The `Item` component has different sizes for different use cases. For example, y
 </div>
 ```
 
+View Code
+
 ### [Header](item.md#header)
 
 ```svelte
@@ -437,6 +451,8 @@ The `Item` component has different sizes for different use cases. For example, y
 </div>
 ```
 
+View Code
+
 ### [Link](item.md#link)
 
 To render an item as a link, use the the `child` snippet. The hover and focus states will be applied to the anchor element.
@@ -480,6 +496,8 @@ To render an item as a link, use the the `child` snippet. The hover and focus st
   </Item.Root>
 </div>
 ```
+
+View Code
 
 ### [Dropdown](item.md#dropdown)
 
@@ -538,3 +556,5 @@ To render an item as a link, use the the `child` snippet. The hover and focus st
   </DropdownMenu.Root>
 </div>
 ```
+
+View Code

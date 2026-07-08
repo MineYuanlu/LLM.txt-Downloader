@@ -142,6 +142,8 @@ We do not ship any typography styles by default. This page is an example of how 
 </div>
 ```
 
+View Code
+
 ## [h1](typography.md#h1)
 
 ```svelte
@@ -149,6 +151,8 @@ We do not ship any typography styles by default. This page is an example of how 
   Taxing Laughter: The Joke Tax Chronicles
 </h1>
 ```
+
+View Code
 
 ## [h2](typography.md#h2)
 
@@ -160,11 +164,15 @@ We do not ship any typography styles by default. This page is an example of how 
 </h2>
 ```
 
+View Code
+
 ## [h3](typography.md#h3)
 
 ```svelte
 <h3 class="scroll-m-20 text-2xl font-semibold tracking-tight">The Joke Tax</h3>
 ```
+
+View Code
 
 ## [h4](typography.md#h4)
 
@@ -173,6 +181,8 @@ We do not ship any typography styles by default. This page is an example of how 
   People stopped telling jokes
 </h4>
 ```
+
+View Code
 
 ## [p](typography.md#p)
 
@@ -183,6 +193,8 @@ We do not ship any typography styles by default. This page is an example of how 
 </p>
 ```
 
+View Code
+
 ## [blockquote](typography.md#blockquote)
 
 ```svelte
@@ -191,6 +203,8 @@ We do not ship any typography styles by default. This page is an example of how 
   they should pay for the privilege."
 </blockquote>
 ```
+
+View Code
 
 ## [table](typography.md#table)
 
@@ -253,6 +267,8 @@ We do not ship any typography styles by default. This page is an example of how 
 </div>
 ```
 
+View Code
+
 ## [list](typography.md#list)
 
 ```svelte
@@ -262,6 +278,8 @@ We do not ship any typography styles by default. This page is an example of how 
   <li>3rd level of one-liners : 20 gold coins</li>
 </ul>
 ```
+
+View Code
 
 ## [Inline code](typography.md#inline-code)
 
@@ -273,6 +291,8 @@ We do not ship any typography styles by default. This page is an example of how 
 </code>
 ```
 
+View Code
+
 ## [Lead](typography.md#lead)
 
 ```svelte
@@ -282,11 +302,15 @@ We do not ship any typography styles by default. This page is an example of how 
 </p>
 ```
 
+View Code
+
 ## [Large](typography.md#large)
 
 ```svelte
 <div class="text-lg font-semibold">Are you sure absolutely sure?</div>
 ```
+
+View Code
 
 ## [Small](typography.md#small)
 
@@ -294,8 +318,12 @@ We do not ship any typography styles by default. This page is an example of how 
 <small class="text-sm leading-none font-medium">Email address</small>
 ```
 
+View Code
+
 ## [Muted](typography.md#muted)
 
 ```svelte
 <p class="text-muted-foreground text-sm">Enter your email address.</p>
 ```
+
+View Code
