@@ -29,15 +29,15 @@ bun x sv add tailwindcss
 Add the following dependencies to your project:
 
 ```bash
-pnpm i tailwind-variants clsx tailwind-merge tw-animate-css
+pnpm i tailwind-variants clsx tailwind-merge tw-animate-css -D
 ```
 
 ```bash
-npm i tailwind-variants clsx tailwind-merge tw-animate-css
+npm i tailwind-variants clsx tailwind-merge tw-animate-css -D
 ```
 
 ```bash
-bun install tailwind-variants clsx tailwind-merge tw-animate-css
+bun install tailwind-variants clsx tailwind-merge tw-animate-css -D
 ```
 
 ### [Add icon library](manual.md#add-icon-library)
@@ -45,15 +45,15 @@ bun install tailwind-variants clsx tailwind-merge tw-animate-css
 Install `@lucide/svelte`:
 
 ```bash
-pnpm i @lucide/svelte
+pnpm i @lucide/svelte -D
 ```
 
 ```bash
-npm i @lucide/svelte
+npm i @lucide/svelte -D
 ```
 
 ```bash
-bun install @lucide/svelte
+bun install @lucide/svelte -D
 ```
 
 ### [Configure path aliases](manual.md#configure-path-aliases)

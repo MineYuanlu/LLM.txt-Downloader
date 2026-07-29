@@ -12,19 +12,6 @@ Displays a button or a component that looks like a button.
 
 **Updated:** We have updated the button component to add new sizes: `icon-sm` and `icon-lg`. See the [changelog](button#changelog) for more details. Follow the instructions to update your project.
 
-```svelte
-<script lang="ts">
-  import ArrowUpIcon from "@lucide/svelte/icons/arrow-up";
-  import { Button } from "$lib/components/ui/button/index.js";
-</script>
-<div class="flex flex-wrap items-center gap-2 md:flex-row">
-  <Button variant="outline">Button</Button>
-  <Button variant="outline" size="icon" aria-label="Submit">
-    <ArrowUpIcon />
-  </Button>
-</div>
-```
-
 View Code
 
 ```svelte
@@ -61,33 +48,6 @@ bun x shadcn-svelte@latest add button
 
 ### [Size](button.md#size)
 
-```svelte
-<script lang="ts">
-  import ArrowUpRightIcon from "@lucide/svelte/icons/arrow-up-right";
-  import { Button } from "$lib/components/ui/button/index.js";
-</script>
-<div class="flex flex-col items-start gap-8 sm:flex-row">
-  <div class="flex items-start gap-2">
-    <Button size="sm" variant="outline">Small</Button>
-    <Button size="icon-sm" aria-label="Submit" variant="outline">
-      <ArrowUpRightIcon />
-    </Button>
-  </div>
-  <div class="flex items-start gap-2">
-    <Button variant="outline">Default</Button>
-    <Button size="icon" aria-label="Submit" variant="outline">
-      <ArrowUpRightIcon />
-    </Button>
-  </div>
-  <div class="flex items-start gap-2">
-    <Button variant="outline" size="lg">Large</Button>
-    <Button size="icon-lg" aria-label="Submit" variant="outline">
-      <ArrowUpRightIcon />
-    </Button>
-  </div>
-</div>
-```
-
 View Code
 
 ```svelte
@@ -110,13 +70,6 @@ View Code
 
 ### [Default](button.md#default)
 
-```svelte
-<script lang="ts">
-  import { Button } from "$lib/components/ui/button/index.js";
-</script>
-<Button>Button</Button>
-```
-
 View Code
 
 ```svelte
@@ -124,13 +77,6 @@ View Code
 ```
 
 ### [Outline](button.md#outline)
-
-```svelte
-<script lang="ts">
-  import { Button } from "$lib/components/ui/button/index.js";
-</script>
-<Button variant="outline">Outline</Button>
-```
 
 View Code
 
@@ -140,13 +86,6 @@ View Code
 
 ### [Secondary](button.md#secondary)
 
-```svelte
-<script lang="ts">
-  import { Button } from "$lib/components/ui/button/index.js";
-</script>
-<Button variant="secondary">Secondary</Button>
-```
-
 View Code
 
 ```svelte
@@ -154,13 +93,6 @@ View Code
 ```
 
 ### [Ghost](button.md#ghost)
-
-```svelte
-<script lang="ts">
-  import { Button } from "$lib/components/ui/button/index.js";
-</script>
-<Button variant="ghost">Ghost</Button>
-```
 
 View Code
 
@@ -170,13 +102,6 @@ View Code
 
 ### [Destructive](button.md#destructive)
 
-```svelte
-<script lang="ts">
-  import { Button } from "$lib/components/ui/button/index.js";
-</script>
-<Button variant="destructive">Destructive</Button>
-```
-
 View Code
 
 ```svelte
@@ -185,13 +110,6 @@ View Code
 
 ### [Link](button.md#link)
 
-```svelte
-<script lang="ts">
-  import { Button } from "$lib/components/ui/button/index.js";
-</script>
-<Button variant="link">Link</Button>
-```
-
 View Code
 
 ```svelte
@@ -199,16 +117,6 @@ View Code
 ```
 
 ### [Icon](button.md#icon)
-
-```svelte
-<script lang="ts">
-  import CircleFadingArrowUpIcon from "@lucide/svelte/icons/circle-fading-arrow-up";
-  import { Button } from "$lib/components/ui/button/index.js";
-</script>
-<Button variant="outline" size="icon" aria-label="Submit">
-  <CircleFadingArrowUpIcon />
-</Button>
-```
 
 View Code
 
@@ -222,16 +130,6 @@ View Code
 
 The spacing between the icon and the text is automatically adjusted based on the size of the button. You do not need any margin on the icon.
 
-```svelte
-<script lang="ts">
-  import IconGitBranch from "@lucide/svelte/icons/git-branch";
-  import { Button } from "$lib/components/ui/button/index.js";
-</script>
-<Button variant="outline" size="sm">
-  <IconGitBranch /> New Branch
-</Button>
-```
-
 View Code
 
 ```svelte
@@ -244,18 +142,6 @@ View Code
 
 Use the `rounded-full` class to make the button rounded.
 
-```svelte
-<script lang="ts">
-  import ArrowUpIcon from "@lucide/svelte/icons/arrow-up";
-  import { Button } from "$lib/components/ui/button/index.js";
-</script>
-<div class="flex flex-col gap-8">
-  <Button variant="outline" size="icon" class="rounded-full">
-    <ArrowUpIcon />
-  </Button>
-</div>
-```
-
 View Code
 
 ```svelte
@@ -265,17 +151,6 @@ View Code
 ```
 
 ### [Spinner](button.md#spinner)
-
-```svelte
-<script lang="ts">
-  import { Button } from "$lib/components/ui/button/index.js";
-  import { Spinner } from "$lib/components/ui/spinner/index.js";
-</script>
-<Button size="sm" variant="outline" disabled>
-  <Spinner />
-  Submit
-</Button>
-```
 
 View Code
 
@@ -289,105 +164,6 @@ View Code
 ### [Button Group](button.md#button-group)
 
 To create a button group, use the `ButtonGroup` component. See the [Button Group](button-group) documentation for more details.
-
-```svelte
-<script lang="ts">
-  import Archive from "@lucide/svelte/icons/archive";
-  import ArrowLeft from "@lucide/svelte/icons/arrow-left";
-  import CalendarPlus from "@lucide/svelte/icons/calendar-plus";
-  import Clock from "@lucide/svelte/icons/clock";
-  import ListFilter from "@lucide/svelte/icons/list-filter";
-  import MailCheck from "@lucide/svelte/icons/mail-check";
-  import MoreHorizontal from "@lucide/svelte/icons/more-horizontal";
-  import Tag from "@lucide/svelte/icons/tag";
-  import Trash2 from "@lucide/svelte/icons/trash-2";
-  import { Button } from "$lib/components/ui/button/index.js";
-  import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
-  import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
-  let label = $state("personal");
-</script>
-<ButtonGroup.Root>
-  <ButtonGroup.Root class="hidden sm:flex">
-    <Button variant="outline" size="icon-sm" aria-label="Go Back">
-      <ArrowLeft />
-    </Button>
-  </ButtonGroup.Root>
-  <ButtonGroup.Root>
-    <Button size="sm" variant="outline">Archive</Button>
-    <Button size="sm" variant="outline">Report</Button>
-  </ButtonGroup.Root>
-  <ButtonGroup.Root>
-    <Button size="sm" variant="outline">Snooze</Button>
-    <DropdownMenu.Root>
-      <DropdownMenu.Trigger>
-        {#snippet child({ props })}
-          <Button
-            {...props}
-            variant="outline"
-            size="icon-sm"
-            aria-label="More Options"
-          >
-            <MoreHorizontal />
-          </Button>
-        {/snippet}
-      </DropdownMenu.Trigger>
-      <DropdownMenu.Content align="end" class="w-52">
-        <DropdownMenu.Group>
-          <DropdownMenu.Item>
-            <MailCheck />
-            Mark as Read
-          </DropdownMenu.Item>
-          <DropdownMenu.Item>
-            <Archive />
-            Archive
-          </DropdownMenu.Item>
-        </DropdownMenu.Group>
-        <DropdownMenu.Separator />
-        <DropdownMenu.Group>
-          <DropdownMenu.Item>
-            <Clock />
-            Snooze
-          </DropdownMenu.Item>
-          <DropdownMenu.Item>
-            <CalendarPlus />
-            Add to Calendar
-          </DropdownMenu.Item>
-          <DropdownMenu.Item>
-            <ListFilter />
-            Add to List
-          </DropdownMenu.Item>
-          <DropdownMenu.Sub>
-            <DropdownMenu.SubTrigger>
-              <Tag />
-              Label As...
-            </DropdownMenu.SubTrigger>
-            <DropdownMenu.SubContent>
-              <DropdownMenu.RadioGroup bind:value={label}>
-                <DropdownMenu.RadioItem value="personal">
-                  Personal
-                </DropdownMenu.RadioItem>
-                <DropdownMenu.RadioItem value="work"
-                  >Work</DropdownMenu.RadioItem
-                >
-                <DropdownMenu.RadioItem value="other"
-                  >Other</DropdownMenu.RadioItem
-                >
-              </DropdownMenu.RadioGroup>
-            </DropdownMenu.SubContent>
-          </DropdownMenu.Sub>
-        </DropdownMenu.Group>
-        <DropdownMenu.Separator />
-        <DropdownMenu.Group>
-          <DropdownMenu.Item class="text-destructive focus:text-destructive">
-            <Trash2 />
-            Trash
-          </DropdownMenu.Item>
-        </DropdownMenu.Group>
-      </DropdownMenu.Content>
-    </DropdownMenu.Root>
-  </ButtonGroup.Root>
-</ButtonGroup.Root>
-```
 
 View Code
 

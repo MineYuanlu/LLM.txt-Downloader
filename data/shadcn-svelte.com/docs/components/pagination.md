@@ -12,40 +12,6 @@ Pagination with page navigation, next and previous links.
 
 [Special Sponsor](https://github.com/EpicenterHQ/epicenter)
 
-```svelte
-<script lang="ts">
-  import * as Pagination from "$lib/components/ui/pagination/index.js";
-</script>
-<Pagination.Root count={30} page={2}>
-  {#snippet children({ pages, currentPage })}
-    <Pagination.Content>
-      <Pagination.Item>
-        <Pagination.Previous />
-      </Pagination.Item>
-      {#each pages as page (page.key)}
-        {#if page.type === "ellipsis"}
-          <Pagination.Item>
-            <Pagination.Ellipsis />
-          </Pagination.Item>
-        {:else}
-          <Pagination.Item>
-            <Pagination.Link {page} isActive={currentPage === page.value}>
-              {page.value}
-            </Pagination.Link>
-          </Pagination.Item>
-        {/if}
-      {/each}
-      <Pagination.Item>
-        <Pagination.Ellipsis />
-      </Pagination.Item>
-      <Pagination.Item>
-        <Pagination.Next />
-      </Pagination.Item>
-    </Pagination.Content>
-  {/snippet}
-</Pagination.Root>
-```
-
 View Code
 
 ## [Installation](pagination.md#installation)

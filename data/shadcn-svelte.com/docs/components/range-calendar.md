@@ -12,20 +12,6 @@ A calendar component that allows users to select a range of dates.
 
 [Special Sponsor](https://github.com/EpicenterHQ/epicenter)
 
-```svelte
-<script lang="ts">
-  import { getLocalTimeZone, today } from "@internationalized/date";
-  import { RangeCalendar } from "$lib/components/ui/range-calendar/index.js";
-  const start = today(getLocalTimeZone());
-  const end = start.add({ days: 7 });
-  let value = $state({
-    start,
-    end
-  });
-</script>
-<RangeCalendar bind:value class="rounded-md border" />
-```
-
 View Code
 
 ## [About](range-calendar.md#about)

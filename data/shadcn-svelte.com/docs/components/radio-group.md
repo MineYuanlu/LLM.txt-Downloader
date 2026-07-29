@@ -12,27 +12,6 @@ A set of checkable buttonsknown as radio buttonswhere no more than one of the bu
 
 [Special Sponsor](https://github.com/EpicenterHQ/epicenter)
 
-```svelte
-<script lang="ts">
-  import * as RadioGroup from "$lib/components/ui/radio-group/index.js";
-  import { Label } from "$lib/components/ui/label/index.js";
-</script>
-<RadioGroup.Root value="comfortable">
-  <div class="flex items-center space-x-2">
-    <RadioGroup.Item value="default" id="r1" />
-    <Label for="r1">Default</Label>
-  </div>
-  <div class="flex items-center space-x-2">
-    <RadioGroup.Item value="comfortable" id="r2" />
-    <Label for="r2">Comfortable</Label>
-  </div>
-  <div class="flex items-center space-x-2">
-    <RadioGroup.Item value="compact" id="r3" />
-    <Label for="r3">Compact</Label>
-  </div>
-</RadioGroup.Root>
-```
-
 View Code
 
 ## [Installation](radio-group.md#installation)

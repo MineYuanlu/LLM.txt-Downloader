@@ -12,35 +12,6 @@ Accessible resizable panel groups and layouts with keyboard support.
 
 [Special Sponsor](https://github.com/EpicenterHQ/epicenter)
 
-```svelte
-<script lang="ts">
-  import * as Resizable from "$lib/components/ui/resizable/index.js";
-</script>
-<Resizable.PaneGroup direction="horizontal" class="max-w-md rounded-lg border">
-  <Resizable.Pane defaultSize={50}>
-    <div class="flex h-[200px] items-center justify-center p-6">
-      <span class="font-semibold">One</span>
-    </div>
-  </Resizable.Pane>
-  <Resizable.Handle />
-  <Resizable.Pane defaultSize={50}>
-    <Resizable.PaneGroup direction="vertical">
-      <Resizable.Pane defaultSize={25}>
-        <div class="flex h-full items-center justify-center p-6">
-          <span class="font-semibold">Two</span>
-        </div>
-      </Resizable.Pane>
-      <Resizable.Handle />
-      <Resizable.Pane defaultSize={75}>
-        <div class="flex h-full items-center justify-center p-6">
-          <span class="font-semibold">Three</span>
-        </div>
-      </Resizable.Pane>
-    </Resizable.PaneGroup>
-  </Resizable.Pane>
-</Resizable.PaneGroup>
-```
-
 View Code
 
 ## [About](resizable.md#about)
@@ -83,28 +54,6 @@ bun x shadcn-svelte@latest add resizable
 
 Use the `direction` prop to set the direction of the resizable panels.
 
-```svelte
-<script lang="ts">
-  import * as Resizable from "$lib/components/ui/resizable/index.js";
-</script>
-<Resizable.PaneGroup
-  direction="vertical"
-  class="min-h-[200px] max-w-md rounded-lg border"
->
-  <Resizable.Pane defaultSize={25}>
-    <div class="flex h-full items-center justify-center p-6">
-      <span class="font-semibold">Header</span>
-    </div>
-  </Resizable.Pane>
-  <Resizable.Handle />
-  <Resizable.Pane defaultSize={75}>
-    <div class="flex h-full items-center justify-center p-6">
-      <span class="font-semibold">Content</span>
-    </div>
-  </Resizable.Pane>
-</Resizable.PaneGroup>
-```
-
 View Code
 
 ```svelte
@@ -121,28 +70,6 @@ View Code
 ### [Handle](resizable.md#handle)
 
 You can set or hide the handle by using the `withHandle` prop on the `ResizableHandle` component.
-
-```svelte
-<script lang="ts">
-  import * as Resizable from "$lib/components/ui/resizable/index.js";
-</script>
-<Resizable.PaneGroup
-  direction="horizontal"
-  class="min-h-[200px] max-w-md rounded-lg border"
->
-  <Resizable.Pane defaultSize={25}>
-    <div class="flex h-full items-center justify-center p-6">
-      <span class="font-semibold">Sidebar</span>
-    </div>
-  </Resizable.Pane>
-  <Resizable.Handle withHandle />
-  <Resizable.Pane defaultSize={75}>
-    <div class="flex h-full items-center justify-center p-6">
-      <span class="font-semibold">Content</span>
-    </div>
-  </Resizable.Pane>
-</Resizable.PaneGroup>
-```
 
 View Code
 
