@@ -12,6 +12,23 @@ A popup that displays information related to an element when the element receive
 
 [Special Sponsor](https://github.com/EpicenterHQ/epicenter)
 
+```svelte
+<script lang="ts">
+  import * as Tooltip from "$lib/components/ui/tooltip/index.js";
+  import { buttonVariants } from "../ui/button/index.js";
+</script>
+<Tooltip.Provider>
+  <Tooltip.Root>
+    <Tooltip.Trigger class={buttonVariants({ variant: "outline" })}
+      >Hover</Tooltip.Trigger
+    >
+    <Tooltip.Content>
+      <p>Add to library</p>
+    </Tooltip.Content>
+  </Tooltip.Root>
+</Tooltip.Provider>
+```
+
 View Code
 
 ## [Installation](tooltip.md#installation)

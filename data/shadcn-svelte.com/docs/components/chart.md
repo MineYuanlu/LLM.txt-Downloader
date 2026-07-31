@@ -112,6 +112,54 @@ You can now build your chart using LayerChart components. We're using the `BarCh
 
 These components handle a lot of the common chart scaffolding for you, while allowing you to customize them to your liking.
 
+```svelte
+<script lang="ts">
+  import { scaleBand } from "d3-scale";
+  import { BarChart } from "layerchart";
+  import * as Chart from "$lib/components/ui/chart/index.js";
+  const chartData = [
+    { month: "January", desktop: 186, mobile: 80 },
+    { month: "February", desktop: 305, mobile: 200 },
+    { month: "March", desktop: 237, mobile: 120 },
+    { month: "April", desktop: 73, mobile: 190 },
+    { month: "May", desktop: 209, mobile: 130 },
+    { month: "June", desktop: 214, mobile: 140 }
+ ];
+  const chartConfig = {
+    desktop: {
+      label: "Desktop",
+      color: "#2563eb"
+    },
+    mobile: {
+      label: "Mobile",
+      color: "#60a5fa"
+    }
+  } satisfies Chart.ChartConfig;
+</script>
+<Chart.Container config={chartConfig} class="min-h-[200px] w-full">
+  <BarChart
+    data={chartData}
+    xScale={scaleBand().padding(0.25)}
+    x="month"
+    axis="x"
+    seriesLayout="group"
+    tooltipContext={false}
+    series={[
+      {
+        key: "desktop",
+        label: chartConfig.desktop.label,
+        color: chartConfig.desktop.color
+      },
+      {
+        key: "mobile",
+        label: chartConfig.mobile.label,
+        color: chartConfig.mobile.color
+      }
+   ]}
+  />
+</Chart.Container>
+```
+
 View Code
 
 We now have a group-stacked bar chart with an x axis and a grid.
@@ -149,6 +197,59 @@ The `props` prop is how you can pass custom props to the various components that
       xAxis: {
         format: (d) => d.slice(0, 3),
       },
+    }}
+  />
+</Chart.Container>
+```
+
+```svelte
+<script lang="ts">
+  import { scaleBand } from "d3-scale";
+  import { BarChart } from "layerchart";
+  import * as Chart from "$lib/components/ui/chart/index.js";
+  const chartData = [
+    { month: "January", desktop: 186, mobile: 80 },
+    { month: "February", desktop: 305, mobile: 200 },
+    { month: "March", desktop: 237, mobile: 120 },
+    { month: "April", desktop: 73, mobile: 190 },
+    { month: "May", desktop: 209, mobile: 130 },
+    { month: "June", desktop: 214, mobile: 140 }
+ ];
+  const chartConfig = {
+    desktop: {
+      label: "Desktop",
+      color: "#2563eb"
+    },
+    mobile: {
+      label: "Mobile",
+      color: "#60a5fa"
+    }
+  } satisfies Chart.ChartConfig;
+</script>
+<Chart.Container config={chartConfig} class="min-h-[200px] w-full">
+  <BarChart
+    data={chartData}
+    xScale={scaleBand().padding(0.25)}
+    x="month"
+    axis="x"
+    tooltipContext={false}
+    seriesLayout="group"
+    series={[
+      {
+        key: "desktop",
+        label: chartConfig.desktop.label,
+        color: chartConfig.desktop.color
+      },
+      {
+        key: "mobile",
+        label: chartConfig.mobile.label,
+        color: chartConfig.mobile.color
+      }
+   ]}
+    props={{
+      xAxis: {
+        format: (d) => d.slice(0, 3)
+      }
     }}
   />
 </Chart.Container>
@@ -199,6 +300,57 @@ We'll replace the `tooltipContext={false}` prop with the `tooltip` snippet where
 </Chart.Container>
 ```
 
+```svelte
+<script lang="ts">
+  import { scaleBand } from "d3-scale";
+  import { BarChart } from "layerchart";
+  import * as Chart from "$lib/components/ui/chart/index.js";
+  const chartData = [
+    { month: "January", desktop: 186, mobile: 80 },
+    { month: "February", desktop: 305, mobile: 200 },
+    { month: "March", desktop: 237, mobile: 120 },
+    { month: "April", desktop: 73, mobile: 190 },
+    { month: "May", desktop: 209, mobile: 130 },
+    { month: "June", desktop: 214, mobile: 140 }
+ ];
+  const chartConfig = {
+    desktop: {
+      label: "Desktop",
+      color: "#2563eb"
+    },
+    mobile: {
+      label: "Mobile",
+      color: "#60a5fa"
+    }
+  } satisfies Chart.ChartConfig;
+</script>
+<Chart.Container config={chartConfig} class="min-h-[200px] w-full">
+  <BarChart
+    data={chartData}
+    xScale={scaleBand().padding(0.25)}
+    x="month"
+    axis="x"
+    seriesLayout="group"
+    series={[
+      {
+        key: "desktop",
+        label: chartConfig.desktop.label,
+        color: chartConfig.desktop.color
+      },
+      {
+        key: "mobile",
+        label: chartConfig.mobile.label,
+        color: chartConfig.mobile.color
+      }
+   ]}
+  >
+    {#snippet tooltip()}
+      <Chart.Tooltip />
+    {/snippet}
+  </BarChart>
+</Chart.Container>
+```
+
 View Code
 
 ### [Add Legend](chart.md#add-legend)
@@ -233,6 +385,58 @@ The `legend` prop is used to show a legend for the chart. We are working with La
         format: (d) => d.slice(0, 3),
       },
     }}
+  >
+    {#snippet tooltip()}
+      <Chart.Tooltip />
+    {/snippet}
+  </BarChart>
+</Chart.Container>
+```
+
+```svelte
+<script lang="ts">
+  import { scaleBand } from "d3-scale";
+  import { BarChart } from "layerchart";
+  import * as Chart from "$lib/components/ui/chart/index.js";
+  const chartData = [
+    { month: "January", desktop: 186, mobile: 80 },
+    { month: "February", desktop: 305, mobile: 200 },
+    { month: "March", desktop: 237, mobile: 120 },
+    { month: "April", desktop: 73, mobile: 190 },
+    { month: "May", desktop: 209, mobile: 130 },
+    { month: "June", desktop: 214, mobile: 140 }
+ ];
+  const chartConfig = {
+    desktop: {
+      label: "Desktop",
+      color: "#2563eb"
+    },
+    mobile: {
+      label: "Mobile",
+      color: "#60a5fa"
+    }
+  } satisfies Chart.ChartConfig;
+</script>
+<Chart.Container config={chartConfig} class="min-h-[200px] w-full">
+  <BarChart
+    data={chartData}
+    xScale={scaleBand().padding(0.25)}
+    x="month"
+    axis="x"
+    seriesLayout="group"
+    legend
+    series={[
+      {
+        key: "desktop",
+        label: chartConfig.desktop.label,
+        color: chartConfig.desktop.color
+      },
+      {
+        key: "mobile",
+        label: chartConfig.mobile.label,
+        color: chartConfig.mobile.color
+      }
+   ]}
   >
     {#snippet tooltip()}
       <Chart.Tooltip />

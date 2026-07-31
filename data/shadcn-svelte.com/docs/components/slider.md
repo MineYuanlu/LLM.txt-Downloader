@@ -12,6 +12,14 @@ An input where the user selects a value from within a given range.
 
 [Special Sponsor](https://github.com/EpicenterHQ/epicenter)
 
+```svelte
+<script lang="ts">
+  import { Slider } from "$lib/components/ui/slider/index.js";
+  let value = $state(50);
+</script>
+<Slider type="single" bind:value max={100} step={1} class="max-w-[70%]" />
+```
+
 View Code
 
 ## [Installation](slider.md#installation)

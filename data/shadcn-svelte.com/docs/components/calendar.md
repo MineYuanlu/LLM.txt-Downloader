@@ -12,6 +12,20 @@ A calendar component that allows users to select dates.
 
 [Special Sponsor](https://github.com/EpicenterHQ/epicenter)
 
+```svelte
+<script lang="ts">
+  import { getLocalTimeZone, today } from "@internationalized/date";
+  import { Calendar } from "$lib/components/ui/calendar/index.js";
+  let value = today(getLocalTimeZone());
+</script>
+<Calendar
+  type="single"
+  bind:value
+  class="rounded-md border shadow-sm"
+  captionLayout="dropdown"
+/>
+```
+
 View Code
 
 ## [Blocks](calendar.md#blocks)
@@ -48,23 +62,295 @@ You can use the `<Calendar />` component to build a date picker. See the [Date P
 
 ### [Range Calendar](calendar.md#range-calendar)
 
+```svelte
+<script lang="ts">
+  import { CalendarDate } from "@internationalized/date";
+  import Calendar from "$lib/components/ui/calendar/calendar.svelte";
+  let value = $state<CalendarDate | undefined>(new CalendarDate(2025, 6, 12));
+</script>
+<Calendar
+  type="single"
+  bind:value
+  class="rounded-lg border shadow-sm"
+  numberOfMonths={2}
+/>
+```
+
 View Code
 
 ### [Month and Year Selector](calendar.md#month-and-year-selector)
+
+```svelte
+<script lang="ts">
+  import { CalendarDate } from "@internationalized/date";
+  import * as Select from "$lib/components/ui/select/index.js";
+  import Calendar from "$lib/components/ui/calendar/calendar.svelte";
+  import { Label } from "$lib/components/ui/label/index.js";
+  import type { ComponentProps } from "svelte";
+  let value = $state<CalendarDate>(new CalendarDate(2025, 6, 12));
+  let dropdown =
+    $state<ComponentProps<typeof Calendar>["captionLayout"]>("dropdown");
+  const dropdownOptions = [
+    {
+      label: "Month and Year",
+      value: "dropdown"
+    },
+    {
+      label: "Month Only",
+      value: "dropdown-months"
+    },
+    {
+      label: "Year Only",
+      value: "dropdown-years"
+    }
+ ];
+  const selectedDropdown = $derived(
+    dropdownOptions.find((option) => option.value === dropdown)?.label ??
+      "Dropdown"
+  );
+  const id = $props.id();
+</script>
+<div class="flex flex-col gap-4">
+  <Calendar
+    type="single"
+    bind:value
+    class="rounded-lg border shadow-sm"
+    captionLayout={dropdown}
+  />
+  <div class="flex flex-col gap-3">
+    <Label for="{id}-dropdown" class="px-1">Dropdown</Label>
+    <Select.Root type="single" bind:value={dropdown}>
+      <Select.Trigger id="{id}-dropdown" size="sm" class="w-full bg-background">
+        {selectedDropdown}
+      </Select.Trigger>
+      <Select.Content align="center">
+        {#each dropdownOptions as option (option.value)}
+          <Select.Item value={option.value}>{option.label}</Select.Item>
+        {/each}
+      </Select.Content>
+    </Select.Root>
+  </div>
+</div>
+```
 
 View Code
 
 ### [Date of Birth Picker](calendar.md#date-of-birth-picker)
 
+```svelte
+<script lang="ts">
+  import ChevronDownIcon from "@lucide/svelte/icons/chevron-down";
+  import {
+    getLocalTimeZone,
+    today,
+    type CalendarDate
+  } from "@internationalized/date";
+  import * as Popover from "$lib/components/ui/popover/index.js";
+  import Calendar from "$lib/components/ui/calendar/calendar.svelte";
+  import { Button } from "$lib/components/ui/button/index.js";
+  import { Label } from "$lib/components/ui/label/index.js";
+  const id = $props.id();
+  let open = $state(false);
+  let value = $state<CalendarDate | undefined>();
+</script>
+<div class="flex flex-col gap-3">
+  <Label for="{id}-date" class="px-1">Date of birth</Label>
+  <Popover.Root bind:open>
+    <Popover.Trigger id="{id}-date">
+      {#snippet child({ props })}
+        <Button
+          {...props}
+          variant="outline"
+          class="w-48 justify-between font-normal"
+        >
+          {value
+            ? value.toDate(getLocalTimeZone()).toLocaleDateString()
+            : "Select date"}
+          <ChevronDownIcon />
+        </Button>
+      {/snippet}
+    </Popover.Trigger>
+    <Popover.Content class="w-auto overflow-hidden p-0" align="start">
+      <Calendar
+        type="single"
+        bind:value
+        captionLayout="dropdown"
+        onValueChange={() => {
+          open = false;
+        }}
+        maxValue={today(getLocalTimeZone())}
+      />
+    </Popover.Content>
+  </Popover.Root>
+</div>
+```
+
 View Code
 
 ### [Date and Time Picker](calendar.md#date-and-time-picker)
+
+```svelte
+<script lang="ts">
+  import ChevronDownIcon from "@lucide/svelte/icons/chevron-down";
+  import { getLocalTimeZone } from "@internationalized/date";
+  import * as Popover from "$lib/components/ui/popover/index.js";
+  import Calendar from "$lib/components/ui/calendar/calendar.svelte";
+  import { Button } from "$lib/components/ui/button/index.js";
+  import { Input } from "$lib/components/ui/input/index.js";
+  import { Label } from "$lib/components/ui/label/index.js";
+  import type { CalendarDate } from "@internationalized/date";
+  const id = $props.id();
+  let open = $state(false);
+  let value = $state<CalendarDate | undefined>();
+</script>
+<div class="flex gap-4">
+  <div class="flex flex-col gap-3">
+    <Label for="{id}-date" class="px-1">Date</Label>
+    <Popover.Root bind:open>
+      <Popover.Trigger id="{id}-date">
+        {#snippet child({ props })}
+          <Button
+            {...props}
+            variant="outline"
+            class="w-32 justify-between font-normal"
+          >
+            {value
+              ? value.toDate(getLocalTimeZone()).toLocaleDateString()
+              : "Select date"}
+            <ChevronDownIcon />
+          </Button>
+        {/snippet}
+      </Popover.Trigger>
+      <Popover.Content class="w-auto overflow-hidden p-0" align="start">
+        <Calendar
+          type="single"
+          bind:value
+          onValueChange={() => {
+            open = false;
+          }}
+          captionLayout="dropdown"
+        />
+      </Popover.Content>
+    </Popover.Root>
+  </div>
+  <div class="flex flex-col gap-3">
+    <Label for="{id}-time" class="px-1">Time</Label>
+    <Input
+      type="time"
+      id="{id}-time"
+      step="1"
+      value="10:30:00"
+      class="appearance-none bg-background [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
+    />
+  </div>
+</div>
+```
 
 View Code
 
 ### [Natural Language Picker](calendar.md#natural-language-picker)
 
 This component uses the `chrono-node` library to parse natural language dates.
+
+```svelte
+<script lang="ts">
+  import CalendarIcon from "@lucide/svelte/icons/calendar";
+  import {
+    CalendarDate,
+    getLocalTimeZone,
+    type DateValue
+  } from "@internationalized/date";
+  import { parseDate } from "chrono-node";
+  import { untrack } from "svelte";
+  import * as Popover from "$lib/components/ui/popover/index.js";
+  import { Button } from "$lib/components/ui/button/index.js";
+  import { Calendar } from "$lib/components/ui/calendar/index.js";
+  import { Input } from "$lib/components/ui/input/index.js";
+  import { Label } from "$lib/components/ui/label/index.js";
+  function formatDate(date: DateValue | undefined) {
+    if (!date) return "";
+    return date.toDate(getLocalTimeZone()).toLocaleDateString("en-US", {
+      day: "2-digit",
+      month: "long",
+      year: "numeric"
+    });
+  }
+  const id = $props.id();
+  let open = $state(false);
+  let inputValue = $state("In 2 days");
+  let value = $state<DateValue | undefined>(
+    untrack(() => {
+      const date = parseDate(inputValue);
+      if (date)
+        return new CalendarDate(
+          date.getFullYear(),
+          date.getMonth() + 1,
+          date.getDate()
+        );
+      return undefined;
+    })
+  );
+</script>
+<div class="flex flex-col gap-3">
+  <Label for="{id}-date" class="px-1">Schedule Date</Label>
+  <div class="relative flex gap-2">
+    <Input
+      id="date"
+      bind:value={
+        () => inputValue,
+        (v) => {
+          inputValue = v;
+          const date = parseDate(v);
+          if (date) {
+            value = new CalendarDate(
+              date.getFullYear(),
+              date.getMonth() + 1,
+              date.getDate()
+            );
+          }
+        }
+      }
+      placeholder="Tomorrow or next week"
+      class="bg-background pe-10"
+      onkeydown={(e) => {
+        if (e.key === "ArrowDown") {
+          e.preventDefault();
+          open = true;
+        }
+      }}
+    />
+    <Popover.Root bind:open>
+      <Popover.Trigger id="{id}-date-picker">
+        {#snippet child({ props })}
+          <Button
+            {...props}
+            variant="ghost"
+            class="absolute end-2 top-1/2 size-6 -translate-y-1/2"
+          >
+            <CalendarIcon class="size-3.5" />
+            <span class="sr-only">Select date</span>
+          </Button>
+        {/snippet}
+      </Popover.Trigger>
+      <Popover.Content class="w-auto overflow-hidden p-0" align="end">
+        <Calendar
+          type="single"
+          bind:value
+          captionLayout="dropdown"
+          onValueChange={(v) => {
+            inputValue = formatDate(v);
+            open = false;
+          }}
+        />
+      </Popover.Content>
+    </Popover.Root>
+  </div>
+  <div class="px-1 text-sm text-muted-foreground">
+    Your post will be published on
+    <span class="font-medium">{formatDate(value)}</span>.
+  </div>
+</div>
+```
 
 View Code
 
