@@ -46,7 +46,7 @@ initialize your project and install dependencies
 Options:
   --preset <preset>          the preset to use
   -c, --cwd <path>           the working directory
-  --no-deps                  disable adding & installing dependencies
+  --no-deps-install          add dependencies to package.json without running install
   --skip-preflight           ignore preflight checks and continue (default: false)
   --reinstall                reinstall existing components when style changes
   --no-reinstall             skip reinstalling existing components when style changes
@@ -88,7 +88,7 @@ Arguments:
   components         the components to add or a url to the component
 Options:
   -c, --cwd <path>   the working directory (default: the current directory)
-  --no-deps         skips adding & installing package dependencies
+  --no-deps-install add dependencies to package.json without running install
   --skip-preflight  ignore preflight checks and continue (default: false)
   -a, --all         install all components to your project (default: false)
   -y, --yes         skip confirmation prompt (default: false)
@@ -144,6 +144,7 @@ Options:
   -c, --cwd <path>   the working directory (default: the current directory)
   -y, --yes          overwrite existing files without confirmation (default: false)
   -s, --silent       mute output (default: false)
+  --no-deps-install  add dependencies to package.json without running install
   --skip-preflight   ignore preflight checks and continue (default: false)
   --proxy <proxy>    fetch items from registry using a proxy
   -h, --help         display help for command
