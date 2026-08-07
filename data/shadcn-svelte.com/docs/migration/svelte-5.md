@@ -195,7 +195,7 @@ You can do the same for any of the other dependencies that you're using in your 
 The following dependencies have been updated to support Svelte 5:
 
 - `bits-ui` \- `^1.0.0` - `svelte-sonner` \- `^1.0.0` - `@lucide/svelte` \- `^0.482.0` - `paneforge` \- `^1.0.0-next.5` - `vaul-svelte` \- `^1.0.0-next.7` - `mode-watcher` \- `^1.0.0` - `cmdk-sv` \- deprecated in favor of Bits UI's `Command` component
-- `svelte-headless-table` \- deprecated in favor of `@tanstack/table-core` - `svelte-radix` \- icons deprecated in favor of `@lucide/svelte` - `lucide-svelte` \- replaced with `@lucide/svelte` You can update your dependencies by running the following command:
+- `svelte-headless-table` \- deprecated in favor of `@tanstack/svelte-table` - `svelte-radix` \- icons deprecated in favor of `@lucide/svelte` - `lucide-svelte` \- replaced with `@lucide/svelte` You can update your dependencies by running the following command:
 
 ```bash
 pnpm i bits-ui@latest svelte-sonner@latest @lucide/svelte@latest paneforge@next vaul-svelte@next mode-watcher@latest -D
@@ -252,7 +252,7 @@ npm uninstall cmdk-sv
 bun remove cmdk-sv
 ```
 
-### [svelte-headless-table](svelte-5.md#svelte-headless-table) `svelte-headless-table` has been replaced with `@tanstack/table-core`.
+### [svelte-headless-table](svelte-5.md#svelte-headless-table) `svelte-headless-table` has been replaced with `@tanstack/svelte-table`.
 
 ```bash
 pnpm remove svelte-headless-table
