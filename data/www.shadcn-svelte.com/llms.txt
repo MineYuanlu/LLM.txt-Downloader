@@ -79,13 +79,17 @@
 ### Display & Media
 
 - [Aspect Ratio](../shadcn-svelte.com/docs/components/aspect-ratio.md): Displays content within a desired ratio.
+- [Attachment](../shadcn-svelte.com/docs/components/attachment.md): Displays a file or image attachment with media, metadata, upload state, and actions.
 - [Avatar](../shadcn-svelte.com/docs/components/avatar.md): An image element with a fallback for representing the user.
+- [Bubble](../shadcn-svelte.com/docs/components/bubble.md): Displays conversational content in a message bubble. Supports variants, alignment, grouping, reactions, and collapsible content.
 - [Card](../shadcn-svelte.com/docs/components/card.md): Displays a card with header, content, and footer.
 - [Carousel](../shadcn-svelte.com/docs/components/carousel.md): A carousel with motion and swipe built using Embla.
 - [Chart](../shadcn-svelte.com/docs/components/chart.md): Beautiful charts. Built using LayerChart. Copy and paste into your apps.
 - [Data Table](../shadcn-svelte.com/docs/components/data-table.md): Powerful table and datagrids built using TanStack Table.
 - [Item](../shadcn-svelte.com/docs/components/item.md): A versatile component that you can use to display any content.
 - [Kbd](../shadcn-svelte.com/docs/components/kbd.md): Used to display textual user input from keyboard.
+- [Marker](../shadcn-svelte.com/docs/components/marker.md): Displays an inline status, system note, bordered row, or labeled separator in a conversation.
+- [Message](../shadcn-svelte.com/docs/components/message.md): Displays a message in a conversation, with optional avatar, header, footer, and alignment.
 - [Table](../shadcn-svelte.com/docs/components/table.md): A responsive table component.
 - [Typography](../shadcn-svelte.com/docs/components/typography.md): Styles for headings, paragraphs, lists...etc
 
@@ -114,3 +118,8 @@
 - [Getting Started](../shadcn-svelte.com/docs/registry/getting-started.md): Learn how to get setup and run your own component registry.
 - [registry-item.json](../shadcn-svelte.com/docs/registry/registry-item-json.md): Specification for registry items.
 - [registry.json](../shadcn-svelte.com/docs/registry/registry-json.md): Schema for running your own component registry.
+
+## Utilities
+
+- [scroll-fade](../shadcn-svelte.com/docs/utils/scroll-fade.md): Utilities for adding a fade effect to the edges of a scroll container.
+- [shimmer](../shadcn-svelte.com/docs/utils/shimmer.md): Utilities for adding a shimmer effect to text elements.
