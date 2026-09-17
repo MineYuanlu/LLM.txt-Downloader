@@ -55,7 +55,7 @@ It can be used to create a new style from scratch i.e. custom components, css va
 
 On `npx shadcn-svelte@latest add`, the following will:
 
-- Install `tailwind-merge` and `clsx` as dependencies.
+- Install `cn` as a dependency.
 - Add the `utils` registry item from the shadcn-svelte registry.
 - Add the `button` , `input` , `label` , and `select` components from a remote registry.
 - Install new css vars: `main` , `bg` , `border` , `text` , `ring` .
@@ -68,7 +68,7 @@ example-style.json
   "extends": "none",
   "name": "new-style",
   "type": "registry:style",
-  "dependencies": ["tailwind-merge", "clsx"],
+  "dependencies": ["cn"],
   "registryDependencies": [
     "utils",
     "https://example.com/r/button.json",

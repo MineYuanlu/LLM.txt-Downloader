@@ -441,7 +441,7 @@ Once you've verified that your styles are working as expected, you can remove th
 
 ### [3. Use new `size-*` utility](tailwind-v4.md#3-use-new-size--utility)
 
-The new `size-*` utility (added in Tailwind v3.4), is now fully supported by `tailwind-merge`. You can replace `w-* h-*` with the new `size-*` utility:
+The new `size-*` utility (added in Tailwind v3.4), is now fully supported when merging classes with `cn`. You can replace `w-* h-*` with the new `size-*` utility:
 
 ```diff
 - w-4 h-4
@@ -451,15 +451,15 @@ The new `size-*` utility (added in Tailwind v3.4), is now fully supported by `ta
 ### [4. Update your dependencies](tailwind-v4.md#4-update-your-dependencies)
 
 ```bash
-pnpm i bits-ui@latest @lucide/svelte@latest tailwind-variants@latest tailwind-merge@latest clsx@latest svelte-sonner@latest paneforge@next vaul-svelte@next formsnap@latest
+pnpm i bits-ui@latest @lucide/svelte@latest tailwind-variants@latest cn@latest svelte-sonner@latest paneforge@next vaul-svelte@next formsnap@latest
 ```
 
 ```bash
-npm i bits-ui@latest @lucide/svelte@latest tailwind-variants@latest tailwind-merge@latest clsx@latest svelte-sonner@latest paneforge@next vaul-svelte@next formsnap@latest
+npm i bits-ui@latest @lucide/svelte@latest tailwind-variants@latest cn@latest svelte-sonner@latest paneforge@next vaul-svelte@next formsnap@latest
 ```
 
 ```bash
-bun install bits-ui@latest @lucide/svelte@latest tailwind-variants@latest tailwind-merge@latest clsx@latest svelte-sonner@latest paneforge@next vaul-svelte@next formsnap@latest
+bun install bits-ui@latest @lucide/svelte@latest tailwind-variants@latest cn@latest svelte-sonner@latest paneforge@next vaul-svelte@next formsnap@latest
 ```
 
 ### [5. Update your utils (optional)](tailwind-v4.md#5-update-your-utils-optional)
@@ -473,11 +473,14 @@ These helpers have been moved into the `utils.ts` file:
 utils.ts
 
 ```diff
- import { clsx, type ClassValue } from "clsx";
- import { twMerge } from "tailwind-merge";
- export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
- }
+- import { clsx, type ClassValue } from "clsx";
+- import { twMerge } from "tailwind-merge";
+-
+- export function cn(...inputs: ClassValue[]) {
+-   return twMerge(clsx(inputs));
+- }
++ export { cn } from "cn";
++
 + // eslint-disable-next-line @typescript-eslint/no-explicit-any
 + export type WithoutChild<T> = T extends { child?: any } ? Omit<T, "child"> : T;
 + // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -29,15 +29,15 @@ bun x sv add tailwindcss
 Add the following dependencies to your project:
 
 ```bash
-pnpm i tailwind-variants clsx tailwind-merge tw-animate-css -D
+pnpm i tailwind-variants cn tw-animate-css -D
 ```
 
 ```bash
-npm i tailwind-variants clsx tailwind-merge tw-animate-css -D
+npm i tailwind-variants cn tw-animate-css -D
 ```
 
 ```bash
-bun install tailwind-variants clsx tailwind-merge tw-animate-css -D
+bun install tailwind-variants cn tw-animate-css -D
 ```
 
 ### [Add icon library](manual.md#add-icon-library)
@@ -236,11 +236,7 @@ You'll want to create a `cn` helper to make it easier to conditionally add and m
 src/lib/utils.ts
 
 ```ts
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
+export { cn } from "cn";
 ```
 
 ### [Import styles to your app](manual.md#import-styles-to-your-app)
