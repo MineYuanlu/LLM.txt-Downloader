@@ -17,12 +17,12 @@ A collection of links for navigating websites.
   import CircleIcon from "@lucide/svelte/icons/circle";
   import CircleCheckIcon from "@lucide/svelte/icons/circle-check";
   import CircleHelpIcon from "@lucide/svelte/icons/circle-help";
+  import { MediaQuery } from "svelte/reactivity";
   import * as NavigationMenu from "$lib/components/ui/navigation-menu/index.js";
-  import { IsMobile } from "$lib/components/hooks/is-mobile.svelte.js";
   import { navigationMenuTriggerStyle } from "$lib/components/ui/navigation-menu/navigation-menu-trigger.svelte";
   import { cn } from "$lib/utils.js";
   import type { HTMLAttributes } from "svelte/elements";
-  const isMobile = new IsMobile();
+  const isMobile = new MediaQuery("(max-width: 767px)");
   const components: { title: string; href: string; description: string }[] = [
     {
       title: "Alert Dialog",
