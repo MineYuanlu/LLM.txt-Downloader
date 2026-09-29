@@ -71,7 +71,10 @@ Display additional information or actions to an input or textarea.
         </DropdownMenu.Content>
       </DropdownMenu.Root>
       <InputGroup.Text class="ms-auto">52% used</InputGroup.Text>
-      <Separator orientation="vertical" class="!h-4" />
+      <Separator
+        orientation="vertical"
+        class="data-vertical:h-4 data-vertical:self-auto"
+      />
       <InputGroup.Button
         variant="default"
         class="rounded-full"
