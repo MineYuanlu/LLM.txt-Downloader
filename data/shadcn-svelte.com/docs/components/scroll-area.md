@@ -67,11 +67,9 @@ bun x shadcn-svelte@latest add scroll-area
 </ScrollArea>
 ```
 
-## [Examples](scroll-area.md#examples)
+## [Horizontal](scroll-area.md#horizontal)
 
-### [Horizontal Scrolling](scroll-area.md#horizontal-scrolling)
-
-Set the `orientation` prop to `"horizontal"` to enable horizontal scrolling.
+Use `orientation="horizontal"` for horizontal scrolling.
 
 ```svelte
 <script lang="ts">

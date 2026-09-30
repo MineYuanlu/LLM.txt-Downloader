@@ -52,3 +52,43 @@ bun x shadcn-svelte@latest add progress
 ```svelte
 <Progress value={33} />
 ```
+
+## [Label](progress.md#label)
+
+Use a `Field` component to add a label to the progress bar.
+
+```svelte
+<script lang="ts">
+  import * as Field from "$lib/components/ui/field/index.js";
+  import { Progress } from "$lib/components/ui/progress/index.js";
+</script>
+<Field.Field class="w-full max-w-sm">
+  <Field.Label for="progress-upload" class="w-full">
+    <span>Upload progress</span>
+    <span class="ml-auto font-normal text-muted-foreground tabular-nums"
+      >56%</span
+    >
+  </Field.Label>
+  <Progress value={56} id="progress-upload" />
+</Field.Field>
+```
+
+View Code
+
+## [Controlled](progress.md#controlled)
+
+A progress bar that can be controlled by a slider.
+
+```svelte
+<script lang="ts">
+  import { Progress } from "$lib/components/ui/progress/index.js";
+  import { Slider } from "$lib/components/ui/slider/index.js";
+  let value = $state(50);
+</script>
+<div class="flex w-full max-w-sm flex-col gap-4">
+  <Progress {value} />
+  <Slider type="single" bind:value min={0} max={100} step={1} />
+</div>
+```
+
+View Code

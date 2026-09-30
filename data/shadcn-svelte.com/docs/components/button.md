@@ -10,8 +10,6 @@ Displays a button or a component that looks like a button.
 
 [Special Sponsor](https://github.com/EpicenterHQ/epicenter)
 
-**Updated:** We have updated the button component to add new sizes: `icon-sm` and `icon-lg`. See the [changelog](button#changelog) for more details. Follow the instructions to update your project.
-
 ```svelte
 <script lang="ts">
   import ArrowUpIcon from "@lucide/svelte/icons/arrow-up";
@@ -26,13 +24,6 @@ Displays a button or a component that looks like a button.
 ```
 
 View Code
-
-```svelte
-<Button variant="outline">Button</Button>
-<Button variant="outline" size="icon" aria-label="Submit">
-  <ArrowUpIcon />
-</Button>
-```
 
 ## [Installation](button.md#installation)
 
@@ -57,9 +48,26 @@ bun x shadcn-svelte@latest add button
 <Button variant="outline">Button</Button>
 ```
 
-## [Examples](button.md#examples)
+## [Cursor](button.md#cursor)
 
-### [Size](button.md#size)
+Tailwind v4 [switched](https://tailwindcss.com/docs/upgrade-guide#buttons-use-the-default-cursor) from `cursor: pointer` to `cursor: default` for the button component.
+
+If you want to keep the `cursor: pointer` behavior, add the following code to your CSS file:
+
+app.css
+
+```css
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+```
+
+## [Size](button.md#size)
+
+Use the `size` prop to change the size of the button.
 
 ```svelte
 <script lang="ts">
@@ -67,6 +75,12 @@ bun x shadcn-svelte@latest add button
   import { Button } from "$lib/components/ui/button/index.js";
 </script>
 <div class="flex flex-col items-start gap-8 sm:flex-row">
+  <div class="flex items-start gap-2">
+    <Button size="xs" variant="outline">Extra Small</Button>
+    <Button size="icon-xs" aria-label="Submit" variant="outline">
+      <ArrowUpRightIcon />
+    </Button>
+  </div>
   <div class="flex items-start gap-2">
     <Button size="sm" variant="outline">Small</Button>
     <Button size="icon-sm" aria-label="Submit" variant="outline">
@@ -90,25 +104,7 @@ bun x shadcn-svelte@latest add button
 
 View Code
 
-```svelte
-
-<Button size="sm" variant="outline">Small</Button>
-<Button size="icon-sm" aria-label="Submit" variant="outline">
-  <ArrowUpRightIcon />
-</Button>
-
-<Button variant="outline">Default</Button>
-<Button size="icon" aria-label="Submit" variant="outline">
-  <ArrowUpRightIcon />
-</Button>
-
-<Button size="lg" variant="outline">Large</Button>
-<Button size="icon-lg" aria-label="Submit" variant="outline">
-  <ArrowUpRightIcon />
-</Button>
-```
-
-### [Default](button.md#default)
+## [Default](button.md#default)
 
 ```svelte
 <script lang="ts">
@@ -119,11 +115,7 @@ View Code
 
 View Code
 
-```svelte
-<Button>Button</Button>
-```
-
-### [Outline](button.md#outline)
+## [Outline](button.md#outline)
 
 ```svelte
 <script lang="ts">
@@ -134,11 +126,7 @@ View Code
 
 View Code
 
-```svelte
-<Button variant="outline">Outline</Button>
-```
-
-### [Secondary](button.md#secondary)
+## [Secondary](button.md#secondary)
 
 ```svelte
 <script lang="ts">
@@ -149,11 +137,7 @@ View Code
 
 View Code
 
-```svelte
-<Button variant="secondary">Secondary</Button>
-```
-
-### [Ghost](button.md#ghost)
+## [Ghost](button.md#ghost)
 
 ```svelte
 <script lang="ts">
@@ -164,11 +148,7 @@ View Code
 
 View Code
 
-```svelte
-<Button variant="ghost">Ghost</Button>
-```
-
-### [Destructive](button.md#destructive)
+## [Destructive](button.md#destructive)
 
 ```svelte
 <script lang="ts">
@@ -179,11 +159,7 @@ View Code
 
 View Code
 
-```svelte
-<Button variant="destructive">Destructive</Button>
-```
-
-### [Link](button.md#link)
+## [Link](button.md#link)
 
 ```svelte
 <script lang="ts">
@@ -194,11 +170,7 @@ View Code
 
 View Code
 
-```svelte
-<Button variant="link">Link</Button>
-```
-
-### [Icon](button.md#icon)
+## [Icon](button.md#icon)
 
 ```svelte
 <script lang="ts">
@@ -212,35 +184,30 @@ View Code
 
 View Code
 
-```svelte
-<Button variant="outline" size="icon" aria-label="Submit">
-  <CircleFadingArrowUpIcon />
-</Button>
-```
+## [With Icon](button.md#with-icon)
 
-### [With Icon](button.md#with-icon)
-
-The spacing between the icon and the text is automatically adjusted based on the size of the button. You do not need any margin on the icon.
+Remember to add the `data-icon="inline-start"` or `data-icon="inline-end"` attribute to the icon for the correct spacing.
 
 ```svelte
 <script lang="ts">
-  import IconGitBranch from "@lucide/svelte/icons/git-branch";
+  import IconGitBranch from "@tabler/icons-svelte/icons/git-branch";
+  import IconGitFork from "@tabler/icons-svelte/icons/git-fork";
   import { Button } from "$lib/components/ui/button/index.js";
 </script>
-<Button variant="outline" size="sm">
-  <IconGitBranch /> New Branch
-</Button>
+<div class="flex gap-2">
+  <Button variant="outline">
+    <IconGitBranch data-icon="inline-start" /> New Branch
+  </Button>
+  <Button variant="outline">
+    Fork
+    <IconGitFork data-icon="inline-end" />
+  </Button>
+</div>
 ```
 
 View Code
 
-```svelte
-<Button variant="outline" size="sm">
-  <IconGitBranch /> New Branch
-</Button>
-```
-
-### [Rounded](button.md#rounded)
+## [Rounded](button.md#rounded)
 
 Use the `rounded-full` class to make the button rounded.
 
@@ -249,7 +216,8 @@ Use the `rounded-full` class to make the button rounded.
   import ArrowUpIcon from "@lucide/svelte/icons/arrow-up";
   import { Button } from "$lib/components/ui/button/index.js";
 </script>
-<div class="flex flex-col gap-8">
+<div class="flex gap-2">
+  <Button class="rounded-full">Get Started</Button>
   <Button variant="outline" size="icon" class="rounded-full">
     <ArrowUpIcon />
   </Button>
@@ -258,35 +226,30 @@ Use the `rounded-full` class to make the button rounded.
 
 View Code
 
-```svelte
-<Button variant="outline" size="icon" className="rounded-full">
-  <ArrowUpRightIcon />
-</Button>
-```
+## [Spinner](button.md#spinner)
 
-### [Spinner](button.md#spinner)
+Render a `<Spinner />` component inside the button to show a loading state. Remember to add the `data-icon="inline-start"` or `data-icon="inline-end"` attribute to the spinner for the correct spacing.
 
 ```svelte
 <script lang="ts">
   import { Button } from "$lib/components/ui/button/index.js";
   import { Spinner } from "$lib/components/ui/spinner/index.js";
 </script>
-<Button size="sm" variant="outline" disabled>
-  <Spinner />
-  Submit
-</Button>
+<div class="flex gap-2">
+  <Button variant="outline" disabled>
+    <Spinner data-icon="inline-start" />
+    Generating
+  </Button>
+  <Button variant="secondary" disabled>
+    Downloading
+    <Spinner data-icon="inline-end" />
+  </Button>
+</div>
 ```
 
 View Code
 
-```svelte
-<Button size="sm" variant="outline" disabled>
-  <Spinner />
-  Submit
-</Button>
-```
-
-### [Button Group](button.md#button-group)
+## [Button Group](button.md#button-group)
 
 To create a button group, use the `ButtonGroup` component. See the [Button Group](button-group) documentation for more details.
 
@@ -308,30 +271,30 @@ To create a button group, use the `ButtonGroup` component. See the [Button Group
 </script>
 <ButtonGroup.Root>
   <ButtonGroup.Root class="hidden sm:flex">
-    <Button variant="outline" size="icon-sm" aria-label="Go Back">
+    <Button variant="outline" size="icon" aria-label="Go Back">
       <ArrowLeft />
     </Button>
   </ButtonGroup.Root>
   <ButtonGroup.Root>
-    <Button size="sm" variant="outline">Archive</Button>
-    <Button size="sm" variant="outline">Report</Button>
+    <Button variant="outline">Archive</Button>
+    <Button variant="outline">Report</Button>
   </ButtonGroup.Root>
   <ButtonGroup.Root>
-    <Button size="sm" variant="outline">Snooze</Button>
+    <Button variant="outline">Snooze</Button>
     <DropdownMenu.Root>
       <DropdownMenu.Trigger>
         {#snippet child({ props })}
           <Button
             {...props}
             variant="outline"
-            size="icon-sm"
+            size="icon"
             aria-label="More Options"
           >
             <MoreHorizontal />
           </Button>
         {/snippet}
       </DropdownMenu.Trigger>
-      <DropdownMenu.Content align="end" class="w-52">
+      <DropdownMenu.Content align="end" class="w-40">
         <DropdownMenu.Group>
           <DropdownMenu.Item>
             <MailCheck />
@@ -378,7 +341,7 @@ To create a button group, use the `ButtonGroup` component. See the [Button Group
         </DropdownMenu.Group>
         <DropdownMenu.Separator />
         <DropdownMenu.Group>
-          <DropdownMenu.Item class="text-destructive focus:text-destructive">
+          <DropdownMenu.Item variant="destructive">
             <Trash2 />
             Trash
           </DropdownMenu.Item>
@@ -391,131 +354,15 @@ To create a button group, use the `ButtonGroup` component. See the [Button Group
 
 View Code
 
-```svelte
-<ButtonGroup.Root>
-  <ButtonGroup.Root class="hidden sm:flex">
-    <Button variant="outline" size="icon" aria-label="Go Back">
-      <ArrowLeft />
-    </Button>
-  </ButtonGroup.Root>
-  <ButtonGroup.Root>
-    <Button variant="outline">Archive</Button>
-    <Button variant="outline">Report</Button>
-  </ButtonGroup.Root>
-  <ButtonGroup.Root>
-    <Button variant="outline">Snooze</Button>
-    <DropdownMenu.Root>
-      <DropdownMenu.Trigger>
-        {#snippet child({ props })}
-          <Button
-            {...props}
-            variant="outline"
-            size="icon"
-            aria-label="More Options"
-          >
-            <MoreHorizontal />
-          </Button>
-        {/snippet}
-      </DropdownMenu.Trigger>
-      <DropdownMenu.Content align="end" class="w-52">
-        <DropdownMenu.Group>
-          <DropdownMenu.Item>
-            <MailCheck />
-            Mark as Read
-          </DropdownMenu.Item>
-          <DropdownMenu.Item>
-            <Archive />
-            Archive
-          </DropdownMenu.Item>
-        </DropdownMenu.Group>
-        <DropdownMenu.Separator />
-        <DropdownMenu.Group>
-          <DropdownMenu.Item>
-            <Clock />
-            Snooze
-          </DropdownMenu.Item>
-          <DropdownMenu.Item>
-            <CalendarPlus />
-            Add to Calendar
-          </DropdownMenu.Item>
-          <DropdownMenu.Item>
-            <ListFilter />
-            Add to List
-          </DropdownMenu.Item>
-          <DropdownMenu.Sub>
-            <DropdownMenu.SubTrigger>
-              <Tag />
-              Label As...
-            </DropdownMenu.SubTrigger>
-            <DropdownMenu.SubContent>
-              <DropdownMenu.RadioGroup bind:value={label}>
-                <DropdownMenu.RadioItem value="personal">
-                  Personal
-                </DropdownMenu.RadioItem>
-                <DropdownMenu.RadioItem value="work"
-                  >Work</DropdownMenu.RadioItem
-                >
-                <DropdownMenu.RadioItem value="other"
-                  >Other</DropdownMenu.RadioItem
-                >
-              </DropdownMenu.RadioGroup>
-            </DropdownMenu.SubContent>
-          </DropdownMenu.Sub>
-        </DropdownMenu.Group>
-        <DropdownMenu.Separator />
-        <DropdownMenu.Group>
-          <DropdownMenu.Item class="text-destructive focus:text-destructive">
-            <Trash2 />
-            Trash
-          </DropdownMenu.Item>
-        </DropdownMenu.Group>
-      </DropdownMenu.Content>
-    </DropdownMenu.Root>
-  </ButtonGroup.Root>
-</ButtonGroup.Root>
-```
+## [As Link](button.md#as-link)
 
-### [Link](button.md#link-1)
-
-You can convert the `<button>` into an `<a>` element by simply passing an `href` as a prop.
+Pass an `href` prop to `<Button />` to render it as an `<a>` element that looks like a button. You can also use the `buttonVariants` helper to make any other element look like a button.
 
 ```svelte
 <script lang="ts">
   import { Button } from "$lib/components/ui/button/index.js";
 </script>
-<Button href="../../dashboard">Dashboard</Button>
+<Button href="button.md" variant="secondary" size="sm">Login</Button>
 ```
 
-Alternatively, you can use the `buttonVariants` helper to create a link that looks like a button.
-
-```svelte
-<script lang="ts">
-  import { buttonVariants } from "$lib/components/ui/button";
-</script>
-<a href="../../dashboard" class={buttonVariants({ variant: "outline" })}>
-  Dashboard
-</a>
-```
-
-## [Changelog](button.md#changelog)
-
-### [2025-09-24 New sizes](button.md#2025-09-24-new-sizes)
-
-We have added two new sizes to the button component: `icon-sm` and `icon-lg`. These sizes are used to create icon buttons. To add them, edit `button.svelte` and add the following code under `size` in `buttonVariants`:
-
-components/ui/button.svelte
-
-```ts
-export const buttonVariants = tv({
-  // ...
-  variants: {
-    // ...
-    size: {
-      // ...
-      icon: "size-9",
-      "icon-sm": "size-8",
-      "icon-lg": "size-10",
-    },
-  },
-});
-```
+View Code

@@ -17,13 +17,8 @@ A two-state button that can be either on or off.
   import BookmarkIcon from "@lucide/svelte/icons/bookmark";
   import { Toggle } from "$lib/components/ui/toggle/index.js";
 </script>
-<Toggle
-  aria-label="Toggle bookmark"
-  size="sm"
-  variant="outline"
-  class="data-[state=on]:bg-transparent data-[state=on]:*:[svg]:fill-blue-500 data-[state=on]:*:[svg]:stroke-blue-500"
->
-  <BookmarkIcon />
+<Toggle aria-label="Toggle bookmark" size="sm" variant="outline">
+  <BookmarkIcon class="group-aria-pressed/toggle:fill-foreground" />
   Bookmark
 </Toggle>
 ```
@@ -56,43 +51,31 @@ bun x shadcn-svelte@latest add toggle
 <Toggle>Toggle</Toggle>
 ```
 
-## [Examples](toggle.md#examples)
+## [Outline](toggle.md#outline)
 
-### [Default](toggle.md#default)
-
-```svelte
-<script lang="ts">
-  import BookmarkIcon from "@lucide/svelte/icons/bookmark";
-  import { Toggle } from "$lib/components/ui/toggle/index.js";
-</script>
-<Toggle
-  aria-label="Toggle bookmark"
-  size="sm"
-  variant="outline"
-  class="data-[state=on]:bg-transparent data-[state=on]:*:[svg]:fill-blue-500 data-[state=on]:*:[svg]:stroke-blue-500"
->
-  <BookmarkIcon />
-  Bookmark
-</Toggle>
-```
-
-View Code
-
-### [Outline](toggle.md#outline)
+Use `variant="outline"` for an outline style.
 
 ```svelte
 <script lang="ts">
+  import BoldIcon from "@lucide/svelte/icons/bold";
   import ItalicIcon from "@lucide/svelte/icons/italic";
   import { Toggle } from "$lib/components/ui/toggle/index.js";
 </script>
-<Toggle variant="outline" aria-label="Toggle italic">
-  <ItalicIcon class="size-4" />
-</Toggle>
+<div class="flex flex-wrap items-center gap-2">
+  <Toggle variant="outline" aria-label="Toggle italic">
+    <ItalicIcon />
+    Italic
+  </Toggle>
+  <Toggle variant="outline" aria-label="Toggle bold">
+    <BoldIcon />
+    Bold
+  </Toggle>
+</div>
 ```
 
 View Code
 
-### [With Text](toggle.md#with-text)
+## [With Text](toggle.md#with-text)
 
 ```svelte
 <script lang="ts">
@@ -100,51 +83,44 @@ View Code
   import { Toggle } from "$lib/components/ui/toggle/index.js";
 </script>
 <Toggle aria-label="Toggle italic">
-  <ItalicIcon class="me-2 size-4" />
+  <ItalicIcon />
   Italic
 </Toggle>
 ```
 
 View Code
 
-### [Small](toggle.md#small)
+## [Size](toggle.md#size)
+
+Use the `size` prop to change the size of the toggle.
 
 ```svelte
 <script lang="ts">
-  import ItalicIcon from "@lucide/svelte/icons/italic";
   import { Toggle } from "$lib/components/ui/toggle/index.js";
 </script>
-<Toggle size="sm" aria-label="Toggle italic">
-  <ItalicIcon class="size-4" />
-</Toggle>
+<div class="flex flex-wrap items-center gap-2">
+  <Toggle variant="outline" aria-label="Toggle small" size="sm">Small</Toggle>
+  <Toggle variant="outline" aria-label="Toggle default" size="default"
+    >Default</Toggle
+  >
+  <Toggle variant="outline" aria-label="Toggle large" size="lg">Large</Toggle>
+</div>
 ```
 
 View Code
 
-### [Large](toggle.md#large)
+## [Disabled](toggle.md#disabled)
 
 ```svelte
 <script lang="ts">
-  import ItalicIcon from "@lucide/svelte/icons/italic";
   import { Toggle } from "$lib/components/ui/toggle/index.js";
 </script>
-<Toggle size="lg" aria-label="Toggle italic">
-  <ItalicIcon class="size-4" />
-</Toggle>
-```
-
-View Code
-
-### [Disabled](toggle.md#disabled)
-
-```svelte
-<script lang="ts">
-  import UnderlineIcon from "@lucide/svelte/icons/underline";
-  import { Toggle } from "$lib/components/ui/toggle/index.js";
-</script>
-<Toggle aria-label="Toggle underline" disabled>
-  <UnderlineIcon class="size-4" />
-</Toggle>
+<div class="flex flex-wrap items-center gap-2">
+  <Toggle aria-label="Toggle disabled" disabled>Disabled</Toggle>
+  <Toggle variant="outline" aria-label="Toggle disabled outline" disabled
+    >Disabled</Toggle
+  >
+</div>
 ```
 
 View Code

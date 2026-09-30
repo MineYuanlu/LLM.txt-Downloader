@@ -16,13 +16,15 @@ Displays content within a desired ratio.
 <script lang="ts">
   import { AspectRatio } from "$lib/components/ui/aspect-ratio/index.js";
 </script>
-<AspectRatio ratio={16 / 9} class="rounded-lg bg-muted">
-  <img
-    src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80"
-    alt="Gray by Drew Beamer"
-    class="h-full w-full rounded-lg object-cover dark:brightness-[0.2] dark:grayscale"
-  />
-</AspectRatio>
+<div class="w-full max-w-sm">
+  <AspectRatio ratio={16 / 9} class="rounded-lg bg-muted">
+    <img
+      src="https://avatar.vercel.sh/shadcn1"
+      alt="Placeholder"
+      class="size-full rounded-lg object-cover grayscale dark:brightness-20"
+    />
+  </AspectRatio>
+</div>
 ```
 
 View Code
@@ -50,9 +52,49 @@ bun x shadcn-svelte@latest add aspect-ratio
 ```
 
 ```svelte
-<div class="w-[450px]">
-  <AspectRatio ratio={16 / 9} class="bg-muted">
-    <img src="..." alt="..." class="rounded-md object-cover" />
+<AspectRatio ratio={16 / 9}>
+  <img src="..." alt="Image" class="rounded-md object-cover" />
+</AspectRatio>
+```
+
+## [Square](aspect-ratio.md#square)
+
+A square aspect ratio component using the `ratio={1 / 1}` prop. This is useful for displaying images in a square format.
+
+```svelte
+<script lang="ts">
+  import { AspectRatio } from "$lib/components/ui/aspect-ratio/index.js";
+</script>
+<div class="w-full max-w-[12rem]">
+  <AspectRatio ratio={1 / 1} class="rounded-lg bg-muted">
+    <img
+      src="https://avatar.vercel.sh/shadcn1"
+      alt="Placeholder"
+      class="size-full rounded-lg object-cover grayscale dark:brightness-20"
+    />
   </AspectRatio>
 </div>
 ```
+
+View Code
+
+## [Portrait](aspect-ratio.md#portrait)
+
+A portrait aspect ratio component using the `ratio={9 / 16}` prop. This is useful for displaying images in a portrait format.
+
+```svelte
+<script lang="ts">
+  import { AspectRatio } from "$lib/components/ui/aspect-ratio/index.js";
+</script>
+<div class="w-full max-w-[10rem]">
+  <AspectRatio ratio={9 / 16} class="rounded-lg bg-muted">
+    <img
+      src="https://avatar.vercel.sh/shadcn1"
+      alt="Placeholder"
+      class="size-full rounded-lg object-cover grayscale dark:brightness-20"
+    />
+  </AspectRatio>
+</div>
+```
+
+View Code

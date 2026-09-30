@@ -84,7 +84,7 @@ Add the Toaster component
 <Button onclick={() => toast("Hello world")}>Show toast</Button>
 ```
 
-## [Examples](sonner.md#examples)
+## [Types](sonner.md#types)
 
 ```svelte
 <script lang="ts">
@@ -134,6 +134,59 @@ Add the Toaster component
   >
     Promise
   </Button>
+</div>
+```
+
+View Code
+
+## [Description](sonner.md#description)
+
+```svelte
+<script lang="ts">
+  import { toast } from "svelte-sonner";
+  import { Button } from "$lib/components/ui/button/index.js";
+</script>
+<Button
+  onclick={() =>
+    toast("Event has been created", {
+      description: "Monday, January 3rd at 6:00pm"
+    })}
+  variant="outline"
+  class="w-fit"
+>
+  Show Toast
+</Button>
+```
+
+View Code
+
+## [Position](sonner.md#position)
+
+Use the `position` prop to change the position of the toast.
+
+```svelte
+<script lang="ts">
+  import { toast } from "svelte-sonner";
+  import { Button } from "$lib/components/ui/button/index.js";
+  const positions = [
+    { label: "Top Left", value: "top-left" },
+    { label: "Top Center", value: "top-center" },
+    { label: "Top Right", value: "top-right" },
+    { label: "Bottom Left", value: "bottom-left" },
+    { label: "Bottom Center", value: "bottom-center" },
+    { label: "Bottom Right", value: "bottom-right" }
+ ] as const;
+</script>
+<div class="flex flex-wrap justify-center gap-2">
+  {#each positions as position (position.value)}
+    <Button
+      variant="outline"
+      onclick={() =>
+        toast("Event has been created", { position: position.value })}
+    >
+      {position.label}
+    </Button>
+  {/each}
 </div>
 ```
 

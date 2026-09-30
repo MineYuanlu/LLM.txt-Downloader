@@ -26,16 +26,12 @@ Use the Empty component to display an empty state.
       project.
     </Empty.Description>
   </Empty.Header>
-  <Empty.Content>
-    <div class="flex gap-2">
-      <Button>Create Project</Button>
-      <Button variant="outline">Import Project</Button>
-    </div>
+  <Empty.Content class="flex-row justify-center gap-2">
+    <Button>Create Project</Button>
+    <Button variant="outline">Import Project</Button>
   </Empty.Content>
-  <Button variant="link" class="text-muted-foreground" size="sm">
-    <a href="empty.md#/">
-      Learn More <ArrowUpRightIcon class="inline" />
-    </a>
+  <Button variant="link" href="empty.md##" class="text-muted-foreground" size="sm">
+    Learn More <ArrowUpRightIcon />
   </Button>
 </Empty.Root>
 ```
@@ -80,9 +76,7 @@ bun x shadcn-svelte@latest add empty
 </Empty.Root>
 ```
 
-## [Examples](empty.md#examples)
-
-### [Outline](empty.md#outline)
+## [Outline](empty.md#outline)
 
 Use the `border` utility class to create an outline empty state.
 
@@ -110,7 +104,7 @@ Use the `border` utility class to create an outline empty state.
 
 View Code
 
-### [Background](empty.md#background)
+## [Background](empty.md#background)
 
 Use the `bg-*` and `bg-gradient-*` utilities to add a background to the empty state.
 
@@ -121,21 +115,19 @@ Use the `bg-*` and `bg-gradient-*` utilities to add a background to the empty st
   import * as Empty from "$lib/components/ui/empty/index.js";
   import { Button } from "$lib/components/ui/button/index.js";
 </script>
-<Empty.Root
-  class="h-full bg-gradient-to-b from-muted/50 from-30% to-background"
->
+<Empty.Root class="h-full bg-muted/30">
   <Empty.Header>
     <Empty.Media variant="icon">
       <BellIcon />
     </Empty.Media>
     <Empty.Title>No Notifications</Empty.Title>
-    <Empty.Description
-      >You're all caught up. New notifications will appear here.</Empty.Description
-    >
+    <Empty.Description class="max-w-xs text-pretty">
+      You're all caught up. New notifications will appear here.
+    </Empty.Description>
   </Empty.Header>
   <Empty.Content>
-    <Button variant="outline" size="sm">
-      <RefreshCcwIcon />
+    <Button variant="outline">
+      <RefreshCcwIcon data-icon="inline-start" />
       Refresh
     </Button>
   </Empty.Content>
@@ -144,9 +136,9 @@ Use the `bg-*` and `bg-gradient-*` utilities to add a background to the empty st
 
 View Code
 
-### [Avatar](empty.md#avatar)
+## [Avatar](empty.md#avatar)
 
-Use the `EmptyMedia` component to display an avatar in the empty state.
+Use the `Empty.Media` component to display an avatar in the empty state.
 
 ```svelte
 <script lang="ts">
@@ -176,9 +168,9 @@ Use the `EmptyMedia` component to display an avatar in the empty state.
 
 View Code
 
-### [Avatar Group](empty.md#avatar-group)
+## [Avatar Group](empty.md#avatar-group)
 
-Use the `EmptyMedia` component to display an avatar group in the empty state.
+Use the `Empty.Media` component to display an avatar group in the empty state.
 
 ```svelte
 <script lang="ts">
@@ -187,10 +179,12 @@ Use the `EmptyMedia` component to display an avatar group in the empty state.
   import * as Empty from "$lib/components/ui/empty/index.js";
   import { Button } from "$lib/components/ui/button/index.js";
 </script>
-<Empty.Root class="flex-none border">
+<Empty.Root>
   <Empty.Header>
     <Empty.Media>
-      <Avatar.Group class="grayscale">
+      <div
+        class="flex -space-x-2 *:data-[slot=avatar]:size-12 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:ring-background *:data-[slot=avatar]:grayscale"
+      >
         <Avatar.Root>
           <Avatar.Image src="https://github.com/shadcn.png" alt="@shadcn" />
           <Avatar.Fallback>CN</Avatar.Fallback>
@@ -209,7 +203,7 @@ Use the `EmptyMedia` component to display an avatar group in the empty state.
           />
           <Avatar.Fallback>ER</Avatar.Fallback>
         </Avatar.Root>
-      </Avatar.Group>
+      </div>
     </Empty.Media>
     <Empty.Title>No Team Members</Empty.Title>
     <Empty.Description
@@ -227,9 +221,9 @@ Use the `EmptyMedia` component to display an avatar group in the empty state.
 
 View Code
 
-### [InputGroup](empty.md#inputgroup)
+## [InputGroup](empty.md#inputgroup)
 
-You can add an `InputGroup` component to the `EmptyContent` component.
+You can add an `InputGroup` component to the `Empty.Content` component.
 
 ```svelte
 <script lang="ts">

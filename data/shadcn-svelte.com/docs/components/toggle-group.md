@@ -14,35 +14,20 @@ A set of two-state buttons that can be toggled on or off.
 
 ```svelte
 <script lang="ts">
-  import BookmarkIcon from "@lucide/svelte/icons/bookmark";
-  import HeartIcon from "@lucide/svelte/icons/heart";
-  import StarIcon from "@lucide/svelte/icons/star";
+  import BoldIcon from "@lucide/svelte/icons/bold";
+  import ItalicIcon from "@lucide/svelte/icons/italic";
+  import UnderlineIcon from "@lucide/svelte/icons/underline";
   import * as ToggleGroup from "$lib/components/ui/toggle-group/index.js";
 </script>
-<ToggleGroup.Root type="multiple" variant="outline" spacing={2} size="sm">
-  <ToggleGroup.Item
-    value="star"
-    aria-label="Toggle star"
-    class="data-[state=on]:bg-transparent data-[state=on]:*:[svg]:fill-yellow-500 data-[state=on]:*:[svg]:stroke-yellow-500"
-  >
-    <StarIcon />
-    Star
+<ToggleGroup.Root variant="outline" type="multiple">
+  <ToggleGroup.Item value="bold" aria-label="Toggle bold">
+    <BoldIcon />
   </ToggleGroup.Item>
-  <ToggleGroup.Item
-    value="heart"
-    aria-label="Toggle heart"
-    class="data-[state=on]:bg-transparent data-[state=on]:*:[svg]:fill-red-500 data-[state=on]:*:[svg]:stroke-red-500"
-  >
-    <HeartIcon />
-    Heart
+  <ToggleGroup.Item value="italic" aria-label="Toggle italic">
+    <ItalicIcon />
   </ToggleGroup.Item>
-  <ToggleGroup.Item
-    value="bookmark"
-    aria-label="Toggle bookmark"
-    class="data-[state=on]:bg-transparent data-[state=on]:*:[svg]:fill-blue-500 data-[state=on]:*:[svg]:stroke-blue-500"
-  >
-    <BookmarkIcon />
-    Bookmark
+  <ToggleGroup.Item value="strikethrough" aria-label="Toggle strikethrough">
+    <UnderlineIcon />
   </ToggleGroup.Item>
 </ToggleGroup.Root>
 ```
@@ -79,9 +64,94 @@ bun x shadcn-svelte@latest add toggle-group
 </ToggleGroup.Root>
 ```
 
-## [Examples](toggle-group.md#examples)
+## [Outline](toggle-group.md#outline)
 
-### [Outline](toggle-group.md#outline)
+Use `variant="outline"` for an outline style.
+
+```svelte
+<script lang="ts">
+  import * as ToggleGroup from "$lib/components/ui/toggle-group/index.js";
+</script>
+<ToggleGroup.Root variant="outline" type="single" value="all">
+  <ToggleGroup.Item value="all" aria-label="Toggle all">All</ToggleGroup.Item>
+  <ToggleGroup.Item value="missed" aria-label="Toggle missed"
+    >Missed</ToggleGroup.Item
+  >
+</ToggleGroup.Root>
+```
+
+View Code
+
+## [Size](toggle-group.md#size)
+
+Use the `size` prop to change the size of the toggle group.
+
+```svelte
+<script lang="ts">
+  import * as ToggleGroup from "$lib/components/ui/toggle-group/index.js";
+  const sides = ["top", "bottom", "left", "right"] as const;
+</script>
+<div class="flex flex-col gap-4">
+  <ToggleGroup.Root type="single" size="sm" value="top" variant="outline">
+    {#each sides as side (side)}
+      <ToggleGroup.Item
+        value={side}
+        aria-label="Toggle {side}"
+        class="capitalize"
+      >
+        {side}
+      </ToggleGroup.Item>
+    {/each}
+  </ToggleGroup.Root>
+  <ToggleGroup.Root type="single" value="top" variant="outline">
+    {#each sides as side (side)}
+      <ToggleGroup.Item
+        value={side}
+        aria-label="Toggle {side}"
+        class="capitalize"
+      >
+        {side}
+      </ToggleGroup.Item>
+    {/each}
+  </ToggleGroup.Root>
+</div>
+```
+
+View Code
+
+## [Spacing](toggle-group.md#spacing)
+
+Use `spacing` to add spacing between toggle group items.
+
+```svelte
+<script lang="ts">
+  import * as ToggleGroup from "$lib/components/ui/toggle-group/index.js";
+  const sides = ["top", "bottom", "left", "right"] as const;
+</script>
+<ToggleGroup.Root
+  type="single"
+  size="sm"
+  value="top"
+  variant="outline"
+  spacing={2}
+>
+  {#each sides as side (side)}
+    <ToggleGroup.Item
+      value={side}
+      aria-label="Toggle {side}"
+      class="capitalize"
+    >
+      {side}
+    </ToggleGroup.Item>
+  {/each}
+</ToggleGroup.Root>
+```
+
+View Code
+
+## [Vertical](toggle-group.md#vertical)
+
+Use `orientation="vertical"` for vertical toggle groups.
 
 ```svelte
 <script lang="ts">
@@ -90,94 +160,27 @@ bun x shadcn-svelte@latest add toggle-group
   import UnderlineIcon from "@lucide/svelte/icons/underline";
   import * as ToggleGroup from "$lib/components/ui/toggle-group/index.js";
 </script>
-<ToggleGroup.Root variant="outline" type="multiple">
+<ToggleGroup.Root
+  type="multiple"
+  orientation="vertical"
+  spacing={1}
+  value={["bold", "italic"]}
+>
   <ToggleGroup.Item value="bold" aria-label="Toggle bold">
-    <BoldIcon class="size-4" />
+    <BoldIcon />
   </ToggleGroup.Item>
   <ToggleGroup.Item value="italic" aria-label="Toggle italic">
-    <ItalicIcon class="size-4" />
+    <ItalicIcon />
   </ToggleGroup.Item>
-  <ToggleGroup.Item value="strikethrough" aria-label="Toggle strikethrough">
-    <UnderlineIcon class="size-4" />
+  <ToggleGroup.Item value="underline" aria-label="Toggle underline">
+    <UnderlineIcon />
   </ToggleGroup.Item>
 </ToggleGroup.Root>
 ```
 
 View Code
 
-### [Single](toggle-group.md#single)
-
-```svelte
-<script lang="ts">
-  import BoldIcon from "@lucide/svelte/icons/bold";
-  import ItalicIcon from "@lucide/svelte/icons/italic";
-  import UnderlineIcon from "@lucide/svelte/icons/underline";
-  import * as ToggleGroup from "$lib/components/ui/toggle-group/index.js";
-</script>
-<ToggleGroup.Root type="single">
-  <ToggleGroup.Item value="bold" aria-label="Toggle bold">
-    <BoldIcon class="size-4" />
-  </ToggleGroup.Item>
-  <ToggleGroup.Item value="italic" aria-label="Toggle italic">
-    <ItalicIcon class="size-4" />
-  </ToggleGroup.Item>
-  <ToggleGroup.Item value="strikethrough" aria-label="Toggle strikethrough">
-    <UnderlineIcon class="size-4" />
-  </ToggleGroup.Item>
-</ToggleGroup.Root>
-```
-
-View Code
-
-### [Small](toggle-group.md#small)
-
-```svelte
-<script lang="ts">
-  import BoldIcon from "@lucide/svelte/icons/bold";
-  import ItalicIcon from "@lucide/svelte/icons/italic";
-  import UnderlineIcon from "@lucide/svelte/icons/underline";
-  import * as ToggleGroup from "$lib/components/ui/toggle-group/index.js";
-</script>
-<ToggleGroup.Root size="sm" type="single">
-  <ToggleGroup.Item value="bold" aria-label="Toggle bold">
-    <BoldIcon class="size-4" />
-  </ToggleGroup.Item>
-  <ToggleGroup.Item value="italic" aria-label="Toggle italic">
-    <ItalicIcon class="size-4" />
-  </ToggleGroup.Item>
-  <ToggleGroup.Item value="strikethrough" aria-label="Toggle strikethrough">
-    <UnderlineIcon class="size-4" />
-  </ToggleGroup.Item>
-</ToggleGroup.Root>
-```
-
-View Code
-
-### [Large](toggle-group.md#large)
-
-```svelte
-<script lang="ts">
-  import BoldIcon from "@lucide/svelte/icons/bold";
-  import ItalicIcon from "@lucide/svelte/icons/italic";
-  import UnderlineIcon from "@lucide/svelte/icons/underline";
-  import * as ToggleGroup from "$lib/components/ui/toggle-group/index.js";
-</script>
-<ToggleGroup.Root size="lg" type="multiple">
-  <ToggleGroup.Item value="bold" aria-label="Toggle bold">
-    <BoldIcon class="size-4" />
-  </ToggleGroup.Item>
-  <ToggleGroup.Item value="italic" aria-label="Toggle italic">
-    <ItalicIcon class="size-4" />
-  </ToggleGroup.Item>
-  <ToggleGroup.Item value="strikethrough" aria-label="Toggle strikethrough">
-    <UnderlineIcon class="size-4" />
-  </ToggleGroup.Item>
-</ToggleGroup.Root>
-```
-
-View Code
-
-### [Disabled](toggle-group.md#disabled)
+## [Disabled](toggle-group.md#disabled)
 
 ```svelte
 <script lang="ts">
@@ -188,56 +191,61 @@ View Code
 </script>
 <ToggleGroup.Root disabled type="single">
   <ToggleGroup.Item value="bold" aria-label="Toggle bold">
-    <BoldIcon class="size-4" />
+    <BoldIcon />
   </ToggleGroup.Item>
   <ToggleGroup.Item value="italic" aria-label="Toggle italic">
-    <ItalicIcon class="size-4" />
+    <ItalicIcon />
   </ToggleGroup.Item>
   <ToggleGroup.Item value="strikethrough" aria-label="Toggle strikethrough">
-    <UnderlineIcon class="size-4" />
+    <UnderlineIcon />
   </ToggleGroup.Item>
 </ToggleGroup.Root>
 ```
 
 View Code
 
-### [Spacing](toggle-group.md#spacing)
+## [Custom](toggle-group.md#custom)
 
-Use `spacing={2}` to add spacing between toggle group items.
+A custom toggle group example.
 
 ```svelte
 <script lang="ts">
-  import BookmarkIcon from "@lucide/svelte/icons/bookmark";
-  import HeartIcon from "@lucide/svelte/icons/heart";
-  import StarIcon from "@lucide/svelte/icons/star";
+  import * as Field from "$lib/components/ui/field/index.js";
   import * as ToggleGroup from "$lib/components/ui/toggle-group/index.js";
+  const weights = [
+    { value: "light", label: "Light", class: "font-light" },
+    { value: "normal", label: "Normal", class: "font-normal" },
+    { value: "medium", label: "Medium", class: "font-medium" },
+    { value: "bold", label: "Bold", class: "font-bold" }
+ ];
+  let fontWeight = $state("normal");
 </script>
-<ToggleGroup.Root type="multiple" variant="outline" spacing={2} size="sm">
-  <ToggleGroup.Item
-    value="star"
-    aria-label="Toggle star"
-    class="data-[state=on]:bg-transparent data-[state=on]:*:[svg]:fill-yellow-500 data-[state=on]:*:[svg]:stroke-yellow-500"
+<Field.Field>
+  <Field.Label>Font Weight</Field.Label>
+  <ToggleGroup.Root
+    type="single"
+    bind:value={fontWeight}
+    variant="outline"
+    spacing={2}
+    size="lg"
   >
-    <StarIcon />
-    Star
-  </ToggleGroup.Item>
-  <ToggleGroup.Item
-    value="heart"
-    aria-label="Toggle heart"
-    class="data-[state=on]:bg-transparent data-[state=on]:*:[svg]:fill-red-500 data-[state=on]:*:[svg]:stroke-red-500"
-  >
-    <HeartIcon />
-    Heart
-  </ToggleGroup.Item>
-  <ToggleGroup.Item
-    value="bookmark"
-    aria-label="Toggle bookmark"
-    class="data-[state=on]:bg-transparent data-[state=on]:*:[svg]:fill-blue-500 data-[state=on]:*:[svg]:stroke-blue-500"
-  >
-    <BookmarkIcon />
-    Bookmark
-  </ToggleGroup.Item>
-</ToggleGroup.Root>
+    {#each weights as weight (weight.value)}
+      <ToggleGroup.Item
+        value={weight.value}
+        aria-label={weight.label}
+        class="flex size-16 flex-col items-center justify-center rounded-xl"
+      >
+        <span class="text-2xl leading-none {weight.class}">Aa</span>
+        <span class="text-xs text-muted-foreground">{weight.label}</span>
+      </ToggleGroup.Item>
+    {/each}
+  </ToggleGroup.Root>
+  <Field.Description>
+    Use <code class="rounded-md bg-muted px-1 py-0.5 font-mono"
+      >font-{fontWeight}</code
+    > to set the font weight.
+  </Field.Description>
+</Field.Field>
 ```
 
 View Code

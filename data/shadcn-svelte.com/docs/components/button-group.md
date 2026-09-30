@@ -26,30 +26,30 @@ A container that groups related buttons together with consistent styling.
 </script>
 <ButtonGroup.Root>
   <ButtonGroup.Root class="hidden sm:flex">
-    <Button variant="outline" size="icon-sm" aria-label="Go Back">
+    <Button variant="outline" size="icon" aria-label="Go Back">
       <ArrowLeft />
     </Button>
   </ButtonGroup.Root>
   <ButtonGroup.Root>
-    <Button size="sm" variant="outline">Archive</Button>
-    <Button size="sm" variant="outline">Report</Button>
+    <Button variant="outline">Archive</Button>
+    <Button variant="outline">Report</Button>
   </ButtonGroup.Root>
   <ButtonGroup.Root>
-    <Button size="sm" variant="outline">Snooze</Button>
+    <Button variant="outline">Snooze</Button>
     <DropdownMenu.Root>
       <DropdownMenu.Trigger>
         {#snippet child({ props })}
           <Button
             {...props}
             variant="outline"
-            size="icon-sm"
+            size="icon"
             aria-label="More Options"
           >
             <MoreHorizontal />
           </Button>
         {/snippet}
       </DropdownMenu.Trigger>
-      <DropdownMenu.Content align="end" class="w-52">
+      <DropdownMenu.Content align="end" class="w-40">
         <DropdownMenu.Group>
           <DropdownMenu.Item>
             <MailCheck />
@@ -96,7 +96,7 @@ A container that groups related buttons together with consistent styling.
         </DropdownMenu.Group>
         <DropdownMenu.Separator />
         <DropdownMenu.Group>
-          <DropdownMenu.Item class="text-destructive focus:text-destructive">
+          <DropdownMenu.Item variant="destructive">
             <Trash2 />
             Trash
           </DropdownMenu.Item>
@@ -140,15 +140,15 @@ bun x shadcn-svelte@latest add button-group
 
 ## [Accessibility](button-group.md#accessibility)
 
-- The `ButtonGroup` component has the `role` attribute set to `group` .
-- Use `tabindex` to navigate between the buttons in the group.
+- The `ButtonGroup.Root` component has the `role` attribute set to `group` .
+- Use `Tab` to navigate between the buttons in the group.
 - Use `aria-label` or `aria-labelledby` to label the button group.
 
 ```svelte
-<ButtonGroup aria-label="Button group">
+<ButtonGroup.Root aria-label="Button group">
   <Button>Button 1</Button>
   <Button>Button 2</Button>
-</ButtonGroup>
+</ButtonGroup.Root>
 ```
 
 ## [ButtonGroup vs ToggleGroup](button-group.md#buttongroup-vs-togglegroup)
@@ -156,9 +156,7 @@ bun x shadcn-svelte@latest add button-group
 - Use the `ButtonGroup` component when you want to group buttons that perform an action.
 - Use the `ToggleGroup` component when you want to group buttons that toggle a state.
 
-## [Examples](button-group.md#examples)
-
-### [Orientation](button-group.md#orientation)
+## [Orientation](button-group.md#orientation)
 
 Set the `orientation` prop to change the button group layout.
 
@@ -185,7 +183,7 @@ Set the `orientation` prop to change the button group layout.
 
 View Code
 
-### [Size](button-group.md#size)
+## [Size](button-group.md#size)
 
 Control the size of buttons using the `size` prop on individual buttons.
 
@@ -225,41 +223,48 @@ Control the size of buttons using the `size` prop on individual buttons.
 
 View Code
 
-### [Nested](button-group.md#nested)
+## [Nested](button-group.md#nested)
 
-Nest `ButtonGroup` components to create button groups with spacing.
+Nest `<ButtonGroup.Root>` components to create button groups with spacing.
 
 ```svelte
 <script lang="ts">
-  import ArrowLeft from "@lucide/svelte/icons/arrow-left";
-  import ArrowRight from "@lucide/svelte/icons/arrow-right";
+  import AudioLinesIcon from "@lucide/svelte/icons/audio-lines";
+  import PlusIcon from "@lucide/svelte/icons/plus";
   import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
+  import * as InputGroup from "$lib/components/ui/input-group/index.js";
+  import * as Tooltip from "$lib/components/ui/tooltip/index.js";
   import { Button } from "$lib/components/ui/button/index.js";
 </script>
 <ButtonGroup.Root>
   <ButtonGroup.Root>
-    <Button variant="outline" size="sm">1</Button>
-    <Button variant="outline" size="sm">2</Button>
-    <Button variant="outline" size="sm">3</Button>
-    <Button variant="outline" size="sm">4</Button>
-    <Button variant="outline" size="sm">5</Button>
+    <Button variant="outline" size="icon">
+      <PlusIcon />
+    </Button>
   </ButtonGroup.Root>
   <ButtonGroup.Root>
-    <Button variant="outline" size="icon-sm" aria-label="Previous">
-      <ArrowLeft />
-    </Button>
-    <Button variant="outline" size="icon-sm" aria-label="Next">
-      <ArrowRight />
-    </Button>
+    <InputGroup.Root>
+      <InputGroup.Input placeholder="Send a message..." />
+      <Tooltip.Root>
+        <Tooltip.Trigger>
+          {#snippet child({ props })}
+            <InputGroup.Addon {...props} align="inline-end">
+              <AudioLinesIcon />
+            </InputGroup.Addon>
+          {/snippet}
+        </Tooltip.Trigger>
+        <Tooltip.Content>Voice Mode</Tooltip.Content>
+      </Tooltip.Root>
+    </InputGroup.Root>
   </ButtonGroup.Root>
 </ButtonGroup.Root>
 ```
 
 View Code
 
-### [Separator](button-group.md#separator)
+## [Separator](button-group.md#separator)
 
-The `ButtonGroupSeparator` component visually divides buttons within a group.
+The `ButtonGroup.Separator` component visually divides buttons within a group.
 
 Buttons with variant `outline` do not need a separator since they have a border. For other variants, a separator is recommended to improve the visual hierarchy.
 
@@ -277,9 +282,9 @@ Buttons with variant `outline` do not need a separator since they have a border.
 
 View Code
 
-### [Split](button-group.md#split)
+## [Split](button-group.md#split)
 
-Create a split button group by adding two buttons separated by a `ButtonGroupSeparator`.
+Create a split button group by adding two buttons separated by a `ButtonGroup.Separator`.
 
 ```svelte
 <script lang="ts">
@@ -298,7 +303,7 @@ Create a split button group by adding two buttons separated by a `ButtonGroupSep
 
 View Code
 
-### [Input](button-group.md#input)
+## [Input](button-group.md#input)
 
 Wrap an `Input` component with buttons.
 
@@ -311,7 +316,7 @@ Wrap an `Input` component with buttons.
 </script>
 <ButtonGroup.Root>
   <Input placeholder="Search..." />
-  <Button variant="outline" size="icon" aria-label="Search">
+  <Button variant="outline" aria-label="Search">
     <Search />
   </Button>
 </ButtonGroup.Root>
@@ -319,7 +324,7 @@ Wrap an `Input` component with buttons.
 
 View Code
 
-### [Input Group](button-group.md#input-group)
+## [Input Group](button-group.md#input-group)
 
 Wrap an `InputGroup` component to create complex input layouts.
 
@@ -339,7 +344,7 @@ Wrap an `InputGroup` component to create complex input layouts.
       <Plus />
     </Button>
   </ButtonGroup.Root>
-  <ButtonGroup.Root class="flex-1">
+  <ButtonGroup.Root>
     <InputGroup.Root>
       <InputGroup.Input
         placeholder={voiceEnabled
@@ -373,7 +378,7 @@ Wrap an `InputGroup` component to create complex input layouts.
 
 View Code
 
-### [Dropdown Menu](button-group.md#dropdown-menu)
+## [Dropdown Menu](button-group.md#dropdown-menu)
 
 Create a split button group with a `DropdownMenu` component.
 
@@ -396,12 +401,12 @@ Create a split button group with a `DropdownMenu` component.
   <DropdownMenu.Root>
     <DropdownMenu.Trigger>
       {#snippet child({ props })}
-        <Button {...props} variant="outline" class="!ps-2">
+        <Button {...props} variant="outline" class="pl-2!">
           <ChevronDown />
         </Button>
       {/snippet}
     </DropdownMenu.Trigger>
-    <DropdownMenu.Content align="end" class="[--radius:1rem]">
+    <DropdownMenu.Content align="end" class="w-auto">
       <DropdownMenu.Group>
         <DropdownMenu.Item>
           <VolumeOff />
@@ -442,7 +447,7 @@ Create a split button group with a `DropdownMenu` component.
 
 View Code
 
-### [Select](button-group.md#select)
+## [Select](button-group.md#select)
 
 Pair with a `Select` component.
 
@@ -475,13 +480,15 @@ Pair with a `Select` component.
       <Select.Trigger class="font-mono">
         {currency}
       </Select.Trigger>
-      <Select.Content class="min-w-24">
-        {#each CURRENCIES as currencyOption (currencyOption.value)}
-          <Select.Item value={currencyOption.value}>
-            {currencyOption.value}
-            <span class="text-muted-foreground">{currencyOption.label}</span>
-          </Select.Item>
-        {/each}
+      <Select.Content align="start">
+        <Select.Group>
+          {#each CURRENCIES as currencyOption (currencyOption.value)}
+            <Select.Item value={currencyOption.value}>
+              {currencyOption.value}
+              <span class="text-muted-foreground">{currencyOption.label}</span>
+            </Select.Item>
+          {/each}
+        </Select.Group>
       </Select.Content>
     </Select.Root>
     <Input placeholder="10.00" pattern="[0-9]*" />
@@ -496,7 +503,7 @@ Pair with a `Select` component.
 
 View Code
 
-### [Popover](button-group.md#popover)
+## [Popover](button-group.md#popover)
 
 Use with a `Popover` component.
 
@@ -505,15 +512,14 @@ Use with a `Popover` component.
   import Bot from "@lucide/svelte/icons/bot";
   import ChevronDown from "@lucide/svelte/icons/chevron-down";
   import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
+  import * as Field from "$lib/components/ui/field/index.js";
   import * as Popover from "$lib/components/ui/popover/index.js";
   import { Button } from "$lib/components/ui/button/index.js";
-  import { Separator } from "$lib/components/ui/separator/index.js";
   import { Textarea } from "$lib/components/ui/textarea/index.js";
 </script>
 <ButtonGroup.Root>
-  <Button variant="outline" size="sm">
-    <Bot />
-    Copilot
+  <Button variant="outline">
+    <Bot /> Copilot
   </Button>
   <Popover.Root>
     <Popover.Trigger>
@@ -521,29 +527,27 @@ Use with a `Popover` component.
         <Button
           {...props}
           variant="outline"
-          size="icon-sm"
+          size="icon"
           aria-label="Open Popover"
         >
           <ChevronDown />
         </Button>
       {/snippet}
     </Popover.Trigger>
-    <Popover.Content align="end" class="rounded-xl p-0 text-sm">
-      <div class="px-4 py-3">
-        <div class="text-sm font-medium">Agent Tasks</div>
-      </div>
-      <Separator />
-      <div class="p-4 text-sm *:[p:not(:last-child)]:mb-2">
-        <Textarea
-          placeholder="Describe your task in natural language."
-          class="mb-4 resize-none"
-        />
-        <p class="font-medium">Start a new task with Copilot</p>
-        <p class="text-muted-foreground">
-          Describe your task in natural language. Copilot will work in the
-          background and open a pull request for your review.
-        </p>
-      </div>
+    <Popover.Content align="end" class="rounded-xl text-sm">
+      <Popover.Header>
+        <Popover.Title>Start a new task with Copilot</Popover.Title>
+        <Popover.Description
+          >Describe your task in natural language.</Popover.Description
+        >
+      </Popover.Header>
+      <Field.Field>
+        <Field.Label for="task" class="sr-only">Task Description</Field.Label>
+        <Textarea id="task" placeholder="I need to..." class="resize-none" />
+        <Field.Description
+          >Copilot will open a pull request for review.</Field.Description
+        >
+      </Field.Field>
     </Popover.Content>
   </Popover.Root>
 </ButtonGroup.Root>

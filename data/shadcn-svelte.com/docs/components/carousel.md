@@ -17,7 +17,7 @@ A carousel with motion and swipe built using Embla.
   import * as Card from "$lib/components/ui/card/index.js";
   import * as Carousel from "$lib/components/ui/carousel/index.js";
 </script>
-<Carousel.Root class="w-full max-w-xs">
+<Carousel.Root class="w-full max-w-[12rem] sm:max-w-xs">
   <Carousel.Content>
     {#each Array(5), i}
       <Carousel.Item>
@@ -78,9 +78,7 @@ bun x shadcn-svelte@latest add carousel
 </Carousel.Root>
 ```
 
-## [Examples](carousel.md#examples)
-
-### [Sizes](carousel.md#sizes)
+## [Sizes](carousel.md#sizes)
 
 To set the size of the items, you can use the `basis` utility class on the `<Carousel.Item />`.
 
@@ -93,11 +91,11 @@ To set the size of the items, you can use the `basis` utility class on the `<Car
   opts={{
     align: "start"
   }}
-  class="w-full max-w-sm"
+  class="w-full max-w-[12rem] sm:max-w-xs md:max-w-sm"
 >
   <Carousel.Content>
     {#each Array(5) as _, i (i)}
-      <Carousel.Item class="md:basis-1/2 lg:basis-1/3">
+      <Carousel.Item class="basis-1/2 lg:basis-1/3">
         <div class="p-1">
           <Card.Root>
             <Card.Content
@@ -139,7 +137,7 @@ View Code
 </Carousel.Root>
 ```
 
-### [Spacing](carousel.md#spacing)
+## [Spacing](carousel.md#spacing)
 
 To set the spacing between the items, we use a `ps-[VALUE]` utility on the `<Carousel.Item />` and a negative `-ms-[VALUE]` on the `<Carousel.Content />`.
 
@@ -148,10 +146,10 @@ To set the spacing between the items, we use a `ps-[VALUE]` utility on the `<Car
   import * as Card from "$lib/components/ui/card/index.js";
   import * as Carousel from "$lib/components/ui/carousel/index.js";
 </script>
-<Carousel.Root class="w-full max-w-sm">
+<Carousel.Root class="w-full max-w-[12rem] sm:max-w-xs md:max-w-sm">
   <Carousel.Content class="-ms-1">
     {#each Array(5) as _, i (i)}
-      <Carousel.Item class="ps-1 md:basis-1/2 lg:basis-1/3">
+      <Carousel.Item class="basis-1/2 ps-1 lg:basis-1/3">
         <div class="p-1">
           <Card.Root>
             <Card.Content
@@ -191,7 +189,7 @@ View Code
 </Carousel.Root>
 ```
 
-### [Orientation](carousel.md#orientation)
+## [Orientation](carousel.md#orientation)
 
 Use the `orientation` prop to set the orientation of the carousel.
 
@@ -207,9 +205,9 @@ Use the `orientation` prop to set the orientation of the carousel.
   orientation="vertical"
   class="w-full max-w-xs"
 >
-  <Carousel.Content class="-mt-1 h-[200px]">
+  <Carousel.Content class="-mt-1 h-[270px]">
     {#each Array(5) as _, i (i)}
-      <Carousel.Item class="pt-1 md:basis-1/2">
+      <Carousel.Item class="basis-1/2 pt-1">
         <div class="p-1">
           <Card.Root>
             <Card.Content class="flex items-center justify-center p-6">
@@ -258,7 +256,7 @@ You can pass options to the carousel using the `opts` prop. See the [Embla Carou
 
 ## [API](carousel.md#api)
 
-Use reactive state and the `setApi` callback to get an instance of the carousel API.
+Use reactive state and the `setApi` prop to get an instance of the carousel API.
 
 ```svelte
 <script lang="ts">
@@ -277,7 +275,7 @@ Use reactive state and the `setApi` callback to get an instance of the carousel 
     }
   });
 </script>
-<div>
+<div class="mx-auto max-w-[10rem] sm:max-w-xs">
   <Carousel.Root
     setApi={(emblaApi) => (api = emblaApi)}
     class="w-full max-w-xs"
@@ -285,7 +283,7 @@ Use reactive state and the `setApi` callback to get an instance of the carousel 
     <Carousel.Content>
       {#each Array(5) as _, i (i)}
         <Carousel.Item>
-          <Card.Root>
+          <Card.Root class="m-px">
             <Card.Content
               class="flex aspect-square items-center justify-center p-6"
             >
@@ -333,7 +331,7 @@ View Code
 
 ## [Events](carousel.md#events)
 
-You can listen to events using the api instance from `bind:api`.
+You can listen to events using the api instance from `setApi`.
 
 ```svelte
 <script lang="ts">
@@ -343,7 +341,7 @@ You can listen to events using the api instance from `bind:api`.
   $effect(() => {
     if (api) {
       api.on("select", () => {
-        // do something
+        // Do something on select.
       });
     }
   });
@@ -356,6 +354,8 @@ You can listen to events using the api instance from `bind:api`.
   </Carousel.Content>
 </Carousel.Root>
 ```
+
+See the [Embla Carousel docs](https://www.embla-carousel.com/docs/v8/api/events) for more information on using events.
 
 ## [Plugins](carousel.md#plugins)
 
@@ -385,7 +385,7 @@ You can use the `plugins` prop to add plugins to the carousel.
 </script>
 <Carousel.Root
   plugins={[plugin]}
-  class="w-full max-w-xs"
+  class="w-full max-w-[10rem] sm:max-w-xs"
   onmouseenter={plugin.stop}
   onmouseleave={plugin.reset}
 >

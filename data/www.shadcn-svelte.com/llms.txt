@@ -25,14 +25,14 @@
 
 - [Button](../shadcn-svelte.com/docs/components/button.md): Displays a button or a component that looks like a button.
 - [Button Group](../shadcn-svelte.com/docs/components/button-group.md): A container that groups related buttons together with consistent styling.
-- [Calendar](../shadcn-svelte.com/docs/components/calendar.md): A calendar component that allows users to select dates.
+- [Calendar](../shadcn-svelte.com/docs/components/calendar.md): A calendar component that allows users to select a date or a range of dates.
 - [Checkbox](../shadcn-svelte.com/docs/components/checkbox.md): A control that allows the user to toggle between checked and not checked.
-- [Combobox](../shadcn-svelte.com/docs/components/combobox.md): Autocomplete input and command palette with a list of suggestions.
+- [Combobox](../shadcn-svelte.com/docs/components/combobox.md): Autocomplete input with a list of suggestions.
 - [Date Picker](../shadcn-svelte.com/docs/components/date-picker.md): A date picker component with range and presets.
 - [Field](../shadcn-svelte.com/docs/components/field.md): Combine labels, controls, and help text to compose accessible form fields and grouped inputs.
-- [Input](../shadcn-svelte.com/docs/components/input.md): Displays a form input field or a component that looks like an input field.
-- [Input Group](../shadcn-svelte.com/docs/components/input-group.md): Display additional information or actions to an input or textarea.
-- [Input OTP](../shadcn-svelte.com/docs/components/input-otp.md): Accessible one-time password component with copy paste functionality.
+- [Input](../shadcn-svelte.com/docs/components/input.md): A text input component for forms and user data entry with built-in styling and accessibility features.
+- [Input Group](../shadcn-svelte.com/docs/components/input-group.md): Add addons, buttons, and helper content to inputs.
+- [Input OTP](../shadcn-svelte.com/docs/components/input-otp.md): Accessible one-time password component with copy-paste functionality.
 - [Label](../shadcn-svelte.com/docs/components/label.md): Renders an accessible label associated with controls.
 - [Native Select](../shadcn-svelte.com/docs/components/native-select.md): A styled native HTML select element with consistent design system integration.
 - [Radio Group](../shadcn-svelte.com/docs/components/radio-group.md): A set of checkable buttonsâknown as radio buttonsâwhere no more than one of the buttons can be checked at a time.
@@ -55,8 +55,8 @@
 ### Overlays & Dialogs
 
 - [Alert Dialog](../shadcn-svelte.com/docs/components/alert-dialog.md): A modal dialog that interrupts the user with important content and expects a response.
-- [Command](../shadcn-svelte.com/docs/components/command.md): Fast, composable, unstyled command menu for Svelte.
-- [Context Menu](../shadcn-svelte.com/docs/components/context-menu.md): Displays a menu to the user â such as a set of actions or functions â triggered by right click.
+- [Command](../shadcn-svelte.com/docs/components/command.md): Command menu for search and quick actions.
+- [Context Menu](../shadcn-svelte.com/docs/components/context-menu.md): Displays a menu of actions triggered by a right click.
 - [Dialog](../shadcn-svelte.com/docs/components/dialog.md): A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
 - [Drawer](../shadcn-svelte.com/docs/components/drawer.md): A drawer component for Svelte.
 - [Dropdown Menu](../shadcn-svelte.com/docs/components/dropdown-menu.md): Displays a menu to the user â such as a set of actions or functions â triggered by a button.
@@ -86,12 +86,12 @@
 - [Carousel](../shadcn-svelte.com/docs/components/carousel.md): A carousel with motion and swipe built using Embla.
 - [Chart](../shadcn-svelte.com/docs/components/chart.md): Beautiful charts. Built using LayerChart. Copy and paste into your apps.
 - [Data Table](../shadcn-svelte.com/docs/components/data-table.md): Powerful table and datagrids built using TanStack Table.
-- [Item](../shadcn-svelte.com/docs/components/item.md): A versatile component that you can use to display any content.
+- [Item](../shadcn-svelte.com/docs/components/item.md): A versatile component for displaying content with media, title, description, and actions.
 - [Kbd](../shadcn-svelte.com/docs/components/kbd.md): Used to display textual user input from keyboard.
 - [Marker](../shadcn-svelte.com/docs/components/marker.md): Displays an inline status, system note, bordered row, or labeled separator in a conversation.
 - [Message](../shadcn-svelte.com/docs/components/message.md): Displays a message in a conversation, with optional avatar, header, footer, and alignment.
 - [Table](../shadcn-svelte.com/docs/components/table.md): A responsive table component.
-- [Typography](../shadcn-svelte.com/docs/components/typography.md): Styles for headings, paragraphs, lists...etc
+- [Typography](../shadcn-svelte.com/docs/components/typography.md): Styles for headings, paragraphs, lists, etc.
 
 ### Misc
 

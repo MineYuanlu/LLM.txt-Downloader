@@ -15,7 +15,7 @@ Displays a card with header, content, and footer.
   import { Input } from "$lib/components/ui/input/index.js";
   import { Label } from "$lib/components/ui/label/index.js";
 </script>
-<Card.Root class="-my-4 w-full max-w-sm">
+<Card.Root class="w-full max-w-sm">
   <Card.Header>
     <Card.Title>Login to your account</Card.Title>
     <Card.Description
@@ -37,7 +37,7 @@ Displays a card with header, content, and footer.
             <Label for="password">Password</Label>
             <a
               href="card.md##"
-              class="ms-auto inline-block text-sm underline-offset-4 hover:underline"
+              class="ml-auto inline-block text-sm underline-offset-4 hover:underline"
             >
               Forgot your password?
             </a>
@@ -83,6 +83,7 @@ bun x shadcn-svelte@latest add card
   <Card.Header>
     <Card.Title>Card Title</Card.Title>
     <Card.Description>Card Description</Card.Description>
+    <Card.Action>Card Action</Card.Action>
   </Card.Header>
   <Card.Content>
     <p>Card Content</p>
@@ -93,57 +94,51 @@ bun x shadcn-svelte@latest add card
 </Card.Root>
 ```
 
-## [Examples](card.md#examples)
+## [Size](card.md#size)
+
+Use the `size="sm"` prop to set the size of the card to small. The small size variant uses smaller spacing.
 
 ```svelte
 <script lang="ts">
+  import ChevronRightIcon from "@lucide/svelte/icons/chevron-right";
   import * as Card from "$lib/components/ui/card/index.js";
   import { Button } from "$lib/components/ui/button/index.js";
-  import { Input } from "$lib/components/ui/input/index.js";
-  import { Label } from "$lib/components/ui/label/index.js";
+  const featureName = "Scheduled reports";
+  const steps = [
+    "Choose a schedule (daily, or weekly).",
+    "Send to channels or specific teammates.",
+    "Include charts, tables, and key metrics."
+ ];
 </script>
-<Card.Root class="-my-4 w-full max-w-sm">
+<Card.Root size="sm" class="mx-auto w-full max-w-xs">
   <Card.Header>
-    <Card.Title>Login to your account</Card.Title>
+    <Card.Title>{featureName}</Card.Title>
     <Card.Description
-      >Enter your email below to login to your account</Card.Description
+      >Weekly snapshots. No more manual exports.</Card.Description
     >
-    <Card.Action>
-      <Button variant="link">Sign Up</Button>
-    </Card.Action>
   </Card.Header>
   <Card.Content>
-    <form>
-      <div class="flex flex-col gap-6">
-        <div class="grid gap-2">
-          <Label for="email">Email</Label>
-          <Input id="email" type="email" placeholder="m@example.com" required />
-        </div>
-        <div class="grid gap-2">
-          <div class="flex items-center">
-            <Label for="password">Password</Label>
-            <a
-              href="card.md##"
-              class="ms-auto inline-block text-sm underline-offset-4 hover:underline"
-            >
-              Forgot your password?
-            </a>
-          </div>
-          <Input id="password" type="password" required />
-        </div>
-      </div>
-    </form>
+    <ul class="grid gap-2 py-2 text-sm">
+      {#each steps as step (step)}
+        <li class="flex gap-2">
+          <ChevronRightIcon
+            class="mt-0.5 size-4 shrink-0 text-muted-foreground"
+          />
+          <span>{step}</span>
+        </li>
+      {/each}
+    </ul>
   </Card.Content>
   <Card.Footer class="flex-col gap-2">
-    <Button type="submit" class="w-full">Login</Button>
-    <Button variant="outline" class="w-full">Login with Google</Button>
+    <Button size="sm" class="w-full">Set up scheduled reports</Button>
+    <Button variant="outline" size="sm" class="w-full">See what's new</Button>
   </Card.Footer>
 </Card.Root>
 ```
 
 View Code
 
-### [Spacing](card.md#spacing)
+## [Spacing](card.md#spacing)
 
 In addition to the `size` prop, you can use the `--card-spacing` CSS variable to control the spacing between sections and the inset of card parts.
 
@@ -240,7 +235,7 @@ In addition to the `size` prop, you can use the `--card-spacing` CSS variable to
 
 View Code
 
-Use negative margins with `-mx-(--card-spacing)` to make content go edge to edge while keeping it aligned with the card inset. When the edge-to-edge content sits above a footer, use `-mb-(--card-spacing)` on `CardContent` to remove the section gap.
+Use negative margins with `-mx-(--card-spacing)` to make content go edge to edge while keeping it aligned with the card inset. When the edge-to-edge content sits above a footer, use `-mb-(--card-spacing)` on `Card.Content` to remove the section gap.
 
 ```svelte
 <script lang="ts">
@@ -286,7 +281,7 @@ Use negative margins with `-mx-(--card-spacing)` to make content go edge to edge
 
 View Code
 
-### [Image](card.md#image)
+## [Image](card.md#image)
 
 Add an image before the card header to create a card with an image.
 

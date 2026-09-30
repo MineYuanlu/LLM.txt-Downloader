@@ -16,8 +16,30 @@ Combine labels, controls, and help text to compose accessible form fields and gr
   import { Checkbox } from "$lib/components/ui/checkbox/index.js";
   import { Input } from "$lib/components/ui/input/index.js";
   import { Textarea } from "$lib/components/ui/textarea/index.js";
-  let month = $state<string>();
-  let year = $state<string>();
+  const months = [
+    { label: "01", value: "01" },
+    { label: "02", value: "02" },
+    { label: "03", value: "03" },
+    { label: "04", value: "04" },
+    { label: "05", value: "05" },
+    { label: "06", value: "06" },
+    { label: "07", value: "07" },
+    { label: "08", value: "08" },
+    { label: "09", value: "09" },
+    { label: "10", value: "10" },
+    { label: "11", value: "11" },
+    { label: "12", value: "12" }
+ ];
+  const years = [
+    { label: "2024", value: "2024" },
+    { label: "2025", value: "2025" },
+    { label: "2026", value: "2026" },
+    { label: "2027", value: "2027" },
+    { label: "2028", value: "2028" },
+    { label: "2029", value: "2029" }
+ ];
+  let month = $state("");
+  let year = $state("");
 </script>
 <div class="w-full max-w-md">
   <form>
@@ -34,69 +56,61 @@ Combine labels, controls, and help text to compose accessible form fields and gr
             >
             <Input
               id="checkout-7j9-card-name-43j"
-              placeholder="John Doe"
+              placeholder="Evil Rabbit"
               required
             />
           </Field.Field>
+          <Field.Field>
+            <Field.Label for="checkout-7j9-card-number-uw1"
+              >Card Number</Field.Label
+            >
+            <Input
+              id="checkout-7j9-card-number-uw1"
+              placeholder="1234 5678 9012 3456"
+              required
+            />
+            <Field.Description
+              >Enter your 16-digit card number</Field.Description
+            >
+          </Field.Field>
           <div class="grid grid-cols-3 gap-4">
-            <Field.Field class="col-span-2">
-              <Field.Label for="checkout-7j9-card-number-uw1"
-                >Card Number</Field.Label
-              >
-              <Input
-                id="checkout-7j9-card-number-uw1"
-                placeholder="1234 5678 9012 3456"
-                required
-              />
-              <Field.Description>Enter your 16-digit number.</Field.Description>
-            </Field.Field>
-            <Field.Field class="col-span-1">
-              <Field.Label for="checkout-7j9-cvv">CVV</Field.Label>
-              <Input id="checkout-7j9-cvv" placeholder="123" required />
-            </Field.Field>
-          </div>
-          <div class="grid grid-cols-2 gap-4">
             <Field.Field>
-              <Field.Label for="checkout-7j9-exp-month-ts6">Month</Field.Label>
-              <Select.Root type="single" bind:value={month}>
-                <Select.Trigger id="checkout-7j9-exp-month-ts6">
-                  <span>
-                    {month || "MM"}
-                  </span>
+              <Field.Label for="checkout-exp-month-ts6">Month</Field.Label>
+              <Select.Root type="single" items={months} bind:value={month}>
+                <Select.Trigger id="checkout-exp-month-ts6">
+                  <Select.Value placeholder="MM" />
                 </Select.Trigger>
                 <Select.Content>
-                  <Select.Item value="01">01</Select.Item>
-                  <Select.Item value="02">02</Select.Item>
-                  <Select.Item value="03">03</Select.Item>
-                  <Select.Item value="04">04</Select.Item>
-                  <Select.Item value="05">05</Select.Item>
-                  <Select.Item value="06">06</Select.Item>
-                  <Select.Item value="07">07</Select.Item>
-                  <Select.Item value="08">08</Select.Item>
-                  <Select.Item value="09">09</Select.Item>
-                  <Select.Item value="10">10</Select.Item>
-                  <Select.Item value="11">11</Select.Item>
-                  <Select.Item value="12">12</Select.Item>
+                  <Select.Group>
+                    {#each months as item (item.value)}
+                      <Select.Item value={item.value} label={item.label}>
+                        {item.label}
+                      </Select.Item>
+                    {/each}
+                  </Select.Group>
                 </Select.Content>
               </Select.Root>
             </Field.Field>
             <Field.Field>
               <Field.Label for="checkout-7j9-exp-year-f59">Year</Field.Label>
-              <Select.Root type="single" bind:value={year}>
+              <Select.Root type="single" items={years} bind:value={year}>
                 <Select.Trigger id="checkout-7j9-exp-year-f59">
-                  <span>
-                    {year || "YYYY"}
-                  </span>
+                  <Select.Value placeholder="YYYY" />
                 </Select.Trigger>
                 <Select.Content>
-                  <Select.Item value="2024">2024</Select.Item>
-                  <Select.Item value="2025">2025</Select.Item>
-                  <Select.Item value="2026">2026</Select.Item>
-                  <Select.Item value="2027">2027</Select.Item>
-                  <Select.Item value="2028">2028</Select.Item>
-                  <Select.Item value="2029">2029</Select.Item>
+                  <Select.Group>
+                    {#each years as item (item.value)}
+                      <Select.Item value={item.value} label={item.label}>
+                        {item.label}
+                      </Select.Item>
+                    {/each}
+                  </Select.Group>
                 </Select.Content>
               </Select.Root>
+            </Field.Field>
+            <Field.Field>
+              <Field.Label for="checkout-7j9-cvv">CVV</Field.Label>
+              <Input id="checkout-7j9-cvv" placeholder="123" required />
             </Field.Field>
           </div>
         </Field.Group>
@@ -119,7 +133,6 @@ Combine labels, controls, and help text to compose accessible form fields and gr
           </Field.Field>
         </Field.Group>
       </Field.Set>
-      <Field.Separator />
       <Field.Set>
         <Field.Group>
           <Field.Field>
@@ -208,112 +221,100 @@ The `Field` family is designed for composing accessible forms. A typical field i
 - `Field.Content` is a flex column that groups label and description. Not required if you have no description.
 - Wrap related fields with `Field.Group` , and use `Field.Set` with `Field.Legend` for semantic grouping.
 
-## [Examples](field.md#examples)
-
-### [Input](field.md#input)
+## [Input](field.md#input)
 
 ```svelte
 <script lang="ts">
   import * as Field from "$lib/components/ui/field/index.js";
   import { Input } from "$lib/components/ui/input/index.js";
 </script>
-<div class="w-full max-w-md">
-  <Field.Set>
-    <Field.Group>
-      <Field.Field>
-        <Field.Label for="username">Username</Field.Label>
-        <Input id="username" type="text" placeholder="Max Leiter" />
-        <Field.Description
-          >Choose a unique username for your account.</Field.Description
-        >
-      </Field.Field>
-      <Field.Field>
-        <Field.Label for="password">Password</Field.Label>
-        <Field.Description
-          >Must be at least 8 characters long.</Field.Description
-        >
-        <Input id="password" type="password" placeholder="" />
-      </Field.Field>
-    </Field.Group>
-  </Field.Set>
-</div>
+<Field.Set class="w-full max-w-xs">
+  <Field.Group>
+    <Field.Field>
+      <Field.Label for="username">Username</Field.Label>
+      <Input id="username" type="text" placeholder="Max Leiter" />
+      <Field.Description
+        >Choose a unique username for your account.</Field.Description
+      >
+    </Field.Field>
+    <Field.Field>
+      <Field.Label for="password">Password</Field.Label>
+      <Field.Description>Must be at least 8 characters long.</Field.Description>
+      <Input id="password" type="password" placeholder="" />
+    </Field.Field>
+  </Field.Group>
+</Field.Set>
 ```
 
 View Code
 
-### [Textarea](field.md#textarea)
+## [Textarea](field.md#textarea)
 
 ```svelte
 <script lang="ts">
   import * as Field from "$lib/components/ui/field/index.js";
   import { Textarea } from "$lib/components/ui/textarea/index.js";
 </script>
-<div class="w-full max-w-md">
-  <Field.Set>
-    <Field.Group>
-      <Field.Field>
-        <Field.Label for="feedback">Feedback</Field.Label>
-        <Textarea
-          id="feedback"
-          placeholder="Your feedback helps us improve..."
-          rows={4}
-        />
-        <Field.Description
-          >Share your thoughts about our service.</Field.Description
-        >
-      </Field.Field>
-    </Field.Group>
-  </Field.Set>
-</div>
+<Field.Set class="w-full max-w-xs">
+  <Field.Group>
+    <Field.Field>
+      <Field.Label for="feedback">Feedback</Field.Label>
+      <Textarea
+        id="feedback"
+        placeholder="Your feedback helps us improve..."
+        rows={4}
+      />
+      <Field.Description
+        >Share your thoughts about our service.</Field.Description
+      >
+    </Field.Field>
+  </Field.Group>
+</Field.Set>
 ```
 
 View Code
 
-### [Select](field.md#select)
+## [Select](field.md#select)
 
 ```svelte
 <script lang="ts">
   import * as Field from "$lib/components/ui/field/index.js";
   import * as Select from "$lib/components/ui/select/index.js";
-  let department = $state<string>();
-  const departments = [
-    { value: "engineering", label: "Engineering" },
-    { value: "design", label: "Design" },
-    { value: "marketing", label: "Marketing" },
-    { value: "sales", label: "Sales" },
-    { value: "support", label: "Customer Support" },
-    { value: "hr", label: "Human Resources" },
-    { value: "finance", label: "Finance" },
-    { value: "operations", label: "Operations" }
+  const items = [
+    { label: "Engineering", value: "engineering" },
+    { label: "Design", value: "design" },
+    { label: "Marketing", value: "marketing" },
+    { label: "Sales", value: "sales" },
+    { label: "Customer Support", value: "support" },
+    { label: "Human Resources", value: "hr" },
+    { label: "Finance", value: "finance" },
+    { label: "Operations", value: "operations" }
  ];
-  const departmentLabel = $derived(
-    departments.find((d) => d.value === department)?.label ??
-      "Choose department"
-  );
+  let value = $state("");
 </script>
-<div class="w-full max-w-md">
-  <Field.Field>
-    <Field.Label for="department">Department</Field.Label>
-    <Select.Root type="single" bind:value={department}>
-      <Select.Trigger id="department">
-        {departmentLabel}
-      </Select.Trigger>
-      <Select.Content>
-        {#each departments as department (department.value)}
-          <Select.Item {...department} />
+<Field.Field class="w-full max-w-xs">
+  <Field.Label for="department">Department</Field.Label>
+  <Select.Root type="single" {items} bind:value>
+    <Select.Trigger id="department">
+      <Select.Value placeholder="Choose department" />
+    </Select.Trigger>
+    <Select.Content>
+      <Select.Group>
+        {#each items as item (item.value)}
+          <Select.Item value={item.value} label={item.label}>
+            {item.label}
+          </Select.Item>
         {/each}
-      </Select.Content>
-    </Select.Root>
-    <Field.Description
-      >Select your department or area of work.</Field.Description
-    >
-  </Field.Field>
-</div>
+      </Select.Group>
+    </Select.Content>
+  </Select.Root>
+  <Field.Description>Select your department or area of work.</Field.Description>
+</Field.Field>
 ```
 
 View Code
 
-### [Slider](field.md#slider)
+## [Slider](field.md#slider)
 
 ```svelte
 <script lang="ts">
@@ -321,135 +322,127 @@ View Code
   import { Slider } from "$lib/components/ui/slider/index.js";
   let value = $state([200, 800]);
 </script>
-<div class="w-full max-w-md">
-  <Field.Field>
-    <Field.Label>Price Range</Field.Label>
-    <Field.Description>
-      Set your budget range ($<span class="font-medium tabular-nums"
-        >{value[0]}</span
-      >
-      -
-      <span class="font-medium tabular-nums">{value[1]}</span>).
-    </Field.Description>
-    <Slider
-      type="multiple"
-      bind:value
-      max={1000}
-      min={0}
-      step={10}
-      class="mt-2 w-full"
-      aria-label="Price Range"
-    />
-  </Field.Field>
-</div>
+<Field.Field class="w-full max-w-xs">
+  <Field.Title>Price Range</Field.Title>
+  <Field.Description>
+    Set your budget range ($<span class="font-medium tabular-nums"
+      >{value[0]}</span
+    >
+    -
+    <span class="font-medium tabular-nums">{value[1]}</span>).
+  </Field.Description>
+  <Slider
+    type="multiple"
+    bind:value
+    max={1000}
+    min={0}
+    step={10}
+    class="mt-2 w-full"
+    aria-label="Price Range"
+  />
+</Field.Field>
 ```
 
 View Code
 
-### [Fieldset](field.md#fieldset)
+## [Fieldset](field.md#fieldset)
 
 ```svelte
 <script lang="ts">
   import * as Field from "$lib/components/ui/field/index.js";
   import { Input } from "$lib/components/ui/input/index.js";
 </script>
-<div class="w-full max-w-md space-y-6">
-  <Field.Set>
-    <Field.Legend>Address Information</Field.Legend>
-    <Field.Description
-      >We need your address to deliver your order.</Field.Description
-    >
-    <Field.Group>
+<Field.Set class="w-full max-w-sm">
+  <Field.Legend>Address Information</Field.Legend>
+  <Field.Description
+    >We need your address to deliver your order.</Field.Description
+  >
+  <Field.Group>
+    <Field.Field>
+      <Field.Label for="street">Street Address</Field.Label>
+      <Input id="street" type="text" placeholder="123 Main St" />
+    </Field.Field>
+    <div class="grid grid-cols-2 gap-4">
       <Field.Field>
-        <Field.Label for="street">Street Address</Field.Label>
-        <Input id="street" type="text" placeholder="123 Main St" />
+        <Field.Label for="city">City</Field.Label>
+        <Input id="city" type="text" placeholder="New York" />
       </Field.Field>
-      <div class="grid grid-cols-2 gap-4">
-        <Field.Field>
-          <Field.Label for="city">City</Field.Label>
-          <Input id="city" type="text" placeholder="New York" />
-        </Field.Field>
-        <Field.Field>
-          <Field.Label for="zip">Postal Code</Field.Label>
-          <Input id="zip" type="text" placeholder="90502" />
-        </Field.Field>
-      </div>
-    </Field.Group>
-  </Field.Set>
-</div>
+      <Field.Field>
+        <Field.Label for="zip">Postal Code</Field.Label>
+        <Input id="zip" type="text" placeholder="90502" />
+      </Field.Field>
+    </div>
+  </Field.Group>
+</Field.Set>
 ```
 
 View Code
 
-### [Checkbox](field.md#checkbox)
+## [Checkbox](field.md#checkbox)
 
 ```svelte
 <script lang="ts">
   import * as Field from "$lib/components/ui/field/index.js";
   import { Checkbox } from "$lib/components/ui/checkbox/index.js";
 </script>
-<div class="w-full max-w-md">
-  <Field.Group>
-    <Field.Set>
-      <Field.Legend variant="label"
-        >Show these items on the desktop</Field.Legend
-      >
-      <Field.Description
-        >Select the items you want to show on the desktop.</Field.Description
-      >
-      <Field.Group class="gap-3">
-        <Field.Field orientation="horizontal">
-          <Checkbox id="finder-pref-9k2-hard-disks-ljj" checked />
-          <Field.Label for="finder-pref-9k2-hard-disks-ljj" class="font-normal">
-            Hard disks
-          </Field.Label>
-        </Field.Field>
-        <Field.Field orientation="horizontal">
-          <Checkbox id="finder-pref-9k2-external-disks-1yg" />
-          <Field.Label
-            for="finder-pref-9k2-external-disks-1yg"
-            class="font-normal"
-          >
-            External disks
-          </Field.Label>
-        </Field.Field>
-        <Field.Field orientation="horizontal">
-          <Checkbox id="finder-pref-9k2-cds-dvds-fzt" />
-          <Field.Label for="finder-pref-9k2-cds-dvds-fzt" class="font-normal">
-            CDs, DVDs, and iPods
-          </Field.Label>
-        </Field.Field>
-        <Field.Field orientation="horizontal">
-          <Checkbox id="finder-pref-9k2-connected-servers-6l2" />
-          <Field.Label
-            for="finder-pref-9k2-connected-servers-6l2"
-            class="font-normal"
-          >
-            Connected servers
-          </Field.Label>
-        </Field.Field>
-      </Field.Group>
-    </Field.Set>
-    <Field.Separator />
-    <Field.Field orientation="horizontal">
-      <Checkbox id="finder-pref-9k2-sync-folders-nep" checked />
-      <Field.Content>
-        <Field.Label for="finder-pref-9k2-sync-folders-nep">
-          Sync Desktop & Documents folders
+<Field.Group class="w-full max-w-xs">
+  <Field.Set>
+    <Field.Legend variant="label">Show these items on the desktop</Field.Legend>
+    <Field.Description
+      >Select the items you want to show on the desktop.</Field.Description
+    >
+    <Field.Group class="gap-3">
+      <Field.Field orientation="horizontal">
+        <Checkbox id="finder-pref-9k2-hard-disks-ljj" />
+        <Field.Label for="finder-pref-9k2-hard-disks-ljj" class="font-normal">
+          Hard disks
         </Field.Label>
-        <Field.Description>
-          Your Desktop & Documents folders are being synced with iCloud Drive.
-          You can access them from other devices.
-        </Field.Description>
-      </Field.Content>
-    </Field.Field>
-  </Field.Group>
-</div>
+      </Field.Field>
+      <Field.Field orientation="horizontal">
+        <Checkbox id="finder-pref-9k2-external-disks-1yg" />
+        <Field.Label
+          for="finder-pref-9k2-external-disks-1yg"
+          class="font-normal"
+        >
+          External disks
+        </Field.Label>
+      </Field.Field>
+      <Field.Field orientation="horizontal">
+        <Checkbox id="finder-pref-9k2-cds-dvds-fzt" />
+        <Field.Label for="finder-pref-9k2-cds-dvds-fzt" class="font-normal">
+          CDs, DVDs, and iPods
+        </Field.Label>
+      </Field.Field>
+      <Field.Field orientation="horizontal">
+        <Checkbox id="finder-pref-9k2-connected-servers-6l2" />
+        <Field.Label
+          for="finder-pref-9k2-connected-servers-6l2"
+          class="font-normal"
+        >
+          Connected servers
+        </Field.Label>
+      </Field.Field>
+    </Field.Group>
+  </Field.Set>
+  <Field.Separator />
+  <Field.Field orientation="horizontal">
+    <Checkbox id="finder-pref-9k2-sync-folders-nep" checked />
+    <Field.Content>
+      <Field.Label for="finder-pref-9k2-sync-folders-nep">
+        Sync Desktop & Documents folders
+      </Field.Label>
+      <Field.Description>
+        Your Desktop & Documents folders are being synced with iCloud Drive. You
+        can access them from other devices.
+      </Field.Description>
+    </Field.Content>
+  </Field.Field>
+</Field.Group>
 ```
 
 View Code
 
-### [Radio](field.md#radio)
+## [Radio](field.md#radio)
 
 ```svelte
 <script lang="ts">
@@ -457,64 +450,54 @@ View Code
   import * as RadioGroup from "$lib/components/ui/radio-group/index.js";
   let plan = $state("monthly");
 </script>
-<div class="w-full max-w-md">
-  <Field.Set>
-    <Field.Label>Subscription Plan</Field.Label>
-    <Field.Description
-      >Yearly and lifetime plans offer significant savings.</Field.Description
-    >
-    <RadioGroup.Root bind:value={plan}>
-      <Field.Field orientation="horizontal">
-        <RadioGroup.Item value="monthly" id="plan-monthly" />
-        <Field.Label for="plan-monthly" class="font-normal"
-          >Monthly ($9.99/month)</Field.Label
-        >
-      </Field.Field>
-      <Field.Field orientation="horizontal">
-        <RadioGroup.Item value="yearly" id="plan-yearly" />
-        <Field.Label for="plan-yearly" class="font-normal"
-          >Yearly ($99.99/year)</Field.Label
-        >
-      </Field.Field>
-      <Field.Field orientation="horizontal">
-        <RadioGroup.Item value="lifetime" id="plan-lifetime" />
-        <Field.Label for="plan-lifetime" class="font-normal"
-          >Lifetime ($299.99)</Field.Label
-        >
-      </Field.Field>
-    </RadioGroup.Root>
-  </Field.Set>
-</div>
+<Field.Set class="w-full max-w-xs">
+  <Field.Legend variant="label">Subscription Plan</Field.Legend>
+  <Field.Description
+    >Yearly and lifetime plans offer significant savings.</Field.Description
+  >
+  <RadioGroup.Root bind:value={plan}>
+    <Field.Field orientation="horizontal">
+      <RadioGroup.Item value="monthly" id="plan-monthly" />
+      <Field.Label for="plan-monthly" class="font-normal"
+        >Monthly ($9.99/month)</Field.Label
+      >
+    </Field.Field>
+    <Field.Field orientation="horizontal">
+      <RadioGroup.Item value="yearly" id="plan-yearly" />
+      <Field.Label for="plan-yearly" class="font-normal"
+        >Yearly ($99.99/year)</Field.Label
+      >
+    </Field.Field>
+    <Field.Field orientation="horizontal">
+      <RadioGroup.Item value="lifetime" id="plan-lifetime" />
+      <Field.Label for="plan-lifetime" class="font-normal"
+        >Lifetime ($299.99)</Field.Label
+      >
+    </Field.Field>
+  </RadioGroup.Root>
+</Field.Set>
 ```
 
 View Code
 
-### [Switch](field.md#switch)
+## [Switch](field.md#switch)
 
 ```svelte
 <script lang="ts">
   import * as Field from "$lib/components/ui/field/index.js";
   import { Switch } from "$lib/components/ui/switch/index.js";
 </script>
-<div class="w-full max-w-md">
-  <Field.Field orientation="horizontal">
-    <Field.Content>
-      <Field.Label for="2fa">Multi-factor authentication</Field.Label>
-      <Field.Description>
-        Enable multi-factor authentication. If you do not have a two-factor
-        device, you can use a one-time code sent to your email.
-      </Field.Description>
-    </Field.Content>
-    <Switch id="2fa" />
-  </Field.Field>
-</div>
+<Field.Field orientation="horizontal" class="w-fit">
+  <Field.Label for="2fa">Multi-factor authentication</Field.Label>
+  <Switch id="2fa" />
+</Field.Field>
 ```
 
 View Code
 
-### [Choice Card](field.md#choice-card)
+## [Choice Card](field.md#choice-card)
 
-Wrap `Field` components inside `FieldLabel` to create selectable field groups. This works with `RadioItem`, `Checkbox` and `Switch` components.
+Wrap `Field.Field` components inside `Field.Label` to create selectable field groups. This works with `RadioGroup.Item`, `Checkbox` and `Switch` components.
 
 ```svelte
 <script lang="ts">
@@ -522,47 +505,43 @@ Wrap `Field` components inside `FieldLabel` to create selectable field groups. T
   import * as RadioGroup from "$lib/components/ui/radio-group/index.js";
   let computeEnvironment = $state("kubernetes");
 </script>
-<div class="w-full max-w-md">
-  <Field.Group>
-    <Field.Set>
-      <Field.Label for="compute-environment-p8w"
-        >Compute Environment</Field.Label
-      >
-      <Field.Description
-        >Select the compute environment for your cluster.</Field.Description
-      >
-      <RadioGroup.Root bind:value={computeEnvironment}>
-        <Field.Label for="kubernetes-r2h">
-          <Field.Field orientation="horizontal">
-            <Field.Content>
-              <Field.Title>Kubernetes</Field.Title>
-              <Field.Description
-                >Run GPU workloads on a K8s configured cluster.</Field.Description
-              >
-            </Field.Content>
-            <RadioGroup.Item value="kubernetes" id="kubernetes-r2h" />
-          </Field.Field>
-        </Field.Label>
-        <Field.Label for="vm-z4k">
-          <Field.Field orientation="horizontal">
-            <Field.Content>
-              <Field.Title>Virtual Machine</Field.Title>
-              <Field.Description>
-                Access a VM configured cluster to run GPU workloads.
-              </Field.Description>
-            </Field.Content>
-            <RadioGroup.Item value="vm" id="vm-z4k" />
-          </Field.Field>
-        </Field.Label>
-      </RadioGroup.Root>
-    </Field.Set>
-  </Field.Group>
-</div>
+<Field.Group class="w-full max-w-xs">
+  <Field.Set>
+    <Field.Legend variant="label">Compute Environment</Field.Legend>
+    <Field.Description
+      >Select the compute environment for your cluster.</Field.Description
+    >
+    <RadioGroup.Root bind:value={computeEnvironment}>
+      <Field.Label for="kubernetes-r2h">
+        <Field.Field orientation="horizontal">
+          <Field.Content>
+            <Field.Title>Kubernetes</Field.Title>
+            <Field.Description
+              >Run GPU workloads on a K8s cluster.</Field.Description
+            >
+          </Field.Content>
+          <RadioGroup.Item value="kubernetes" id="kubernetes-r2h" />
+        </Field.Field>
+      </Field.Label>
+      <Field.Label for="vm-z4k">
+        <Field.Field orientation="horizontal">
+          <Field.Content>
+            <Field.Title>Virtual Machine</Field.Title>
+            <Field.Description
+              >Access a cluster to run GPU workloads.</Field.Description
+            >
+          </Field.Content>
+          <RadioGroup.Item value="vm" id="vm-z4k" />
+        </Field.Field>
+      </Field.Label>
+    </RadioGroup.Root>
+  </Field.Set>
+</Field.Group>
 ```
 
 View Code
 
-### [Field Group](field.md#field-group)
+## [Field Group](field.md#field-group)
 
 Stack `Field` components with `Field.Group`. Add `Field.Separator` to divide them.
 
@@ -571,52 +550,50 @@ Stack `Field` components with `Field.Group`. Add `Field.Separator` to divide the
   import * as Field from "$lib/components/ui/field/index.js";
   import { Checkbox } from "$lib/components/ui/checkbox/index.js";
 </script>
-<div class="w-full max-w-md">
-  <Field.Group>
-    <Field.Set>
-      <Field.Label>Responses</Field.Label>
-      <Field.Description>
-        Get notified when ChatGPT responds to requests that take time, like
-        research or image generation.
-      </Field.Description>
-      <Field.Group data-slot="checkbox-group">
-        <Field.Field orientation="horizontal">
-          <Checkbox id="push" checked disabled />
-          <Field.Label for="push" class="font-normal"
-            >Push notifications</Field.Label
-          >
-        </Field.Field>
-      </Field.Group>
-    </Field.Set>
-    <Field.Separator />
-    <Field.Set>
-      <Field.Label>Tasks</Field.Label>
-      <Field.Description>
-        Get notified when tasks you've created have updates.
-        <a href="field.md#/">Manage tasks</a>
-      </Field.Description>
-      <Field.Group data-slot="checkbox-group">
-        <Field.Field orientation="horizontal">
-          <Checkbox id="push-tasks" />
-          <Field.Label for="push-tasks" class="font-normal"
-            >Push notifications</Field.Label
-          >
-        </Field.Field>
-        <Field.Field orientation="horizontal">
-          <Checkbox id="email-tasks" />
-          <Field.Label for="email-tasks" class="font-normal"
-            >Email notifications</Field.Label
-          >
-        </Field.Field>
-      </Field.Group>
-    </Field.Set>
-  </Field.Group>
-</div>
+<Field.Group class="w-full max-w-xs">
+  <Field.Set>
+    <Field.Label>Responses</Field.Label>
+    <Field.Description>
+      Get notified when ChatGPT responds to requests that take time, like
+      research or image generation.
+    </Field.Description>
+    <Field.Group data-slot="checkbox-group">
+      <Field.Field orientation="horizontal">
+        <Checkbox id="push" checked disabled />
+        <Field.Label for="push" class="font-normal"
+          >Push notifications</Field.Label
+        >
+      </Field.Field>
+    </Field.Group>
+  </Field.Set>
+  <Field.Separator />
+  <Field.Set>
+    <Field.Label>Tasks</Field.Label>
+    <Field.Description>
+      Get notified when tasks you've created have updates.
+      <a href="field.md##">Manage tasks</a>
+    </Field.Description>
+    <Field.Group data-slot="checkbox-group">
+      <Field.Field orientation="horizontal">
+        <Checkbox id="push-tasks" />
+        <Field.Label for="push-tasks" class="font-normal"
+          >Push notifications</Field.Label
+        >
+      </Field.Field>
+      <Field.Field orientation="horizontal">
+        <Checkbox id="email-tasks" />
+        <Field.Label for="email-tasks" class="font-normal"
+          >Email notifications</Field.Label
+        >
+      </Field.Field>
+    </Field.Group>
+  </Field.Set>
+</Field.Group>
 ```
 
 View Code
 
-### [Responsive Layout](field.md#responsive-layout)
+## [Responsive Layout](field.md#responsive-layout)
 
 - **Vertical fields:** Default orientation stacks label, control, and helper textideal for mobile-first layouts.
 - **Horizontal fields:** Set `orientation="horizontal"` on `Field` to align the label and control side-by-side. Pair with `Field.Content` to keep descriptions aligned.
@@ -627,14 +604,12 @@ View Code
   import * as Field from "$lib/components/ui/field/index.js";
   import { Button } from "$lib/components/ui/button/index.js";
   import { Input } from "$lib/components/ui/input/index.js";
-  import { Textarea } from "$lib/components/ui/textarea/index.js";
 </script>
-<div class="w-full max-w-4xl">
+<div class="w-full max-w-lg">
   <form>
     <Field.Set>
       <Field.Legend>Profile</Field.Legend>
       <Field.Description>Fill in your profile information.</Field.Description>
-      <Field.Separator />
       <Field.Group>
         <Field.Field orientation="responsive">
           <Field.Content>
@@ -645,23 +620,6 @@ View Code
           </Field.Content>
           <Input id="name" placeholder="Evil Rabbit" required />
         </Field.Field>
-        <Field.Separator />
-        <Field.Field orientation="responsive">
-          <Field.Content>
-            <Field.Label for="message">Message</Field.Label>
-            <Field.Description>
-              You can write your message here. Keep it short, preferably under
-              100 characters.
-            </Field.Description>
-          </Field.Content>
-          <Textarea
-            id="message"
-            placeholder="Hello, world!"
-            required
-            class="min-h-[100px] resize-none sm:min-w-[300px]"
-          />
-        </Field.Field>
-        <Field.Separator />
         <Field.Field orientation="responsive">
           <Button type="submit">Submit</Button>
           <Button type="button" variant="outline">Cancel</Button>
@@ -676,9 +634,9 @@ View Code
 
 ## [Validation and Errors](field.md#validation-and-errors)
 
-- Add `data-invalid` to `Field` to switch the entire block into an error state.
+- Add `data-invalid` to `Field.Field` to switch the entire block into an error state.
 - Add `aria-invalid` on the input itself for assistive technologies.
-- Render `FieldError` immediately after the control or inside `FieldContent` to keep error messages aligned with the field. Copy
+- Render `Field.Error` immediately after the control or inside `Field.Content` to keep error messages aligned with the field.
 
 ```svelte
 <Field.Field data-invalid>

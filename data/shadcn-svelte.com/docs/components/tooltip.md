@@ -15,7 +15,7 @@ A popup that displays information related to an element when the element receive
 ```svelte
 <script lang="ts">
   import * as Tooltip from "$lib/components/ui/tooltip/index.js";
-  import { buttonVariants } from "../ui/button/index.js";
+  import { buttonVariants } from "$lib/components/ui/button/index.js";
 </script>
 <Tooltip.Provider>
   <Tooltip.Root>
@@ -87,7 +87,84 @@ You can nest providers to create groups with different settings. Tooltips use th
 </Tooltip.Provider>
 ```
 
-***
+## [Side](tooltip.md#side)
+
+Use the `side` prop to change the position of the tooltip.
+
+```svelte
+<script lang="ts">
+  import * as Tooltip from "$lib/components/ui/tooltip/index.js";
+  import { buttonVariants } from "$lib/components/ui/button/index.js";
+  const sides = ["left", "top", "bottom", "right"] as const;
+</script>
+<div class="flex flex-wrap gap-2">
+  {#each sides as side (side)}
+    <Tooltip.Root>
+      <Tooltip.Trigger
+        class={buttonVariants({
+          variant: "outline",
+          class: "w-fit capitalize"
+        })}
+      >
+        {side}
+      </Tooltip.Trigger>
+      <Tooltip.Content {side}>
+        <p>Add to library</p>
+      </Tooltip.Content>
+    </Tooltip.Root>
+  {/each}
+</div>
+```
+
+View Code
+
+## [With Keyboard Shortcut](tooltip.md#with-keyboard-shortcut)
+
+```svelte
+<script lang="ts">
+  import SaveIcon from "@lucide/svelte/icons/save";
+  import * as Tooltip from "$lib/components/ui/tooltip/index.js";
+  import { buttonVariants } from "$lib/components/ui/button/index.js";
+  import { Kbd } from "$lib/components/ui/kbd/index.js";
+</script>
+<Tooltip.Root>
+  <Tooltip.Trigger
+    class={buttonVariants({ variant: "outline", size: "icon-sm" })}
+  >
+    <SaveIcon />
+  </Tooltip.Trigger>
+  <Tooltip.Content>
+    Save Changes <Kbd>S</Kbd>
+  </Tooltip.Content>
+</Tooltip.Root>
+```
+
+View Code
+
+## [Disabled Button](tooltip.md#disabled-button)
+
+Show a tooltip on a disabled button by wrapping it with a span.
+
+```svelte
+<script lang="ts">
+  import * as Tooltip from "$lib/components/ui/tooltip/index.js";
+  import { Button } from "$lib/components/ui/button/index.js";
+</script>
+<Tooltip.Root>
+  <Tooltip.Trigger>
+    {#snippet child({ props })}
+      <span {...props} class="inline-block w-fit">
+        <Button variant="outline" disabled>Disabled</Button>
+      </span>
+    {/snippet}
+  </Tooltip.Trigger>
+  <Tooltip.Content>
+    <p>This feature is currently unavailable</p>
+  </Tooltip.Content>
+</Tooltip.Root>
+```
+
+View Code
 
 ## [Changelog](tooltip.md#changelog)
 

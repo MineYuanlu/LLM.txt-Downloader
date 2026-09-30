@@ -1,6 +1,6 @@
 # Input Group
 
-Display additional information or actions to an input or textarea.
+Add addons, buttons, and helper content to inputs.
 
 ### [Epicenter](https://github.com/EpicenterHQ/epicenter)
 
@@ -10,93 +10,16 @@ Display additional information or actions to an input or textarea.
 
 ```svelte
 <script lang="ts">
-  import ArrowUpIcon from "@lucide/svelte/icons/arrow-up";
   import SearchIcon from "@lucide/svelte/icons/search";
-  import IconCheck from "@tabler/icons-svelte/icons/check";
-  import IconInfoCircle from "@tabler/icons-svelte/icons/info-circle";
-  import IconPlus from "@tabler/icons-svelte/icons/plus";
-  import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
   import * as InputGroup from "$lib/components/ui/input-group/index.js";
-  import * as Tooltip from "$lib/components/ui/tooltip/index.js";
-  import { Separator } from "$lib/components/ui/separator/index.js";
 </script>
-<div class="grid w-full max-w-sm gap-6">
-  <InputGroup.Root>
-    <InputGroup.Input placeholder="Search..." />
-    <InputGroup.Addon>
-      <SearchIcon />
-    </InputGroup.Addon>
-    <InputGroup.Addon align="inline-end">12 results</InputGroup.Addon>
-  </InputGroup.Root>
-  <InputGroup.Root>
-    <InputGroup.Input placeholder="example.com" class="!ps-1" />
-    <InputGroup.Addon>
-      <InputGroup.Text>https://</InputGroup.Text>
-    </InputGroup.Addon>
-    <InputGroup.Addon align="inline-end">
-      <Tooltip.Root>
-        <Tooltip.Trigger>
-          {#snippet child({ props })}
-            <InputGroup.Button {...props} class="rounded-full" size="icon-xs">
-              <IconInfoCircle />
-            </InputGroup.Button>
-          {/snippet}
-        </Tooltip.Trigger>
-        <Tooltip.Content>This is content in a tooltip.</Tooltip.Content>
-      </Tooltip.Root>
-    </InputGroup.Addon>
-  </InputGroup.Root>
-  <InputGroup.Root>
-    <InputGroup.Textarea placeholder="Ask, Search or Chat..." />
-    <InputGroup.Addon align="block-end">
-      <InputGroup.Button variant="outline" class="rounded-full" size="icon-xs">
-        <IconPlus />
-      </InputGroup.Button>
-      <DropdownMenu.Root>
-        <DropdownMenu.Trigger>
-          {#snippet child({ props })}
-            <InputGroup.Button {...props} variant="ghost"
-              >Auto</InputGroup.Button
-            >
-          {/snippet}
-        </DropdownMenu.Trigger>
-        <DropdownMenu.Content
-          side="top"
-          align="start"
-          class="[--radius:0.95rem]"
-        >
-          <DropdownMenu.Item>Auto</DropdownMenu.Item>
-          <DropdownMenu.Item>Agent</DropdownMenu.Item>
-          <DropdownMenu.Item>Manual</DropdownMenu.Item>
-        </DropdownMenu.Content>
-      </DropdownMenu.Root>
-      <InputGroup.Text class="ms-auto">52% used</InputGroup.Text>
-      <Separator
-        orientation="vertical"
-        class="data-vertical:h-4 data-vertical:self-auto"
-      />
-      <InputGroup.Button
-        variant="default"
-        class="rounded-full"
-        size="icon-xs"
-        disabled
-      >
-        <ArrowUpIcon />
-        <span class="sr-only">Send</span>
-      </InputGroup.Button>
-    </InputGroup.Addon>
-  </InputGroup.Root>
-  <InputGroup.Root>
-    <InputGroup.Input placeholder="@shadcn" />
-    <InputGroup.Addon align="inline-end">
-      <div
-        class="flex size-4 items-center justify-center rounded-full bg-primary text-primary-foreground"
-      >
-        <IconCheck class="size-3" />
-      </div>
-    </InputGroup.Addon>
-  </InputGroup.Root>
-</div>
+<InputGroup.Root class="max-w-xs">
+  <InputGroup.Input placeholder="Search..." />
+  <InputGroup.Addon>
+    <SearchIcon />
+  </InputGroup.Addon>
+  <InputGroup.Addon align="inline-end">12 results</InputGroup.Addon>
+</InputGroup.Root>
 ```
 
 View Code
@@ -136,9 +59,152 @@ bun x shadcn-svelte@latest add input-group
 </InputGroup.Root>
 ```
 
-## [Examples](input-group.md#examples)
+## [Align](input-group.md#align)
 
-### [Icon](input-group.md#icon)
+Use the `align` prop on `InputGroup.Addon` to position the addon relative to the input.
+
+For proper focus management, `InputGroup.Addon` should always be placed after `InputGroup.Input` or `InputGroup.Textarea` in the DOM. Use the `align` prop to visually position the addon.
+
+### [inline-start](input-group.md#inline-start)
+
+Use `align="inline-start"` to position the addon at the start of the input. This is the default.
+
+```svelte
+<script lang="ts">
+  import SearchIcon from "@lucide/svelte/icons/search";
+  import * as Field from "$lib/components/ui/field/index.js";
+  import * as InputGroup from "$lib/components/ui/input-group/index.js";
+</script>
+<Field.Field class="max-w-sm">
+  <Field.Label for="inline-start-input">Input</Field.Label>
+  <InputGroup.Root>
+    <InputGroup.Input id="inline-start-input" placeholder="Search..." />
+    <InputGroup.Addon align="inline-start">
+      <SearchIcon class="text-muted-foreground" />
+    </InputGroup.Addon>
+  </InputGroup.Root>
+  <Field.Description>Icon positioned at the start.</Field.Description>
+</Field.Field>
+```
+
+View Code
+
+### [inline-end](input-group.md#inline-end)
+
+Use `align="inline-end"` to position the addon at the end of the input.
+
+```svelte
+<script lang="ts">
+  import EyeOffIcon from "@lucide/svelte/icons/eye-off";
+  import * as Field from "$lib/components/ui/field/index.js";
+  import * as InputGroup from "$lib/components/ui/input-group/index.js";
+</script>
+<Field.Field class="max-w-sm">
+  <Field.Label for="inline-end-input">Input</Field.Label>
+  <InputGroup.Root>
+    <InputGroup.Input
+      id="inline-end-input"
+      type="password"
+      placeholder="Enter password"
+    />
+    <InputGroup.Addon align="inline-end">
+      <EyeOffIcon />
+    </InputGroup.Addon>
+  </InputGroup.Root>
+  <Field.Description>Icon positioned at the end.</Field.Description>
+</Field.Field>
+```
+
+View Code
+
+### [block-start](input-group.md#block-start)
+
+Use `align="block-start"` to position the addon above the input.
+
+```svelte
+<script lang="ts">
+  import CopyIcon from "@lucide/svelte/icons/copy";
+  import FileCodeIcon from "@lucide/svelte/icons/file-code";
+  import * as Field from "$lib/components/ui/field/index.js";
+  import * as InputGroup from "$lib/components/ui/input-group/index.js";
+</script>
+<Field.Group class="max-w-sm">
+  <Field.Field>
+    <Field.Label for="block-start-input">Input</Field.Label>
+    <InputGroup.Root class="h-auto">
+      <InputGroup.Input id="block-start-input" placeholder="Enter your name" />
+      <InputGroup.Addon align="block-start">
+        <InputGroup.Text>Full Name</InputGroup.Text>
+      </InputGroup.Addon>
+    </InputGroup.Root>
+    <Field.Description>Header positioned above the input.</Field.Description>
+  </Field.Field>
+  <Field.Field>
+    <Field.Label for="block-start-textarea">Textarea</Field.Label>
+    <InputGroup.Root>
+      <InputGroup.Textarea
+        id="block-start-textarea"
+        placeholder="console.log('Hello, world!');"
+        class="font-mono text-sm"
+      />
+      <InputGroup.Addon align="block-start">
+        <FileCodeIcon class="text-muted-foreground" />
+        <InputGroup.Text class="font-mono">script.js</InputGroup.Text>
+        <InputGroup.Button size="icon-xs" class="ml-auto">
+          <CopyIcon />
+          <span class="sr-only">Copy</span>
+        </InputGroup.Button>
+      </InputGroup.Addon>
+    </InputGroup.Root>
+    <Field.Description>Header positioned above the textarea.</Field.Description>
+  </Field.Field>
+</Field.Group>
+```
+
+View Code
+
+### [block-end](input-group.md#block-end)
+
+Use `align="block-end"` to position the addon below the input.
+
+```svelte
+<script lang="ts">
+  import * as Field from "$lib/components/ui/field/index.js";
+  import * as InputGroup from "$lib/components/ui/input-group/index.js";
+</script>
+<Field.Group class="max-w-sm">
+  <Field.Field>
+    <Field.Label for="block-end-input">Input</Field.Label>
+    <InputGroup.Root class="h-auto">
+      <InputGroup.Input id="block-end-input" placeholder="Enter amount" />
+      <InputGroup.Addon align="block-end">
+        <InputGroup.Text>USD</InputGroup.Text>
+      </InputGroup.Addon>
+    </InputGroup.Root>
+    <Field.Description>Footer positioned below the input.</Field.Description>
+  </Field.Field>
+  <Field.Field>
+    <Field.Label for="block-end-textarea">Textarea</Field.Label>
+    <InputGroup.Root>
+      <InputGroup.Textarea
+        id="block-end-textarea"
+        placeholder="Write a comment..."
+      />
+      <InputGroup.Addon align="block-end">
+        <InputGroup.Text>0/280</InputGroup.Text>
+        <InputGroup.Button variant="default" size="sm" class="ml-auto"
+          >Post</InputGroup.Button
+        >
+      </InputGroup.Addon>
+    </InputGroup.Root>
+    <Field.Description>Footer positioned below the textarea.</Field.Description>
+  </Field.Field>
+</Field.Group>
+```
+
+View Code
+
+## [Icon](input-group.md#icon)
 
 ```svelte
 <script lang="ts">
@@ -184,9 +250,7 @@ bun x shadcn-svelte@latest add input-group
 
 View Code
 
-### [Text](input-group.md#text)
-
-Display additional text information alongside inputs.
+## [Text](input-group.md#text)
 
 ```svelte
 <script lang="ts">
@@ -230,9 +294,7 @@ Display additional text information alongside inputs.
 
 View Code
 
-### [Button](input-group.md#button)
-
-Add buttons to perform actions within the input group.
+## [Button](input-group.md#button)
 
 ```svelte
 <script lang="ts">
@@ -283,16 +345,19 @@ Add buttons to perform actions within the input group.
         <p>You should not enter any sensitive information on this site.</p>
       </Popover.Content>
     </Popover.Root>
-    <InputGroup.Addon class="ps-1.5 text-muted-foreground">
-      <InputGroup.Text>https://</InputGroup.Text>
-    </InputGroup.Addon>
-    <InputGroup.Input />
+    <InputGroup.Addon class="ps-1.5 text-muted-foreground"
+      >https://</InputGroup.Addon
+    >
+    <InputGroup.Input id="input-secure-19" />
     <InputGroup.Addon align="inline-end">
       <InputGroup.Button
         onclick={() => (isFavorite = !isFavorite)}
         size="icon-xs"
       >
-        <IconStar class={isFavorite ? "fill-blue-600 stroke-blue-600" : ""} />
+        <IconStar
+          data-favorite={isFavorite}
+          class="data-[favorite=true]:fill-blue-600 data-[favorite=true]:stroke-blue-600"
+        />
       </InputGroup.Button>
     </InputGroup.Addon>
   </InputGroup.Root>
@@ -307,227 +372,28 @@ Add buttons to perform actions within the input group.
 
 View Code
 
-### [Tooltip](input-group.md#tooltip)
-
-Add tooltips to provide additional context or help.
+## [Kbd](input-group.md#kbd)
 
 ```svelte
 <script lang="ts">
-  import HelpCircleIcon from "@lucide/svelte/icons/help-circle";
-  import InfoIcon from "@lucide/svelte/icons/info";
+  import SearchIcon from "@lucide/svelte/icons/search";
   import * as InputGroup from "$lib/components/ui/input-group/index.js";
-  import * as Tooltip from "$lib/components/ui/tooltip/index.js";
+  import { Kbd } from "$lib/components/ui/kbd/index.js";
 </script>
-<div class="grid w-full max-w-sm gap-4">
-  <InputGroup.Root>
-    <InputGroup.Input placeholder="Enter password" type="password" />
-    <InputGroup.Addon align="inline-end">
-      <Tooltip.Root>
-        <Tooltip.Trigger>
-          {#snippet child({ props })}
-            <InputGroup.Button
-              {...props}
-              variant="ghost"
-              aria-label="Info"
-              size="icon-xs"
-            >
-              <InfoIcon />
-            </InputGroup.Button>
-          {/snippet}
-        </Tooltip.Trigger>
-        <Tooltip.Content>
-          <p>Password must be at least 8 characters</p>
-        </Tooltip.Content>
-      </Tooltip.Root>
-    </InputGroup.Addon>
-  </InputGroup.Root>
-  <InputGroup.Root>
-    <InputGroup.Input placeholder="Your email address" />
-    <InputGroup.Addon align="inline-end">
-      <Tooltip.Root>
-        <Tooltip.Trigger>
-          {#snippet child({ props })}
-            <InputGroup.Button
-              {...props}
-              variant="ghost"
-              aria-label="Help"
-              size="icon-xs"
-            >
-              <HelpCircleIcon />
-            </InputGroup.Button>
-          {/snippet}
-        </Tooltip.Trigger>
-        <Tooltip.Content>
-          <p>We'll use this to send you notifications</p>
-        </Tooltip.Content>
-      </Tooltip.Root>
-    </InputGroup.Addon>
-  </InputGroup.Root>
-  <InputGroup.Root>
-    <InputGroup.Input placeholder="Enter API key" />
-    <Tooltip.Root>
-      <Tooltip.Trigger>
-        {#snippet child({ props })}
-          <InputGroup.Addon>
-            <InputGroup.Button
-              {...props}
-              variant="ghost"
-              aria-label="Help"
-              size="icon-xs"
-            >
-              <HelpCircleIcon />
-            </InputGroup.Button>
-          </InputGroup.Addon>
-        {/snippet}
-      </Tooltip.Trigger>
-      <Tooltip.Content side="left">
-        <p>Click for help with API keys</p>
-      </Tooltip.Content>
-    </Tooltip.Root>
-  </InputGroup.Root>
-</div>
+<InputGroup.Root class="max-w-sm">
+  <InputGroup.Input placeholder="Search..." />
+  <InputGroup.Addon>
+    <SearchIcon class="text-muted-foreground" />
+  </InputGroup.Addon>
+  <InputGroup.Addon align="inline-end">
+    <Kbd>K</Kbd>
+  </InputGroup.Addon>
+</InputGroup.Root>
 ```
 
 View Code
 
-### [Textarea](input-group.md#textarea)
-
-Input groups also work with textarea components. Use `block-start` or `block-end` for alignment.
-
-```svelte
-<script lang="ts">
-  import IconBrandJavascript from "@tabler/icons-svelte/icons/brand-javascript";
-  import IconCopy from "@tabler/icons-svelte/icons/copy";
-  import IconCornerDownLeft from "@tabler/icons-svelte/icons/corner-down-left";
-  import IconRefresh from "@tabler/icons-svelte/icons/refresh";
-  import * as InputGroup from "$lib/components/ui/input-group/index.js";
-</script>
-<div class="grid w-full max-w-md gap-4">
-  <InputGroup.Root>
-    <InputGroup.Addon align="block-start" class="border-b">
-      <InputGroup.Text class="font-mono font-medium">
-        <IconBrandJavascript />
-        script.js
-      </InputGroup.Text>
-      <InputGroup.Button class="ms-auto" size="icon-xs">
-        <IconRefresh />
-      </InputGroup.Button>
-      <InputGroup.Button variant="ghost" size="icon-xs">
-        <IconCopy />
-      </InputGroup.Button>
-    </InputGroup.Addon>
-    <InputGroup.Textarea
-      placeholder="console.log('Hello, world!');"
-      class="min-h-[200px]"
-    />
-    <InputGroup.Addon align="block-end" class="border-t">
-      <InputGroup.Text>Line 1, Column 1</InputGroup.Text>
-      <InputGroup.Button size="sm" class="ms-auto" variant="default">
-        Run <IconCornerDownLeft />
-      </InputGroup.Button>
-    </InputGroup.Addon>
-  </InputGroup.Root>
-</div>
-```
-
-View Code
-
-### [Spinner](input-group.md#spinner)
-
-Show loading indicators while processing input.
-
-```svelte
-<script lang="ts">
-  import LoaderIcon from "@lucide/svelte/icons/loader";
-  import * as InputGroup from "$lib/components/ui/input-group/index.js";
-  import { Spinner } from "$lib/components/ui/spinner/index.js";
-</script>
-<div class="grid w-full max-w-sm gap-4">
-  <InputGroup.Root data-disabled>
-    <InputGroup.Input placeholder="Searching..." disabled />
-    <InputGroup.Addon align="inline-end">
-      <Spinner />
-    </InputGroup.Addon>
-  </InputGroup.Root>
-  <InputGroup.Root data-disabled>
-    <InputGroup.Input placeholder="Processing..." disabled />
-    <InputGroup.Addon>
-      <Spinner />
-    </InputGroup.Addon>
-  </InputGroup.Root>
-  <InputGroup.Root data-disabled>
-    <InputGroup.Input placeholder="Saving changes..." disabled />
-    <InputGroup.Addon align="inline-end">
-      <InputGroup.Text>Saving...</InputGroup.Text>
-      <Spinner />
-    </InputGroup.Addon>
-  </InputGroup.Root>
-  <InputGroup.Root data-disabled>
-    <InputGroup.Input placeholder="Refreshing data..." disabled />
-    <InputGroup.Addon>
-      <LoaderIcon class="animate-spin" />
-    </InputGroup.Addon>
-    <InputGroup.Addon align="inline-end">
-      <InputGroup.Text class="text-muted-foreground"
-        >Please wait...</InputGroup.Text
-      >
-    </InputGroup.Addon>
-  </InputGroup.Root>
-</div>
-```
-
-View Code
-
-### [Label](input-group.md#label)
-
-Add labels within input groups to improve accessibility.
-
-```svelte
-<script lang="ts">
-  import InfoIcon from "@lucide/svelte/icons/info";
-  import * as InputGroup from "$lib/components/ui/input-group/index.js";
-  import * as Label from "$lib/components/ui/label/index.js";
-  import * as Tooltip from "$lib/components/ui/tooltip/index.js";
-</script>
-<div class="grid w-full max-w-sm gap-4">
-  <InputGroup.Root>
-    <InputGroup.Input id="email" placeholder="shadcn" />
-    <InputGroup.Addon>
-      <Label.Root for="email">@</Label.Root>
-    </InputGroup.Addon>
-  </InputGroup.Root>
-  <InputGroup.Root>
-    <InputGroup.Input id="email-2" placeholder="shadcn@vercel.com" />
-    <InputGroup.Addon align="block-start">
-      <Label.Root for="email-2" class="text-foreground">Email</Label.Root>
-      <Tooltip.Root>
-        <Tooltip.Trigger>
-          {#snippet child({ props })}
-            <InputGroup.Button
-              {...props}
-              variant="ghost"
-              aria-label="Help"
-              class="ms-auto rounded-full"
-              size="icon-xs"
-            >
-              <InfoIcon />
-            </InputGroup.Button>
-          {/snippet}
-        </Tooltip.Trigger>
-        <Tooltip.Content>
-          <p>We'll use this to send you notifications</p>
-        </Tooltip.Content>
-      </Tooltip.Root>
-    </InputGroup.Addon>
-  </InputGroup.Root>
-</div>
-```
-
-View Code
-
-### [Dropdown](input-group.md#dropdown)
-
-Pair input groups with dropdown menus for complex interactions.
+## [Dropdown](input-group.md#dropdown)
 
 ```svelte
 <script lang="ts">
@@ -553,15 +419,17 @@ Pair input groups with dropdown menus for complex interactions.
             </InputGroup.Button>
           {/snippet}
         </DropdownMenu.Trigger>
-        <DropdownMenu.Content align="end">
-          <DropdownMenu.Item>Settings</DropdownMenu.Item>
-          <DropdownMenu.Item>Copy path</DropdownMenu.Item>
-          <DropdownMenu.Item>Open location</DropdownMenu.Item>
+        <DropdownMenu.Content align="end" sideOffset={8} alignOffset={-4}>
+          <DropdownMenu.Group>
+            <DropdownMenu.Item>Settings</DropdownMenu.Item>
+            <DropdownMenu.Item>Copy path</DropdownMenu.Item>
+            <DropdownMenu.Item>Open location</DropdownMenu.Item>
+          </DropdownMenu.Group>
         </DropdownMenu.Content>
       </DropdownMenu.Root>
     </InputGroup.Addon>
   </InputGroup.Root>
-  <InputGroup.Root class="[--radius:1rem]">
+  <InputGroup.Root>
     <InputGroup.Input placeholder="Enter search query" />
     <InputGroup.Addon align="inline-end">
       <DropdownMenu.Root>
@@ -576,10 +444,12 @@ Pair input groups with dropdown menus for complex interactions.
             </InputGroup.Button>
           {/snippet}
         </DropdownMenu.Trigger>
-        <DropdownMenu.Content align="end" class="[--radius:0.95rem]">
-          <DropdownMenu.Item>Documentation</DropdownMenu.Item>
-          <DropdownMenu.Item>Blog Posts</DropdownMenu.Item>
-          <DropdownMenu.Item>Changelog</DropdownMenu.Item>
+        <DropdownMenu.Content align="end" sideOffset={8} alignOffset={-4}>
+          <DropdownMenu.Group>
+            <DropdownMenu.Item>Documentation</DropdownMenu.Item>
+            <DropdownMenu.Item>Blog Posts</DropdownMenu.Item>
+            <DropdownMenu.Item>Changelog</DropdownMenu.Item>
+          </DropdownMenu.Group>
         </DropdownMenu.Content>
       </DropdownMenu.Root>
     </InputGroup.Addon>
@@ -589,40 +459,96 @@ Pair input groups with dropdown menus for complex interactions.
 
 View Code
 
-### [Button Group](input-group.md#button-group)
-
-Wrap input groups with button groups to create prefixes and suffixes.
+## [Spinner](input-group.md#spinner)
 
 ```svelte
 <script lang="ts">
-  import Link2Icon from "@lucide/svelte/icons/link-2";
-  import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
+  import LoaderIcon from "@lucide/svelte/icons/loader";
   import * as InputGroup from "$lib/components/ui/input-group/index.js";
-  import * as Label from "$lib/components/ui/label/index.js";
+  import { Spinner } from "$lib/components/ui/spinner/index.js";
 </script>
-<div class="grid w-full max-w-sm gap-6">
-  <ButtonGroup.Root>
-    <ButtonGroup.Text>
-      <Label.Root for="url">https://</Label.Root>
-    </ButtonGroup.Text>
-    <InputGroup.Root>
-      <InputGroup.Input id="url" />
-      <InputGroup.Addon align="inline-end">
-        <Link2Icon />
-      </InputGroup.Addon>
-    </InputGroup.Root>
-    <ButtonGroup.Text>.com</ButtonGroup.Text>
-  </ButtonGroup.Root>
+<div class="grid w-full max-w-sm gap-4">
+  <InputGroup.Root>
+    <InputGroup.Input placeholder="Searching..." />
+    <InputGroup.Addon align="inline-end">
+      <Spinner />
+    </InputGroup.Addon>
+  </InputGroup.Root>
+  <InputGroup.Root>
+    <InputGroup.Input placeholder="Processing..." />
+    <InputGroup.Addon>
+      <Spinner />
+    </InputGroup.Addon>
+  </InputGroup.Root>
+  <InputGroup.Root>
+    <InputGroup.Input placeholder="Saving changes..." />
+    <InputGroup.Addon align="inline-end">
+      <InputGroup.Text>Saving...</InputGroup.Text>
+      <Spinner />
+    </InputGroup.Addon>
+  </InputGroup.Root>
+  <InputGroup.Root>
+    <InputGroup.Input placeholder="Refreshing data..." />
+    <InputGroup.Addon>
+      <LoaderIcon class="animate-spin" />
+    </InputGroup.Addon>
+    <InputGroup.Addon align="inline-end">
+      <InputGroup.Text class="text-muted-foreground"
+        >Please wait...</InputGroup.Text
+      >
+    </InputGroup.Addon>
+  </InputGroup.Root>
 </div>
 ```
 
 View Code
 
-### [Custom Input](input-group.md#custom-input)
+## [Textarea](input-group.md#textarea)
 
-Add the `data-slot="input-group-control"` attribute to your custom input for automatic behavior and focus state handling.
+```svelte
+<script lang="ts">
+  import IconBrandJavascript from "@tabler/icons-svelte/icons/brand-javascript";
+  import IconCopy from "@tabler/icons-svelte/icons/copy";
+  import IconCornerDownLeft from "@tabler/icons-svelte/icons/corner-down-left";
+  import IconRefresh from "@tabler/icons-svelte/icons/refresh";
+  import * as InputGroup from "$lib/components/ui/input-group/index.js";
+</script>
+<div class="grid w-full max-w-md gap-4">
+  <InputGroup.Root>
+    <InputGroup.Textarea
+      id="textarea-code-32"
+      placeholder="console.log('Hello, world!');"
+      class="min-h-[200px]"
+    />
+    <InputGroup.Addon align="block-end" class="border-t">
+      <InputGroup.Text>Line 1, Column 1</InputGroup.Text>
+      <InputGroup.Button size="sm" class="ms-auto" variant="default">
+        Run <IconCornerDownLeft />
+      </InputGroup.Button>
+    </InputGroup.Addon>
+    <InputGroup.Addon align="block-start" class="border-b">
+      <InputGroup.Text class="font-mono font-medium">
+        <IconBrandJavascript />
+        script.js
+      </InputGroup.Text>
+      <InputGroup.Button class="ms-auto" size="icon-xs">
+        <IconRefresh />
+      </InputGroup.Button>
+      <InputGroup.Button variant="ghost" size="icon-xs">
+        <IconCopy />
+      </InputGroup.Button>
+    </InputGroup.Addon>
+  </InputGroup.Root>
+</div>
+```
 
-No style is applied to the custom input. Apply your own styles using the `class` prop.
+View Code
+
+## [Custom Input](input-group.md#custom-input)
+
+Add the `data-slot="input-group-control"` attribute to your custom input for automatic focus state handling.
+
+Here's an example of a custom auto-resizing textarea.
 
 ```svelte
 <script lang="ts">

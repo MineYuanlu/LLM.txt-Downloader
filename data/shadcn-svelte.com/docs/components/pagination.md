@@ -16,7 +16,7 @@ Pagination with page navigation, next and previous links.
 <script lang="ts">
   import * as Pagination from "$lib/components/ui/pagination/index.js";
 </script>
-<Pagination.Root count={30} page={2}>
+<Pagination.Root count={30} perPage={10} page={2}>
   {#snippet children({ pages, currentPage })}
     <Pagination.Content>
       <Pagination.Item>
@@ -97,3 +97,73 @@ bun x shadcn-svelte@latest add pagination
   {/snippet}
 </Pagination.Root>
 ```
+
+## [Simple](pagination.md#simple)
+
+A simple pagination with only page numbers.
+
+```svelte
+<script lang="ts">
+  import * as Pagination from "$lib/components/ui/pagination/index.js";
+</script>
+<Pagination.Root count={50} perPage={10} page={2}>
+  {#snippet children({ pages, currentPage })}
+    <Pagination.Content>
+      {#each pages as page (page.key)}
+        {#if page.type === "page"}
+          <Pagination.Item>
+            <Pagination.Link {page} isActive={currentPage === page.value}>
+              {page.value}
+            </Pagination.Link>
+          </Pagination.Item>
+        {/if}
+      {/each}
+    </Pagination.Content>
+  {/snippet}
+</Pagination.Root>
+```
+
+View Code
+
+## [Icons Only](pagination.md#icons-only)
+
+Use just the previous and next buttons without page numbers. This is useful for data tables with a rows per page selector.
+
+```svelte
+<script lang="ts">
+  import * as Field from "$lib/components/ui/field/index.js";
+  import * as Pagination from "$lib/components/ui/pagination/index.js";
+  import * as Select from "$lib/components/ui/select/index.js";
+  const rowsPerPage = ["10", "25", "50", "100"];
+  let perPage = $state("25");
+</script>
+<div class="flex items-center justify-between gap-4">
+  <Field.Field orientation="horizontal" class="w-fit">
+    <Field.Label for="select-rows-per-page">Rows per page</Field.Label>
+    <Select.Root type="single" bind:value={perPage}>
+      <Select.Trigger class="w-20" id="select-rows-per-page">
+        <Select.Value />
+      </Select.Trigger>
+      <Select.Content align="start">
+        <Select.Group>
+          {#each rowsPerPage as rows (rows)}
+            <Select.Item value={rows} label={rows}>{rows}</Select.Item>
+          {/each}
+        </Select.Group>
+      </Select.Content>
+    </Select.Root>
+  </Field.Field>
+  <Pagination.Root count={100} perPage={Number(perPage)} class="mx-0 w-auto">
+    <Pagination.Content>
+      <Pagination.Item>
+        <Pagination.Previous />
+      </Pagination.Item>
+      <Pagination.Item>
+        <Pagination.Next />
+      </Pagination.Item>
+    </Pagination.Content>
+  </Pagination.Root>
+</div>
+```
+
+View Code

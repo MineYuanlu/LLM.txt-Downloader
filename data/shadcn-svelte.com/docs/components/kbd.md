@@ -55,9 +55,7 @@ bun x shadcn-svelte@latest add kbd
 <Kbd.Root>B</Kbd.Root>
 ```
 
-## [Examples](kbd.md#examples)
-
-### [Group](kbd.md#group)
+## [Group](kbd.md#group)
 
 Use the `Kbd.Group` component to group keyboard keys together.
 
@@ -79,7 +77,7 @@ Use the `Kbd.Group` component to group keyboard keys together.
 
 View Code
 
-### [Button](kbd.md#button)
+## [Button](kbd.md#button)
 
 Use the `Kbd.Root` component inside a `Button` component to display a keyboard key inside a button.
 
@@ -88,19 +86,14 @@ Use the `Kbd.Root` component inside a `Button` component to display a keyboard k
   import * as Kbd from "$lib/components/ui/kbd/index.js";
   import { Button } from "$lib/components/ui/button/index.js";
 </script>
-<div class="flex flex-wrap items-center gap-4">
-  <Button variant="outline" size="sm" class="pe-2">
-    Accept <Kbd.Root></Kbd.Root>
-  </Button>
-  <Button variant="outline" size="sm" class="pe-2">
-    Cancel <Kbd.Root>Esc</Kbd.Root>
-  </Button>
-</div>
+<Button variant="outline">
+  Accept <Kbd.Root data-icon="inline-end" class="translate-x-0.5"></Kbd.Root>
+</Button>
 ```
 
 View Code
 
-### [Tooltip](kbd.md#tooltip)
+## [Tooltip](kbd.md#tooltip)
 
 You can use the `Kbd.Root` component inside a `Tooltip` component to display a tooltip with a keyboard key.
 
@@ -116,29 +109,25 @@ You can use the `Kbd.Root` component inside a `Tooltip` component to display a t
     <Tooltip.Root>
       <Tooltip.Trigger>
         {#snippet child({ props })}
-          <Button size="sm" variant="outline" {...props}>Save</Button>
+          <Button variant="outline" {...props}>Save</Button>
         {/snippet}
       </Tooltip.Trigger>
       <Tooltip.Content>
-        <div class="flex items-center gap-2">
-          Save Changes <Kbd.Root>S</Kbd.Root>
-        </div>
+        Save Changes <Kbd.Root>S</Kbd.Root>
       </Tooltip.Content>
     </Tooltip.Root>
     <Tooltip.Root>
       <Tooltip.Trigger>
         {#snippet child({ props })}
-          <Button size="sm" variant="outline" {...props}>Print</Button>
+          <Button variant="outline" {...props}>Print</Button>
         {/snippet}
       </Tooltip.Trigger>
       <Tooltip.Content>
-        <div class="flex items-center gap-2">
-          Print Document
-          <Kbd.Group>
-            <Kbd.Root>Ctrl</Kbd.Root>
-            <Kbd.Root>P</Kbd.Root>
-          </Kbd.Group>
-        </div>
+        Print Document
+        <Kbd.Group>
+          <Kbd.Root>Ctrl</Kbd.Root>
+          <Kbd.Root>P</Kbd.Root>
+        </Kbd.Group>
       </Tooltip.Content>
     </Tooltip.Root>
   </ButtonGroup.Root>
@@ -147,7 +136,7 @@ You can use the `Kbd.Root` component inside a `Tooltip` component to display a t
 
 View Code
 
-### [Input Group](kbd.md#input-group)
+## [Input Group](kbd.md#input-group)
 
 You can use the `Kbd.Root` component inside a `InputGroup.Addon` component to display a keyboard key inside an input group.
 

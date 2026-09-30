@@ -16,13 +16,13 @@ Accessible resizable panel groups and layouts with keyboard support.
 <script lang="ts">
   import * as Resizable from "$lib/components/ui/resizable/index.js";
 </script>
-<Resizable.PaneGroup direction="horizontal" class="max-w-md rounded-lg border">
+<Resizable.PaneGroup direction="horizontal" class="max-w-sm rounded-lg border">
   <Resizable.Pane defaultSize={50}>
     <div class="flex h-[200px] items-center justify-center p-6">
       <span class="font-semibold">One</span>
     </div>
   </Resizable.Pane>
-  <Resizable.Handle />
+  <Resizable.Handle withHandle />
   <Resizable.Pane defaultSize={50}>
     <Resizable.PaneGroup direction="vertical">
       <Resizable.Pane defaultSize={25}>
@@ -30,7 +30,7 @@ Accessible resizable panel groups and layouts with keyboard support.
           <span class="font-semibold">Two</span>
         </div>
       </Resizable.Pane>
-      <Resizable.Handle />
+      <Resizable.Handle withHandle />
       <Resizable.Pane defaultSize={75}>
         <div class="flex h-full items-center justify-center p-6">
           <span class="font-semibold">Three</span>
@@ -77,11 +77,9 @@ bun x shadcn-svelte@latest add resizable
 </Resizable.PaneGroup>
 ```
 
-## [Examples](resizable.md#examples)
+## [Vertical](resizable.md#vertical)
 
-### [Vertical](resizable.md#vertical)
-
-Use the `direction` prop to set the direction of the resizable panels.
+Use `direction="vertical"` for vertical resizing.
 
 ```svelte
 <script lang="ts">
@@ -89,7 +87,7 @@ Use the `direction` prop to set the direction of the resizable panels.
 </script>
 <Resizable.PaneGroup
   direction="vertical"
-  class="min-h-[200px] max-w-md rounded-lg border"
+  class="min-h-[200px] max-w-sm rounded-lg border"
 >
   <Resizable.Pane defaultSize={25}>
     <div class="flex h-full items-center justify-center p-6">
@@ -107,20 +105,9 @@ Use the `direction` prop to set the direction of the resizable panels.
 
 View Code
 
-```svelte
-<script lang="ts">
-  import * as Resizable from "$lib/components/ui/resizable/index.js";
-</script>
-<Resizable.PaneGroup direction="vertical">
-  <Resizable.Pane>One</Resizable.Pane>
-  <Resizable.Handle />
-  <Resizable.Pane>Two</Resizable.Pane>
-</Resizable.PaneGroup>
-```
+## [Handle](resizable.md#handle)
 
-### [Handle](resizable.md#handle)
-
-You can set or hide the handle by using the `withHandle` prop on the `ResizableHandle` component.
+Use the `withHandle` prop on `Resizable.Handle` to show a visible handle.
 
 ```svelte
 <script lang="ts">
@@ -128,7 +115,7 @@ You can set or hide the handle by using the `withHandle` prop on the `ResizableH
 </script>
 <Resizable.PaneGroup
   direction="horizontal"
-  class="min-h-[200px] max-w-md rounded-lg border"
+  class="min-h-[200px] max-w-sm rounded-lg border"
 >
   <Resizable.Pane defaultSize={25}>
     <div class="flex h-full items-center justify-center p-6">
@@ -145,14 +132,3 @@ You can set or hide the handle by using the `withHandle` prop on the `ResizableH
 ```
 
 View Code
-
-```svelte
-<script lang="ts">
-  import * as Resizable from "$lib/components/ui/resizable/index.js";
-</script>
-<Resizable.PaneGroup direction="vertical">
-  <Resizable.Pane>One</Resizable.Pane>
-  <Resizable.Handle withHandle />
-  <Resizable.Pane>Two</Resizable.Pane>
-</Resizable.PaneGroup>
-```

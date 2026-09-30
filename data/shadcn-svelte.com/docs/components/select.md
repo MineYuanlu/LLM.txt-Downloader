@@ -19,24 +19,20 @@ Displays a list of options for the user to pick fromtriggered by a button.
     { value: "apple", label: "Apple" },
     { value: "banana", label: "Banana" },
     { value: "blueberry", label: "Blueberry" },
-    { value: "grapes", label: "Grapes", disabled: true },
+    { value: "grapes", label: "Grapes" },
     { value: "pineapple", label: "Pineapple" }
  ];
   let value = $state("");
 </script>
 <Select.Root type="single" name="favoriteFruit" items={fruits} bind:value>
-  <Select.Trigger class="w-[180px]">
+  <Select.Trigger class="w-full max-w-48">
     <Select.Value placeholder="Select a fruit" />
   </Select.Trigger>
   <Select.Content>
     <Select.Group>
       <Select.Label>Fruits</Select.Label>
       {#each fruits as fruit (fruit.value)}
-        <Select.Item
-          value={fruit.value}
-          label={fruit.label}
-          disabled={fruit.disabled}
-        >
+        <Select.Item value={fruit.value} label={fruit.label}>
           {fruit.label}
         </Select.Item>
       {/each}
@@ -106,9 +102,56 @@ It reads the label from the matching `Select.Item`, which only exists in the DOM
 
 Without `items` the trigger falls back to the raw value, so you only need it when an item's label differs from its value.
 
-## [Examples](select.md#examples)
+## [Groups](select.md#groups)
 
-### [Scrollable](select.md#scrollable)
+Use `Select.Group`, `Select.Label`, and `Select.Separator` to organize items.
+
+```svelte
+<script lang="ts">
+  import * as Select from "$lib/components/ui/select/index.js";
+  const fruits = [
+    { value: "apple", label: "Apple" },
+    { value: "banana", label: "Banana" },
+    { value: "blueberry", label: "Blueberry" }
+ ];
+  const vegetables = [
+    { value: "carrot", label: "Carrot" },
+    { value: "broccoli", label: "Broccoli" },
+    { value: "spinach", label: "Spinach" }
+ ];
+  let value = $state("");
+</script>
+<Select.Root type="single" items={[...fruits, ...vegetables]} bind:value>
+  <Select.Trigger class="w-full max-w-48">
+    <Select.Value placeholder="Select a fruit" />
+  </Select.Trigger>
+  <Select.Content>
+    <Select.Group>
+      <Select.Label>Fruits</Select.Label>
+      {#each fruits as fruit (fruit.value)}
+        <Select.Item value={fruit.value} label={fruit.label}
+          >{fruit.label}</Select.Item
+        >
+      {/each}
+    </Select.Group>
+    <Select.Separator />
+    <Select.Group>
+      <Select.Label>Vegetables</Select.Label>
+      {#each vegetables as vegetable (vegetable.value)}
+        <Select.Item value={vegetable.value} label={vegetable.label}
+          >{vegetable.label}</Select.Item
+        >
+      {/each}
+    </Select.Group>
+  </Select.Content>
+</Select.Root>
+```
+
+View Code
+
+## [Scrollable](select.md#scrollable)
+
+A select with many items that scrolls.
 
 ```svelte
 <script lang="ts">
@@ -117,66 +160,63 @@ Without `items` the trigger falls back to the raw value, so you only need it whe
     {
       label: "North America",
       options: [
-        { value: "est", label: "Eastern Standard Time (EST)" },
-        { value: "cst", label: "Central Standard Time (CST)" },
-        { value: "mst", label: "Mountain Standard Time (MST)" },
-        { value: "pst", label: "Pacific Standard Time (PST)" },
-        { value: "akst", label: "Alaska Standard Time (AKST)" },
-        { value: "hst", label: "Hawaii Standard Time (HST)" }
+        { value: "est", label: "Eastern Standard Time" },
+        { value: "cst", label: "Central Standard Time" },
+        { value: "mst", label: "Mountain Standard Time" },
+        { value: "pst", label: "Pacific Standard Time" },
+        { value: "akst", label: "Alaska Standard Time" },
+        { value: "hst", label: "Hawaii Standard Time" }
      ]
     },
     {
       label: "Europe & Africa",
       options: [
-        { value: "gmt", label: "Greenwich Mean Time (GMT)" },
-        { value: "cet", label: "Central European Time (CET)" },
-        { value: "eet", label: "Eastern European Time (EET)" },
-        { value: "west", label: "Western European Summer Time (WEST)" },
-        { value: "cat", label: "Central Africa Time (CAT)" },
-        { value: "eat", label: "East Africa Time (EAT)" }
+        { value: "gmt", label: "Greenwich Mean Time" },
+        { value: "cet", label: "Central European Time" },
+        { value: "eet", label: "Eastern European Time" },
+        { value: "west", label: "Western European Summer Time" },
+        { value: "cat", label: "Central Africa Time" },
+        { value: "eat", label: "East Africa Time" }
      ]
     },
     {
       label: "Asia",
       options: [
-        { value: "msk", label: "Moscow Time (MSK)" },
-        { value: "ist", label: "India Standard Time (IST)" },
-        { value: "cst_china", label: "China Standard Time (CST)" },
-        { value: "jst", label: "Japan Standard Time (JST)" },
-        { value: "kst", label: "Korea Standard Time (KST)" },
-        {
-          value: "ist_indonesia",
-          label: "Indonesia Central Standard Time (WITA)"
-        }
+        { value: "msk", label: "Moscow Time" },
+        { value: "ist", label: "India Standard Time" },
+        { value: "cst_china", label: "China Standard Time" },
+        { value: "jst", label: "Japan Standard Time" },
+        { value: "kst", label: "Korea Standard Time" },
+        { value: "ist_indonesia", label: "Indonesia Central Standard Time" }
      ]
     },
     {
       label: "Australia & Pacific",
       options: [
-        { value: "awst", label: "Australian Western Standard Time (AWST)" },
-        { value: "acst", label: "Australian Central Standard Time (ACST)" },
-        { value: "aest", label: "Australian Eastern Standard Time (AEST)" },
-        { value: "nzst", label: "New Zealand Standard Time (NZST)" },
-        { value: "fjt", label: "Fiji Time (FJT)" }
+        { value: "awst", label: "Australian Western Standard Time" },
+        { value: "acst", label: "Australian Central Standard Time" },
+        { value: "aest", label: "Australian Eastern Standard Time" },
+        { value: "nzst", label: "New Zealand Standard Time" },
+        { value: "fjt", label: "Fiji Time" }
      ]
     },
     {
       label: "South America",
       options: [
-        { value: "art", label: "Argentina Time (ART)" },
-        { value: "bot", label: "Bolivia Time (BOT)" },
-        { value: "brt", label: "Brasilia Time (BRT)" },
-        { value: "clt", label: "Chile Standard Time (CLT)" }
+        { value: "art", label: "Argentina Time" },
+        { value: "bot", label: "Bolivia Time" },
+        { value: "brt", label: "Brasilia Time" },
+        { value: "clt", label: "Chile Standard Time" }
      ]
     }
   ];
   const items = timezones.flatMap((group) => group.options);
 </script>
 <Select.Root type="single" {items}>
-  <Select.Trigger class="w-[280px]">
+  <Select.Trigger class="w-full max-w-64">
     <Select.Value placeholder="Select a timezone" />
   </Select.Trigger>
-  <Select.Content class="max-h-[300px]">
+  <Select.Content>
     {#each timezones as group (group.label)}
       <Select.Group>
         <Select.Label>{group.label}</Select.Label>
@@ -189,6 +229,88 @@ Without `items` the trigger falls back to the raw value, so you only need it whe
     {/each}
   </Select.Content>
 </Select.Root>
+```
+
+View Code
+
+## [Disabled](select.md#disabled)
+
+```svelte
+<script lang="ts">
+  import * as Select from "$lib/components/ui/select/index.js";
+  const fruits = [
+    { value: "apple", label: "Apple" },
+    { value: "banana", label: "Banana" },
+    { value: "blueberry", label: "Blueberry" },
+    { value: "grapes", label: "Grapes", disabled: true },
+    { value: "pineapple", label: "Pineapple" }
+ ];
+  let value = $state("");
+</script>
+<Select.Root type="single" items={fruits} bind:value disabled>
+  <Select.Trigger class="w-full max-w-48">
+    <Select.Value placeholder="Select a fruit" />
+  </Select.Trigger>
+  <Select.Content>
+    <Select.Group>
+      {#each fruits as fruit (fruit.value)}
+        <Select.Item
+          value={fruit.value}
+          label={fruit.label}
+          disabled={fruit.disabled}
+        >
+          {fruit.label}
+        </Select.Item>
+      {/each}
+    </Select.Group>
+  </Select.Content>
+</Select.Root>
+```
+
+View Code
+
+## [Invalid](select.md#invalid)
+
+Add the `data-invalid` attribute to the `Field.Field` component and the `aria-invalid` attribute to the `Select.Trigger` component to show an error state.
+
+```svelte
+<Field.Field data-invalid>
+  <Field.Label>Fruit</Field.Label>
+  <Select.Trigger aria-invalid>
+    <Select.Value />
+  </Select.Trigger>
+</Field.Field>
+```
+
+```svelte
+<script lang="ts">
+  import * as Field from "$lib/components/ui/field/index.js";
+  import * as Select from "$lib/components/ui/select/index.js";
+  const fruits = [
+    { value: "apple", label: "Apple" },
+    { value: "banana", label: "Banana" },
+    { value: "blueberry", label: "Blueberry" }
+ ];
+  let value = $state("");
+</script>
+<Field.Field data-invalid class="w-full max-w-48">
+  <Field.Label>Fruit</Field.Label>
+  <Select.Root type="single" items={fruits} bind:value>
+    <Select.Trigger aria-invalid>
+      <Select.Value placeholder="Select a fruit" />
+    </Select.Trigger>
+    <Select.Content>
+      <Select.Group>
+        {#each fruits as fruit (fruit.value)}
+          <Select.Item value={fruit.value} label={fruit.label}
+            >{fruit.label}</Select.Item
+          >
+        {/each}
+      </Select.Group>
+    </Select.Content>
+  </Select.Root>
+  <Field.Error>Please select a fruit.</Field.Error>
+</Field.Field>
 ```
 
 View Code

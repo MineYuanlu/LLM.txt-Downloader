@@ -58,11 +58,9 @@ bun x shadcn-svelte@latest add native-select
 </NativeSelect.Root>
 ```
 
-## [Examples](native-select.md#examples)
+## [Groups](native-select.md#groups)
 
-### [With Groups](native-select.md#with-groups)
-
-Organize options using `NativeSelect.OptGroup` for better categorization.
+Use `NativeSelect.OptGroup` to organize options into categories.
 
 ```svelte
 <script lang="ts">
@@ -98,90 +96,46 @@ Organize options using `NativeSelect.OptGroup` for better categorization.
 
 View Code
 
-```svelte
-<NativeSelect.Root>
-  <NativeSelect.Option value="">Select a food</NativeSelect.Option>
-  <NativeSelect.OptGroup label="Fruits">
-    <NativeSelect.Option value="apple">Apple</NativeSelect.Option>
-    <NativeSelect.Option value="banana">Banana</NativeSelect.Option>
-    <NativeSelect.Option value="blueberry">Blueberry</NativeSelect.Option>
-  </NativeSelect.OptGroup>
-  <NativeSelect.OptGroup label="Vegetables">
-    <NativeSelect.Option value="carrot">Carrot</NativeSelect.Option>
-    <NativeSelect.Option value="broccoli">Broccoli</NativeSelect.Option>
-    <NativeSelect.Option value="spinach">Spinach</NativeSelect.Option>
-  </NativeSelect.OptGroup>
-</NativeSelect.Root>
-```
+## [Disabled](native-select.md#disabled)
 
-### [Disabled State](native-select.md#disabled-state)
-
-Disable individual options or the entire select component.
+Add the `disabled` prop to the `NativeSelect.Root` component to disable the select.
 
 ```svelte
 <script lang="ts">
   import * as NativeSelect from "$lib/components/ui/native-select/index.js";
 </script>
 <NativeSelect.Root disabled>
-  <NativeSelect.Option value="">Select priority</NativeSelect.Option>
-  <NativeSelect.Option value="low">Low</NativeSelect.Option>
-  <NativeSelect.Option value="medium">Medium</NativeSelect.Option>
-  <NativeSelect.Option value="high">High</NativeSelect.Option>
-  <NativeSelect.Option value="critical">Critical</NativeSelect.Option>
+  <NativeSelect.Option value="">Disabled</NativeSelect.Option>
+  <NativeSelect.Option value="apple">Apple</NativeSelect.Option>
+  <NativeSelect.Option value="banana">Banana</NativeSelect.Option>
+  <NativeSelect.Option value="blueberry">Blueberry</NativeSelect.Option>
 </NativeSelect.Root>
 ```
 
 View Code
 
-### [Invalid State](native-select.md#invalid-state)
+## [Invalid](native-select.md#invalid)
 
-Show validation errors with the `aria-invalid` attribute and error styling.
+Use `aria-invalid` to show validation errors and the `data-invalid` attribute to the `Field.Field` component for styling.
 
 ```svelte
 <script lang="ts">
   import * as NativeSelect from "$lib/components/ui/native-select/index.js";
 </script>
 <NativeSelect.Root aria-invalid="true">
-  <NativeSelect.Option value="">Select role</NativeSelect.Option>
-  <NativeSelect.Option value="admin">Admin</NativeSelect.Option>
-  <NativeSelect.Option value="editor">Editor</NativeSelect.Option>
-  <NativeSelect.Option value="viewer">Viewer</NativeSelect.Option>
-  <NativeSelect.Option value="guest">Guest</NativeSelect.Option>
+  <NativeSelect.Option value="">Error state</NativeSelect.Option>
+  <NativeSelect.Option value="apple">Apple</NativeSelect.Option>
+  <NativeSelect.Option value="banana">Banana</NativeSelect.Option>
+  <NativeSelect.Option value="blueberry">Blueberry</NativeSelect.Option>
 </NativeSelect.Root>
 ```
 
 View Code
 
-```svelte
-<NativeSelect.Root aria-invalid="true">
-  <NativeSelect.Option value="">Select a country</NativeSelect.Option>
-  <NativeSelect.Option value="us">United States</NativeSelect.Option>
-  <NativeSelect.Option value="uk">United Kingdom</NativeSelect.Option>
-  <NativeSelect.Option value="ca">Canada</NativeSelect.Option>
-</NativeSelect.Root>
-```
-
 ## [Native Select vs Select](native-select.md#native-select-vs-select)
 
-- Use `NativeSelect` when you need native browser behavior, better performance, or mobile-optimized dropdowns.
-- Use `Select` when you need custom styling, animations, or complex interactions.
-
-The `NativeSelect` component provides native HTML select functionality with consistent styling that matches your design system.
-
-## [Accessibility](native-select.md#accessibility)
-
-- The component maintains all native HTML select accessibility features.  
-- Screen readers can navigate through options using arrow keys.  
-- The chevron icon is marked as `aria-hidden="true"` to avoid duplication.
-- Use `aria-label` or `aria-labelledby` for additional context when needed.
-
-```tsx
-<NativeSelect.Root aria-label="Choose your preferred language">
-  <NativeSelect.Option value="en">English</NativeSelect.Option>
-  <NativeSelect.Option value="es">Spanish</NativeSelect.Option>
-  <NativeSelect.Option value="fr">French</NativeSelect.Option>
-</NativeSelect.Root>
-```
+- Use `NativeSelect` for native browser behavior, better performance, or mobile-optimized dropdowns.
+- Use `Select` for custom styling, animations, or complex interactions.
 
 ## [API Reference](native-select.md#api-reference)
 

@@ -84,3 +84,98 @@ bun x shadcn-svelte@latest add popover
   <Popover.Content>Place content for the popover here.</Popover.Content>
 </Popover.Root>
 ```
+
+## [Basic](popover.md#basic)
+
+A simple popover with a header, title, and description.
+
+```svelte
+<script lang="ts">
+  import * as Popover from "$lib/components/ui/popover/index.js";
+  import { buttonVariants } from "$lib/components/ui/button/index.js";
+</script>
+<Popover.Root>
+  <Popover.Trigger
+    class={buttonVariants({ variant: "outline", class: "w-fit" })}
+    >Open Popover</Popover.Trigger
+  >
+  <Popover.Content align="start">
+    <Popover.Header>
+      <Popover.Title>Dimensions</Popover.Title>
+      <Popover.Description
+        >Set the dimensions for the layer.</Popover.Description
+      >
+    </Popover.Header>
+  </Popover.Content>
+</Popover.Root>
+```
+
+View Code
+
+## [Align](popover.md#align)
+
+Use the `align` prop on `Popover.Content` to control the horizontal alignment.
+
+```svelte
+<script lang="ts">
+  import * as Popover from "$lib/components/ui/popover/index.js";
+  import { buttonVariants } from "$lib/components/ui/button/index.js";
+  const alignments = ["start", "center", "end"] as const;
+</script>
+<div class="flex gap-6">
+  {#each alignments as align (align)}
+    <Popover.Root>
+      <Popover.Trigger
+        class={buttonVariants({
+          variant: "outline",
+          size: "sm",
+          class: "capitalize"
+        })}
+      >
+        {align}
+      </Popover.Trigger>
+      <Popover.Content {align} class="w-40">Aligned to {align}</Popover.Content>
+    </Popover.Root>
+  {/each}
+</div>
+```
+
+View Code
+
+## [With Form](popover.md#with-form)
+
+A popover with form fields inside.
+
+```svelte
+<script lang="ts">
+  import * as Field from "$lib/components/ui/field/index.js";
+  import * as Popover from "$lib/components/ui/popover/index.js";
+  import { buttonVariants } from "$lib/components/ui/button/index.js";
+  import { Input } from "$lib/components/ui/input/index.js";
+</script>
+<Popover.Root>
+  <Popover.Trigger class={buttonVariants({ variant: "outline" })}
+    >Open Popover</Popover.Trigger
+  >
+  <Popover.Content class="w-64" align="start">
+    <Popover.Header>
+      <Popover.Title>Dimensions</Popover.Title>
+      <Popover.Description
+        >Set the dimensions for the layer.</Popover.Description
+      >
+    </Popover.Header>
+    <Field.Group class="gap-4">
+      <Field.Field orientation="horizontal">
+        <Field.Label for="width" class="w-1/2">Width</Field.Label>
+        <Input id="width" value="100%" />
+      </Field.Field>
+      <Field.Field orientation="horizontal">
+        <Field.Label for="height" class="w-1/2">Height</Field.Label>
+        <Input id="height" value="25px" />
+      </Field.Field>
+    </Field.Group>
+  </Popover.Content>
+</Popover.Root>
+```
+
+View Code
