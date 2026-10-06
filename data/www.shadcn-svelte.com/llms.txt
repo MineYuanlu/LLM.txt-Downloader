@@ -96,7 +96,9 @@
 ### Misc
 
 - [Collapsible](../shadcn-svelte.com/docs/components/collapsible.md): An interactive component which expands/collapses a panel.
+- [Message Scroller](../shadcn-svelte.com/docs/components/message-scroller.md): A chat scroll container that anchors turns, opens saved transcripts, follows streamed responses, loads history without jumping, and jumps to any message.
 - [Pagination](../shadcn-svelte.com/docs/components/pagination.md): Pagination with page navigation, next and previous links.
+- [Questionnaire](../shadcn-svelte.com/docs/components/questionnaire.md): A multi-step questionnaire with single-choice, multiple-choice, freeform, and skippable questions.
 - [Range Calendar](../shadcn-svelte.com/docs/components/range-calendar.md): A calendar component that allows users to select a range of dates.
 - [Toggle](../shadcn-svelte.com/docs/components/toggle.md): A two-state button that can be either on or off.
 - [Toggle Group](../shadcn-svelte.com/docs/components/toggle-group.md): A set of two-state buttons that can be toggled on or off.
