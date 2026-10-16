@@ -18,6 +18,7 @@ A chat scroll container that anchors turns, opens saved transcripts, follows str
   import PlusIcon from "@lucide/svelte/icons/plus";
   import RotateCwIcon from "@lucide/svelte/icons/rotate-cw";
   import TelescopeIcon from "@lucide/svelte/icons/telescope";
+  import { Chat } from "@ai-sdk/svelte";
   import * as Card from "$lib/components/ui/card/index.js";
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
   import * as Empty from "$lib/components/ui/empty/index.js";
@@ -25,10 +26,9 @@ A chat scroll container that anchors turns, opens saved transcripts, follows str
   import * as MessageScroller from "$lib/components/ui/message-scroller/index.js";
   import * as Tooltip from "$lib/components/ui/tooltip/index.js";
   import MessageAnimated from "$lib/components/message-animated.svelte";
-  import { createChat, getMessageText } from "$lib/ai.js";
-  import { createScriptedChat } from "$lib/ai.svelte.js";
+  import { createChat, getMessageText } from "$lib/ai-sdk.js";
   import { Button } from "$lib/components/ui/button/index.js";
-  const chat = createChat()
+  const script = createChat()
     .user(
       "I'm building a chat for our app and the scroll behavior is driving me nuts. Every time the AI streams a reply, the whole thread jumps around."
     )
@@ -55,19 +55,19 @@ A chat scroll container that anchors turns, opens saved transcripts, follows str
     .assistant(
       '`MessageScrollerContent` sets `role="log"` and `aria-relevant="additions"` by default, so screen readers announce new messages as they stream in.\n\nThe scroll button is a real `<button>` with an sr-only label, and it's removed from the tab order when you're already at the bottom  no ghost focus stops.'
     );
-  const initialMessages = chat.get(0);
-  const transport = chat.transport({ delayMs: 20 });
-  const demo = createScriptedChat({ chat, transport, initialMessages });
-  const nextMessage = $derived(chat.next(demo.messages));
+  const initialMessages = script.get(0);
+  const transport = script.transport({ delayMs: 20 });
+  const chat = new Chat({ messages: initialMessages, transport });
+  const nextMessage = $derived(script.next(chat.messages));
   const isBusy = $derived(
-    demo.status === "submitted" || demo.status === "streaming"
+    chat.status === "submitted" || chat.status === "streaming"
   );
   function handleSubmit(event: SubmitEvent) {
     event.preventDefault();
     if (!nextMessage || isBusy) {
       return;
     }
-    void demo.sendMessage(nextMessage);
+    void chat.sendMessage(nextMessage);
   }
 </script>
 <MessageScroller.Provider>
@@ -85,7 +85,7 @@ A chat scroll container that anchors turns, opens saved transcripts, follows str
                   variant="outline"
                   size="icon"
                   aria-label="Reset conversation"
-                  onclick={() => demo.setMessages(initialMessages)}
+                  onclick={() => (chat.messages = initialMessages)}
                   disabled={isBusy}
                 >
                   <RotateCwIcon />
@@ -99,7 +99,7 @@ A chat scroll container that anchors turns, opens saved transcripts, follows str
         </Card.Action>
       </Card.Header>
       <Card.Content class="flex-1 overflow-hidden p-0">
-        {#if demo.messages.length === 0}
+        {#if chat.messages.length === 0}
           <Empty.Root class="h-full">
             <Empty.Header>
               <Empty.Media variant="icon">
@@ -119,7 +119,7 @@ A chat scroll container that anchors turns, opens saved transcripts, follows str
                 aria-busy={isBusy}
                 class="p-(--card-spacing)"
               >
-                {#each demo.messages as message (message.id)}
+                {#each chat.messages as message (message.id)}
                   <MessageAnimated
                     {message}
                     scrollAnchor={message.role === "user"}
@@ -137,7 +137,7 @@ A chat scroll container that anchors turns, opens saved transcripts, follows str
             <div class="h-14 w-full px-3 py-2.5">
               <span
                 class="line-clamp-2 opacity-60 data-[status=ready]:opacity-100"
-                data-status={demo.status}
+                data-status={chat.status}
               >
                 {#if nextMessage}
                   {getMessageText(nextMessage)}
@@ -753,18 +753,18 @@ Adjust the peek amount in the example below to see how it affects the conversati
   import PlusIcon from "@lucide/svelte/icons/plus";
   import RotateCwIcon from "@lucide/svelte/icons/rotate-cw";
   import TelescopeIcon from "@lucide/svelte/icons/telescope";
+  import { Chat } from "@ai-sdk/svelte";
   import * as Card from "$lib/components/ui/card/index.js";
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
   import * as InputGroup from "$lib/components/ui/input-group/index.js";
   import * as MessageScroller from "$lib/components/ui/message-scroller/index.js";
   import * as Tooltip from "$lib/components/ui/tooltip/index.js";
   import MessageAnimated from "$lib/components/message-animated.svelte";
-  import { createChat, getMessageText } from "$lib/ai.js";
-  import { createScriptedChat } from "$lib/ai.svelte.js";
+  import { createChat, getMessageText } from "$lib/ai-sdk.js";
   import { Button } from "$lib/components/ui/button/index.js";
   import { Slider } from "$lib/components/ui/slider/index.js";
   const DEFAULT_PEEK = 64;
-  const chat = createChat()
+  const script = createChat()
     .user(
       "I'm building a chat for our app and the scroll behavior is driving me nuts. Every time the AI streams a reply, the whole thread jumps around."
     )
@@ -791,12 +791,12 @@ Adjust the peek amount in the example below to see how it affects the conversati
     .assistant(
       '`MessageScrollerContent` sets `role="log"` and `aria-relevant="additions"` by default, so screen readers announce new messages as they stream in.\n\nThe scroll button is a real `<button>` with an sr-only label, and it's removed from the tab order when you're already at the bottom  no ghost focus stops.'
     );
-  const initialMessages = chat.get(2);
-  const transport = chat.transport({ delayMs: 35 });
-  const demo = createScriptedChat({ chat, transport, initialMessages });
-  const nextMessage = $derived(chat.next(demo.messages));
+  const initialMessages = script.get(2);
+  const transport = script.transport({ delayMs: 35 });
+  const chat = new Chat({ messages: initialMessages, transport });
+  const nextMessage = $derived(script.next(chat.messages));
   const isBusy = $derived(
-    demo.status === "submitted" || demo.status === "streaming"
+    chat.status === "submitted" || chat.status === "streaming"
   );
   let demoKey = $state(0);
   let peek = $state(DEFAULT_PEEK);
@@ -805,10 +805,10 @@ Adjust the peek amount in the example below to see how it affects the conversati
     if (!nextMessage || isBusy) {
       return;
     }
-    void demo.sendMessage(nextMessage);
+    void chat.sendMessage(nextMessage);
   }
   function reset() {
-    demo.setMessages(initialMessages);
+    chat.messages = initialMessages;
     peek = DEFAULT_PEEK;
     demoKey += 1;
   }
@@ -851,7 +851,7 @@ Adjust the peek amount in the example below to see how it affects the conversati
                 aria-busy={isBusy}
                 class="p-(--card-spacing)"
               >
-                {#each demo.messages as message (message.id)}
+                {#each chat.messages as message (message.id)}
                   <MessageAnimated
                     {message}
                     scrollAnchor={message.role === "user"}
@@ -868,7 +868,7 @@ Adjust the peek amount in the example below to see how it affects the conversati
               <div class="h-14 w-full px-3 py-2.5">
                 <span
                   class="line-clamp-2 opacity-60 data-[status=ready]:opacity-100"
-                  data-status={demo.status}
+                  data-status={chat.status}
                 >
                   {#if nextMessage}
                     {getMessageText(nextMessage)}
@@ -974,6 +974,7 @@ When the reader is at the live edge, either because they stayed there or returne
   import PlusIcon from "@lucide/svelte/icons/plus";
   import RotateCwIcon from "@lucide/svelte/icons/rotate-cw";
   import TelescopeIcon from "@lucide/svelte/icons/telescope";
+  import { Chat } from "@ai-sdk/svelte";
   import * as Card from "$lib/components/ui/card/index.js";
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
   import * as Empty from "$lib/components/ui/empty/index.js";
@@ -981,10 +982,9 @@ When the reader is at the live edge, either because they stayed there or returne
   import * as MessageScroller from "$lib/components/ui/message-scroller/index.js";
   import * as Tooltip from "$lib/components/ui/tooltip/index.js";
   import MessageAnimated from "$lib/components/message-animated.svelte";
-  import { createChat, getMessageText } from "$lib/ai.js";
-  import { createScriptedChat } from "$lib/ai.svelte.js";
+  import { createChat, getMessageText } from "$lib/ai-sdk.js";
   import { Button } from "$lib/components/ui/button/index.js";
-  const chat = createChat()
+  const script = createChat()
     .user(
       "I'm building a chat for our app and the scroll behavior is driving me nuts. Every time the AI streams a reply, the whole thread jumps around."
     )
@@ -1011,19 +1011,19 @@ When the reader is at the live edge, either because they stayed there or returne
     .assistant(
       '`MessageScrollerContent` sets `role="log"` and `aria-relevant="additions"` by default, so screen readers announce new messages as they stream in.\n\nThe scroll button is a real `<button>` with an sr-only label, and it's removed from the tab order when you're already at the bottom  no ghost focus stops.'
     );
-  const initialMessages = chat.get(0);
-  const transport = chat.transport({ delayMs: 20 });
-  const demo = createScriptedChat({ chat, transport, initialMessages });
-  const nextMessage = $derived(chat.next(demo.messages));
+  const initialMessages = script.get(0);
+  const transport = script.transport({ delayMs: 20 });
+  const chat = new Chat({ messages: initialMessages, transport });
+  const nextMessage = $derived(script.next(chat.messages));
   const isBusy = $derived(
-    demo.status === "submitted" || demo.status === "streaming"
+    chat.status === "submitted" || chat.status === "streaming"
   );
   function handleSubmit(event: SubmitEvent) {
     event.preventDefault();
     if (!nextMessage || isBusy) {
       return;
     }
-    void demo.sendMessage(nextMessage);
+    void chat.sendMessage(nextMessage);
   }
 </script>
 <MessageScroller.Provider autoScroll>
@@ -1043,8 +1043,8 @@ When the reader is at the live edge, either because they stayed there or returne
                   variant="outline"
                   size="icon"
                   aria-label="Reset stream"
-                  onclick={() => demo.setMessages(initialMessages)}
-                  disabled={demo.messages.length === 0 || isBusy}
+                  onclick={() => (chat.messages = initialMessages)}
+                  disabled={chat.messages.length === 0 || isBusy}
                 >
                   <RotateCwIcon />
                 </Button>
@@ -1057,7 +1057,7 @@ When the reader is at the live edge, either because they stayed there or returne
         </Card.Action>
       </Card.Header>
       <Card.Content class="flex-1 overflow-hidden p-0">
-        {#if demo.messages.length === 0}
+        {#if chat.messages.length === 0}
           <Empty.Root class="h-full">
             <Empty.Header>
               <Empty.Media variant="icon">
@@ -1076,7 +1076,7 @@ When the reader is at the live edge, either because they stayed there or returne
                 aria-busy={isBusy}
                 class="p-(--card-spacing)"
               >
-                {#each demo.messages as message (message.id)}
+                {#each chat.messages as message (message.id)}
                   <MessageAnimated
                     {message}
                     scrollAnchor={message.role === "user"}
@@ -1094,7 +1094,7 @@ When the reader is at the live edge, either because they stayed there or returne
             <div class="h-14 w-full px-3 py-2.5">
               <span
                 class="line-clamp-2 opacity-60 data-[status=ready]:opacity-100"
-                data-status={demo.status}
+                data-status={chat.status}
               >
                 {#if nextMessage}
                   {getMessageText(nextMessage)}
@@ -1230,9 +1230,9 @@ This is enabled by default through `preserveScrollOnPrepend`.
   import * as MessageScroller from "$lib/components/ui/message-scroller/index.js";
   import * as Message from "$lib/components/ui/message/index.js";
   import * as Tooltip from "$lib/components/ui/tooltip/index.js";
-  import { createChat, getMessageText } from "$lib/ai.js";
+  import { createChat, getMessageText } from "$lib/ai-sdk.js";
   import { Button } from "$lib/components/ui/button/index.js";
-  const chat = createChat()
+  const script = createChat()
     .user("Can you summarize the incident channel?")
     .assistant(
       "The first alert was a delayed export job. It started backing up around 09:42 UTC and triggered the warning once the retry queue crossed the threshold.\n\nNo customer-facing checkout paths were affected, but exports for larger workspaces were running about 12 minutes behind."
@@ -1253,7 +1253,7 @@ This is enabled by default through `preserveScrollOnPrepend`.
     .assistant(
       "I will watch the queue and support tags for another 15 minutes. I am tracking export failures, delayed download requests, and any support thread that mentions missing reports.\n\nIf those stay quiet through the next batch window, we can close this as an internal degradation."
     );
-  const history = chat.get();
+  const history = script.get();
   const INITIAL_VISIBLE_COUNT = 5;
   let demoKey = $state(0);
   let visibleCount = $state(INITIAL_VISIBLE_COUNT);
@@ -1380,19 +1380,19 @@ A common chat pattern is to animate the user's message when it is sent, then let
   import ArrowUpIcon from "@lucide/svelte/icons/arrow-up";
   import MessageCircleDashedIcon from "@lucide/svelte/icons/message-circle-dashed";
   import RotateCwIcon from "@lucide/svelte/icons/rotate-cw";
+  import { Chat } from "@ai-sdk/svelte";
   import * as Card from "$lib/components/ui/card/index.js";
   import * as Empty from "$lib/components/ui/empty/index.js";
   import * as MessageScroller from "$lib/components/ui/message-scroller/index.js";
   import * as Select from "$lib/components/ui/select/index.js";
   import MessageAnimated from "$lib/components/message-animated.svelte";
-  import { createChat } from "$lib/ai.js";
-  import { createScriptedChat } from "$lib/ai.svelte.js";
+  import { createChat } from "$lib/ai-sdk.js";
   import {
     MESSAGE_ANIMATIONS,
     type MessageAnimationId
   } from "$lib/message-animations.js";
   import { Button } from "$lib/components/ui/button/index.js";
-  const chat = createChat()
+  const script = createChat()
     .user("Can user messages pop in like iMessage without breaking anchoring?")
     .sleep(1000)
     .assistant(
@@ -1408,12 +1408,12 @@ A common chat pattern is to animate the user's message when it is sent, then let
     .assistant(
       "Yes. Keep the conversation in place while you change the preset, then send the next message to compare the new entrance against the same context.\n\nThat makes it easier to judge the difference between a subtle fade, a snappy pop, and a more dramatic 3D tilt without rebuilding the scenario each time."
     );
-  const initialMessages = chat.get(0);
-  const transport = chat.transport({ delayMs: 15 });
-  const demo = createScriptedChat({ chat, transport, initialMessages });
-  const nextMessage = $derived(chat.next(demo.messages));
+  const initialMessages = script.get(0);
+  const transport = script.transport({ delayMs: 15 });
+  const chat = new Chat({ messages: initialMessages, transport });
+  const nextMessage = $derived(script.next(chat.messages));
   const isBusy = $derived(
-    demo.status === "submitted" || demo.status === "streaming"
+    chat.status === "submitted" || chat.status === "streaming"
   );
   let presetId = $state<MessageAnimationId>("fade");
   const preset = $derived(MESSAGE_ANIMATIONS[presetId]);
@@ -1432,15 +1432,15 @@ A common chat pattern is to animate the user's message when it is sent, then let
           variant="outline"
           size="icon"
           aria-label="Reset animated messages"
-          disabled={demo.messages.length === 0 || isBusy}
-          onclick={() => demo.setMessages(initialMessages)}
+          disabled={chat.messages.length === 0 || isBusy}
+          onclick={() => (chat.messages = initialMessages)}
         >
           <RotateCwIcon />
         </Button>
       </Card.Action>
     </Card.Header>
     <Card.Content class="min-h-0 flex-1 overflow-hidden p-0">
-      {#if demo.messages.length === 0}
+      {#if chat.messages.length === 0}
         <Empty.Root class="h-full">
           <Empty.Header>
             <Empty.Media variant="icon">
@@ -1460,7 +1460,7 @@ A common chat pattern is to animate the user's message when it is sent, then let
                 aria-busy={isBusy}
                 class="p-(--card-spacing)"
               >
-                {#each demo.messages as message (message.id)}
+                {#each chat.messages as message (message.id)}
                   <MessageAnimated
                     {message}
                     animationPreset={preset}
@@ -1499,7 +1499,7 @@ A common chat pattern is to animate the user's message when it is sent, then let
           if (!nextMessage || isBusy) {
             return;
           }
-          void demo.sendMessage(nextMessage);
+          void chat.sendMessage(nextMessage);
         }}
       >
         <ArrowUpIcon />

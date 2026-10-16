@@ -95,6 +95,7 @@
 
 ### Misc
 
+- [Code Block](../shadcn-svelte.com/docs/components/code-block.md): Displays code, terminal output and diffs with an optional header, line numbers and a copy button.
 - [Collapsible](../shadcn-svelte.com/docs/components/collapsible.md): An interactive component which expands/collapses a panel.
 - [Message Scroller](../shadcn-svelte.com/docs/components/message-scroller.md): A chat scroll container that anchors turns, opens saved transcripts, follows streamed responses, loads history without jumping, and jumps to any message.
 - [Pagination](../shadcn-svelte.com/docs/components/pagination.md): Pagination with page navigation, next and previous links.
@@ -102,6 +103,7 @@
 - [Range Calendar](../shadcn-svelte.com/docs/components/range-calendar.md): A calendar component that allows users to select a range of dates.
 - [Toggle](../shadcn-svelte.com/docs/components/toggle.md): A two-state button that can be either on or off.
 - [Toggle Group](../shadcn-svelte.com/docs/components/toggle-group.md): A set of two-state buttons that can be toggled on or off.
+- [Trace](../shadcn-svelte.com/docs/components/trace.md): The building block for reasoning, tool calls, sources and more.
 
 ## Dark Mode
 
@@ -120,6 +122,30 @@
 - [Getting Started](../shadcn-svelte.com/docs/registry/getting-started.md): Learn how to get setup and run your own component registry.
 - [registry-item.json](../shadcn-svelte.com/docs/registry/registry-item-json.md): Specification for registry items.
 - [registry.json](../shadcn-svelte.com/docs/registry/registry-json.md): Schema for running your own component registry.
+
+## AI Elements
+
+- [Chain of Thought](../shadcn-svelte.com/docs/ai-elements/chain-of-thought.md): Displays a summary that expands into the steps an agent took.
+- [Chat](../shadcn-svelte.com/docs/ai-elements/chat.md): The thread. Message Scroller keeps your place while the reply streams.
+- [Checkpoint](../shadcn-svelte.com/docs/ai-elements/checkpoint.md): Marks a point in the conversation you can return to.
+- [Confirmation](../shadcn-svelte.com/docs/ai-elements/confirmation.md): Asks for approval before a tool runs.
+- [Context](../shadcn-svelte.com/docs/ai-elements/context.md): How much of the context window the conversation has used.
+- [File Tree](../shadcn-svelte.com/docs/ai-elements/file-tree.md): The files the agent changed, as a folder tree.
+- [Inline Citation](../shadcn-svelte.com/docs/ai-elements/inline-citation.md): A source in the sentence that opens on hover.
+- [Message](../shadcn-svelte.com/docs/ai-elements/message.md): One turn. The person's message, and the agent's reply with its actions.
+- [Model Selector](../shadcn-svelte.com/docs/ai-elements/model-selector.md): Two menus. One picks the model the agent runs, the other picks how hard it thinks.
+- [Plan](../shadcn-svelte.com/docs/ai-elements/plan.md): Displays the steps the agent plans to take, and how far it has got.
+- [Prompt Input](../shadcn-svelte.com/docs/ai-elements/prompt-input.md): A message field with attachments and a send button.
+- [Queue](../shadcn-svelte.com/docs/ai-elements/queue.md): Displays the agent's todo list, split into what is left and what is done.
+- [Reasoning](../shadcn-svelte.com/docs/ai-elements/reasoning.md): Displays the agent's thinking as it streams.
+- [Sources](../shadcn-svelte.com/docs/ai-elements/sources.md): Displays the links the agent used for a reply.
+- [Stack Trace](../shadcn-svelte.com/docs/ai-elements/stack-trace.md): Displays a failed tool call and its stack frames.
+- [Subagent](../shadcn-svelte.com/docs/ai-elements/subagent.md): Displays a subagent run, with its tool calls and result.
+- [Suggestion](../shadcn-svelte.com/docs/ai-elements/suggestion.md): A short prompt you can send to the agent in one click.
+- [Task](../shadcn-svelte.com/docs/ai-elements/task.md): Displays the steps the agent takes, as it takes them.
+- [Terminal](../shadcn-svelte.com/docs/ai-elements/terminal.md): Displays a command the agent runs, with its output as it streams.
+- [Test Results](../shadcn-svelte.com/docs/ai-elements/test-results.md): Displays a test run by the agent, with its suites and failures.
+- [Tool](../shadcn-svelte.com/docs/ai-elements/tool.md): Displays a tool call the agent makes, from input to output.
 
 ## Utilities
 
