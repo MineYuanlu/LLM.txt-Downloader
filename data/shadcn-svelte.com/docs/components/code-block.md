@@ -10,74 +10,75 @@ Displays code, terminal output and diffs with an optional header, line numbers a
 
 ```svelte
 <script lang="ts">
-  import DownloadIcon from "@lucide/svelte/icons/download";
-  import FileCodeIcon from "@lucide/svelte/icons/file-code";
-  import WrapTextIcon from "@lucide/svelte/icons/text-wrap";
-  import * as CodeBlock from "$lib/components/ui/code-block/index.js";
-  import { useHighlightedCode } from "$lib/components/hooks/use-highlighted-code.svelte.js";
-  import { Button } from "$lib/components/ui/button/index.js";
-  const code = `import { streamText } from "ai"
-export async function POST(request: Request) {
+ import DownloadIcon from "@lucide/svelte/icons/download";
+ import FileCodeIcon from "@lucide/svelte/icons/file-code";
+ import WrapTextIcon from "@lucide/svelte/icons/text-wrap";
+ import * as CodeBlock from "$lib/components/ui/code-block/index.js";
+ import { useHighlightedCode } from "$lib/components/hooks/use-highlighted-code.svelte.js";
+ import { Button } from "$lib/components/ui/button/index.js";
+ const code = `import { convertToModelMessages, streamText } from "ai"
+import type { RequestHandler } from "./$types"
+export const POST: RequestHandler = async ({ request }) => {
   const { messages } = await request.json()
   const result = streamText({
     model: "anthropic/claude-sonnet-4.5",
     system: "You are a helpful assistant. Answer in one short paragraph.",
-    messages,
+    messages: await convertToModelMessages(messages),
   })
   return result.toUIMessageStreamResponse()
 }`;
-  function download(value: string, filename: string) {
-    const url = URL.createObjectURL(new Blob([value], { type: "text/plain" }));
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = filename;
-    link.click();
-    URL.revokeObjectURL(url);
-  }
-  let wrap = $state(false);
-  const lines = useHighlightedCode(
-    () => code,
-    () => "ts"
-  );
+ function download(value: string, filename: string) {
+  const url = URL.createObjectURL(new Blob([value], { type: "text/plain" }));
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  link.click();
+  URL.revokeObjectURL(url);
+ }
+ let wrap = $state(false);
+ const lines = useHighlightedCode(
+  () => code,
+  () => "ts"
+ );
 </script>
 <div class="w-full max-w-lg">
-  <CodeBlock.Root>
-    <CodeBlock.Header>
-      <CodeBlock.Title>
-        <FileCodeIcon />
-        app/api/chat/route.ts
-      </CodeBlock.Title>
-      <CodeBlock.Actions>
-        <Button
-          variant="ghost"
-          size="icon-xs"
-          aria-label="Wrap lines"
-          aria-pressed={wrap}
-          class="aria-pressed:text-foreground"
-          onclick={() => (wrap = !wrap)}
-        >
-          <WrapTextIcon />
-        </Button>
-        <Button
-          variant="ghost"
-          size="icon-xs"
-          aria-label="Download"
-          onclick={() => download(code, "route.ts")}
-        >
-          <DownloadIcon />
-        </Button>
-        <CodeBlock.CopyButton value={code} />
-      </CodeBlock.Actions>
-    </CodeBlock.Header>
-    <CodeBlock.Content {wrap} lineNumbers>
-      {#each lines.current as line, index (index)}
-        <CodeBlock.Line
-          variant={index >= 5 && index <= 9 ? "highlighted" : "default"}
-          code={line}
-        />
-      {/each}
-    </CodeBlock.Content>
-  </CodeBlock.Root>
+ <CodeBlock.Root>
+  <CodeBlock.Header>
+   <CodeBlock.Title>
+    <FileCodeIcon />
+    src/routes/api/chat/+server.ts
+   </CodeBlock.Title>
+   <CodeBlock.Actions>
+    <Button
+     variant="ghost"
+     size="icon-xs"
+     aria-label="Wrap lines"
+     aria-pressed={wrap}
+     class="aria-pressed:text-foreground"
+     onclick={() => (wrap = !wrap)}
+    >
+     <WrapTextIcon />
+    </Button>
+    <Button
+     variant="ghost"
+     size="icon-xs"
+     aria-label="Download"
+     onclick={() => download(code, "+server.ts")}
+    >
+     <DownloadIcon />
+    </Button>
+    <CodeBlock.CopyButton value={code} />
+   </CodeBlock.Actions>
+  </CodeBlock.Header>
+  <CodeBlock.Content {wrap} lineNumbers>
+   {#each lines.current as line, index (index)}
+    <CodeBlock.Line
+     variant={index >= 6 && index <= 10 ? "highlighted" : "default"}
+     code={line}
+    />
+   {/each}
+  </CodeBlock.Content>
+ </CodeBlock.Root>
 </div>
 ```
 
@@ -148,8 +149,8 @@ Pass a string to the `code` prop of `CodeBlock.Content`. It renders as one text 
 
 ```svelte
 <script lang="ts">
-  import * as CodeBlock from "$lib/components/ui/code-block/index.js";
-  const output = `$ pnpm build
+ import * as CodeBlock from "$lib/components/ui/code-block/index.js";
+ const output = `$ pnpm build
 > next build
   Compiled successfully in 4.2s
   Generating static pages (12/12)
@@ -159,9 +160,9 @@ Route (app)                Size  First Load JS
   /api/chat             141 B         102 kB`;
 </script>
 <div class="w-full max-w-md">
-  <CodeBlock.Root>
-    <CodeBlock.Content code={output} />
-  </CodeBlock.Root>
+ <CodeBlock.Root>
+  <CodeBlock.Content code={output} />
+ </CodeBlock.Root>
 </div>
 ```
 
@@ -171,27 +172,27 @@ View Code
 
 ```svelte
 <script lang="ts">
-  import TerminalIcon from "@lucide/svelte/icons/terminal";
-  import * as CodeBlock from "$lib/components/ui/code-block/index.js";
-  const command = "pnpm add ai @ai-sdk/react zod";
-  const output = `$ ${command}
+ import TerminalIcon from "@lucide/svelte/icons/terminal";
+ import * as CodeBlock from "$lib/components/ui/code-block/index.js";
+ const command = "pnpm add ai @ai-sdk/react zod";
+ const output = `$ ${command}
 Packages: +14
 Progress: resolved 412, reused 398, downloaded 14, added 14, done
 Done in 2.8s using pnpm v10.18.0`;
 </script>
 <div class="w-full max-w-md">
-  <CodeBlock.Root>
-    <CodeBlock.Header>
-      <CodeBlock.Title>
-        <TerminalIcon />
-        Terminal
-      </CodeBlock.Title>
-      <CodeBlock.Actions>
-        <CodeBlock.CopyButton value={command} />
-      </CodeBlock.Actions>
-    </CodeBlock.Header>
-    <CodeBlock.Content code={output} />
-  </CodeBlock.Root>
+ <CodeBlock.Root>
+  <CodeBlock.Header>
+   <CodeBlock.Title>
+    <TerminalIcon />
+    Terminal
+   </CodeBlock.Title>
+   <CodeBlock.Actions>
+    <CodeBlock.CopyButton value={command} />
+   </CodeBlock.Actions>
+  </CodeBlock.Header>
+  <CodeBlock.Content code={output} />
+ </CodeBlock.Root>
 </div>
 ```
 
@@ -211,57 +212,57 @@ A long title truncates. To link the title to a file, wrap `CodeBlock.Title` in a
 
 ```svelte
 <script lang="ts">
-  import DownloadIcon from "@lucide/svelte/icons/download";
-  import TerminalIcon from "@lucide/svelte/icons/terminal";
-  import WrapTextIcon from "@lucide/svelte/icons/text-wrap";
-  import * as CodeBlock from "$lib/components/ui/code-block/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
-  const output = `$ pnpm lint
+ import DownloadIcon from "@lucide/svelte/icons/download";
+ import TerminalIcon from "@lucide/svelte/icons/terminal";
+ import WrapTextIcon from "@lucide/svelte/icons/text-wrap";
+ import * as CodeBlock from "$lib/components/ui/code-block/index.js";
+ import { Button } from "$lib/components/ui/button/index.js";
+ const output = `$ pnpm lint
 apps/web/components/message-list.tsx
   18:22  error  'messages' is possibly 'undefined'. Add a guard before calling map  @typescript-eslint/no-unsafe-call
   42:7   warning  React Hook React.useEffect has a missing dependency: 'scrollToBottom'  react-hooks/exhaustive-deps
  2 problems (1 error, 1 warning)`;
-  function download(value: string, filename: string) {
-    const url = URL.createObjectURL(new Blob([value], { type: "text/plain" }));
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = filename;
-    link.click();
-    URL.revokeObjectURL(url);
-  }
-  let wrap = $state(true);
+ function download(value: string, filename: string) {
+  const url = URL.createObjectURL(new Blob([value], { type: "text/plain" }));
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  link.click();
+  URL.revokeObjectURL(url);
+ }
+ let wrap = $state(true);
 </script>
 <div class="w-full max-w-md">
-  <CodeBlock.Root>
-    <CodeBlock.Header>
-      <CodeBlock.Title>
-        <TerminalIcon />
-        Terminal
-      </CodeBlock.Title>
-      <CodeBlock.Actions>
-        <Button
-          variant="ghost"
-          size="icon-xs"
-          aria-label="Wrap lines"
-          aria-pressed={wrap}
-          class="aria-pressed:text-foreground"
-          onclick={() => (wrap = !wrap)}
-        >
-          <WrapTextIcon />
-        </Button>
-        <Button
-          variant="ghost"
-          size="icon-xs"
-          aria-label="Download"
-          onclick={() => download(output, "lint.log")}
-        >
-          <DownloadIcon />
-        </Button>
-        <CodeBlock.CopyButton value={output} />
-      </CodeBlock.Actions>
-    </CodeBlock.Header>
-    <CodeBlock.Content {wrap} code={output} />
-  </CodeBlock.Root>
+ <CodeBlock.Root>
+  <CodeBlock.Header>
+   <CodeBlock.Title>
+    <TerminalIcon />
+    Terminal
+   </CodeBlock.Title>
+   <CodeBlock.Actions>
+    <Button
+     variant="ghost"
+     size="icon-xs"
+     aria-label="Wrap lines"
+     aria-pressed={wrap}
+     class="aria-pressed:text-foreground"
+     onclick={() => (wrap = !wrap)}
+    >
+     <WrapTextIcon />
+    </Button>
+    <Button
+     variant="ghost"
+     size="icon-xs"
+     aria-label="Download"
+     onclick={() => download(output, "lint.log")}
+    >
+     <DownloadIcon />
+    </Button>
+    <CodeBlock.CopyButton value={output} />
+   </CodeBlock.Actions>
+  </CodeBlock.Header>
+  <CodeBlock.Content {wrap} code={output} />
+ </CodeBlock.Root>
 </div>
 ```
 
@@ -292,8 +293,8 @@ Without a header, put `CodeBlock.Actions` directly inside `CodeBlock.Root`. The 
 
 ```svelte
 <script lang="ts">
-  import * as CodeBlock from "$lib/components/ui/code-block/index.js";
-  const output = `$ pnpm add ai @ai-sdk/react zod
+ import * as CodeBlock from "$lib/components/ui/code-block/index.js";
+ const output = `$ pnpm add ai @ai-sdk/react zod
 Progress: resolved 412, reused 398, downloaded 14, added 14, done
 dependencies:
 + @ai-sdk/react 3.0.12
@@ -302,12 +303,12 @@ dependencies:
 Done in 2.8s using pnpm v10.18.0`;
 </script>
 <div class="w-full max-w-md">
-  <CodeBlock.Root>
-    <CodeBlock.Actions>
-      <CodeBlock.CopyButton value={output} />
-    </CodeBlock.Actions>
-    <CodeBlock.Content code={output} />
-  </CodeBlock.Root>
+ <CodeBlock.Root>
+  <CodeBlock.Actions>
+   <CodeBlock.CopyButton value={output} />
+  </CodeBlock.Actions>
+  <CodeBlock.Content code={output} />
+ </CodeBlock.Root>
 </div>
 ```
 
@@ -319,8 +320,8 @@ Add `lineNumbers` to `CodeBlock.Content`. A `code` string is split into lines, a
 
 ```svelte
 <script lang="ts">
-  import * as CodeBlock from "$lib/components/ui/code-block/index.js";
-  const code = `{
+ import * as CodeBlock from "$lib/components/ui/code-block/index.js";
+ const code = `{
   "name": "chat",
   "private": true,
   "scripts": {
@@ -330,9 +331,9 @@ Add `lineNumbers` to `CodeBlock.Content`. A `code` string is split into lines, a
 }`;
 </script>
 <div class="w-full max-w-md">
-  <CodeBlock.Root>
-    <CodeBlock.Content lineNumbers {code} />
-  </CodeBlock.Root>
+ <CodeBlock.Root>
+  <CodeBlock.Content lineNumbers {code} />
+ </CodeBlock.Root>
 </div>
 ```
 
@@ -344,9 +345,9 @@ Set `startLine` to number lines from a given line, for a snippet from the middle
 
 ```svelte
 <script lang="ts">
-  import * as CodeBlock from "$lib/components/ui/code-block/index.js";
-  import { useHighlightedCode } from "$lib/components/hooks/use-highlighted-code.svelte.js";
-  const code = `  if (!session) {
+ import * as CodeBlock from "$lib/components/ui/code-block/index.js";
+ import { useHighlightedCode } from "$lib/components/hooks/use-highlighted-code.svelte.js";
+ const code = `  if (!session) {
     redirect("/login")
   }
   const projects = await db.project.findMany({
@@ -355,22 +356,22 @@ Set `startLine` to number lines from a given line, for a snippet from the middle
   })
   return <ProjectList projects={projects} />
 }`;
-  const lines = useHighlightedCode(
-    () => code,
-    () => "tsx"
-  );
+ const lines = useHighlightedCode(
+  () => code,
+  () => "tsx"
+ );
 </script>
 <div class="w-full max-w-md">
-  <CodeBlock.Root>
-    <CodeBlock.Header>
-      <CodeBlock.Title>app/dashboard/page.tsx</CodeBlock.Title>
-    </CodeBlock.Header>
-    <CodeBlock.Content lineNumbers startLine={995}>
-      {#each lines.current as line, index (index)}
-        <CodeBlock.Line code={line} />
-      {/each}
-    </CodeBlock.Content>
-  </CodeBlock.Root>
+ <CodeBlock.Root>
+  <CodeBlock.Header>
+   <CodeBlock.Title>app/dashboard/page.tsx</CodeBlock.Title>
+  </CodeBlock.Header>
+  <CodeBlock.Content lineNumbers startLine={995}>
+   {#each lines.current as line, index (index)}
+    <CodeBlock.Line code={line} />
+   {/each}
+  </CodeBlock.Content>
+ </CodeBlock.Root>
 </div>
 ```
 
@@ -382,16 +383,16 @@ Long lines scroll by default. Add `wrap` to wrap them, which suits tool output a
 
 ```svelte
 <script lang="ts">
-  import * as CodeBlock from "$lib/components/ui/code-block/index.js";
-  const output = `Error: The model "anthropic/claude-sonnet-4.5" returned an error: Request too large. The prompt is 212,431 tokens and the context window is 200,000 tokens. Remove some messages or summarize the conversation and try again.`;
+ import * as CodeBlock from "$lib/components/ui/code-block/index.js";
+ const output = `Error: The model "anthropic/claude-sonnet-4.5" returned an error: Request too large. The prompt is 212,431 tokens and the context window is 200,000 tokens. Remove some messages or summarize the conversation and try again.`;
 </script>
 <div class="flex w-full max-w-md flex-col gap-4">
-  <CodeBlock.Root>
-    <CodeBlock.Content code={output} />
-  </CodeBlock.Root>
-  <CodeBlock.Root>
-    <CodeBlock.Content wrap code={output} />
-  </CodeBlock.Root>
+ <CodeBlock.Root>
+  <CodeBlock.Content code={output} />
+ </CodeBlock.Root>
+ <CodeBlock.Root>
+  <CodeBlock.Content wrap code={output} />
+ </CodeBlock.Root>
 </div>
 ```
 
@@ -403,8 +404,8 @@ Render each line as a `CodeBlock.Line` and set `variant="highlighted"` on the li
 
 ```svelte
 <script lang="ts">
-  import * as CodeBlock from "$lib/components/ui/code-block/index.js";
-  const code = `export default {
+ import * as CodeBlock from "$lib/components/ui/code-block/index.js";
+ const code = `export default {
   experimental: {
     reactCompiler: true,
     viewTransition: true,
@@ -413,19 +414,18 @@ Render each line as a `CodeBlock.Line` and set `variant="highlighted"` on the li
     remotePatterns: [{ hostname: "avatars.githubusercontent.com" }],
   },
 }`;
-  const highlighted = [2, 3];
+ const highlighted = [2, 3];
 </script>
 <div class="w-full max-w-md">
-  <CodeBlock.Root>
-    <CodeBlock.Content lineNumbers>
-      {#each code.split("\n") as line, index (index)}
-        <CodeBlock.Line
-          variant={highlighted.includes(index) ? "highlighted" : "default"}
-          >{line}</CodeBlock.Line
-        >
-      {/each}
-    </CodeBlock.Content>
-  </CodeBlock.Root>
+ <CodeBlock.Root>
+  <CodeBlock.Content lineNumbers>
+   {#each code.split("\n") as line, index (index)}
+    <CodeBlock.Line variant={highlighted.includes(index) ? "highlighted" : "default"}
+     >{line}</CodeBlock.Line
+    >
+   {/each}
+  </CodeBlock.Content>
+ </CodeBlock.Root>
 </div>
 ```
 
@@ -437,39 +437,37 @@ Set `variant="added"` or `variant="removed"` on a `CodeBlock.Line`. Each one add
 
 ```svelte
 <script lang="ts">
-  import * as CodeBlock from "$lib/components/ui/code-block/index.js";
-  const patch = ` export function Greeting({ name }: { name: string }) {
+ import * as CodeBlock from "$lib/components/ui/code-block/index.js";
+ const patch = ` export function Greeting({ name }: { name: string }) {
 -  return <p>Hello, {name}</p>
 +  return <p className="text-sm text-muted-foreground">
 +    Hello, {name}!
 +  </p>
  }`;
-  function getVariant(line: string) {
-    if (line.startsWith("+")) {
-      return "added";
-    }
-    if (line.startsWith("-")) {
-      return "removed";
-    }
-    return "default";
+ function getVariant(line: string) {
+  if (line.startsWith("+")) {
+   return "added";
   }
+  if (line.startsWith("-")) {
+   return "removed";
+  }
+  return "default";
+ }
 </script>
 <div class="w-full max-w-md">
-  <CodeBlock.Root>
-    <CodeBlock.Header>
-      <CodeBlock.Title>components/greeting.tsx</CodeBlock.Title>
-      <CodeBlock.Actions>
-        <CodeBlock.CopyButton value={patch} />
-      </CodeBlock.Actions>
-    </CodeBlock.Header>
-    <CodeBlock.Content>
-      {#each patch.split("\n") as line, index (index)}
-        <CodeBlock.Line variant={getVariant(line)}
-          >{line.slice(1)}</CodeBlock.Line
-        >
-      {/each}
-    </CodeBlock.Content>
-  </CodeBlock.Root>
+ <CodeBlock.Root>
+  <CodeBlock.Header>
+   <CodeBlock.Title>components/greeting.tsx</CodeBlock.Title>
+   <CodeBlock.Actions>
+    <CodeBlock.CopyButton value={patch} />
+   </CodeBlock.Actions>
+  </CodeBlock.Header>
+  <CodeBlock.Content>
+   {#each patch.split("\n") as line, index (index)}
+    <CodeBlock.Line variant={getVariant(line)}>{line.slice(1)}</CodeBlock.Line>
+   {/each}
+  </CodeBlock.Content>
+ </CodeBlock.Root>
 </div>
 ```
 
@@ -481,21 +479,21 @@ Cap the height with a `max-h-*` class on `CodeBlock.Content`. The content scroll
 
 ```svelte
 <script lang="ts">
-  import * as CodeBlock from "$lib/components/ui/code-block/index.js";
-  const logs = Array.from(
-    { length: 40 },
-    (_, index) => `[${String(index + 1).padStart(2, "0")}] GET /api/chat 200 in ${12 + ((index * 7) % 40)}ms` ).join("\n");
+ import * as CodeBlock from "$lib/components/ui/code-block/index.js";
+ const logs = Array.from(
+  { length: 40 },
+  (_, index) => `[${String(index + 1).padStart(2, "0")}] GET /api/chat 200 in ${12 + ((index * 7) % 40)}ms` ).join("\n");
 </script>
 <div class="w-full max-w-md">
-  <CodeBlock.Root>
-    <CodeBlock.Header>
-      <CodeBlock.Title>Logs</CodeBlock.Title>
-      <CodeBlock.Actions>
-        <CodeBlock.CopyButton value={logs} />
-      </CodeBlock.Actions>
-    </CodeBlock.Header>
-    <CodeBlock.Content class="max-h-48 scroll-fade-y" code={logs} />
-  </CodeBlock.Root>
+ <CodeBlock.Root>
+  <CodeBlock.Header>
+   <CodeBlock.Title>Logs</CodeBlock.Title>
+   <CodeBlock.Actions>
+    <CodeBlock.CopyButton value={logs} />
+   </CodeBlock.Actions>
+  </CodeBlock.Header>
+  <CodeBlock.Content class="max-h-48 scroll-fade-y" code={logs} />
+ </CodeBlock.Root>
 </div>
 ```
 
@@ -505,11 +503,11 @@ View Code `CodeBlock.Content` fades its edges with [`scroll-fade`](../utils/scro
 
 ```svelte
 <script lang="ts">
-  import ChevronDownIcon from "@lucide/svelte/icons/chevron-down";
-  import * as CodeBlock from "$lib/components/ui/code-block/index.js";
-  import { useHighlightedCode } from "$lib/components/hooks/use-highlighted-code.svelte.js";
-  import { Button } from "$lib/components/ui/button/index.js";
-  const code = `"use client"
+ import ChevronDownIcon from "@lucide/svelte/icons/chevron-down";
+ import * as CodeBlock from "$lib/components/ui/code-block/index.js";
+ import { useHighlightedCode } from "$lib/components/hooks/use-highlighted-code.svelte.js";
+ import { Button } from "$lib/components/ui/button/index.js";
+ const code = `"use client"
 import * as React from "react"
 import { useChat } from "@ai-sdk/react"
 import { Button } from "@/components/ui/button"
@@ -539,45 +537,43 @@ export function Chat() {
     </div>
   )
 }`;
-  const id = $props.id();
-  let expanded = $state(false);
-  const lines = useHighlightedCode(
-    () => code,
-    () => "tsx"
-  );
+ const id = $props.id();
+ let expanded = $state(false);
+ const lines = useHighlightedCode(
+  () => code,
+  () => "tsx"
+ );
 </script>
 <div class="w-full max-w-md">
-  <CodeBlock.Root>
-    <CodeBlock.Header>
-      <CodeBlock.Title>components/chat.tsx</CodeBlock.Title>
-      <CodeBlock.Actions>
-        <CodeBlock.CopyButton value={code} />
-      </CodeBlock.Actions>
-    </CodeBlock.Header>
-    <CodeBlock.Content
-      {id}
-      lineNumbers
-      class={expanded ? undefined : "max-h-64 scroll-fade-y overflow-y-hidden"}
-    >
-      {#each lines.current as line, index (index)}
-        <CodeBlock.Line code={line} />
-      {/each}
-    </CodeBlock.Content>
-    <CodeBlock.Footer class="justify-center">
-      <Button
-        variant="ghost"
-        size="xs"
-        aria-expanded={expanded}
-        aria-controls={id}
-        onclick={() => (expanded = !expanded)}
-      >
-        <ChevronDownIcon
-          class="transition-transform in-aria-expanded:rotate-180"
-        />
-        {expanded ? "Show less" : "Show more"}
-      </Button>
-    </CodeBlock.Footer>
-  </CodeBlock.Root>
+ <CodeBlock.Root>
+  <CodeBlock.Header>
+   <CodeBlock.Title>components/chat.tsx</CodeBlock.Title>
+   <CodeBlock.Actions>
+    <CodeBlock.CopyButton value={code} />
+   </CodeBlock.Actions>
+  </CodeBlock.Header>
+  <CodeBlock.Content
+   {id}
+   lineNumbers
+   class={expanded ? undefined : "max-h-64 scroll-fade-y overflow-y-hidden"}
+  >
+   {#each lines.current as line, index (index)}
+    <CodeBlock.Line code={line} />
+   {/each}
+  </CodeBlock.Content>
+  <CodeBlock.Footer class="justify-center">
+   <Button
+    variant="ghost"
+    size="xs"
+    aria-expanded={expanded}
+    aria-controls={id}
+    onclick={() => (expanded = !expanded)}
+   >
+    <ChevronDownIcon class="transition-transform in-aria-expanded:rotate-180" />
+    {expanded ? "Show less" : "Show more"}
+   </Button>
+  </CodeBlock.Footer>
+ </CodeBlock.Root>
 </div>
 ```
 
@@ -612,11 +608,11 @@ To keep a long block from taking over the page, raise the cap instead of removin
 
 ```svelte
 <script lang="ts">
-  import ChevronDownIcon from "@lucide/svelte/icons/chevron-down";
-  import * as CodeBlock from "$lib/components/ui/code-block/index.js";
-  import { useHighlightedCode } from "$lib/components/hooks/use-highlighted-code.svelte.js";
-  import { Button } from "$lib/components/ui/button/index.js";
-  const code = `"use client"
+ import ChevronDownIcon from "@lucide/svelte/icons/chevron-down";
+ import * as CodeBlock from "$lib/components/ui/code-block/index.js";
+ import { useHighlightedCode } from "$lib/components/hooks/use-highlighted-code.svelte.js";
+ import { Button } from "$lib/components/ui/button/index.js";
+ const code = `"use client"
 import * as React from "react"
 import { useChat } from "@ai-sdk/react"
 import { Button } from "@/components/ui/button"
@@ -646,47 +642,43 @@ export function Chat() {
     </div>
   )
 }`;
-  const id = $props.id();
-  let expanded = $state(false);
-  const lines = useHighlightedCode(
-    () => code,
-    () => "tsx"
-  );
+ const id = $props.id();
+ let expanded = $state(false);
+ const lines = useHighlightedCode(
+  () => code,
+  () => "tsx"
+ );
 </script>
 <div class="w-full max-w-md">
-  <CodeBlock.Root>
-    <CodeBlock.Header>
-      <CodeBlock.Title>components/chat.tsx</CodeBlock.Title>
-      <CodeBlock.Actions>
-        <CodeBlock.CopyButton value={code} />
-      </CodeBlock.Actions>
-    </CodeBlock.Header>
-    <CodeBlock.Content
-      {id}
-      lineNumbers
-      class={expanded
-        ? "max-h-96 scroll-fade-y"
-        : "max-h-64 scroll-fade-y overflow-y-hidden"}
-    >
-      {#each lines.current as line, index (index)}
-        <CodeBlock.Line code={line} />
-      {/each}
-    </CodeBlock.Content>
-    <CodeBlock.Footer class="justify-center">
-      <Button
-        variant="ghost"
-        size="xs"
-        aria-expanded={expanded}
-        aria-controls={id}
-        onclick={() => (expanded = !expanded)}
-      >
-        <ChevronDownIcon
-          class="transition-transform in-aria-expanded:rotate-180"
-        />
-        {expanded ? "Show less" : "Show more"}
-      </Button>
-    </CodeBlock.Footer>
-  </CodeBlock.Root>
+ <CodeBlock.Root>
+  <CodeBlock.Header>
+   <CodeBlock.Title>components/chat.tsx</CodeBlock.Title>
+   <CodeBlock.Actions>
+    <CodeBlock.CopyButton value={code} />
+   </CodeBlock.Actions>
+  </CodeBlock.Header>
+  <CodeBlock.Content
+   {id}
+   lineNumbers
+   class={expanded ? "max-h-96 scroll-fade-y" : "max-h-64 scroll-fade-y overflow-y-hidden"}
+  >
+   {#each lines.current as line, index (index)}
+    <CodeBlock.Line code={line} />
+   {/each}
+  </CodeBlock.Content>
+  <CodeBlock.Footer class="justify-center">
+   <Button
+    variant="ghost"
+    size="xs"
+    aria-expanded={expanded}
+    aria-controls={id}
+    onclick={() => (expanded = !expanded)}
+   >
+    <ChevronDownIcon class="transition-transform in-aria-expanded:rotate-180" />
+    {expanded ? "Show less" : "Show more"}
+   </Button>
+  </CodeBlock.Footer>
+ </CodeBlock.Root>
 </div>
 ```
 
@@ -698,37 +690,37 @@ Use `size="sm"` for tool and [Trace](code-block.md#trace) output. It has tighter
 
 ```svelte
 <script lang="ts">
-  import TerminalIcon from "@lucide/svelte/icons/terminal";
-  import * as CodeBlock from "$lib/components/ui/code-block/index.js";
-  const output = `$ pnpm add ai @ai-sdk/react zod
+ import TerminalIcon from "@lucide/svelte/icons/terminal";
+ import * as CodeBlock from "$lib/components/ui/code-block/index.js";
+ const output = `$ pnpm add ai @ai-sdk/react zod
 Progress: resolved 412, reused 398, downloaded 14, added 14, done
 Done in 2.8s using pnpm v10.18.0`;
 </script>
 <div class="flex w-full max-w-md flex-col gap-4">
-  <CodeBlock.Root>
-    <CodeBlock.Header>
-      <CodeBlock.Title>
-        <TerminalIcon />
-        Terminal
-      </CodeBlock.Title>
-      <CodeBlock.Actions>
-        <CodeBlock.CopyButton value={output} />
-      </CodeBlock.Actions>
-    </CodeBlock.Header>
-    <CodeBlock.Content wrap code={output} />
-  </CodeBlock.Root>
-  <CodeBlock.Root size="sm">
-    <CodeBlock.Header>
-      <CodeBlock.Title>
-        <TerminalIcon />
-        Terminal
-      </CodeBlock.Title>
-      <CodeBlock.Actions>
-        <CodeBlock.CopyButton value={output} />
-      </CodeBlock.Actions>
-    </CodeBlock.Header>
-    <CodeBlock.Content wrap code={output} />
-  </CodeBlock.Root>
+ <CodeBlock.Root>
+  <CodeBlock.Header>
+   <CodeBlock.Title>
+    <TerminalIcon />
+    Terminal
+   </CodeBlock.Title>
+   <CodeBlock.Actions>
+    <CodeBlock.CopyButton value={output} />
+   </CodeBlock.Actions>
+  </CodeBlock.Header>
+  <CodeBlock.Content wrap code={output} />
+ </CodeBlock.Root>
+ <CodeBlock.Root size="sm">
+  <CodeBlock.Header>
+   <CodeBlock.Title>
+    <TerminalIcon />
+    Terminal
+   </CodeBlock.Title>
+   <CodeBlock.Actions>
+    <CodeBlock.CopyButton value={output} />
+   </CodeBlock.Actions>
+  </CodeBlock.Header>
+  <CodeBlock.Content wrap code={output} />
+ </CodeBlock.Root>
 </div>
 ```
 
@@ -740,21 +732,21 @@ Use `variant="destructive"` for errors and failed output.
 
 ```svelte
 <script lang="ts">
-  import * as CodeBlock from "$lib/components/ui/code-block/index.js";
-  const error = `TypeError: Cannot read properties of undefined (reading 'map')
+ import * as CodeBlock from "$lib/components/ui/code-block/index.js";
+ const error = `TypeError: Cannot read properties of undefined (reading 'map')
     at MessageList (components/message-list.tsx:18:22)
     at renderWithHooks (react-dom.development.js:16305:18)`;
 </script>
 <div class="w-full max-w-md">
-  <CodeBlock.Root variant="destructive">
-    <CodeBlock.Header>
-      <CodeBlock.Title>Error</CodeBlock.Title>
-      <CodeBlock.Actions>
-        <CodeBlock.CopyButton value={error} />
-      </CodeBlock.Actions>
-    </CodeBlock.Header>
-    <CodeBlock.Content wrap code={error} />
-  </CodeBlock.Root>
+ <CodeBlock.Root variant="destructive">
+  <CodeBlock.Header>
+   <CodeBlock.Title>Error</CodeBlock.Title>
+   <CodeBlock.Actions>
+    <CodeBlock.CopyButton value={error} />
+   </CodeBlock.Actions>
+  </CodeBlock.Header>
+  <CodeBlock.Content wrap code={error} />
+ </CodeBlock.Root>
 </div>
 ```
 
@@ -766,48 +758,48 @@ Put a `CodeBlock.Root` with `size="sm"` in `Trace.CollapsibleContent` for tool a
 
 ```svelte
 <script lang="ts">
-  import TerminalIcon from "@lucide/svelte/icons/terminal";
-  import * as CodeBlock from "$lib/components/ui/code-block/index.js";
-  import * as Trace from "$lib/components/ui/trace/index.js";
-  const output = `$ node --version
+ import TerminalIcon from "@lucide/svelte/icons/terminal";
+ import * as CodeBlock from "$lib/components/ui/code-block/index.js";
+ import * as Trace from "$lib/components/ui/trace/index.js";
+ const output = `$ node --version
 v24.18.0`;
-  const error = `$ pnpm dev
+ const error = `$ pnpm dev
 Error: listen EADDRINUSE: address already in use :::3000
     at Server.setupListenHandle [as _listen2] (node:net:1908:16)`;
 </script>
 <div class="w-full max-w-md">
-  <Trace.Root>
-    <Trace.Collapsible open>
-      <Trace.CollapsibleTrigger>
-        <Trace.Line>
-          <Trace.Icon>
-            <TerminalIcon />
-          </Trace.Icon>
-          <Trace.Title>Ran node --version</Trace.Title>
-        </Trace.Line>
-      </Trace.CollapsibleTrigger>
-      <Trace.CollapsibleContent>
-        <CodeBlock.Root size="sm">
-          <CodeBlock.Content wrap class="max-h-64" code={output} />
-        </CodeBlock.Root>
-      </Trace.CollapsibleContent>
-    </Trace.Collapsible>
-    <Trace.Collapsible open>
-      <Trace.CollapsibleTrigger>
-        <Trace.Line status="error">
-          <Trace.Icon>
-            <TerminalIcon />
-          </Trace.Icon>
-          <Trace.Title>Failed to run pnpm dev</Trace.Title>
-        </Trace.Line>
-      </Trace.CollapsibleTrigger>
-      <Trace.CollapsibleContent>
-        <CodeBlock.Root size="sm" variant="destructive">
-          <CodeBlock.Content wrap class="max-h-64" code={error} />
-        </CodeBlock.Root>
-      </Trace.CollapsibleContent>
-    </Trace.Collapsible>
-  </Trace.Root>
+ <Trace.Root>
+  <Trace.Collapsible open>
+   <Trace.CollapsibleTrigger>
+    <Trace.Line>
+     <Trace.Icon>
+      <TerminalIcon />
+     </Trace.Icon>
+     <Trace.Title>Ran node --version</Trace.Title>
+    </Trace.Line>
+   </Trace.CollapsibleTrigger>
+   <Trace.CollapsibleContent>
+    <CodeBlock.Root size="sm">
+     <CodeBlock.Content wrap class="max-h-64" code={output} />
+    </CodeBlock.Root>
+   </Trace.CollapsibleContent>
+  </Trace.Collapsible>
+  <Trace.Collapsible open>
+   <Trace.CollapsibleTrigger>
+    <Trace.Line status="error">
+     <Trace.Icon>
+      <TerminalIcon />
+     </Trace.Icon>
+     <Trace.Title>Failed to run pnpm dev</Trace.Title>
+    </Trace.Line>
+   </Trace.CollapsibleTrigger>
+   <Trace.CollapsibleContent>
+    <CodeBlock.Root size="sm" variant="destructive">
+     <CodeBlock.Content wrap class="max-h-64" code={error} />
+    </CodeBlock.Root>
+   </Trace.CollapsibleContent>
+  </Trace.Collapsible>
+ </Trace.Root>
 </div>
 ```
 
@@ -821,68 +813,69 @@ Show several files with [Tabs](tabs), one `CodeBlock.Root` in each `Tabs.Content
 
 ```svelte
 <script lang="ts">
-  import * as CodeBlock from "$lib/components/ui/code-block/index.js";
-  import * as Tabs from "$lib/components/ui/tabs/index.js";
-  import { useHighlightedCode } from "$lib/components/hooks/use-highlighted-code.svelte.js";
-  const files = [
-    {
-      id: "route",
-      title: "app/api/chat/route.ts",
-      language: "ts",
-      code: `import { streamText } from "ai"
+ import * as CodeBlock from "$lib/components/ui/code-block/index.js";
+ import * as Tabs from "$lib/components/ui/tabs/index.js";
+ import { useHighlightedCode } from "$lib/components/hooks/use-highlighted-code.svelte.js";
+ const files = [
+  {
+   id: "route",
+   title: "app/api/chat/route.ts",
+   language: "ts",
+   code: `import { streamText } from "ai"
 export async function POST(request: Request) {
   const { messages } = await request.json()
   const result = streamText({ model: "anthropic/claude-sonnet-4.5", messages })
   return result.toUIMessageStreamResponse()
-}` },
-    {
-      id: "chat",
-      title: "components/chat.tsx",
-      language: "tsx",
-      code: `"use client"
+}`,
+  },
+  {
+   id: "chat",
+   title: "components/chat.tsx",
+   language: "tsx",
+   code: `"use client"
 import { useChat } from "@ai-sdk/react"
 export function Chat() {
   const { messages } = useChat()
   return <MessageList messages={messages} />
-}` },
-    {
-      id: "env",
-      title: ".env.local",
-      language: "bash",
-      code: "AI_GATEWAY_API_KEY=your-api-key"
-    }
- ];
-  const lines = files.map((file) =>
-    useHighlightedCode(
-      () => file.code,
-      () => file.language
-    )
-  );
+}`,
+  },
+  {
+   id: "env",
+   title: ".env.local",
+   language: "bash",
+   code: "AI_GATEWAY_API_KEY=your-api-key",
+  },
+];
+ const lines = files.map((file) =>
+  useHighlightedCode(
+   () => file.code,
+   () => file.language
+  )
+ );
 </script>
 <Tabs.Root value="route" class="w-full max-w-md">
-  <Tabs.List>
-    {#each files as file (file.id)}
-      <Tabs.Trigger value={file.id}>{file.title.split("/").at(-1)}</Tabs.Trigger
-      >
-    {/each}
-  </Tabs.List>
-  {#each files as file, fileIndex (file.id)}
-    <Tabs.Content value={file.id}>
-      <CodeBlock.Root>
-        <CodeBlock.Header>
-          <CodeBlock.Title>{file.title}</CodeBlock.Title>
-          <CodeBlock.Actions>
-            <CodeBlock.CopyButton value={file.code} />
-          </CodeBlock.Actions>
-        </CodeBlock.Header>
-        <CodeBlock.Content lineNumbers>
-          {#each lines[fileIndex].current as line, index (index)}
-            <CodeBlock.Line code={line} />
-          {/each}
-        </CodeBlock.Content>
-      </CodeBlock.Root>
-    </Tabs.Content>
+ <Tabs.List>
+  {#each files as file (file.id)}
+   <Tabs.Trigger value={file.id}>{file.title.split("/").at(-1)}</Tabs.Trigger>
   {/each}
+ </Tabs.List>
+ {#each files as file, fileIndex (file.id)}
+  <Tabs.Content value={file.id}>
+   <CodeBlock.Root>
+    <CodeBlock.Header>
+     <CodeBlock.Title>{file.title}</CodeBlock.Title>
+     <CodeBlock.Actions>
+      <CodeBlock.CopyButton value={file.code} />
+     </CodeBlock.Actions>
+    </CodeBlock.Header>
+    <CodeBlock.Content lineNumbers>
+     {#each lines[fileIndex].current as line, index (index)}
+      <CodeBlock.Line code={line} />
+     {/each}
+    </CodeBlock.Content>
+   </CodeBlock.Root>
+  </Tabs.Content>
+ {/each}
 </Tabs.Root>
 ```
 
@@ -894,11 +887,11 @@ Put a `CodeBlock.Root` between paragraphs inside a [Message](message).
 
 ```svelte
 <script lang="ts">
-  import * as Bubble from "$lib/components/ui/bubble/index.js";
-  import * as CodeBlock from "$lib/components/ui/code-block/index.js";
-  import * as Message from "$lib/components/ui/message/index.js";
-  import { useHighlightedCode } from "$lib/components/hooks/use-highlighted-code.svelte.js";
-  const code = `import { streamText } from "ai"
+ import * as Bubble from "$lib/components/ui/bubble/index.js";
+ import * as CodeBlock from "$lib/components/ui/code-block/index.js";
+ import * as Message from "$lib/components/ui/message/index.js";
+ import { useHighlightedCode } from "$lib/components/hooks/use-highlighted-code.svelte.js";
+ const code = `import { streamText } from "ai"
 export async function POST(request: Request) {
   const { messages } = await request.json()
   const result = streamText({
@@ -907,38 +900,38 @@ export async function POST(request: Request) {
   })
   return result.toUIMessageStreamResponse()
 }`;
-  const lines = useHighlightedCode(
-    () => code,
-    () => "ts"
-  );
+ const lines = useHighlightedCode(
+  () => code,
+  () => "ts"
+ );
 </script>
 <div class="flex w-full max-w-md flex-col gap-4 text-sm">
-  <Message.Root align="end">
-    <Message.Content>
-      <Bubble.Root variant="muted">
-        <Bubble.Content>How do I stream a response?</Bubble.Content>
-      </Bubble.Root>
-    </Message.Content>
-  </Message.Root>
-  <Message.Root>
-    <Message.Content class="gap-3">
-      <p>Create a route handler that returns the stream:</p>
-      <CodeBlock.Root>
-        <CodeBlock.Header>
-          <CodeBlock.Title>app/api/chat/route.ts</CodeBlock.Title>
-          <CodeBlock.Actions>
-            <CodeBlock.CopyButton value={code} />
-          </CodeBlock.Actions>
-        </CodeBlock.Header>
-        <CodeBlock.Content>
-          {#each lines.current as line, index (index)}
-            <CodeBlock.Line code={line} />
-          {/each}
-        </CodeBlock.Content>
-      </CodeBlock.Root>
-      <p>The client reads it with useChat.</p>
-    </Message.Content>
-  </Message.Root>
+ <Message.Root align="end">
+  <Message.Content>
+   <Bubble.Root variant="muted">
+    <Bubble.Content>How do I stream a response?</Bubble.Content>
+   </Bubble.Root>
+  </Message.Content>
+ </Message.Root>
+ <Message.Root>
+  <Message.Content class="gap-3">
+   <p>Create a route handler that returns the stream:</p>
+   <CodeBlock.Root>
+    <CodeBlock.Header>
+     <CodeBlock.Title>app/api/chat/route.ts</CodeBlock.Title>
+     <CodeBlock.Actions>
+      <CodeBlock.CopyButton value={code} />
+     </CodeBlock.Actions>
+    </CodeBlock.Header>
+    <CodeBlock.Content>
+     {#each lines.current as line, index (index)}
+      <CodeBlock.Line code={line} />
+     {/each}
+    </CodeBlock.Content>
+   </CodeBlock.Root>
+   <p>The client reads it with useChat.</p>
+  </Message.Content>
+ </Message.Root>
 </div>
 ```
 
@@ -948,30 +941,30 @@ View Code
 
 ```svelte
 <script lang="ts">
-  import * as CodeBlock from "$lib/components/ui/code-block/index.js";
-  import { useHighlightedCode } from "$lib/components/hooks/use-highlighted-code.svelte.js";
-  const code = `{
+ import * as CodeBlock from "$lib/components/ui/code-block/index.js";
+ import { useHighlightedCode } from "$lib/components/hooks/use-highlighted-code.svelte.js";
+ const code = `{
   "location": "San Francisco",
   "temperature": 18,
   "unit": "celsius",
   "conditions": ["fog", "wind"]
 }`;
-  const lines = useHighlightedCode(
-    () => code,
-    () => "json"
-  );
+ const lines = useHighlightedCode(
+  () => code,
+  () => "json"
+ );
 </script>
 <div class="w-full max-w-md">
-  <CodeBlock.Root>
-    <CodeBlock.Header>
-      <CodeBlock.Title>getWeather output</CodeBlock.Title>
-    </CodeBlock.Header>
-    <CodeBlock.Content>
-      {#each lines.current as line, index (index)}
-        <CodeBlock.Line code={line} />
-      {/each}
-    </CodeBlock.Content>
-  </CodeBlock.Root>
+ <CodeBlock.Root>
+  <CodeBlock.Header>
+   <CodeBlock.Title>getWeather output</CodeBlock.Title>
+  </CodeBlock.Header>
+  <CodeBlock.Content>
+   {#each lines.current as line, index (index)}
+    <CodeBlock.Line code={line} />
+   {/each}
+  </CodeBlock.Content>
+ </CodeBlock.Root>
 </div>
 ```
 
@@ -1002,47 +995,49 @@ Each language loads the first time it is used. Edit the list in `lib/highlighter
 
 ```svelte
 <script lang="ts">
-  import * as CodeBlock from "$lib/components/ui/code-block/index.js";
-  import { useHighlightedCode } from "$lib/components/hooks/use-highlighted-code.svelte.js";
-  const samples = [
-    {
-      language: "css",
-      title: "app/globals.css",
-      code: `@import "tailwindcss";
+ import * as CodeBlock from "$lib/components/ui/code-block/index.js";
+ import { useHighlightedCode } from "$lib/components/hooks/use-highlighted-code.svelte.js";
+ const samples = [
+  {
+   language: "css",
+   title: "app/globals.css",
+   code: `@import "tailwindcss";
 :root {
   --radius: 0.625rem;
-}` },
-    {
-      language: "python",
-      title: "main.py",
-      code: `def greet(name: str) -> str:
-    return f"Hello, {name}!"` },
-    {
-      language: "text",
-      title: "notes.txt",
-      code: "A language that is not in the list renders as plain text."
-    }
- ];
-  const lines = samples.map((sample) =>
-    useHighlightedCode(
-      () => sample.code,
-      () => sample.language
-    )
-  );
+}`,
+  },
+  {
+   language: "python",
+   title: "main.py",
+   code: `def greet(name: str) -> str:
+    return f"Hello, {name}!"`,
+  },
+  {
+   language: "text",
+   title: "notes.txt",
+   code: "A language that is not in the list renders as plain text.",
+  },
+];
+ const lines = samples.map((sample) =>
+  useHighlightedCode(
+   () => sample.code,
+   () => sample.language
+  )
+ );
 </script>
 <div class="flex w-full max-w-md flex-col gap-4">
-  {#each samples as sample, sampleIndex (sample.language)}
-    <CodeBlock.Root>
-      <CodeBlock.Header>
-        <CodeBlock.Title>{sample.title}</CodeBlock.Title>
-      </CodeBlock.Header>
-      <CodeBlock.Content>
-        {#each lines[sampleIndex].current as line, index (index)}
-          <CodeBlock.Line code={line} />
-        {/each}
-      </CodeBlock.Content>
-    </CodeBlock.Root>
-  {/each}
+ {#each samples as sample, sampleIndex (sample.language)}
+  <CodeBlock.Root>
+   <CodeBlock.Header>
+    <CodeBlock.Title>{sample.title}</CodeBlock.Title>
+   </CodeBlock.Header>
+   <CodeBlock.Content>
+    {#each lines[sampleIndex].current as line, index (index)}
+     <CodeBlock.Line code={line} />
+    {/each}
+   </CodeBlock.Content>
+  </CodeBlock.Root>
+ {/each}
 </div>
 ```
 
@@ -1056,39 +1051,39 @@ Pass `"ansi"` as the language to render the colors in terminal output. Without i
 
 ```svelte
 <script lang="ts">
-  import TerminalIcon from "@lucide/svelte/icons/terminal";
-  import * as CodeBlock from "$lib/components/ui/code-block/index.js";
-  import { useHighlightedCode } from "$lib/components/hooks/use-highlighted-code.svelte.js";
-  const output = `$ pnpm test
+ import TerminalIcon from "@lucide/svelte/icons/terminal";
+ import * as CodeBlock from "$lib/components/ui/code-block/index.js";
+ import { useHighlightedCode } from "$lib/components/hooks/use-highlighted-code.svelte.js";
+ const output = `$ pnpm test
 [32m[39m src/format.test.ts [2m(4 tests)[22m
 [32m[39m src/parse.test.ts [2m(7 tests)[22m
 [31m[39m src/stream.test.ts [2m(3 tests | 1 failed)[22m
 [31mAssertionError: expected 'hello' to be 'hello world'[39m
 Tests  [31m1 failed[39m | [32m13 passed[39m (14)`;
-  // eslint-disable-next-line no-control-regex
-  const plain = output.replace(/[[d;]*m/g, "");
-  const lines = useHighlightedCode(
-    () => output,
-    () => "ansi"
-  );
+ // eslint-disable-next-line no-control-regex
+ const plain = output.replace(/[[d;]*m/g, "");
+ const lines = useHighlightedCode(
+  () => output,
+  () => "ansi"
+ );
 </script>
 <div class="w-full max-w-md">
-  <CodeBlock.Root>
-    <CodeBlock.Header>
-      <CodeBlock.Title>
-        <TerminalIcon />
-        Terminal
-      </CodeBlock.Title>
-      <CodeBlock.Actions>
-        <CodeBlock.CopyButton value={plain} />
-      </CodeBlock.Actions>
-    </CodeBlock.Header>
-    <CodeBlock.Content wrap>
-      {#each lines.current as line, index (index)}
-        <CodeBlock.Line code={line} />
-      {/each}
-    </CodeBlock.Content>
-  </CodeBlock.Root>
+ <CodeBlock.Root>
+  <CodeBlock.Header>
+   <CodeBlock.Title>
+    <TerminalIcon />
+    Terminal
+   </CodeBlock.Title>
+   <CodeBlock.Actions>
+    <CodeBlock.CopyButton value={plain} />
+   </CodeBlock.Actions>
+  </CodeBlock.Header>
+  <CodeBlock.Content wrap>
+   {#each lines.current as line, index (index)}
+    <CodeBlock.Line code={line} />
+   {/each}
+  </CodeBlock.Content>
+ </CodeBlock.Root>
 </div>
 ```
 
@@ -1134,53 +1129,55 @@ While the code streams, the hook tokenizes only the new lines, starting where th
 
 ```svelte
 <script lang="ts">
-  import RotateCcwIcon from "@lucide/svelte/icons/rotate-ccw";
-  import { onDestroy } from "svelte";
-  import * as CodeBlock from "$lib/components/ui/code-block/index.js";
-  import { useHighlightedCode } from "$lib/components/hooks/use-highlighted-code.svelte.js";
-  import { Button } from "$lib/components/ui/button/index.js";
-  const blocks: {
-    title?: string;
-    language: string;
-    code: string;
-    lineNumbers?: boolean;
-    highlight?: number[];
-    diff?: boolean;
-  }[] = [
-    {
-      title: "hooks/use-debounce.ts",
-      language: "ts",
-      lineNumbers: true,
-      code: `export function useDebounce<T>(value: T, delay = 300) {
+ import RotateCcwIcon from "@lucide/svelte/icons/rotate-ccw";
+ import { onDestroy } from "svelte";
+ import * as CodeBlock from "$lib/components/ui/code-block/index.js";
+ import { useHighlightedCode } from "$lib/components/hooks/use-highlighted-code.svelte.js";
+ import { Button } from "$lib/components/ui/button/index.js";
+ const blocks: {
+  title?: string;
+  language: string;
+  code: string;
+  lineNumbers?: boolean;
+  highlight?: number[];
+  diff?: boolean;
+ }[] = [
+  {
+   title: "hooks/use-debounce.ts",
+   language: "ts",
+   lineNumbers: true,
+   code: `export function useDebounce<T>(value: T, delay = 300) {
   const [debounced, setDebounced] = React.useState(value)
   React.useEffect(() => {
     const timeout = setTimeout(() => setDebounced(value), delay)
     return () => clearTimeout(timeout)
   }, [value, delay])
   return debounced
-}` },
-    {
-      language: "bash",
-      code: "pnpm dlx shadcn@latest add code-block"
-    },
-    {
-      title: "components/search.tsx",
-      language: "tsx",
-      lineNumbers: true,
-      diff: true,
-      code: ` export function Search() {
+}`,
+  },
+  {
+   language: "bash",
+   code: "pnpm dlx shadcn@latest add code-block",
+  },
+  {
+   title: "components/search.tsx",
+   language: "tsx",
+   lineNumbers: true,
+   diff: true,
+   code: ` export function Search() {
    const [query, setQuery] = React.useState("")
 -  const results = useSearch(query)
 +  const debounced = useDebounce(query, 300)
 +  const results = useSearch(debounced)
    return <SearchResults results={results} />
- }` },
-    {
-      title: "app/api/chat/route.ts",
-      language: "ts",
-      lineNumbers: true,
-      highlight: [5, 6, 7, 8],
-      code: `import { streamText } from "ai"
+ }`,
+  },
+  {
+   title: "app/api/chat/route.ts",
+   language: "ts",
+   lineNumbers: true,
+   highlight: [5, 6, 7, 8],
+   code: `import { streamText } from "ai"
 export async function POST(request: Request) {
   const { messages } = await request.json()
   const result = streamText({
@@ -1188,108 +1185,93 @@ export async function POST(request: Request) {
     messages,
   })
   return result.toUIMessageStreamResponse()
-}` },
-    {
-      title: ".env.local",
-      language: "bash",
-      code: "AI_GATEWAY_API_KEY=your-api-key"
-    }
-  ];
-  // Where each block starts in the stream.
-  const offsets = blocks.map((_, index) =>
-    blocks
-      .slice(0, index)
-      .reduce((total, block) => total + block.code.length, 0)
-  );
-  const total = blocks.reduce((sum, block) => sum + block.code.length, 0);
-  let length = $state(total);
-  let interval: ReturnType<typeof setInterval> | undefined;
-  function replay() {
+}`,
+  },
+  {
+   title: ".env.local",
+   language: "bash",
+   code: "AI_GATEWAY_API_KEY=your-api-key",
+  },
+ ];
+ // Where each block starts in the stream.
+ const offsets = blocks.map((_, index) =>
+  blocks.slice(0, index).reduce((total, block) => total + block.code.length, 0)
+ );
+ const total = blocks.reduce((sum, block) => sum + block.code.length, 0);
+ let length = $state(total);
+ let interval: ReturnType<typeof setInterval> | undefined;
+ function replay() {
+  clearInterval(interval);
+  length = 0;
+  interval = setInterval(() => {
+   length = Math.min(length + 3, total);
+   if (length >= total) {
     clearInterval(interval);
-    length = 0;
-    interval = setInterval(() => {
-      length = Math.min(length + 3, total);
-      if (length >= total) {
-        clearInterval(interval);
-      }
-    }, 16);
+   }
+  }, 16);
+ }
+ onDestroy(() => clearInterval(interval));
+ const streamed = blocks.map((block, index) => {
+  const code = () => block.code.slice(0, Math.max(0, length - offsets[index])); const rows = () => code().split("\n");
+  // A diff row starts with +, - or a space. The marker is not part of the code. const source = () =>
+   block.diff
+    ? rows()
+      .map((row) => row.slice(1))
+      .join("\n")
+    : code();
+  const lines = useHighlightedCode(source, () => block.language);
+  return {
+   get rows() {
+    return rows();
+   },
+   get source() {
+    return source();
+   },
+   get lines() {
+    return lines.current;
+   },
+  };
+ });
+ function getVariant(block: (typeof blocks)[number], rows: string[], index: number) {
+  if (block.diff) {
+   if (rows[index]?.startsWith("+")) {
+    return "added";
+   }
+   if (rows[index]?.startsWith("-")) {
+    return "removed";
+   }
+   return "default";
   }
-  onDestroy(() => clearInterval(interval));
-  const streamed = blocks.map((block, index) => {
-    const code = () =>
-      block.code.slice(0, Math.max(0, length - offsets[index])); const rows = () => code().split("\n");
-    // A diff row starts with +, - or a space. The marker is not part of the code. const source = () =>
-      block.diff
-        ? rows()
-            .map((row) => row.slice(1))
-            .join("\n")
-        : code();
-    const lines = useHighlightedCode(source, () => block.language);
-    return {
-      get rows() {
-        return rows();
-      },
-      get source() {
-        return source();
-      },
-      get lines() {
-        return lines.current;
-      }
-    };
-  });
-  function getVariant(
-    block: (typeof blocks)[number],
-    rows: string[],
-    index: number
-  ) {
-    if (block.diff) {
-      if (rows[index]?.startsWith("+")) {
-        return "added";
-      }
-      if (rows[index]?.startsWith("-")) {
-        return "removed";
-      }
-      return "default";
-    }
-    return block.highlight?.includes(index) ? "highlighted" : "default";
-  }
+  return block.highlight?.includes(index) ? "highlighted" : "default";
+ }
 </script>
 <div class="flex w-full max-w-md flex-col gap-4">
-  {#each blocks as block, blockIndex (block.code)}
-    {#if length > offsets[blockIndex]}
-      {@const stream = streamed[blockIndex]}
-      <CodeBlock.Root>
-        {#if block.title}
-          <CodeBlock.Header>
-            <CodeBlock.Title>{block.title}</CodeBlock.Title>
-            <CodeBlock.Actions>
-              <CodeBlock.CopyButton
-                value={stream.source}
-                disabled={length - offsets[blockIndex] < block.code.length} />
-            </CodeBlock.Actions>
-          </CodeBlock.Header>
-        {/if}
-        <CodeBlock.Content lineNumbers={block.lineNumbers}>
-          {#each stream.lines as line, index (index)}
-            <CodeBlock.Line
-              variant={getVariant(block, stream.rows, index)}
-              code={line}
-            />
-          {/each}
-        </CodeBlock.Content>
-      </CodeBlock.Root>
+ {#each blocks as block, blockIndex (block.code)}
+  {#if length > offsets[blockIndex]}
+   {@const stream = streamed[blockIndex]}
+   <CodeBlock.Root>
+    {#if block.title}
+     <CodeBlock.Header>
+      <CodeBlock.Title>{block.title}</CodeBlock.Title>
+      <CodeBlock.Actions>
+       <CodeBlock.CopyButton
+        value={stream.source}
+        disabled={length - offsets[blockIndex] < block.code.length} />
+      </CodeBlock.Actions>
+     </CodeBlock.Header>
     {/if}
-  {/each}
-  <Button
-    variant="outline"
-    size="sm"
-    class="self-start"
-    disabled={length < total}
-    onclick={replay}
-  >
-    <RotateCcwIcon />
-    Replay
-  </Button>
+    <CodeBlock.Content lineNumbers={block.lineNumbers}>
+     {#each stream.lines as line, index (index)}
+      <CodeBlock.Line variant={getVariant(block, stream.rows, index)} code={line} />
+     {/each}
+    </CodeBlock.Content>
+   </CodeBlock.Root>
+  {/if}
+ {/each}
+ <Button variant="outline" size="sm" class="self-start" disabled={length < total} onclick={replay}>
+  <RotateCcwIcon />
+  Replay
+ </Button>
 </div>
 ```
 
@@ -1301,14 +1283,14 @@ Render the message with [svelte-streamdown](https://github.com/beynar/svelte-str
 
 ````svelte
 <script lang="ts">
-  import { Chat } from "@ai-sdk/svelte";
-  import { Streamdown } from "svelte-streamdown";
-  import * as Bubble from "$lib/components/ui/bubble/index.js";
-  import * as Message from "$lib/components/ui/message/index.js";
-  import MarkdownCodeBlock from "$lib/components/code-block/markdown-code-block.svelte";
-  import { createChat, getMessageText } from "$lib/ai-sdk.js";
-  import { Button } from "$lib/components/ui/button/index.js";
-  const response = `Wrap the value in a `useDebounce` hook. It returns the latest value once it stops changing for `delay` milliseconds.
+ import { Chat } from "@ai-sdk/svelte";
+ import { Streamdown } from "svelte-streamdown";
+ import * as Bubble from "$lib/components/ui/bubble/index.js";
+ import * as Message from "$lib/components/ui/message/index.js";
+ import MarkdownCodeBlock from "$lib/components/code-block/markdown-code-block.svelte";
+ import { createChat, getMessageText } from "$lib/ai-sdk.js";
+ import { Button } from "$lib/components/ui/button/index.js";
+ const response = `Wrap the value in a `useDebounce` hook. It returns the latest value once it stops changing for `delay` milliseconds.
 ```tsx
 export function useDebounce<T>(value: T, delay = 300) {
   const [debounced, setDebounced] = React.useState(value)
@@ -1320,62 +1302,59 @@ export function useDebounce<T>(value: T, delay = 300) {
 }
 ```
 Pass the debounced value to your fetch instead of the raw input.`;
-  const script = createChat()
-    .user("How do I debounce a search input in React?")
-    .assistant(({ writer }) => {
-      writer.text(response);
-    });
-  const transcript = script.get();
-  const [question] = script.get(1);
-  const transport = script.transport({ delayMs: 30 });
-  const chat = new Chat({ messages: transcript, transport });
-  const busy = $derived(
-    chat.status === "submitted" || chat.status === "streaming"
-  );
+ const script = createChat()
+  .user("How do I debounce a search input in React?")
+  .assistant(({ writer }) => {
+   writer.text(response);
+  });
+ const transcript = script.get();
+ const [question] = script.get(1);
+ const transport = script.transport({ delayMs: 30 });
+ const chat = new Chat({ messages: transcript, transport });
+ const busy = $derived(chat.status === "submitted" || chat.status === "streaming");
 </script>
 <div class="flex min-h-112 w-full max-w-md flex-col gap-4 py-6 text-sm">
-  {#each chat.messages as message (message.id)}
-    {#if message.role === "user"}
-      <Message.Root align="end">
-        <Message.Content>
-          <Bubble.Root align="end" variant="muted">
-            <Bubble.Content>{getMessageText(message)}</Bubble.Content>
-          </Bubble.Root>
-        </Message.Content>
-      </Message.Root>
-    {:else}
-      <Message.Root>
-        <Message.Content>
-          <Streamdown
-            content={getMessageText(message)}
-            controls={false}
-            components={{ code: MarkdownCodeBlock }}
-            class="space-y-4 whitespace-normal [&>*:first-child]:mt-0 [&>*:last-child]:mb-0"
-          >
-            {#snippet codespan({ children })}
-              <code
-                class="rounded-sm bg-muted px-1 py-0.5 font-mono text-[0.9em]"
-                >{@render children()}</code
-              >
-            {/snippet}
-          </Streamdown>
-        </Message.Content>
-      </Message.Root>
-    {/if}
-  {/each}
-  {#if !busy}
-    <Button
-      variant="outline"
-      size="sm"
-      class="mt-auto self-start"
-      onclick={() => {
-        chat.messages = [];
-        void chat.sendMessage(question);
-      }}
-    >
-      Replay
-    </Button>
+ {#each chat.messages as message (message.id)}
+  {#if message.role === "user"}
+   <Message.Root align="end">
+    <Message.Content>
+     <Bubble.Root align="end" variant="muted">
+      <Bubble.Content>{getMessageText(message)}</Bubble.Content>
+     </Bubble.Root>
+    </Message.Content>
+   </Message.Root>
+  {:else}
+   <Message.Root>
+    <Message.Content>
+     <Streamdown
+      content={getMessageText(message)}
+      controls={false}
+      components={{ code: MarkdownCodeBlock }}
+      class="space-y-4 whitespace-normal [&>*:first-child]:mt-0 [&>*:last-child]:mb-0"
+     >
+      {#snippet codespan({ children })}
+       <code class="rounded-sm bg-muted px-1 py-0.5 font-mono text-[0.9em]"
+        >{@render children()}</code
+       >
+      {/snippet}
+     </Streamdown>
+    </Message.Content>
+   </Message.Root>
   {/if}
+ {/each}
+ {#if !busy}
+  <Button
+   variant="outline"
+   size="sm"
+   class="mt-auto self-start"
+   onclick={() => {
+    chat.messages = [];
+    void chat.sendMessage(question);
+   }}
+  >
+   Replay
+  </Button>
+ {/if}
 </div>
 ````
 

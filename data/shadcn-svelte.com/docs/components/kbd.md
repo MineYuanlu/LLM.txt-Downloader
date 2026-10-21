@@ -10,20 +10,20 @@ Used to display textual user input from keyboard.
 
 ```svelte
 <script lang="ts">
-  import * as Kbd from "$lib/components/ui/kbd/index.js";
+ import * as Kbd from "$lib/components/ui/kbd/index.js";
 </script>
 <div class="flex flex-col items-center gap-4">
-  <Kbd.Group>
-    <Kbd.Root></Kbd.Root>
-    <Kbd.Root></Kbd.Root>
-    <Kbd.Root></Kbd.Root>
-    <Kbd.Root></Kbd.Root>
-  </Kbd.Group>
-  <Kbd.Group>
-    <Kbd.Root>Ctrl</Kbd.Root>
-    <span>+</span>
-    <Kbd.Root>B</Kbd.Root>
-  </Kbd.Group>
+ <Kbd.Group>
+  <Kbd.Root></Kbd.Root>
+  <Kbd.Root></Kbd.Root>
+  <Kbd.Root></Kbd.Root>
+  <Kbd.Root></Kbd.Root>
+ </Kbd.Group>
+ <Kbd.Group>
+  <Kbd.Root>Ctrl</Kbd.Root>
+  <span>+</span>
+  <Kbd.Root>B</Kbd.Root>
+ </Kbd.Group>
 </div>
 ```
 
@@ -61,17 +61,17 @@ Use the `Kbd.Group` component to group keyboard keys together.
 
 ```svelte
 <script lang="ts">
-  import * as Kbd from "$lib/components/ui/kbd/index.js";
+ import * as Kbd from "$lib/components/ui/kbd/index.js";
 </script>
 <div class="flex flex-col items-center gap-4">
-  <p class="text-sm text-muted-foreground">
-    Use
-    <Kbd.Group>
-      <Kbd.Root>Ctrl + B</Kbd.Root>
-      <Kbd.Root>Ctrl + K</Kbd.Root>
-    </Kbd.Group>
-    to open the command palette
-  </p>
+ <p class="text-sm text-muted-foreground">
+  Use
+  <Kbd.Group>
+   <Kbd.Root>Ctrl + B</Kbd.Root>
+   <Kbd.Root>Ctrl + K</Kbd.Root>
+  </Kbd.Group>
+  to open the command palette
+ </p>
 </div>
 ```
 
@@ -83,11 +83,11 @@ Use the `Kbd.Root` component inside a `Button` component to display a keyboard k
 
 ```svelte
 <script lang="ts">
-  import * as Kbd from "$lib/components/ui/kbd/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
+ import * as Kbd from "$lib/components/ui/kbd/index.js";
+ import { Button } from "$lib/components/ui/button/index.js";
 </script>
 <Button variant="outline">
-  Accept <Kbd.Root data-icon="inline-end" class="translate-x-0.5"></Kbd.Root>
+ Accept <Kbd.Root data-icon="inline-end" class="translate-x-0.5"></Kbd.Root>
 </Button>
 ```
 
@@ -99,38 +99,38 @@ You can use the `Kbd.Root` component inside a `Tooltip` component to display a t
 
 ```svelte
 <script lang="ts">
-  import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
-  import * as Kbd from "$lib/components/ui/kbd/index.js";
-  import * as Tooltip from "$lib/components/ui/tooltip/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
+ import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
+ import * as Kbd from "$lib/components/ui/kbd/index.js";
+ import * as Tooltip from "$lib/components/ui/tooltip/index.js";
+ import { Button } from "$lib/components/ui/button/index.js";
 </script>
 <div class="flex flex-wrap gap-4">
-  <ButtonGroup.Root>
-    <Tooltip.Root>
-      <Tooltip.Trigger>
-        {#snippet child({ props })}
-          <Button variant="outline" {...props}>Save</Button>
-        {/snippet}
-      </Tooltip.Trigger>
-      <Tooltip.Content>
-        Save Changes <Kbd.Root>S</Kbd.Root>
-      </Tooltip.Content>
-    </Tooltip.Root>
-    <Tooltip.Root>
-      <Tooltip.Trigger>
-        {#snippet child({ props })}
-          <Button variant="outline" {...props}>Print</Button>
-        {/snippet}
-      </Tooltip.Trigger>
-      <Tooltip.Content>
-        Print Document
-        <Kbd.Group>
-          <Kbd.Root>Ctrl</Kbd.Root>
-          <Kbd.Root>P</Kbd.Root>
-        </Kbd.Group>
-      </Tooltip.Content>
-    </Tooltip.Root>
-  </ButtonGroup.Root>
+ <ButtonGroup.Root>
+  <Tooltip.Root>
+   <Tooltip.Trigger>
+    {#snippet child({ props })}
+     <Button variant="outline" {...props}>Save</Button>
+    {/snippet}
+   </Tooltip.Trigger>
+   <Tooltip.Content>
+    Save Changes <Kbd.Root>S</Kbd.Root>
+   </Tooltip.Content>
+  </Tooltip.Root>
+  <Tooltip.Root>
+   <Tooltip.Trigger>
+    {#snippet child({ props })}
+     <Button variant="outline" {...props}>Print</Button>
+    {/snippet}
+   </Tooltip.Trigger>
+   <Tooltip.Content>
+    Print Document
+    <Kbd.Group>
+     <Kbd.Root>Ctrl</Kbd.Root>
+     <Kbd.Root>P</Kbd.Root>
+    </Kbd.Group>
+   </Tooltip.Content>
+  </Tooltip.Root>
+ </ButtonGroup.Root>
 </div>
 ```
 
@@ -142,21 +142,21 @@ You can use the `Kbd.Root` component inside a `InputGroup.Addon` component to di
 
 ```svelte
 <script lang="ts">
-  import SearchIcon from "@lucide/svelte/icons/search";
-  import * as InputGroup from "$lib/components/ui/input-group/index.js";
-  import * as Kbd from "$lib/components/ui/kbd/index.js";
+ import SearchIcon from "@lucide/svelte/icons/search";
+ import * as InputGroup from "$lib/components/ui/input-group/index.js";
+ import * as Kbd from "$lib/components/ui/kbd/index.js";
 </script>
 <div class="flex w-full max-w-xs flex-col gap-6">
-  <InputGroup.Root>
-    <InputGroup.Input placeholder="Search..." />
-    <InputGroup.Addon>
-      <SearchIcon />
-    </InputGroup.Addon>
-    <InputGroup.Addon align="inline-end">
-      <Kbd.Root></Kbd.Root>
-      <Kbd.Root>K</Kbd.Root>
-    </InputGroup.Addon>
-  </InputGroup.Root>
+ <InputGroup.Root>
+  <InputGroup.Input placeholder="Search..." />
+  <InputGroup.Addon>
+   <SearchIcon />
+  </InputGroup.Addon>
+  <InputGroup.Addon align="inline-end">
+   <Kbd.Root></Kbd.Root>
+   <Kbd.Root>K</Kbd.Root>
+  </InputGroup.Addon>
+ </InputGroup.Root>
 </div>
 ```
 

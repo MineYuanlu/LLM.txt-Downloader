@@ -506,7 +506,7 @@ The dark mode colors have been revisited and updated to be more accessible, as y
 
 You can update your components to use the new dark mode colors by re-adding your components using the CLI[1](tailwind-v4.md#user-content-fn-1).
 
-Commit any changes
+### Commit any changes
 
 **The CLI will overwrite your existing components.** It's recommended to commit the changes you've made to your components before running the CLI.
 
@@ -515,7 +515,7 @@ git add .
 git commit -m '..."
 ```
 
-Update components
+### Update components
 
 ```bash
 pnpm dlx shadcn-svelte@latest add --all --overwrite
@@ -529,11 +529,11 @@ npx shadcn-svelte@latest add --all --overwrite
 bun x shadcn-svelte@latest add --all --overwrite
 ```
 
-Update colors
+### Update colors
 
 Update the dark mode colors in your `app.css` file to the new OKLCH values. See the [Base Colors](../theming#base-colors) reference for a list of colors.
 
-Review Changes
+### Review Changes
 
 Review and re-apply any changes you've made to your components using the git diffs.
 

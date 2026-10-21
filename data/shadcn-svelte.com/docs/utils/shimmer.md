@@ -65,19 +65,19 @@ The shimmer composes with any component that renders text. A common pattern is a
 
 ```svelte
 <script lang="ts">
-  import * as Marker from "$lib/components/ui/marker/index.js";
-  import { Spinner } from "$lib/components/ui/spinner/index.js";
+ import * as Marker from "$lib/components/ui/marker/index.js";
+ import { Spinner } from "$lib/components/ui/spinner/index.js";
 </script>
 <div class="flex w-full max-w-sm flex-col gap-4">
-  <Marker.Root role="status">
-    <Marker.Icon>
-      <Spinner />
-    </Marker.Icon>
-    <Marker.Content class="shimmer">Thinking...</Marker.Content>
-  </Marker.Root>
-  <Marker.Root variant="separator" role="status">
-    <Marker.Content class="shimmer">Reading 4 files</Marker.Content>
-  </Marker.Root>
+ <Marker.Root role="status">
+  <Marker.Icon>
+   <Spinner />
+  </Marker.Icon>
+  <Marker.Content class="shimmer">Thinking...</Marker.Content>
+ </Marker.Root>
+ <Marker.Root variant="separator" role="status">
+  <Marker.Content class="shimmer">Reading 4 files</Marker.Content>
+ </Marker.Root>
 </div>
 ```
 
@@ -98,8 +98,8 @@ Use `shimmer-color-<color>` to set the highlight color explicitly. It accepts th
 
 ```svelte
 <div class="flex flex-col items-center gap-2 text-sm text-muted-foreground">
-  <p class="shimmer shimmer-color-blue-500/60">Generating response&hellip;</p>
-  <p class="shimmer shimmer-color-[#378ADD]">Generating response&hellip;</p>
+ <p class="shimmer shimmer-color-blue-500/60">Generating response&hellip;</p>
+ <p class="shimmer shimmer-color-[#378ADD]">Generating response&hellip;</p>
 </div>
 ```
 
@@ -116,16 +116,16 @@ Use `shimmer-duration-<number>` to set the duration of one sweep in milliseconds
 
 ```svelte
 <div
-  class="mx-auto grid w-full max-w-lg gap-6 text-center text-sm text-muted-foreground sm:grid-cols-2"
+ class="mx-auto grid w-full max-w-lg gap-6 text-center text-sm text-muted-foreground sm:grid-cols-2"
 >
-  <div class="flex flex-col gap-3">
-    <p class="shimmer">Generating response&hellip;</p>
-    <p class="font-mono text-xs">shimmer</p>
-  </div>
-  <div class="flex flex-col gap-3">
-    <p class="shimmer shimmer-duration-1000">Generating response&hellip;</p>
-    <p class="font-mono text-xs">shimmer-duration-1000</p>
-  </div>
+ <div class="flex flex-col gap-3">
+  <p class="shimmer">Generating response&hellip;</p>
+  <p class="font-mono text-xs">shimmer</p>
+ </div>
+ <div class="flex flex-col gap-3">
+  <p class="shimmer shimmer-duration-1000">Generating response&hellip;</p>
+  <p class="font-mono text-xs">shimmer-duration-1000</p>
+ </div>
 </div>
 ```
 
@@ -141,16 +141,16 @@ Use `shimmer-spread-<number>` to set the width of the highlight band using the s
 
 ```svelte
 <div
-  class="mx-auto grid w-full max-w-lg gap-6 text-center text-sm text-muted-foreground sm:grid-cols-2"
+ class="mx-auto grid w-full max-w-lg gap-6 text-center text-sm text-muted-foreground sm:grid-cols-2"
 >
-  <div class="flex flex-col gap-3">
-    <p class="shimmer shimmer-spread-4">Generating response&hellip;</p>
-    <p class="font-mono text-xs">shimmer-spread-4</p>
-  </div>
-  <div class="flex flex-col gap-3">
-    <p class="shimmer shimmer-spread-24">Generating response&hellip;</p>
-    <p class="font-mono text-xs">shimmer-spread-24</p>
-  </div>
+ <div class="flex flex-col gap-3">
+  <p class="shimmer shimmer-spread-4">Generating response&hellip;</p>
+  <p class="font-mono text-xs">shimmer-spread-4</p>
+ </div>
+ <div class="flex flex-col gap-3">
+  <p class="shimmer shimmer-spread-24">Generating response&hellip;</p>
+  <p class="font-mono text-xs">shimmer-spread-24</p>
+ </div>
 </div>
 ```
 
@@ -172,16 +172,16 @@ Use `shimmer-angle-<number>` to set the tilt of the highlight band in degrees. T
 
 ```svelte
 <div
-  class="mx-auto grid w-full max-w-lg gap-6 text-center text-sm text-muted-foreground sm:grid-cols-2"
+ class="mx-auto grid w-full max-w-lg gap-6 text-center text-sm text-muted-foreground sm:grid-cols-2"
 >
-  <div class="flex flex-col gap-3">
-    <p class="shimmer">Generating response&hellip;</p>
-    <p class="font-mono text-xs">shimmer</p>
-  </div>
-  <div class="flex flex-col gap-3">
-    <p class="shimmer shimmer-angle-45">Generating response&hellip;</p>
-    <p class="font-mono text-xs">shimmer-angle-45</p>
-  </div>
+ <div class="flex flex-col gap-3">
+  <p class="shimmer">Generating response&hellip;</p>
+  <p class="font-mono text-xs">shimmer</p>
+ </div>
+ <div class="flex flex-col gap-3">
+  <p class="shimmer shimmer-angle-45">Generating response&hellip;</p>
+  <p class="font-mono text-xs">shimmer-angle-45</p>
+ </div>
 </div>
 ```
 
@@ -205,20 +205,16 @@ Use `shimmer-once` to play a single sweep instead of looping, useful as a reveal
 
 ```svelte
 <script lang="ts">
-  import { Button } from "$lib/components/ui/button/index.js";
-  let replay = $state(0);
+ import { Button } from "$lib/components/ui/button/index.js";
+ let replay = $state(0);
 </script>
 <div class="flex flex-col items-center gap-4">
-  {#key replay}
-    <p
-      class="shimmer text-sm text-muted-foreground shimmer-duration-1100 shimmer-once"
-    >
-      Generating response&hellip;
-    </p>
-  {/key}
-  <Button variant="outline" size="sm" onclick={() => (replay += 1)}
-    >Replay</Button
-  >
+ {#key replay}
+  <p class="shimmer text-sm text-muted-foreground shimmer-duration-1100 shimmer-once">
+   Generating response&hellip;
+  </p>
+ {/key}
+ <Button variant="outline" size="sm" onclick={() => (replay += 1)}>Replay</Button>
 </div>
 ```
 
@@ -234,8 +230,8 @@ Use `shimmer-none` to turn the effect off and render the text normally. It works
 
 ```svelte
 <div class="flex flex-col items-center gap-3 text-sm text-muted-foreground">
-  <p class="shimmer md:shimmer-none">Generating response&hellip;</p>
-  <p class="font-mono text-xs">shimmer md:shimmer-none</p>
+ <p class="shimmer md:shimmer-none">Generating response&hellip;</p>
+ <p class="font-mono text-xs">shimmer md:shimmer-none</p>
 </div>
 ```
 
@@ -265,16 +261,16 @@ The sweep follows the reading direction, left to right in LTR and right to left 
 
 ```svelte
 <div
-  class="mx-auto grid w-full max-w-lg gap-6 text-center text-sm text-muted-foreground sm:grid-cols-2"
+ class="mx-auto grid w-full max-w-lg gap-6 text-center text-sm text-muted-foreground sm:grid-cols-2"
 >
-  <div class="flex flex-col gap-3">
-    <p dir="ltr" class="shimmer">Generating response&hellip;</p>
-    <p class="font-mono text-xs">dir="ltr"</p>
-  </div>
-  <div class="flex flex-col gap-3">
-    <p dir="rtl" class="shimmer">  &hellip;</p>
-    <p class="font-mono text-xs">dir="rtl"</p>
-  </div>
+ <div class="flex flex-col gap-3">
+  <p dir="ltr" class="shimmer">Generating response&hellip;</p>
+  <p class="font-mono text-xs">dir="ltr"</p>
+ </div>
+ <div class="flex flex-col gap-3">
+  <p dir="rtl" class="shimmer">  &hellip;</p>
+  <p class="font-mono text-xs">dir="rtl"</p>
+ </div>
 </div>
 ```
 

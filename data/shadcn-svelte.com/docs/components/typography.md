@@ -13,10 +13,8 @@ We do not ship any typography styles by default. This page is an example of how 
 ## [h1](typography.md#h1)
 
 ```svelte
-<h1
-  class="scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance"
->
-  Taxing Laughter: The Joke Tax Chronicles
+<h1 class="scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance">
+ Taxing Laughter: The Joke Tax Chronicles
 </h1>
 ```
 
@@ -25,10 +23,8 @@ View Code
 ## [h2](typography.md#h2)
 
 ```svelte
-<h2
-  class="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0"
->
-  The People of the Kingdom
+<h2 class="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+ The People of the Kingdom
 </h2>
 ```
 
@@ -45,9 +41,7 @@ View Code
 ## [h4](typography.md#h4)
 
 ```svelte
-<h4 class="scroll-m-20 text-xl font-semibold tracking-tight">
-  People stopped telling jokes
-</h4>
+<h4 class="scroll-m-20 text-xl font-semibold tracking-tight">People stopped telling jokes</h4>
 ```
 
 View Code
@@ -56,8 +50,8 @@ View Code
 
 ```svelte
 <p class="leading-7 [&:not(:first-child)]:mt-6">
-  The king, seeing how much happier his subjects were, realized the error of his
-  ways and repealed the joke tax.
+ The king, seeing how much happier his subjects were, realized the error of his ways and repealed
+ the joke tax.
 </p>
 ```
 
@@ -67,8 +61,8 @@ View Code
 
 ```svelte
 <blockquote class="mt-6 border-s-2 ps-6 italic">
-  "After all," he said, "everyone enjoys a good joke, so it's only fair that
-  they should pay for the privilege."
+ "After all," he said, "everyone enjoys a good joke, so it's only fair that they should pay for the
+ privilege."
 </blockquote>
 ```
 
@@ -78,60 +72,60 @@ View Code
 
 ```svelte
 <div class="my-6 w-full overflow-y-auto">
-  <table class="w-full">
-    <thead>
-      <tr class="m-0 border-t p-0 even:bg-muted">
-        <th
-          class="border px-4 py-2 text-start font-bold [&[align=center]]:text-center [&[align=right]]:text-end"
-        >
-          King's Treasury
-        </th>
-        <th
-          class="border px-4 py-2 text-start font-bold [&[align=center]]:text-center [&[align=right]]:text-end"
-        >
-          People's happiness
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="m-0 border-t p-0 even:bg-muted">
-        <td
-          class="border px-4 py-2 text-start [&[align=center]]:text-center [&[align=right]]:text-end"
-        >
-          Empty
-        </td>
-        <td
-          class="border px-4 py-2 text-start [&[align=center]]:text-center [&[align=right]]:text-end"
-        >
-          Overflowing
-        </td>
-      </tr>
-      <tr class="m-0 border-t p-0 even:bg-muted">
-        <td
-          class="border px-4 py-2 text-start [&[align=center]]:text-center [&[align=right]]:text-end"
-        >
-          Modest
-        </td>
-        <td
-          class="border px-4 py-2 text-start [&[align=center]]:text-center [&[align=right]]:text-end"
-        >
-          Satisfied
-        </td>
-      </tr>
-      <tr class="m-0 border-t p-0 even:bg-muted">
-        <td
-          class="border px-4 py-2 text-start [&[align=center]]:text-center [&[align=right]]:text-end"
-        >
-          Full
-        </td>
-        <td
-          class="border px-4 py-2 text-start [&[align=center]]:text-center [&[align=right]]:text-end"
-        >
-          Ecstatic
-        </td>
-      </tr>
-    </tbody>
-  </table>
+ <table class="w-full">
+  <thead>
+   <tr class="m-0 border-t p-0 even:bg-muted">
+    <th
+     class="border px-4 py-2 text-start font-bold [&[align=center]]:text-center [&[align=right]]:text-end"
+    >
+     King's Treasury
+    </th>
+    <th
+     class="border px-4 py-2 text-start font-bold [&[align=center]]:text-center [&[align=right]]:text-end"
+    >
+     People's happiness
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr class="m-0 border-t p-0 even:bg-muted">
+    <td
+     class="border px-4 py-2 text-start [&[align=center]]:text-center [&[align=right]]:text-end"
+    >
+     Empty
+    </td>
+    <td
+     class="border px-4 py-2 text-start [&[align=center]]:text-center [&[align=right]]:text-end"
+    >
+     Overflowing
+    </td>
+   </tr>
+   <tr class="m-0 border-t p-0 even:bg-muted">
+    <td
+     class="border px-4 py-2 text-start [&[align=center]]:text-center [&[align=right]]:text-end"
+    >
+     Modest
+    </td>
+    <td
+     class="border px-4 py-2 text-start [&[align=center]]:text-center [&[align=right]]:text-end"
+    >
+     Satisfied
+    </td>
+   </tr>
+   <tr class="m-0 border-t p-0 even:bg-muted">
+    <td
+     class="border px-4 py-2 text-start [&[align=center]]:text-center [&[align=right]]:text-end"
+    >
+     Full
+    </td>
+    <td
+     class="border px-4 py-2 text-start [&[align=center]]:text-center [&[align=right]]:text-end"
+    >
+     Ecstatic
+    </td>
+   </tr>
+  </tbody>
+ </table>
 </div>
 ```
 
@@ -141,9 +135,9 @@ View Code
 
 ```svelte
 <ul class="my-6 ms-6 list-disc [&>li]:mt-2">
-  <li>1st level of puns: 5 gold coins</li>
-  <li>2nd level of jokes: 10 gold coins</li>
-  <li>3rd level of one-liners : 20 gold coins</li>
+ <li>1st level of puns: 5 gold coins</li>
+ <li>2nd level of jokes: 10 gold coins</li>
+ <li>3rd level of one-liners : 20 gold coins</li>
 </ul>
 ```
 
@@ -152,10 +146,8 @@ View Code
 ## [Inline code](typography.md#inline-code)
 
 ```svelte
-<code
-  class="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"
->
-  @lucide/svelte
+<code class="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
+ @lucide/svelte
 </code>
 ```
 
@@ -165,8 +157,7 @@ View Code
 
 ```svelte
 <p class="text-xl text-muted-foreground">
-  A modal dialog that interrupts the user with important content and expects a
-  response.
+ A modal dialog that interrupts the user with important content and expects a response.
 </p>
 ```
 

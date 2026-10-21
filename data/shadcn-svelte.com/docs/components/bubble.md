@@ -10,44 +10,39 @@ Displays conversational content in a message bubble. Supports variants, alignmen
 
 ```svelte
 <script lang="ts">
-  import * as Bubble from "$lib/components/ui/bubble/index.js";
+ import * as Bubble from "$lib/components/ui/bubble/index.js";
 </script>
 <div class="flex w-full max-w-sm flex-col gap-8 py-12">
-  <Bubble.Root align="end">
-    <Bubble.Content>Hey there! what's up?</Bubble.Content>
-  </Bubble.Root>
-  <Bubble.Group>
-    <Bubble.Root variant="muted">
-      <Bubble.Content>Hey! Want to see chat bubbles?</Bubble.Content>
-    </Bubble.Root>
-    <Bubble.Root variant="muted">
-      <Bubble.Content>
-        I can group messages, switch sides, and keep the whole thread easy to
-        scan.
-      </Bubble.Content>
-      <Bubble.Reactions role="img" aria-label="Reaction: thumbs up">
-        <span></span>
-      </Bubble.Reactions>
-    </Bubble.Root>
-  </Bubble.Group>
-  <Bubble.Root align="end">
-    <Bubble.Content>Sure. Hit me with your best demo.</Bubble.Content>
+ <Bubble.Root align="end">
+  <Bubble.Content>Hey there! what's up?</Bubble.Content>
+ </Bubble.Root>
+ <Bubble.Group>
+  <Bubble.Root variant="muted">
+   <Bubble.Content>Hey! Want to see chat bubbles?</Bubble.Content>
   </Bubble.Root>
   <Bubble.Root variant="muted">
-    <Bubble.Content>
-      Yes. You are reading a demo that is demoing itself. Very meta. Very
-      on-brand.
-    </Bubble.Content>
-    <Bubble.Reactions
-      role="img"
-      aria-label="Reactions: thumbs up, fire, eyes, and 2 more"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-      <span>+2</span>
-    </Bubble.Reactions>
+   <Bubble.Content>
+    I can group messages, switch sides, and keep the whole thread easy to scan.
+   </Bubble.Content>
+   <Bubble.Reactions role="img" aria-label="Reaction: thumbs up">
+    <span></span>
+   </Bubble.Reactions>
   </Bubble.Root>
+ </Bubble.Group>
+ <Bubble.Root align="end">
+  <Bubble.Content>Sure. Hit me with your best demo.</Bubble.Content>
+ </Bubble.Root>
+ <Bubble.Root variant="muted">
+  <Bubble.Content>
+   Yes. You are reading a demo that is demoing itself. Very meta. Very on-brand.
+  </Bubble.Content>
+  <Bubble.Reactions role="img" aria-label="Reactions: thumbs up, fire, eyes, and 2 more">
+   <span></span>
+   <span></span>
+   <span></span>
+   <span>+2</span>
+  </Bubble.Reactions>
+ </Bubble.Root>
 </div>
 ```
 
@@ -125,47 +120,46 @@ Use `variant` to change the visual treatment of the bubble.
 
 ```svelte
 <script lang="ts">
-  import * as Bubble from "$lib/components/ui/bubble/index.js";
-  import Markdown from "$lib/components/markdown/markdown.svelte";
-  const ghost = `Ghost bubbles work for assistant text, **markdown**, and other content that should not be framed.
+ import * as Bubble from "$lib/components/ui/bubble/index.js";
+ import Markdown from "$lib/components/markdown/markdown.svelte";
+ const ghost = `Ghost bubbles work for assistant text, **markdown**, and other content that should not be framed.
 This is perfect for assistant messages that should not have a frame and can take the full width of the container. You can also render `code` in it.
 Ghost bubbles are full width and can take the full width of the container. `;
 </script>
 <div class="flex w-full max-w-sm flex-col gap-12 py-12">
-  <Bubble.Root>
-    <Bubble.Content>This is the default primary bubble.</Bubble.Content>
-  </Bubble.Root>
-  <Bubble.Root variant="secondary" align="end">
-    <Bubble.Content>This is the secondary variant.</Bubble.Content>
-  </Bubble.Root>
-  <Bubble.Root variant="muted">
-    <Bubble.Content>
-      This one is muted. It uses a lower emphasis color for the chat bubble.
-    </Bubble.Content>
-    <Bubble.Reactions role="img" aria-label="Reaction: thumbs up">
-      <span></span>
-    </Bubble.Reactions>
-  </Bubble.Root>
-  <Bubble.Root variant="tinted" align="end">
-    <Bubble.Content>
-      This one is tinted. The tint is a softer color derived from the primary
-      color.
-    </Bubble.Content>
-  </Bubble.Root>
-  <Bubble.Root variant="outline">
-    <Bubble.Content>We can also use an outlined variant.</Bubble.Content>
-  </Bubble.Root>
-  <Bubble.Root variant="destructive" align="end">
-    <Bubble.Content>Or a destructive variant with a reaction.</Bubble.Content>
-    <Bubble.Reactions role="img" aria-label="Reaction: fire">
-      <span></span>
-    </Bubble.Reactions>
-  </Bubble.Root>
-  <Bubble.Root variant="ghost">
-    <Bubble.Content>
-      <Markdown content={ghost} />
-    </Bubble.Content>
-  </Bubble.Root>
+ <Bubble.Root>
+  <Bubble.Content>This is the default primary bubble.</Bubble.Content>
+ </Bubble.Root>
+ <Bubble.Root variant="secondary" align="end">
+  <Bubble.Content>This is the secondary variant.</Bubble.Content>
+ </Bubble.Root>
+ <Bubble.Root variant="muted">
+  <Bubble.Content>
+   This one is muted. It uses a lower emphasis color for the chat bubble.
+  </Bubble.Content>
+  <Bubble.Reactions role="img" aria-label="Reaction: thumbs up">
+   <span></span>
+  </Bubble.Reactions>
+ </Bubble.Root>
+ <Bubble.Root variant="tinted" align="end">
+  <Bubble.Content>
+   This one is tinted. The tint is a softer color derived from the primary color.
+  </Bubble.Content>
+ </Bubble.Root>
+ <Bubble.Root variant="outline">
+  <Bubble.Content>We can also use an outlined variant.</Bubble.Content>
+ </Bubble.Root>
+ <Bubble.Root variant="destructive" align="end">
+  <Bubble.Content>Or a destructive variant with a reaction.</Bubble.Content>
+  <Bubble.Reactions role="img" aria-label="Reaction: fire">
+   <span></span>
+  </Bubble.Reactions>
+ </Bubble.Root>
+ <Bubble.Root variant="ghost">
+  <Bubble.Content>
+   <Markdown content={ghost} />
+  </Bubble.Content>
+ </Bubble.Root>
 </div>
 ```
 
@@ -189,19 +183,17 @@ Use `align` on `Bubble.Root` to align the bubble to the start or end of the conv
 
 ```svelte
 <script lang="ts">
-  import * as Bubble from "$lib/components/ui/bubble/index.js";
+ import * as Bubble from "$lib/components/ui/bubble/index.js";
 </script>
 <div class="flex w-full max-w-sm flex-col gap-8 py-12">
-  <Bubble.Root variant="muted">
-    <Bubble.Content>
-      This bubble is aligned to the start. This is the default alignment.
-    </Bubble.Content>
-  </Bubble.Root>
-  <Bubble.Root align="end">
-    <Bubble.Content
-      >This bubble is aligned to the end. Use this for user messages.</Bubble.Content
-    >
-  </Bubble.Root>
+ <Bubble.Root variant="muted">
+  <Bubble.Content>
+   This bubble is aligned to the start. This is the default alignment.
+  </Bubble.Content>
+ </Bubble.Root>
+ <Bubble.Root align="end">
+  <Bubble.Content>This bubble is aligned to the end. Use this for user messages.</Bubble.Content>
+ </Bubble.Root>
 </div>
 ```
 
@@ -228,32 +220,31 @@ Bubble.Group
 
 ```svelte
 <script lang="ts">
-  import * as Bubble from "$lib/components/ui/bubble/index.js";
+ import * as Bubble from "$lib/components/ui/bubble/index.js";
 </script>
 <div class="flex w-full max-w-sm flex-col gap-8 py-12">
-  <Bubble.Root variant="muted">
-    <Bubble.Content>Can you tell me what's the issue?</Bubble.Content>
+ <Bubble.Root variant="muted">
+  <Bubble.Content>Can you tell me what's the issue?</Bubble.Content>
+ </Bubble.Root>
+ <Bubble.Group>
+  <Bubble.Root align="end">
+   <Bubble.Content>You tell me!</Bubble.Content>
   </Bubble.Root>
-  <Bubble.Group>
-    <Bubble.Root align="end">
-      <Bubble.Content>You tell me!</Bubble.Content>
-    </Bubble.Root>
-    <Bubble.Root align="end">
-      <Bubble.Content>It worked yesterday. You broke it!</Bubble.Content>
-    </Bubble.Root>
-    <Bubble.Root align="end">
-      <Bubble.Content>Find the bug and fix it.</Bubble.Content>
-      <Bubble.Reactions aria-label="Reactions: eyes" align="start">
-        <span></span>
-      </Bubble.Reactions>
-    </Bubble.Root>
-  </Bubble.Group>
-  <Bubble.Root variant="muted">
-    <Bubble.Content>
-      Want me to diff yesterday's you against today's you? It's a bit
-      embarrassing.
-    </Bubble.Content>
+  <Bubble.Root align="end">
+   <Bubble.Content>It worked yesterday. You broke it!</Bubble.Content>
   </Bubble.Root>
+  <Bubble.Root align="end">
+   <Bubble.Content>Find the bug and fix it.</Bubble.Content>
+   <Bubble.Reactions aria-label="Reactions: eyes" align="start">
+    <span></span>
+   </Bubble.Reactions>
+  </Bubble.Root>
+ </Bubble.Group>
+ <Bubble.Root variant="muted">
+  <Bubble.Content>
+   Want me to diff yesterday's you against today's you? It's a bit embarrassing.
+  </Bubble.Content>
+ </Bubble.Root>
 </div>
 ```
 
@@ -265,52 +256,42 @@ You can turn a bubble into a link or button by using the `child` snippet on `Bub
 
 ```svelte
 <script lang="ts">
-  import { toast } from "svelte-sonner";
-  import * as Bubble from "$lib/components/ui/bubble/index.js";
+ import { toast } from "svelte-sonner";
+ import * as Bubble from "$lib/components/ui/bubble/index.js";
 </script>
 <div class="flex w-full max-w-sm flex-col gap-8 py-12">
-  <Bubble.Root variant="muted">
-    <Bubble.Content>How can I help you today?</Bubble.Content>
+ <Bubble.Root variant="muted">
+  <Bubble.Content>How can I help you today?</Bubble.Content>
+ </Bubble.Root>
+ <Bubble.Group>
+  <Bubble.Root variant="tinted" align="end">
+   <Bubble.Content>
+    {#snippet child({ props })}
+     <button {...props} onclick={() => toast("You clicked forgot password")}>
+      I forgot my password
+     </button>
+    {/snippet}
+   </Bubble.Content>
   </Bubble.Root>
-  <Bubble.Group>
-    <Bubble.Root variant="tinted" align="end">
-      <Bubble.Content>
-        {#snippet child({ props })}
-          <button
-            {...props}
-            onclick={() => toast("You clicked forgot password")}
-          >
-            I forgot my password
-          </button>
-        {/snippet}
-      </Bubble.Content>
-    </Bubble.Root>
-    <Bubble.Root variant="tinted" align="end">
-      <Bubble.Content>
-        {#snippet child({ props })}
-          <button
-            {...props}
-            onclick={() => toast("You clicked help with subscription")}
-          >
-            I need help with my subscription
-          </button>
-        {/snippet}
-      </Bubble.Content>
-    </Bubble.Root>
-    <Bubble.Root variant="tinted" align="end">
-      <Bubble.Content>
-        {#snippet child({ props })}
-          <button
-            {...props}
-            onclick={() =>
-              toast("You clicked something else. Talk to a human.")}
-          >
-            Something else. Talk to a human.
-          </button>
-        {/snippet}
-      </Bubble.Content>
-    </Bubble.Root>
-  </Bubble.Group>
+  <Bubble.Root variant="tinted" align="end">
+   <Bubble.Content>
+    {#snippet child({ props })}
+     <button {...props} onclick={() => toast("You clicked help with subscription")}>
+      I need help with my subscription
+     </button>
+    {/snippet}
+   </Bubble.Content>
+  </Bubble.Root>
+  <Bubble.Root variant="tinted" align="end">
+   <Bubble.Content>
+    {#snippet child({ props })}
+     <button {...props} onclick={() => toast("You clicked something else. Talk to a human.")}>
+      Something else. Talk to a human.
+     </button>
+    {/snippet}
+   </Bubble.Content>
+  </Bubble.Root>
+ </Bubble.Group>
 </div>
 ```
 
@@ -335,61 +316,52 @@ Use `Bubble.Reactions` for bubble reactions. You can use it to display reactions
 
 ```svelte
 <script lang="ts">
-  import { toast } from "svelte-sonner";
-  import * as Bubble from "$lib/components/ui/bubble/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
+ import { toast } from "svelte-sonner";
+ import * as Bubble from "$lib/components/ui/bubble/index.js";
+ import { Button } from "$lib/components/ui/button/index.js";
 </script>
 <div class="flex w-full max-w-sm flex-col gap-12 py-12">
-  <Bubble.Root variant="muted" align="end">
-    <Bubble.Content>I don't need tests, I know my code works.</Bubble.Content>
-    <Bubble.Reactions
-      align="start"
-      role="img"
-      aria-label="Reactions: thumbs up, surprised"
-    >
-      <span></span>
-      <span></span>
-    </Bubble.Reactions>
-  </Bubble.Root>
-  <Bubble.Root variant="muted">
-    <Bubble.Content>
-      Bold. Fine I'll add some tests. I'll let you know when they're done.
-    </Bubble.Content>
-    <Bubble.Reactions
-      role="img"
-      aria-label="Reactions: eyes, rocket, and 2 more"
-    >
-      <span></span>
-      <span></span>
-      <span>+2</span>
-    </Bubble.Reactions>
-  </Bubble.Root>
-  <Bubble.Root variant="default" align="end">
-    <Bubble.Content
-      >Tests passed on the first try. All 142 of them. Looking good!</Bubble.Content
-    >
-    <Bubble.Reactions
-      side="top"
-      align="start"
-      role="img"
-      aria-label="Reactions: party popper, clapping hands"
-    >
-      <span></span>
-      <span></span>
-    </Bubble.Reactions>
-  </Bubble.Root>
-  <Bubble.Root variant="destructive">
-    <Bubble.Content>Are you sure I can run this command?</Bubble.Content>
-    <Bubble.Reactions>
-      <Button
-        variant="ghost"
-        size="xs"
-        onclick={() => toast.success("You clicked yes, running command...")}
-      >
-        Yes, run it
-      </Button>
-    </Bubble.Reactions>
-  </Bubble.Root>
+ <Bubble.Root variant="muted" align="end">
+  <Bubble.Content>I don't need tests, I know my code works.</Bubble.Content>
+  <Bubble.Reactions align="start" role="img" aria-label="Reactions: thumbs up, surprised">
+   <span></span>
+   <span></span>
+  </Bubble.Reactions>
+ </Bubble.Root>
+ <Bubble.Root variant="muted">
+  <Bubble.Content>
+   Bold. Fine I'll add some tests. I'll let you know when they're done.
+  </Bubble.Content>
+  <Bubble.Reactions role="img" aria-label="Reactions: eyes, rocket, and 2 more">
+   <span></span>
+   <span></span>
+   <span>+2</span>
+  </Bubble.Reactions>
+ </Bubble.Root>
+ <Bubble.Root variant="default" align="end">
+  <Bubble.Content>Tests passed on the first try. All 142 of them. Looking good!</Bubble.Content>
+  <Bubble.Reactions
+   side="top"
+   align="start"
+   role="img"
+   aria-label="Reactions: party popper, clapping hands"
+  >
+   <span></span>
+   <span></span>
+  </Bubble.Reactions>
+ </Bubble.Root>
+ <Bubble.Root variant="destructive">
+  <Bubble.Content>Are you sure I can run this command?</Bubble.Content>
+  <Bubble.Reactions>
+   <Button
+    variant="ghost"
+    size="xs"
+    onclick={() => toast.success("You clicked yes, running command...")}
+   >
+    Yes, run it
+   </Button>
+  </Bubble.Reactions>
+ </Bubble.Root>
 </div>
 ```
 
@@ -401,47 +373,40 @@ Long bubble content can be composed with [`Collapsible`](collapsible) to allow f
 
 ```svelte
 <script lang="ts">
-  import ChevronDownIcon from "@lucide/svelte/icons/chevron-down";
-  import * as Bubble from "$lib/components/ui/bubble/index.js";
-  import * as Collapsible from "$lib/components/ui/collapsible/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
-  const text = `The accessibility review found two focus states that were visually too subtle in dark mode.
+ import ChevronDownIcon from "@lucide/svelte/icons/chevron-down";
+ import * as Bubble from "$lib/components/ui/bubble/index.js";
+ import * as Collapsible from "$lib/components/ui/collapsible/index.js";
+ import { Button } from "$lib/components/ui/button/index.js";
+ const text = `The accessibility review found two focus states that were visually too subtle in dark mode.
 I checked the dialog, menu, and drawer paths because each one renders focusable controls inside a layered surface.
 The dialog and drawer are fine. The menu needs the hover and focus tokens split so keyboard focus stays visible when the pointer is not involved.
 I also recommend keeping the change in the style file instead of the primitive so the other themes can choose their own focus treatment later.`;
-  const previewLength = 180;
-  const isLong = text.length > previewLength;
-  const preview = `${text.slice(0, previewLength)}...`;
-  let open = $state(false);
+ const previewLength = 180;
+ const isLong = text.length > previewLength;
+ const preview = `${text.slice(0, previewLength)}...`;
+ let open = $state(false);
 </script>
 <div class="flex w-full max-w-sm flex-col gap-8 py-12">
-  <Bubble.Root variant="muted">
-    <Bubble.Content>How can I help you today?</Bubble.Content>
-  </Bubble.Root>
-  <Bubble.Root variant="muted" align="end">
-    <Bubble.Content class="whitespace-pre-line">
-      <Collapsible.Root bind:open>
-        <div>{open || !isLong ? text : preview}</div>
-        {#if isLong}
-          <Collapsible.Trigger>
-            {#snippet child({ props })}
-              <Button
-                variant="link"
-                class="gap-1 p-0 text-muted-foreground"
-                {...props}
-              >
-                {open ? "Show less" : "Show more"}
-                <ChevronDownIcon
-                  data-icon="inline-end"
-                  class="group-data-open/button:rotate-180"
-                />
-              </Button>
-            {/snippet}
-          </Collapsible.Trigger>
-        {/if}
-      </Collapsible.Root>
-    </Bubble.Content>
-  </Bubble.Root>
+ <Bubble.Root variant="muted">
+  <Bubble.Content>How can I help you today?</Bubble.Content>
+ </Bubble.Root>
+ <Bubble.Root variant="muted" align="end">
+  <Bubble.Content class="whitespace-pre-line">
+   <Collapsible.Root bind:open>
+    <div>{open || !isLong ? text : preview}</div>
+    {#if isLong}
+     <Collapsible.Trigger>
+      {#snippet child({ props })}
+       <Button variant="link" class="gap-1 p-0 text-muted-foreground" {...props}>
+        {open ? "Show less" : "Show more"}
+        <ChevronDownIcon data-icon="inline-end" class="group-data-open/button:rotate-180" />
+       </Button>
+      {/snippet}
+     </Collapsible.Trigger>
+    {/if}
+   </Collapsible.Root>
+  </Bubble.Content>
+ </Bubble.Root>
 </div>
 ```
 
@@ -453,30 +418,30 @@ Wrap a bubble in a [`Tooltip`](tooltip) to reveal metadata on hover, such as whe
 
 ```svelte
 <script lang="ts">
-  import CheckIcon from "@lucide/svelte/icons/check";
-  import * as Bubble from "$lib/components/ui/bubble/index.js";
-  import * as Tooltip from "$lib/components/ui/tooltip/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
+ import CheckIcon from "@lucide/svelte/icons/check";
+ import * as Bubble from "$lib/components/ui/bubble/index.js";
+ import * as Tooltip from "$lib/components/ui/tooltip/index.js";
+ import { Button } from "$lib/components/ui/button/index.js";
 </script>
 <div class="flex w-full max-w-sm flex-col gap-4 py-12">
-  <Bubble.Root variant="secondary">
-    <Bubble.Content>Did you remove the stale route?</Bubble.Content>
-  </Bubble.Root>
-  <Bubble.Root align="end">
-    <Bubble.Content>Yes, removed it from the registry.</Bubble.Content>
-    <Bubble.Reactions class="p-0">
-      <Tooltip.Root>
-        <Tooltip.Trigger>
-          {#snippet child({ props })}
-            <Button variant="ghost" size="icon-xs" {...props}>
-              <CheckIcon />
-            </Button>
-          {/snippet}
-        </Tooltip.Trigger>
-        <Tooltip.Content>Read on Jan 5, 2026 at 4:32 PM</Tooltip.Content>
-      </Tooltip.Root>
-    </Bubble.Reactions>
-  </Bubble.Root>
+ <Bubble.Root variant="secondary">
+  <Bubble.Content>Did you remove the stale route?</Bubble.Content>
+ </Bubble.Root>
+ <Bubble.Root align="end">
+  <Bubble.Content>Yes, removed it from the registry.</Bubble.Content>
+  <Bubble.Reactions class="p-0">
+   <Tooltip.Root>
+    <Tooltip.Trigger>
+     {#snippet child({ props })}
+      <Button variant="ghost" size="icon-xs" {...props}>
+       <CheckIcon />
+      </Button>
+     {/snippet}
+    </Tooltip.Trigger>
+    <Tooltip.Content>Read on Jan 5, 2026 at 4:32 PM</Tooltip.Content>
+   </Tooltip.Root>
+  </Bubble.Reactions>
+ </Bubble.Root>
 </div>
 ```
 
@@ -488,45 +453,43 @@ Pair a bubble with a [`Popover`](popover) to surface more information on demand,
 
 ```svelte
 <script lang="ts">
-  import InfoIcon from "@lucide/svelte/icons/info";
-  import * as Bubble from "$lib/components/ui/bubble/index.js";
-  import * as Popover from "$lib/components/ui/popover/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
+ import InfoIcon from "@lucide/svelte/icons/info";
+ import * as Bubble from "$lib/components/ui/bubble/index.js";
+ import * as Popover from "$lib/components/ui/popover/index.js";
+ import { Button } from "$lib/components/ui/button/index.js";
 </script>
 <div class="flex w-full max-w-sm flex-col gap-4 py-12">
-  <Bubble.Root align="end">
-    <Bubble.Content>Run the build script.</Bubble.Content>
-  </Bubble.Root>
-  <Bubble.Root variant="destructive">
-    <Bubble.Content>Failed to run the command.</Bubble.Content>
-    <Bubble.Reactions>
-      <Popover.Root>
-        <Popover.Trigger>
-          {#snippet child({ props })}
-            <Button
-              variant="ghost"
-              size="icon-xs"
-              aria-label="Show error details"
-              class="aria-expanded:text-destructive"
-              {...props}
-            >
-              <InfoIcon />
-            </Button>
-          {/snippet}
-        </Popover.Trigger>
-        <Popover.Content>
-          <Popover.Header>
-            <Popover.Title class="text-sm"
-              >Command failed with exit code 1</Popover.Title
-            >
-            <Popover.Description class="text-sm">
-              ENOENT: no such file or directory, open pnpm-lock.yaml
-            </Popover.Description>
-          </Popover.Header>
-        </Popover.Content>
-      </Popover.Root>
-    </Bubble.Reactions>
-  </Bubble.Root>
+ <Bubble.Root align="end">
+  <Bubble.Content>Run the build script.</Bubble.Content>
+ </Bubble.Root>
+ <Bubble.Root variant="destructive">
+  <Bubble.Content>Failed to run the command.</Bubble.Content>
+  <Bubble.Reactions>
+   <Popover.Root>
+    <Popover.Trigger>
+     {#snippet child({ props })}
+      <Button
+       variant="ghost"
+       size="icon-xs"
+       aria-label="Show error details"
+       class="aria-expanded:text-destructive"
+       {...props}
+      >
+       <InfoIcon />
+      </Button>
+     {/snippet}
+    </Popover.Trigger>
+    <Popover.Content>
+     <Popover.Header>
+      <Popover.Title class="text-sm">Command failed with exit code 1</Popover.Title>
+      <Popover.Description class="text-sm">
+       ENOENT: no such file or directory, open pnpm-lock.yaml
+      </Popover.Description>
+     </Popover.Header>
+    </Popover.Content>
+   </Popover.Root>
+  </Bubble.Reactions>
+ </Bubble.Root>
 </div>
 ```
 

@@ -10,73 +10,73 @@ Displays a file or image attachment with media, metadata, upload state, and acti
 
 ```svelte
 <script lang="ts">
-  import FileCodeIcon from "@lucide/svelte/icons/file-code";
-  import XIcon from "@lucide/svelte/icons/x";
-  import * as Attachment from "$lib/components/ui/attachment/index.js";
-  import { Spinner } from "$lib/components/ui/spinner/index.js";
-  const images = [
-    {
-      name: "workspace.png",
-      meta: "PNG  820 KB",
-      src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900&auto=format&fit=crop&q=80",
-      alt: "Workspace"
-    },
-    {
-      name: "desk-reference.jpg",
-      meta: "JPG  1.1 MB",
-      src: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=900&auto=format&fit=crop&q=80",
-      alt: "Desk"
-    },
-    {
-      name: "office-reference.jpg",
-      meta: "JPG  940 KB",
-      src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=900&auto=format&fit=crop&q=80",
-      alt: "Office"
-    }
- ];
+ import FileCodeIcon from "@lucide/svelte/icons/file-code";
+ import XIcon from "@lucide/svelte/icons/x";
+ import * as Attachment from "$lib/components/ui/attachment/index.js";
+ import { Spinner } from "$lib/components/ui/spinner/index.js";
+ const images = [
+  {
+   name: "workspace.png",
+   meta: "PNG  820 KB",
+   src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900&auto=format&fit=crop&q=80",
+   alt: "Workspace",
+  },
+  {
+   name: "desk-reference.jpg",
+   meta: "JPG  1.1 MB",
+   src: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=900&auto=format&fit=crop&q=80",
+   alt: "Desk",
+  },
+  {
+   name: "office-reference.jpg",
+   meta: "JPG  940 KB",
+   src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=900&auto=format&fit=crop&q=80",
+   alt: "Office",
+  },
+];
 </script>
 <div class="mx-auto flex w-full max-w-sm flex-col gap-3 py-12">
-  <Attachment.Group>
-    {#each images as image (image.name)}
-      <Attachment.Root orientation="vertical">
-        <Attachment.Media variant="image">
-          <img src={image.src} alt={image.alt} />
-        </Attachment.Media>
-        <Attachment.Content>
-          <Attachment.Title>{image.name}</Attachment.Title>
-          <Attachment.Description>{image.meta}</Attachment.Description>
-        </Attachment.Content>
-      </Attachment.Root>
-    {/each}
-  </Attachment.Group>
-  <Attachment.Root state="uploading" class="w-full">
-    <Attachment.Media>
-      <Spinner />
+ <Attachment.Group>
+  {#each images as image (image.name)}
+   <Attachment.Root orientation="vertical">
+    <Attachment.Media variant="image">
+     <img src={image.src} alt={image.alt} />
     </Attachment.Media>
     <Attachment.Content>
-      <Attachment.Title>sales-dashboard.pdf</Attachment.Title>
-      <Attachment.Description>Uploading  64%</Attachment.Description>
+     <Attachment.Title>{image.name}</Attachment.Title>
+     <Attachment.Description>{image.meta}</Attachment.Description>
     </Attachment.Content>
-    <Attachment.Actions>
-      <Attachment.Action aria-label="Cancel upload">
-        <XIcon />
-      </Attachment.Action>
-    </Attachment.Actions>
-  </Attachment.Root>
-  <Attachment.Root class="w-full">
-    <Attachment.Media>
-      <FileCodeIcon />
-    </Attachment.Media>
-    <Attachment.Content>
-      <Attachment.Title>message-renderer.tsx</Attachment.Title>
-      <Attachment.Description>TypeScript  12 KB</Attachment.Description>
-    </Attachment.Content>
-    <Attachment.Actions>
-      <Attachment.Action aria-label="Remove message-renderer.tsx">
-        <XIcon />
-      </Attachment.Action>
-    </Attachment.Actions>
-  </Attachment.Root>
+   </Attachment.Root>
+  {/each}
+ </Attachment.Group>
+ <Attachment.Root state="uploading" class="w-full">
+  <Attachment.Media>
+   <Spinner />
+  </Attachment.Media>
+  <Attachment.Content>
+   <Attachment.Title>sales-dashboard.pdf</Attachment.Title>
+   <Attachment.Description>Uploading  64%</Attachment.Description>
+  </Attachment.Content>
+  <Attachment.Actions>
+   <Attachment.Action aria-label="Cancel upload">
+    <XIcon />
+   </Attachment.Action>
+  </Attachment.Actions>
+ </Attachment.Root>
+ <Attachment.Root class="w-full">
+  <Attachment.Media>
+   <FileCodeIcon />
+  </Attachment.Media>
+  <Attachment.Content>
+   <Attachment.Title>message-renderer.tsx</Attachment.Title>
+   <Attachment.Description>TypeScript  12 KB</Attachment.Description>
+  </Attachment.Content>
+  <Attachment.Actions>
+   <Attachment.Action aria-label="Remove message-renderer.tsx">
+    <XIcon />
+   </Attachment.Action>
+  </Attachment.Actions>
+ </Attachment.Root>
 </div>
 ```
 
@@ -160,59 +160,59 @@ Set `variant="image"` on `Attachment.Media` and render an `<img>` inside it. Use
 
 ```svelte
 <script lang="ts">
-  import XIcon from "@lucide/svelte/icons/x";
-  import * as Attachment from "$lib/components/ui/attachment/index.js";
-  const images = [
-    {
-      name: "workspace.png",
-      meta: "PNG  820 KB",
-      src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900&auto=format&fit=crop&q=80",
-      alt: "Workspace"
-    },
-    {
-      name: "desk-reference.jpg",
-      meta: "JPG  1.1 MB",
-      src: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=900&auto=format&fit=crop&q=80",
-      alt: "Desk"
-    },
-    {
-      name: "office-reference.jpg",
-      meta: "JPG  940 KB",
-      src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=900&auto=format&fit=crop&q=80",
-      alt: "Office"
-    }
- ];
+ import XIcon from "@lucide/svelte/icons/x";
+ import * as Attachment from "$lib/components/ui/attachment/index.js";
+ const images = [
+  {
+   name: "workspace.png",
+   meta: "PNG  820 KB",
+   src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900&auto=format&fit=crop&q=80",
+   alt: "Workspace",
+  },
+  {
+   name: "desk-reference.jpg",
+   meta: "JPG  1.1 MB",
+   src: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=900&auto=format&fit=crop&q=80",
+   alt: "Desk",
+  },
+  {
+   name: "office-reference.jpg",
+   meta: "JPG  940 KB",
+   src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=900&auto=format&fit=crop&q=80",
+   alt: "Office",
+  },
+];
 </script>
 <div class="mx-auto w-full max-w-sm py-12">
-  <Attachment.Group class="w-full">
-    {#each images as image (image.name)}
-      <Attachment.Root orientation="vertical">
-        <Attachment.Media variant="image">
-          <img src={image.src} alt={image.alt} />
-        </Attachment.Media>
-        <Attachment.Content>
-          <Attachment.Title>{image.name}</Attachment.Title>
-          <Attachment.Description>{image.meta}</Attachment.Description>
-        </Attachment.Content>
-        <Attachment.Actions>
-          <Attachment.Action aria-label="Remove {image.name}">
-            <XIcon />
-          </Attachment.Action>
-        </Attachment.Actions>
-        <Attachment.Trigger>
-          {#snippet child({ props })}
-            <a
-              href={image.src}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Open {image.name}"
-              {...props}
-            ></a>
-          {/snippet}
-        </Attachment.Trigger>
-      </Attachment.Root>
-    {/each}
-  </Attachment.Group>
+ <Attachment.Group class="w-full">
+  {#each images as image (image.name)}
+   <Attachment.Root orientation="vertical">
+    <Attachment.Media variant="image">
+     <img src={image.src} alt={image.alt} />
+    </Attachment.Media>
+    <Attachment.Content>
+     <Attachment.Title>{image.name}</Attachment.Title>
+     <Attachment.Description>{image.meta}</Attachment.Description>
+    </Attachment.Content>
+    <Attachment.Actions>
+     <Attachment.Action aria-label="Remove {image.name}">
+      <XIcon />
+     </Attachment.Action>
+    </Attachment.Actions>
+    <Attachment.Trigger>
+     {#snippet child({ props })}
+      <a
+       href={image.src}
+       target="_blank"
+       rel="noreferrer"
+       aria-label="Open {image.name}"
+       {...props}
+      ></a>
+     {/snippet}
+    </Attachment.Trigger>
+   </Attachment.Root>
+  {/each}
+ </Attachment.Group>
 </div>
 ```
 
@@ -224,89 +224,89 @@ Set `state` to reflect the upload lifecycle. `uploading` and `processing` shimme
 
 ```svelte
 <script lang="ts">
-  import CheckIcon from "@lucide/svelte/icons/check";
-  import ClockIcon from "@lucide/svelte/icons/clock";
-  import FileTextIcon from "@lucide/svelte/icons/file-text";
-  import FileWarningIcon from "@lucide/svelte/icons/file-warning";
-  import RefreshCwIcon from "@lucide/svelte/icons/refresh-cw";
-  import XIcon from "@lucide/svelte/icons/x";
-  import * as Attachment from "$lib/components/ui/attachment/index.js";
-  import { Spinner } from "$lib/components/ui/spinner/index.js";
+ import CheckIcon from "@lucide/svelte/icons/check";
+ import ClockIcon from "@lucide/svelte/icons/clock";
+ import FileTextIcon from "@lucide/svelte/icons/file-text";
+ import FileWarningIcon from "@lucide/svelte/icons/file-warning";
+ import RefreshCwIcon from "@lucide/svelte/icons/refresh-cw";
+ import XIcon from "@lucide/svelte/icons/x";
+ import * as Attachment from "$lib/components/ui/attachment/index.js";
+ import { Spinner } from "$lib/components/ui/spinner/index.js";
 </script>
 <div class="mx-auto flex w-full max-w-sm flex-col gap-2 py-12">
-  <Attachment.Root state="idle" class="w-full">
-    <Attachment.Media>
-      <ClockIcon />
-    </Attachment.Media>
-    <Attachment.Content>
-      <Attachment.Title>selected-file.pdf</Attachment.Title>
-      <Attachment.Description>Ready to upload</Attachment.Description>
-    </Attachment.Content>
-    <Attachment.Actions>
-      <Attachment.Action aria-label="Remove selected-file.pdf">
-        <XIcon />
-      </Attachment.Action>
-    </Attachment.Actions>
-  </Attachment.Root>
-  <Attachment.Root state="uploading" class="w-full">
-    <Attachment.Media>
-      <Spinner />
-    </Attachment.Media>
-    <Attachment.Content>
-      <Attachment.Title>design-system.zip</Attachment.Title>
-      <Attachment.Description>Uploading  64%</Attachment.Description>
-    </Attachment.Content>
-    <Attachment.Actions>
-      <Attachment.Action aria-label="Cancel upload">
-        <XIcon />
-      </Attachment.Action>
-    </Attachment.Actions>
-  </Attachment.Root>
-  <Attachment.Root state="processing" class="w-full">
-    <Attachment.Media>
-      <FileTextIcon />
-    </Attachment.Media>
-    <Attachment.Content>
-      <Attachment.Title>market-research.pdf</Attachment.Title>
-      <Attachment.Description>Processing document</Attachment.Description>
-    </Attachment.Content>
-    <Attachment.Actions>
-      <Attachment.Action aria-label="Remove market-research.pdf">
-        <XIcon />
-      </Attachment.Action>
-    </Attachment.Actions>
-  </Attachment.Root>
-  <Attachment.Root state="error" class="w-full">
-    <Attachment.Media>
-      <FileWarningIcon />
-    </Attachment.Media>
-    <Attachment.Content>
-      <Attachment.Title>financial-model.xlsx</Attachment.Title>
-      <Attachment.Description>Upload failed. Try again.</Attachment.Description>
-    </Attachment.Content>
-    <Attachment.Actions>
-      <Attachment.Action aria-label="Retry upload">
-        <RefreshCwIcon />
-      </Attachment.Action>
-      <Attachment.Action aria-label="Remove financial-model.xlsx">
-        <XIcon />
-      </Attachment.Action>
-    </Attachment.Actions>
-  </Attachment.Root>
-  <Attachment.Root state="done" class="w-full">
-    <Attachment.Media>
-      <CheckIcon />
-    </Attachment.Media>
-    <Attachment.Content>
-      <Attachment.Title>uploaded-report.pdf</Attachment.Title>
-      <Attachment.Description>Uploaded  1.8 MB</Attachment.Description>
-    </Attachment.Content>
-    <Attachment.Actions>
-      <Attachment.Action aria-label="Remove uploaded-report.pdf">
-        <XIcon />
-      </Attachment.Action>
-    </Attachment.Actions>
-  </Attachment.Root>
+ <Attachment.Root state="idle" class="w-full">
+  <Attachment.Media>
+   <ClockIcon />
+  </Attachment.Media>
+  <Attachment.Content>
+   <Attachment.Title>selected-file.pdf</Attachment.Title>
+   <Attachment.Description>Ready to upload</Attachment.Description>
+  </Attachment.Content>
+  <Attachment.Actions>
+   <Attachment.Action aria-label="Remove selected-file.pdf">
+    <XIcon />
+   </Attachment.Action>
+  </Attachment.Actions>
+ </Attachment.Root>
+ <Attachment.Root state="uploading" class="w-full">
+  <Attachment.Media>
+   <Spinner />
+  </Attachment.Media>
+  <Attachment.Content>
+   <Attachment.Title>design-system.zip</Attachment.Title>
+   <Attachment.Description>Uploading  64%</Attachment.Description>
+  </Attachment.Content>
+  <Attachment.Actions>
+   <Attachment.Action aria-label="Cancel upload">
+    <XIcon />
+   </Attachment.Action>
+  </Attachment.Actions>
+ </Attachment.Root>
+ <Attachment.Root state="processing" class="w-full">
+  <Attachment.Media>
+   <FileTextIcon />
+  </Attachment.Media>
+  <Attachment.Content>
+   <Attachment.Title>market-research.pdf</Attachment.Title>
+   <Attachment.Description>Processing document</Attachment.Description>
+  </Attachment.Content>
+  <Attachment.Actions>
+   <Attachment.Action aria-label="Remove market-research.pdf">
+    <XIcon />
+   </Attachment.Action>
+  </Attachment.Actions>
+ </Attachment.Root>
+ <Attachment.Root state="error" class="w-full">
+  <Attachment.Media>
+   <FileWarningIcon />
+  </Attachment.Media>
+  <Attachment.Content>
+   <Attachment.Title>financial-model.xlsx</Attachment.Title>
+   <Attachment.Description>Upload failed. Try again.</Attachment.Description>
+  </Attachment.Content>
+  <Attachment.Actions>
+   <Attachment.Action aria-label="Retry upload">
+    <RefreshCwIcon />
+   </Attachment.Action>
+   <Attachment.Action aria-label="Remove financial-model.xlsx">
+    <XIcon />
+   </Attachment.Action>
+  </Attachment.Actions>
+ </Attachment.Root>
+ <Attachment.Root state="done" class="w-full">
+  <Attachment.Media>
+   <CheckIcon />
+  </Attachment.Media>
+  <Attachment.Content>
+   <Attachment.Title>uploaded-report.pdf</Attachment.Title>
+   <Attachment.Description>Uploaded  1.8 MB</Attachment.Description>
+  </Attachment.Content>
+  <Attachment.Actions>
+   <Attachment.Action aria-label="Remove uploaded-report.pdf">
+    <XIcon />
+   </Attachment.Action>
+  </Attachment.Actions>
+ </Attachment.Root>
 </div>
 ```
 
@@ -318,36 +318,36 @@ Use `size` to switch between `default`, `sm`, and `xs`.
 
 ```svelte
 <script lang="ts">
-  import FileTextIcon from "@lucide/svelte/icons/file-text";
-  import * as Attachment from "$lib/components/ui/attachment/index.js";
+ import FileTextIcon from "@lucide/svelte/icons/file-text";
+ import * as Attachment from "$lib/components/ui/attachment/index.js";
 </script>
 <div class="mx-auto flex w-full max-w-sm flex-col gap-3 py-12">
-  <Attachment.Root size="default" class="w-full">
-    <Attachment.Media>
-      <FileTextIcon />
-    </Attachment.Media>
-    <Attachment.Content>
-      <Attachment.Title>Default attachment</Attachment.Title>
-      <Attachment.Description>PDF  2.4 MB</Attachment.Description>
-    </Attachment.Content>
-  </Attachment.Root>
-  <Attachment.Root size="sm" class="w-full">
-    <Attachment.Media>
-      <FileTextIcon />
-    </Attachment.Media>
-    <Attachment.Content>
-      <Attachment.Title>Small attachment</Attachment.Title>
-      <Attachment.Description>PDF  2.4 MB</Attachment.Description>
-    </Attachment.Content>
-  </Attachment.Root>
-  <Attachment.Root size="xs" class="w-full">
-    <Attachment.Media>
-      <FileTextIcon />
-    </Attachment.Media>
-    <Attachment.Content>
-      <Attachment.Title>Extra small attachment</Attachment.Title>
-    </Attachment.Content>
-  </Attachment.Root>
+ <Attachment.Root size="default" class="w-full">
+  <Attachment.Media>
+   <FileTextIcon />
+  </Attachment.Media>
+  <Attachment.Content>
+   <Attachment.Title>Default attachment</Attachment.Title>
+   <Attachment.Description>PDF  2.4 MB</Attachment.Description>
+  </Attachment.Content>
+ </Attachment.Root>
+ <Attachment.Root size="sm" class="w-full">
+  <Attachment.Media>
+   <FileTextIcon />
+  </Attachment.Media>
+  <Attachment.Content>
+   <Attachment.Title>Small attachment</Attachment.Title>
+   <Attachment.Description>PDF  2.4 MB</Attachment.Description>
+  </Attachment.Content>
+ </Attachment.Root>
+ <Attachment.Root size="xs" class="w-full">
+  <Attachment.Media>
+   <FileTextIcon />
+  </Attachment.Media>
+  <Attachment.Content>
+   <Attachment.Title>Extra small attachment</Attachment.Title>
+  </Attachment.Content>
+ </Attachment.Root>
 </div>
 ```
 
@@ -359,55 +359,55 @@ Wrap attachments in `Attachment.Group` to lay them out in a horizontally scrolla
 
 ```svelte
 <script lang="ts">
-  import FileCodeIcon from "@lucide/svelte/icons/file-code";
-  import FileTextIcon from "@lucide/svelte/icons/file-text";
-  import TableIcon from "@lucide/svelte/icons/table";
-  import XIcon from "@lucide/svelte/icons/x";
-  import * as Attachment from "$lib/components/ui/attachment/index.js";
-  import type { Component } from "svelte";
-  type Item = {
-    name: string;
-    meta: string;
-    icon?: Component;
-    src?: string;
-  };
-  const items: Item[] = [
-    { name: "briefing-notes.pdf", meta: "PDF  1.4 MB", icon: FileTextIcon },
-    {
-      name: "workspace.png",
-      meta: "PNG  820 KB",
-      src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900&auto=format&fit=crop&q=80"
-    },
-    { name: "customers.csv", meta: "CSV  18 KB", icon: TableIcon },
-    { name: "renderer.tsx", meta: "TSX  12 KB", icon: FileCodeIcon }
- ];
+ import FileCodeIcon from "@lucide/svelte/icons/file-code";
+ import FileTextIcon from "@lucide/svelte/icons/file-text";
+ import TableIcon from "@lucide/svelte/icons/table";
+ import XIcon from "@lucide/svelte/icons/x";
+ import * as Attachment from "$lib/components/ui/attachment/index.js";
+ import type { Component } from "svelte";
+ type Item = {
+  name: string;
+  meta: string;
+  icon?: Component;
+  src?: string;
+ };
+ const items: Item[] = [
+  { name: "briefing-notes.pdf", meta: "PDF  1.4 MB", icon: FileTextIcon },
+  {
+   name: "workspace.png",
+   meta: "PNG  820 KB",
+   src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900&auto=format&fit=crop&q=80",
+  },
+  { name: "customers.csv", meta: "CSV  18 KB", icon: TableIcon },
+  { name: "renderer.tsx", meta: "TSX  12 KB", icon: FileCodeIcon },
+];
 </script>
 <div class="mx-auto w-full max-w-sm py-12">
-  <Attachment.Group class="w-full">
-    {#each items as item (item.name)}
-      {@const Icon = item.icon}
-      <Attachment.Root class="w-64">
-        {#if item.src}
-          <Attachment.Media variant="image">
-            <img src={item.src} alt={item.name} />
-          </Attachment.Media>
-        {:else if Icon}
-          <Attachment.Media>
-            <Icon />
-          </Attachment.Media>
-        {/if}
-        <Attachment.Content>
-          <Attachment.Title>{item.name}</Attachment.Title>
-          <Attachment.Description>{item.meta}</Attachment.Description>
-        </Attachment.Content>
-        <Attachment.Actions>
-          <Attachment.Action aria-label="Remove {item.name}">
-            <XIcon />
-          </Attachment.Action>
-        </Attachment.Actions>
-      </Attachment.Root>
-    {/each}
-  </Attachment.Group>
+ <Attachment.Group class="w-full">
+  {#each items as item (item.name)}
+   {@const Icon = item.icon}
+   <Attachment.Root class="w-64">
+    {#if item.src}
+     <Attachment.Media variant="image">
+      <img src={item.src} alt={item.name} />
+     </Attachment.Media>
+    {:else if Icon}
+     <Attachment.Media>
+      <Icon />
+     </Attachment.Media>
+    {/if}
+    <Attachment.Content>
+     <Attachment.Title>{item.name}</Attachment.Title>
+     <Attachment.Description>{item.meta}</Attachment.Description>
+    </Attachment.Content>
+    <Attachment.Actions>
+     <Attachment.Action aria-label="Remove {item.name}">
+      <XIcon />
+     </Attachment.Action>
+    </Attachment.Actions>
+   </Attachment.Root>
+  {/each}
+ </Attachment.Group>
 </div>
 ```
 
@@ -419,49 +419,46 @@ Add an `Attachment.Trigger` to make the whole card open a link or dialog. It fil
 
 ```svelte
 <script lang="ts">
-  import CopyIcon from "@lucide/svelte/icons/copy";
-  import FileSearchIcon from "@lucide/svelte/icons/file-search";
-  import XIcon from "@lucide/svelte/icons/x";
-  import * as Attachment from "$lib/components/ui/attachment/index.js";
-  import * as Dialog from "$lib/components/ui/dialog/index.js";
+ import CopyIcon from "@lucide/svelte/icons/copy";
+ import FileSearchIcon from "@lucide/svelte/icons/file-search";
+ import XIcon from "@lucide/svelte/icons/x";
+ import * as Attachment from "$lib/components/ui/attachment/index.js";
+ import * as Dialog from "$lib/components/ui/dialog/index.js";
 </script>
 <div class="mx-auto w-full max-w-sm py-12">
-  <Dialog.Root>
-    <Attachment.Root class="w-full">
-      <Attachment.Media>
-        <FileSearchIcon />
-      </Attachment.Media>
-      <Attachment.Content>
-        <Attachment.Title>research-summary.pdf</Attachment.Title>
-        <Attachment.Description>Open preview dialog</Attachment.Description>
-      </Attachment.Content>
-      <Attachment.Actions>
-        <Attachment.Action aria-label="Copy link">
-          <CopyIcon />
-        </Attachment.Action>
-        <Attachment.Action aria-label="Remove research-summary.pdf">
-          <XIcon />
-        </Attachment.Action>
-      </Attachment.Actions>
-      <Dialog.Trigger>
-        {#snippet child({ props })}
-          <Attachment.Trigger
-            {...props}
-            aria-label="Preview research-summary.pdf"
-          />
-        {/snippet}
-      </Dialog.Trigger>
-    </Attachment.Root>
-    <Dialog.Content class="sm:max-w-md">
-      <Dialog.Header>
-        <Dialog.Title>research-summary.pdf</Dialog.Title>
-        <Dialog.Description>
-          The attachment trigger fills the card and opens the dialog, while the
-          actions stay independently clickable above it.
-        </Dialog.Description>
-      </Dialog.Header>
-    </Dialog.Content>
-  </Dialog.Root>
+ <Dialog.Root>
+  <Attachment.Root class="w-full">
+   <Attachment.Media>
+    <FileSearchIcon />
+   </Attachment.Media>
+   <Attachment.Content>
+    <Attachment.Title>research-summary.pdf</Attachment.Title>
+    <Attachment.Description>Open preview dialog</Attachment.Description>
+   </Attachment.Content>
+   <Attachment.Actions>
+    <Attachment.Action aria-label="Copy link">
+     <CopyIcon />
+    </Attachment.Action>
+    <Attachment.Action aria-label="Remove research-summary.pdf">
+     <XIcon />
+    </Attachment.Action>
+   </Attachment.Actions>
+   <Dialog.Trigger>
+    {#snippet child({ props })}
+     <Attachment.Trigger {...props} aria-label="Preview research-summary.pdf" />
+    {/snippet}
+   </Dialog.Trigger>
+  </Attachment.Root>
+  <Dialog.Content class="sm:max-w-md">
+   <Dialog.Header>
+    <Dialog.Title>research-summary.pdf</Dialog.Title>
+    <Dialog.Description>
+     The attachment trigger fills the card and opens the dialog, while the actions stay
+     independently clickable above it.
+    </Dialog.Description>
+   </Dialog.Header>
+  </Dialog.Content>
+ </Dialog.Root>
 </div>
 ```
 

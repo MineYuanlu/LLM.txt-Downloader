@@ -14,12 +14,12 @@ A two-state button that can be either on or off.
 
 ```svelte
 <script lang="ts">
-  import BookmarkIcon from "@lucide/svelte/icons/bookmark";
-  import { Toggle } from "$lib/components/ui/toggle/index.js";
+ import BookmarkIcon from "@lucide/svelte/icons/bookmark";
+ import { Toggle } from "$lib/components/ui/toggle/index.js";
 </script>
 <Toggle aria-label="Toggle bookmark" size="sm" variant="outline">
-  <BookmarkIcon class="group-aria-pressed/toggle:fill-foreground" />
-  Bookmark
+ <BookmarkIcon class="group-aria-pressed/toggle:fill-foreground" />
+ Bookmark
 </Toggle>
 ```
 
@@ -57,19 +57,19 @@ Use `variant="outline"` for an outline style.
 
 ```svelte
 <script lang="ts">
-  import BoldIcon from "@lucide/svelte/icons/bold";
-  import ItalicIcon from "@lucide/svelte/icons/italic";
-  import { Toggle } from "$lib/components/ui/toggle/index.js";
+ import BoldIcon from "@lucide/svelte/icons/bold";
+ import ItalicIcon from "@lucide/svelte/icons/italic";
+ import { Toggle } from "$lib/components/ui/toggle/index.js";
 </script>
 <div class="flex flex-wrap items-center gap-2">
-  <Toggle variant="outline" aria-label="Toggle italic">
-    <ItalicIcon />
-    Italic
-  </Toggle>
-  <Toggle variant="outline" aria-label="Toggle bold">
-    <BoldIcon />
-    Bold
-  </Toggle>
+ <Toggle variant="outline" aria-label="Toggle italic">
+  <ItalicIcon />
+  Italic
+ </Toggle>
+ <Toggle variant="outline" aria-label="Toggle bold">
+  <BoldIcon />
+  Bold
+ </Toggle>
 </div>
 ```
 
@@ -79,12 +79,12 @@ View Code
 
 ```svelte
 <script lang="ts">
-  import ItalicIcon from "@lucide/svelte/icons/italic";
-  import { Toggle } from "$lib/components/ui/toggle/index.js";
+ import ItalicIcon from "@lucide/svelte/icons/italic";
+ import { Toggle } from "$lib/components/ui/toggle/index.js";
 </script>
 <Toggle aria-label="Toggle italic">
-  <ItalicIcon />
-  Italic
+ <ItalicIcon />
+ Italic
 </Toggle>
 ```
 
@@ -96,14 +96,12 @@ Use the `size` prop to change the size of the toggle.
 
 ```svelte
 <script lang="ts">
-  import { Toggle } from "$lib/components/ui/toggle/index.js";
+ import { Toggle } from "$lib/components/ui/toggle/index.js";
 </script>
 <div class="flex flex-wrap items-center gap-2">
-  <Toggle variant="outline" aria-label="Toggle small" size="sm">Small</Toggle>
-  <Toggle variant="outline" aria-label="Toggle default" size="default"
-    >Default</Toggle
-  >
-  <Toggle variant="outline" aria-label="Toggle large" size="lg">Large</Toggle>
+ <Toggle variant="outline" aria-label="Toggle small" size="sm">Small</Toggle>
+ <Toggle variant="outline" aria-label="Toggle default" size="default">Default</Toggle>
+ <Toggle variant="outline" aria-label="Toggle large" size="lg">Large</Toggle>
 </div>
 ```
 
@@ -113,13 +111,11 @@ View Code
 
 ```svelte
 <script lang="ts">
-  import { Toggle } from "$lib/components/ui/toggle/index.js";
+ import { Toggle } from "$lib/components/ui/toggle/index.js";
 </script>
 <div class="flex flex-wrap items-center gap-2">
-  <Toggle aria-label="Toggle disabled" disabled>Disabled</Toggle>
-  <Toggle variant="outline" aria-label="Toggle disabled outline" disabled
-    >Disabled</Toggle
-  >
+ <Toggle aria-label="Toggle disabled" disabled>Disabled</Toggle>
+ <Toggle variant="outline" aria-label="Toggle disabled outline" disabled>Disabled</Toggle>
 </div>
 ```
 

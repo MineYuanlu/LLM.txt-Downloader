@@ -10,78 +10,78 @@ Displays a message in a conversation, with optional avatar, header, footer, and 
 
 ```svelte
 <script lang="ts">
-  import * as Avatar from "$lib/components/ui/avatar/index.js";
-  import * as Bubble from "$lib/components/ui/bubble/index.js";
-  import * as Marker from "$lib/components/ui/marker/index.js";
-  import * as Message from "$lib/components/ui/message/index.js";
+ import * as Avatar from "$lib/components/ui/avatar/index.js";
+ import * as Bubble from "$lib/components/ui/bubble/index.js";
+ import * as Marker from "$lib/components/ui/marker/index.js";
+ import * as Message from "$lib/components/ui/message/index.js";
 </script>
 <div class="flex w-full max-w-sm flex-col gap-6 py-12">
-  <Message.Root align="end">
-    <Message.Avatar>
-      <Avatar.Root>
-        <Avatar.Image src="/avatars/10.png" alt="@me" />
-        <Avatar.Fallback>ME</Avatar.Fallback>
-      </Avatar.Root>
-    </Message.Avatar>
-    <Message.Content>
-      <Bubble.Root>
-        <Bubble.Content>Deploying to prod real quick.</Bubble.Content>
-      </Bubble.Root>
-    </Message.Content>
-  </Message.Root>
-  <Message.Root>
-    <Message.Avatar>
-      <Avatar.Root>
-        <Avatar.Image src="/avatars/02.png" alt="@rabbit" />
-        <Avatar.Fallback>R</Avatar.Fallback>
-      </Avatar.Root>
-    </Message.Avatar>
-    <Message.Content>
-      <Bubble.Root variant="muted">
-        <Bubble.Content>It's 4:55 PM. On a Friday.</Bubble.Content>
-      </Bubble.Root>
-    </Message.Content>
-  </Message.Root>
-  <Message.Root align="end">
-    <Message.Avatar>
-      <Avatar.Root>
-        <Avatar.Image src="/avatars/10.png" alt="@me" />
-        <Avatar.Fallback>ME</Avatar.Fallback>
-      </Avatar.Root>
-    </Message.Avatar>
-    <Message.Content>
-      <Bubble.Root>
-        <Bubble.Content>It's a one-line change.</Bubble.Content>
-      </Bubble.Root>
-      <Message.Footer>Delivered</Message.Footer>
-    </Message.Content>
-  </Message.Root>
-  <Message.Root>
-    <Message.Avatar>
-      <Avatar.Root>
-        <Avatar.Image src="/avatars/02.png" alt="@rabbit" />
-        <Avatar.Fallback>R</Avatar.Fallback>
-      </Avatar.Root>
-    </Message.Avatar>
-    <Message.Content>
-      <Bubble.Group>
-        <Bubble.Root variant="muted">
-          <Bubble.Content>It's always a one-line change .</Bubble.Content>
-        </Bubble.Root>
-        <Bubble.Root variant="muted">
-          <Bubble.Content>Alright, let me take a look.</Bubble.Content>
-          <Bubble.Reactions aria-label="Reactions: thumbs up">
-            <span></span>
-          </Bubble.Reactions>
-        </Bubble.Root>
-      </Bubble.Group>
-    </Message.Content>
-  </Message.Root>
-  <Marker.Root role="status">
-    <Marker.Content class="shimmer">
-      <span class="font-medium">Oliver</span> is typing...
-    </Marker.Content>
-  </Marker.Root>
+ <Message.Root align="end">
+  <Message.Avatar>
+   <Avatar.Root>
+    <Avatar.Image src="/avatars/10.png" alt="@me" />
+    <Avatar.Fallback>ME</Avatar.Fallback>
+   </Avatar.Root>
+  </Message.Avatar>
+  <Message.Content>
+   <Bubble.Root>
+    <Bubble.Content>Deploying to prod real quick.</Bubble.Content>
+   </Bubble.Root>
+  </Message.Content>
+ </Message.Root>
+ <Message.Root>
+  <Message.Avatar>
+   <Avatar.Root>
+    <Avatar.Image src="/avatars/02.png" alt="@rabbit" />
+    <Avatar.Fallback>R</Avatar.Fallback>
+   </Avatar.Root>
+  </Message.Avatar>
+  <Message.Content>
+   <Bubble.Root variant="muted">
+    <Bubble.Content>It's 4:55 PM. On a Friday.</Bubble.Content>
+   </Bubble.Root>
+  </Message.Content>
+ </Message.Root>
+ <Message.Root align="end">
+  <Message.Avatar>
+   <Avatar.Root>
+    <Avatar.Image src="/avatars/10.png" alt="@me" />
+    <Avatar.Fallback>ME</Avatar.Fallback>
+   </Avatar.Root>
+  </Message.Avatar>
+  <Message.Content>
+   <Bubble.Root>
+    <Bubble.Content>It's a one-line change.</Bubble.Content>
+   </Bubble.Root>
+   <Message.Footer>Delivered</Message.Footer>
+  </Message.Content>
+ </Message.Root>
+ <Message.Root>
+  <Message.Avatar>
+   <Avatar.Root>
+    <Avatar.Image src="/avatars/02.png" alt="@rabbit" />
+    <Avatar.Fallback>R</Avatar.Fallback>
+   </Avatar.Root>
+  </Message.Avatar>
+  <Message.Content>
+   <Bubble.Group>
+    <Bubble.Root variant="muted">
+     <Bubble.Content>It's always a one-line change .</Bubble.Content>
+    </Bubble.Root>
+    <Bubble.Root variant="muted">
+     <Bubble.Content>Alright, let me take a look.</Bubble.Content>
+     <Bubble.Reactions aria-label="Reactions: thumbs up">
+      <span></span>
+     </Bubble.Reactions>
+    </Bubble.Root>
+   </Bubble.Group>
+  </Message.Content>
+ </Message.Root>
+ <Marker.Root role="status">
+  <Marker.Content class="shimmer">
+   <span class="font-medium">Oliver</span> is typing...
+  </Marker.Content>
+ </Marker.Root>
 </div>
 ```
 
@@ -169,60 +169,58 @@ Use `Message.Avatar` to render an avatar next to the message. Set `align="end"` 
 
 ```svelte
 <script lang="ts">
-  import * as Avatar from "$lib/components/ui/avatar/index.js";
-  import * as Bubble from "$lib/components/ui/bubble/index.js";
-  import * as Message from "$lib/components/ui/message/index.js";
+ import * as Avatar from "$lib/components/ui/avatar/index.js";
+ import * as Bubble from "$lib/components/ui/bubble/index.js";
+ import * as Message from "$lib/components/ui/message/index.js";
 </script>
 <div class="flex w-full max-w-sm flex-col gap-6 py-12">
-  <Message.Root>
-    <Message.Avatar>
-      <Avatar.Root>
-        <Avatar.Image src="/avatars/03.png" alt="@avatar" />
-        <Avatar.Fallback>R</Avatar.Fallback>
-      </Avatar.Root>
-    </Message.Avatar>
-    <Message.Content>
-      <Bubble.Root variant="muted">
-        <Bubble.Content
-          >The build failed during dependency installation.</Bubble.Content
-        >
-      </Bubble.Root>
-    </Message.Content>
-  </Message.Root>
-  <Message.Root align="end">
-    <Message.Avatar>
-      <Avatar.Root>
-        <Avatar.Image src="/avatars/10.png" alt="@avatar" />
-        <Avatar.Fallback>R</Avatar.Fallback>
-      </Avatar.Root>
-    </Message.Avatar>
-    <Message.Content>
-      <Bubble.Root>
-        <Bubble.Content>Can you share the exact error?</Bubble.Content>
-      </Bubble.Root>
-    </Message.Content>
-  </Message.Root>
-  <Message.Root>
-    <Message.Avatar>
-      <Avatar.Root>
-        <Avatar.Image src="/avatars/03.png" alt="@avatar" />
-        <Avatar.Fallback>R</Avatar.Fallback>
-      </Avatar.Root>
-    </Message.Avatar>
-    <Message.Content>
-      <Bubble.Group>
-        <Bubble.Root variant="muted">
-          <Bubble.Content>Here's the error from the logs</Bubble.Content>
-        </Bubble.Root>
-        <Bubble.Root variant="muted">
-          <Bubble.Content>
-            Something went wrong with the build. The libraries are not installed
-            correctly. Try running the build again.
-          </Bubble.Content>
-        </Bubble.Root>
-      </Bubble.Group>
-    </Message.Content>
-  </Message.Root>
+ <Message.Root>
+  <Message.Avatar>
+   <Avatar.Root>
+    <Avatar.Image src="/avatars/03.png" alt="@avatar" />
+    <Avatar.Fallback>R</Avatar.Fallback>
+   </Avatar.Root>
+  </Message.Avatar>
+  <Message.Content>
+   <Bubble.Root variant="muted">
+    <Bubble.Content>The build failed during dependency installation.</Bubble.Content>
+   </Bubble.Root>
+  </Message.Content>
+ </Message.Root>
+ <Message.Root align="end">
+  <Message.Avatar>
+   <Avatar.Root>
+    <Avatar.Image src="/avatars/10.png" alt="@avatar" />
+    <Avatar.Fallback>R</Avatar.Fallback>
+   </Avatar.Root>
+  </Message.Avatar>
+  <Message.Content>
+   <Bubble.Root>
+    <Bubble.Content>Can you share the exact error?</Bubble.Content>
+   </Bubble.Root>
+  </Message.Content>
+ </Message.Root>
+ <Message.Root>
+  <Message.Avatar>
+   <Avatar.Root>
+    <Avatar.Image src="/avatars/03.png" alt="@avatar" />
+    <Avatar.Fallback>R</Avatar.Fallback>
+   </Avatar.Root>
+  </Message.Avatar>
+  <Message.Content>
+   <Bubble.Group>
+    <Bubble.Root variant="muted">
+     <Bubble.Content>Here's the error from the logs</Bubble.Content>
+    </Bubble.Root>
+    <Bubble.Root variant="muted">
+     <Bubble.Content>
+      Something went wrong with the build. The libraries are not installed correctly. Try
+      running the build again.
+     </Bubble.Content>
+    </Bubble.Root>
+   </Bubble.Group>
+  </Message.Content>
+ </Message.Root>
 </div>
 ```
 
@@ -239,36 +237,36 @@ Use `Message.Group` to stack consecutive messages from the same sender. Render a
 
 ```svelte
 <script lang="ts">
-  import * as Avatar from "$lib/components/ui/avatar/index.js";
-  import * as Bubble from "$lib/components/ui/bubble/index.js";
-  import * as Message from "$lib/components/ui/message/index.js";
+ import * as Avatar from "$lib/components/ui/avatar/index.js";
+ import * as Bubble from "$lib/components/ui/bubble/index.js";
+ import * as Message from "$lib/components/ui/message/index.js";
 </script>
 <div class="flex w-full max-w-sm flex-col gap-6 py-12">
-  <Message.Group>
-    <Message.Root>
-      <Message.Avatar />
-      <Message.Content>
-        <Bubble.Root variant="muted">
-          <Bubble.Content>I checked the registry addresses.</Bubble.Content>
-        </Bubble.Root>
-      </Message.Content>
-    </Message.Root>
-    <Message.Root>
-      <Message.Avatar>
-        <Avatar.Root>
-          <Avatar.Image src="/avatars/02.png" alt="@avatar" />
-          <Avatar.Fallback>CN</Avatar.Fallback>
-        </Avatar.Root>
-      </Message.Avatar>
-      <Message.Content>
-        <Bubble.Root variant="muted">
-          <Bubble.Content>
-            The component and example JSON now live under the UI registry.
-          </Bubble.Content>
-        </Bubble.Root>
-      </Message.Content>
-    </Message.Root>
-  </Message.Group>
+ <Message.Group>
+  <Message.Root>
+   <Message.Avatar />
+   <Message.Content>
+    <Bubble.Root variant="muted">
+     <Bubble.Content>I checked the registry addresses.</Bubble.Content>
+    </Bubble.Root>
+   </Message.Content>
+  </Message.Root>
+  <Message.Root>
+   <Message.Avatar>
+    <Avatar.Root>
+     <Avatar.Image src="/avatars/02.png" alt="@avatar" />
+     <Avatar.Fallback>CN</Avatar.Fallback>
+    </Avatar.Root>
+   </Message.Avatar>
+   <Message.Content>
+    <Bubble.Root variant="muted">
+     <Bubble.Content>
+      The component and example JSON now live under the UI registry.
+     </Bubble.Content>
+    </Bubble.Root>
+   </Message.Content>
+  </Message.Root>
+ </Message.Group>
 </div>
 ```
 
@@ -280,32 +278,30 @@ Use `Message.Header` for a sender name and `Message.Footer` for metadata such as
 
 ```svelte
 <script lang="ts">
-  import * as Bubble from "$lib/components/ui/bubble/index.js";
-  import * as Message from "$lib/components/ui/message/index.js";
+ import * as Bubble from "$lib/components/ui/bubble/index.js";
+ import * as Message from "$lib/components/ui/message/index.js";
 </script>
 <div class="flex w-full max-w-sm flex-col gap-8 py-12">
-  <Message.Root>
-    <Message.Content>
-      <Message.Header>Olivia</Message.Header>
-      <Bubble.Root variant="muted">
-        <Bubble.Content>I already checked the logs.</Bubble.Content>
-      </Bubble.Root>
-    </Message.Content>
-  </Message.Root>
-  <Message.Root align="end">
-    <Message.Content>
-      <Bubble.Root>
-        <Bubble.Content
-          >Send the report to the team. Ping @shadcn if you need help.</Bubble.Content
-        >
-      </Bubble.Root>
-      <Message.Footer>
-        <div>
-          Read <span class="font-normal">Yesterday</span>
-        </div>
-      </Message.Footer>
-    </Message.Content>
-  </Message.Root>
+ <Message.Root>
+  <Message.Content>
+   <Message.Header>Olivia</Message.Header>
+   <Bubble.Root variant="muted">
+    <Bubble.Content>I already checked the logs.</Bubble.Content>
+   </Bubble.Root>
+  </Message.Content>
+ </Message.Root>
+ <Message.Root align="end">
+  <Message.Content>
+   <Bubble.Root>
+    <Bubble.Content>Send the report to the team. Ping @shadcn if you need help.</Bubble.Content>
+   </Bubble.Root>
+   <Message.Footer>
+    <div>
+     Read <span class="font-normal">Yesterday</span>
+    </div>
+   </Message.Footer>
+  </Message.Content>
+ </Message.Root>
 </div>
 ```
 
@@ -317,53 +313,46 @@ Place message-level actions in `Message.Footer`, such as copy, retry, or feedbac
 
 ```svelte
 <script lang="ts">
-  import CopyIcon from "@lucide/svelte/icons/copy";
-  import RefreshCcwIcon from "@lucide/svelte/icons/refresh-ccw";
-  import ThumbsDownIcon from "@lucide/svelte/icons/thumbs-down";
-  import ThumbsUpIcon from "@lucide/svelte/icons/thumbs-up";
-  import * as Bubble from "$lib/components/ui/bubble/index.js";
-  import * as Message from "$lib/components/ui/message/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
+ import CopyIcon from "@lucide/svelte/icons/copy";
+ import RefreshCcwIcon from "@lucide/svelte/icons/refresh-ccw";
+ import ThumbsDownIcon from "@lucide/svelte/icons/thumbs-down";
+ import ThumbsUpIcon from "@lucide/svelte/icons/thumbs-up";
+ import * as Bubble from "$lib/components/ui/bubble/index.js";
+ import * as Message from "$lib/components/ui/message/index.js";
+ import { Button } from "$lib/components/ui/button/index.js";
 </script>
 <div class="flex w-full max-w-sm flex-col gap-8 py-12">
-  <Message.Root>
-    <Message.Content>
-      <Bubble.Root variant="muted">
-        <Bubble.Content
-          >The install failure is coming from the workspace package.</Bubble.Content
-        >
-      </Bubble.Root>
-      <Message.Footer>
-        <Button variant="ghost" size="icon" aria-label="Copy" title="Copy">
-          <CopyIcon />
-        </Button>
-        <Button variant="ghost" size="icon" aria-label="Like" title="Like">
-          <ThumbsUpIcon />
-        </Button>
-        <Button
-          variant="ghost"
-          size="icon"
-          aria-label="Dislike"
-          title="Dislike"
-        >
-          <ThumbsDownIcon />
-        </Button>
-      </Message.Footer>
-    </Message.Content>
-  </Message.Root>
-  <Message.Root align="end">
-    <Message.Content>
-      <Bubble.Root>
-        <Bubble.Content>Okay drop me a link. Taking a look...</Bubble.Content>
-      </Bubble.Root>
-      <Message.Footer class="gap-2">
-        <span class="font-normal text-destructive">Failed to send</span>
-        <Button variant="ghost" size="icon-xs" title="Retry" aria-label="Retry">
-          <RefreshCcwIcon />
-        </Button>
-      </Message.Footer>
-    </Message.Content>
-  </Message.Root>
+ <Message.Root>
+  <Message.Content>
+   <Bubble.Root variant="muted">
+    <Bubble.Content>The install failure is coming from the workspace package.</Bubble.Content>
+   </Bubble.Root>
+   <Message.Footer>
+    <Button variant="ghost" size="icon" aria-label="Copy" title="Copy">
+     <CopyIcon />
+    </Button>
+    <Button variant="ghost" size="icon" aria-label="Like" title="Like">
+     <ThumbsUpIcon />
+    </Button>
+    <Button variant="ghost" size="icon" aria-label="Dislike" title="Dislike">
+     <ThumbsDownIcon />
+    </Button>
+   </Message.Footer>
+  </Message.Content>
+ </Message.Root>
+ <Message.Root align="end">
+  <Message.Content>
+   <Bubble.Root>
+    <Bubble.Content>Okay drop me a link. Taking a look...</Bubble.Content>
+   </Bubble.Root>
+   <Message.Footer class="gap-2">
+    <span class="font-normal text-destructive">Failed to send</span>
+    <Button variant="ghost" size="icon-xs" title="Retry" aria-label="Retry">
+     <RefreshCcwIcon />
+    </Button>
+   </Message.Footer>
+  </Message.Content>
+ </Message.Root>
 </div>
 ```
 
@@ -373,67 +362,66 @@ View Code
 
 ```svelte
 <script lang="ts">
-  import DownloadIcon from "@lucide/svelte/icons/download";
-  import FileTextIcon from "@lucide/svelte/icons/file-text";
-  import * as Attachment from "$lib/components/ui/attachment/index.js";
-  import * as Bubble from "$lib/components/ui/bubble/index.js";
-  import * as Message from "$lib/components/ui/message/index.js";
+ import DownloadIcon from "@lucide/svelte/icons/download";
+ import FileTextIcon from "@lucide/svelte/icons/file-text";
+ import * as Attachment from "$lib/components/ui/attachment/index.js";
+ import * as Bubble from "$lib/components/ui/bubble/index.js";
+ import * as Message from "$lib/components/ui/message/index.js";
 </script>
 <div class="flex w-full max-w-sm flex-col gap-8 py-12">
-  <Message.Root align="end">
-    <Message.Content>
-      <Attachment.Root orientation="vertical">
-        <Attachment.Media variant="image">
-          <img
-            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900&auto=format&fit=crop&q=80"
-            alt="Workspace"
-          />
-        </Attachment.Media>
-      </Attachment.Root>
-      <Bubble.Root>
-        <Bubble.Content>
-          Here's the image. Can you add it to the PDF? Use it for the cover
-          page.
-        </Bubble.Content>
-      </Bubble.Root>
-    </Message.Content>
-  </Message.Root>
-  <Message.Root>
-    <Message.Content>
-      <Bubble.Root variant="muted">
-        <Bubble.Content>
-          Done. Here's the PDF with the image added as the cover page.
-        </Bubble.Content>
-      </Bubble.Root>
-      <Attachment.Root>
-        <Attachment.Media>
-          <FileTextIcon />
-        </Attachment.Media>
-        <Attachment.Content>
-          <Attachment.Title>sales-dashboard.pdf</Attachment.Title>
-          <Attachment.Description>PDF  2.4 MB</Attachment.Description>
-        </Attachment.Content>
-        <Attachment.Actions>
-          <Attachment.Action
-            type="button"
-            title="Download"
-            aria-label="Download"
-            size="icon-sm"
-            variant="secondary"
-          >
-            <DownloadIcon />
-          </Attachment.Action>
-        </Attachment.Actions>
-      </Attachment.Root>
-    </Message.Content>
-  </Message.Root>
-  <Message.Root align="end">
-    <Message.Content>
-      <Bubble.Root>
-        <Bubble.Content>Thanks. Looks good.</Bubble.Content>
-      </Bubble.Root>
-    </Message.Content>
-  </Message.Root>
+ <Message.Root align="end">
+  <Message.Content>
+   <Attachment.Root orientation="vertical">
+    <Attachment.Media variant="image">
+     <img
+      src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900&auto=format&fit=crop&q=80"
+      alt="Workspace"
+     />
+    </Attachment.Media>
+   </Attachment.Root>
+   <Bubble.Root>
+    <Bubble.Content>
+     Here's the image. Can you add it to the PDF? Use it for the cover page.
+    </Bubble.Content>
+   </Bubble.Root>
+  </Message.Content>
+ </Message.Root>
+ <Message.Root>
+  <Message.Content>
+   <Bubble.Root variant="muted">
+    <Bubble.Content>
+     Done. Here's the PDF with the image added as the cover page.
+    </Bubble.Content>
+   </Bubble.Root>
+   <Attachment.Root>
+    <Attachment.Media>
+     <FileTextIcon />
+    </Attachment.Media>
+    <Attachment.Content>
+     <Attachment.Title>sales-dashboard.pdf</Attachment.Title>
+     <Attachment.Description>PDF  2.4 MB</Attachment.Description>
+    </Attachment.Content>
+    <Attachment.Actions>
+     <Attachment.Action
+      type="button"
+      title="Download"
+      aria-label="Download"
+      size="icon-sm"
+      variant="secondary"
+     >
+      <DownloadIcon />
+     </Attachment.Action>
+    </Attachment.Actions>
+   </Attachment.Root>
+  </Message.Content>
+ </Message.Root>
+ <Message.Root align="end">
+  <Message.Content>
+   <Bubble.Root>
+    <Bubble.Content>Thanks. Looks good.</Bubble.Content>
+   </Bubble.Root>
+  </Message.Content>
+ </Message.Root>
 </div>
 ```
 

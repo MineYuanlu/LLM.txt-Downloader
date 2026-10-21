@@ -10,100 +10,89 @@ A container that groups related buttons together with consistent styling.
 
 ```svelte
 <script lang="ts">
-  import Archive from "@lucide/svelte/icons/archive";
-  import ArrowLeft from "@lucide/svelte/icons/arrow-left";
-  import CalendarPlus from "@lucide/svelte/icons/calendar-plus";
-  import Clock from "@lucide/svelte/icons/clock";
-  import ListFilter from "@lucide/svelte/icons/list-filter";
-  import MailCheck from "@lucide/svelte/icons/mail-check";
-  import MoreHorizontal from "@lucide/svelte/icons/more-horizontal";
-  import Tag from "@lucide/svelte/icons/tag";
-  import Trash2 from "@lucide/svelte/icons/trash-2";
-  import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
-  import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
-  let label = $state("personal");
+ import Archive from "@lucide/svelte/icons/archive";
+ import ArrowLeft from "@lucide/svelte/icons/arrow-left";
+ import CalendarPlus from "@lucide/svelte/icons/calendar-plus";
+ import Clock from "@lucide/svelte/icons/clock";
+ import ListFilter from "@lucide/svelte/icons/list-filter";
+ import MailCheck from "@lucide/svelte/icons/mail-check";
+ import MoreHorizontal from "@lucide/svelte/icons/more-horizontal";
+ import Tag from "@lucide/svelte/icons/tag";
+ import Trash2 from "@lucide/svelte/icons/trash-2";
+ import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
+ import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
+ import { Button } from "$lib/components/ui/button/index.js";
+ let label = $state("personal");
 </script>
 <ButtonGroup.Root>
-  <ButtonGroup.Root class="hidden sm:flex">
-    <Button variant="outline" size="icon" aria-label="Go Back">
-      <ArrowLeft />
-    </Button>
-  </ButtonGroup.Root>
-  <ButtonGroup.Root>
-    <Button variant="outline">Archive</Button>
-    <Button variant="outline">Report</Button>
-  </ButtonGroup.Root>
-  <ButtonGroup.Root>
-    <Button variant="outline">Snooze</Button>
-    <DropdownMenu.Root>
-      <DropdownMenu.Trigger>
-        {#snippet child({ props })}
-          <Button
-            {...props}
-            variant="outline"
-            size="icon"
-            aria-label="More Options"
-          >
-            <MoreHorizontal />
-          </Button>
-        {/snippet}
-      </DropdownMenu.Trigger>
-      <DropdownMenu.Content align="end" class="w-40">
-        <DropdownMenu.Group>
-          <DropdownMenu.Item>
-            <MailCheck />
-            Mark as Read
-          </DropdownMenu.Item>
-          <DropdownMenu.Item>
-            <Archive />
-            Archive
-          </DropdownMenu.Item>
-        </DropdownMenu.Group>
-        <DropdownMenu.Separator />
-        <DropdownMenu.Group>
-          <DropdownMenu.Item>
-            <Clock />
-            Snooze
-          </DropdownMenu.Item>
-          <DropdownMenu.Item>
-            <CalendarPlus />
-            Add to Calendar
-          </DropdownMenu.Item>
-          <DropdownMenu.Item>
-            <ListFilter />
-            Add to List
-          </DropdownMenu.Item>
-          <DropdownMenu.Sub>
-            <DropdownMenu.SubTrigger>
-              <Tag />
-              Label As...
-            </DropdownMenu.SubTrigger>
-            <DropdownMenu.SubContent>
-              <DropdownMenu.RadioGroup bind:value={label}>
-                <DropdownMenu.RadioItem value="personal"
-                  >Personal</DropdownMenu.RadioItem
-                >
-                <DropdownMenu.RadioItem value="work"
-                  >Work</DropdownMenu.RadioItem
-                >
-                <DropdownMenu.RadioItem value="other"
-                  >Other</DropdownMenu.RadioItem
-                >
-              </DropdownMenu.RadioGroup>
-            </DropdownMenu.SubContent>
-          </DropdownMenu.Sub>
-        </DropdownMenu.Group>
-        <DropdownMenu.Separator />
-        <DropdownMenu.Group>
-          <DropdownMenu.Item variant="destructive">
-            <Trash2 />
-            Trash
-          </DropdownMenu.Item>
-        </DropdownMenu.Group>
-      </DropdownMenu.Content>
-    </DropdownMenu.Root>
-  </ButtonGroup.Root>
+ <ButtonGroup.Root class="hidden sm:flex">
+  <Button variant="outline" size="icon" aria-label="Go Back">
+   <ArrowLeft />
+  </Button>
+ </ButtonGroup.Root>
+ <ButtonGroup.Root>
+  <Button variant="outline">Archive</Button>
+  <Button variant="outline">Report</Button>
+ </ButtonGroup.Root>
+ <ButtonGroup.Root>
+  <Button variant="outline">Snooze</Button>
+  <DropdownMenu.Root>
+   <DropdownMenu.Trigger>
+    {#snippet child({ props })}
+     <Button {...props} variant="outline" size="icon" aria-label="More Options">
+      <MoreHorizontal />
+     </Button>
+    {/snippet}
+   </DropdownMenu.Trigger>
+   <DropdownMenu.Content align="end" class="w-40">
+    <DropdownMenu.Group>
+     <DropdownMenu.Item>
+      <MailCheck />
+      Mark as Read
+     </DropdownMenu.Item>
+     <DropdownMenu.Item>
+      <Archive />
+      Archive
+     </DropdownMenu.Item>
+    </DropdownMenu.Group>
+    <DropdownMenu.Separator />
+    <DropdownMenu.Group>
+     <DropdownMenu.Item>
+      <Clock />
+      Snooze
+     </DropdownMenu.Item>
+     <DropdownMenu.Item>
+      <CalendarPlus />
+      Add to Calendar
+     </DropdownMenu.Item>
+     <DropdownMenu.Item>
+      <ListFilter />
+      Add to List
+     </DropdownMenu.Item>
+     <DropdownMenu.Sub>
+      <DropdownMenu.SubTrigger>
+       <Tag />
+       Label As...
+      </DropdownMenu.SubTrigger>
+      <DropdownMenu.SubContent>
+       <DropdownMenu.RadioGroup bind:value={label}>
+        <DropdownMenu.RadioItem value="personal">Personal</DropdownMenu.RadioItem>
+        <DropdownMenu.RadioItem value="work">Work</DropdownMenu.RadioItem>
+        <DropdownMenu.RadioItem value="other">Other</DropdownMenu.RadioItem>
+       </DropdownMenu.RadioGroup>
+      </DropdownMenu.SubContent>
+     </DropdownMenu.Sub>
+    </DropdownMenu.Group>
+    <DropdownMenu.Separator />
+    <DropdownMenu.Group>
+     <DropdownMenu.Item variant="destructive">
+      <Trash2 />
+      Trash
+     </DropdownMenu.Item>
+    </DropdownMenu.Group>
+   </DropdownMenu.Content>
+  </DropdownMenu.Root>
+ </ButtonGroup.Root>
 </ButtonGroup.Root>
 ```
 
@@ -162,22 +151,18 @@ Set the `orientation` prop to change the button group layout.
 
 ```svelte
 <script lang="ts">
-  import Minus from "@lucide/svelte/icons/minus";
-  import Plus from "@lucide/svelte/icons/plus";
-  import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
+ import Minus from "@lucide/svelte/icons/minus";
+ import Plus from "@lucide/svelte/icons/plus";
+ import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
+ import { Button } from "$lib/components/ui/button/index.js";
 </script>
-<ButtonGroup.Root
-  orientation="vertical"
-  aria-label="Media controls"
-  class="h-fit"
->
-  <Button variant="outline" size="icon">
-    <Plus />
-  </Button>
-  <Button variant="outline" size="icon">
-    <Minus />
-  </Button>
+<ButtonGroup.Root orientation="vertical" aria-label="Media controls" class="h-fit">
+ <Button variant="outline" size="icon">
+  <Plus />
+ </Button>
+ <Button variant="outline" size="icon">
+  <Minus />
+ </Button>
 </ButtonGroup.Root>
 ```
 
@@ -189,35 +174,35 @@ Control the size of buttons using the `size` prop on individual buttons.
 
 ```svelte
 <script lang="ts">
-  import Plus from "@lucide/svelte/icons/plus";
-  import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
+ import Plus from "@lucide/svelte/icons/plus";
+ import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
+ import { Button } from "$lib/components/ui/button/index.js";
 </script>
 <div class="flex flex-col items-start gap-8">
-  <ButtonGroup.Root>
-    <Button variant="outline" size="sm">Small</Button>
-    <Button variant="outline" size="sm">Button</Button>
-    <Button variant="outline" size="sm">Group</Button>
-    <Button variant="outline" size="icon-sm">
-      <Plus />
-    </Button>
-  </ButtonGroup.Root>
-  <ButtonGroup.Root>
-    <Button variant="outline">Default</Button>
-    <Button variant="outline">Button</Button>
-    <Button variant="outline">Group</Button>
-    <Button variant="outline" size="icon">
-      <Plus />
-    </Button>
-  </ButtonGroup.Root>
-  <ButtonGroup.Root>
-    <Button variant="outline" size="lg">Large</Button>
-    <Button variant="outline" size="lg">Button</Button>
-    <Button variant="outline" size="lg">Group</Button>
-    <Button variant="outline" size="icon-lg">
-      <Plus />
-    </Button>
-  </ButtonGroup.Root>
+ <ButtonGroup.Root>
+  <Button variant="outline" size="sm">Small</Button>
+  <Button variant="outline" size="sm">Button</Button>
+  <Button variant="outline" size="sm">Group</Button>
+  <Button variant="outline" size="icon-sm">
+   <Plus />
+  </Button>
+ </ButtonGroup.Root>
+ <ButtonGroup.Root>
+  <Button variant="outline">Default</Button>
+  <Button variant="outline">Button</Button>
+  <Button variant="outline">Group</Button>
+  <Button variant="outline" size="icon">
+   <Plus />
+  </Button>
+ </ButtonGroup.Root>
+ <ButtonGroup.Root>
+  <Button variant="outline" size="lg">Large</Button>
+  <Button variant="outline" size="lg">Button</Button>
+  <Button variant="outline" size="lg">Group</Button>
+  <Button variant="outline" size="icon-lg">
+   <Plus />
+  </Button>
+ </ButtonGroup.Root>
 </div>
 ```
 
@@ -229,34 +214,34 @@ Nest `<ButtonGroup.Root>` components to create button groups with spacing.
 
 ```svelte
 <script lang="ts">
-  import AudioLinesIcon from "@lucide/svelte/icons/audio-lines";
-  import PlusIcon from "@lucide/svelte/icons/plus";
-  import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
-  import * as InputGroup from "$lib/components/ui/input-group/index.js";
-  import * as Tooltip from "$lib/components/ui/tooltip/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
+ import AudioLinesIcon from "@lucide/svelte/icons/audio-lines";
+ import PlusIcon from "@lucide/svelte/icons/plus";
+ import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
+ import * as InputGroup from "$lib/components/ui/input-group/index.js";
+ import * as Tooltip from "$lib/components/ui/tooltip/index.js";
+ import { Button } from "$lib/components/ui/button/index.js";
 </script>
 <ButtonGroup.Root>
-  <ButtonGroup.Root>
-    <Button variant="outline" size="icon">
-      <PlusIcon />
-    </Button>
-  </ButtonGroup.Root>
-  <ButtonGroup.Root>
-    <InputGroup.Root>
-      <InputGroup.Input placeholder="Send a message..." />
-      <Tooltip.Root>
-        <Tooltip.Trigger>
-          {#snippet child({ props })}
-            <InputGroup.Addon {...props} align="inline-end">
-              <AudioLinesIcon />
-            </InputGroup.Addon>
-          {/snippet}
-        </Tooltip.Trigger>
-        <Tooltip.Content>Voice Mode</Tooltip.Content>
-      </Tooltip.Root>
-    </InputGroup.Root>
-  </ButtonGroup.Root>
+ <ButtonGroup.Root>
+  <Button variant="outline" size="icon">
+   <PlusIcon />
+  </Button>
+ </ButtonGroup.Root>
+ <ButtonGroup.Root>
+  <InputGroup.Root>
+   <InputGroup.Input placeholder="Send a message..." />
+   <Tooltip.Root>
+    <Tooltip.Trigger>
+     {#snippet child({ props })}
+      <InputGroup.Addon {...props} align="inline-end">
+       <AudioLinesIcon />
+      </InputGroup.Addon>
+     {/snippet}
+    </Tooltip.Trigger>
+    <Tooltip.Content>Voice Mode</Tooltip.Content>
+   </Tooltip.Root>
+  </InputGroup.Root>
+ </ButtonGroup.Root>
 </ButtonGroup.Root>
 ```
 
@@ -270,13 +255,13 @@ Buttons with variant `outline` do not need a separator since they have a border.
 
 ```svelte
 <script lang="ts">
-  import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
+ import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
+ import { Button } from "$lib/components/ui/button/index.js";
 </script>
 <ButtonGroup.Root>
-  <Button variant="secondary" size="sm">Copy</Button>
-  <ButtonGroup.Separator />
-  <Button variant="secondary" size="sm">Paste</Button>
+ <Button variant="secondary" size="sm">Copy</Button>
+ <ButtonGroup.Separator />
+ <Button variant="secondary" size="sm">Paste</Button>
 </ButtonGroup.Root>
 ```
 
@@ -288,16 +273,16 @@ Create a split button group by adding two buttons separated by a `ButtonGroup.Se
 
 ```svelte
 <script lang="ts">
-  import Plus from "@lucide/svelte/icons/plus";
-  import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
+ import Plus from "@lucide/svelte/icons/plus";
+ import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
+ import { Button } from "$lib/components/ui/button/index.js";
 </script>
 <ButtonGroup.Root>
-  <Button variant="secondary">Button</Button>
-  <ButtonGroup.Separator />
-  <Button variant="secondary" size="icon">
-    <Plus />
-  </Button>
+ <Button variant="secondary">Button</Button>
+ <ButtonGroup.Separator />
+ <Button variant="secondary" size="icon">
+  <Plus />
+ </Button>
 </ButtonGroup.Root>
 ```
 
@@ -309,16 +294,16 @@ Wrap an `Input` component with buttons.
 
 ```svelte
 <script lang="ts">
-  import Search from "@lucide/svelte/icons/search";
-  import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
-  import { Input } from "$lib/components/ui/input/index.js";
+ import Search from "@lucide/svelte/icons/search";
+ import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
+ import { Button } from "$lib/components/ui/button/index.js";
+ import { Input } from "$lib/components/ui/input/index.js";
 </script>
 <ButtonGroup.Root>
-  <Input placeholder="Search..." />
-  <Button variant="outline" aria-label="Search">
-    <Search />
-  </Button>
+ <Input placeholder="Search..." />
+ <Button variant="outline" aria-label="Search">
+  <Search />
+ </Button>
 </ButtonGroup.Root>
 ```
 
@@ -330,49 +315,47 @@ Wrap an `InputGroup` component to create complex input layouts.
 
 ```svelte
 <script lang="ts">
-  import AudioLines from "@lucide/svelte/icons/audio-lines";
-  import Plus from "@lucide/svelte/icons/plus";
-  import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
-  import * as InputGroup from "$lib/components/ui/input-group/index.js";
-  import * as Tooltip from "$lib/components/ui/tooltip/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
-  let voiceEnabled = $state(false);
+ import AudioLines from "@lucide/svelte/icons/audio-lines";
+ import Plus from "@lucide/svelte/icons/plus";
+ import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
+ import * as InputGroup from "$lib/components/ui/input-group/index.js";
+ import * as Tooltip from "$lib/components/ui/tooltip/index.js";
+ import { Button } from "$lib/components/ui/button/index.js";
+ let voiceEnabled = $state(false);
 </script>
 <ButtonGroup.Root class="[--radius:9999rem]">
-  <ButtonGroup.Root>
-    <Button variant="outline" size="icon">
-      <Plus />
-    </Button>
-  </ButtonGroup.Root>
-  <ButtonGroup.Root>
-    <InputGroup.Root>
-      <InputGroup.Input
-        placeholder={voiceEnabled
-          ? "Record and send audio..."
-          : "Send a message..."}
-        disabled={voiceEnabled}
-      />
-      <InputGroup.Addon align="inline-end">
-        <Tooltip.Root>
-          <Tooltip.Trigger>
-            {#snippet child({ props })}
-              <InputGroup.Button
-                {...props}
-                onclick={() => (voiceEnabled = !voiceEnabled)}
-                size="icon-xs"
-                data-active={voiceEnabled}
-                class="data-[active=true]:bg-orange-100 data-[active=true]:text-orange-700 dark:data-[active=true]:bg-orange-800 dark:data-[active=true]:text-orange-100"
-                aria-pressed={voiceEnabled}
-              >
-                <AudioLines />
-              </InputGroup.Button>
-            {/snippet}
-          </Tooltip.Trigger>
-          <Tooltip.Content>Voice Mode</Tooltip.Content>
-        </Tooltip.Root>
-      </InputGroup.Addon>
-    </InputGroup.Root>
-  </ButtonGroup.Root>
+ <ButtonGroup.Root>
+  <Button variant="outline" size="icon">
+   <Plus />
+  </Button>
+ </ButtonGroup.Root>
+ <ButtonGroup.Root>
+  <InputGroup.Root>
+   <InputGroup.Input
+    placeholder={voiceEnabled ? "Record and send audio..." : "Send a message..."}
+    disabled={voiceEnabled}
+   />
+   <InputGroup.Addon align="inline-end">
+    <Tooltip.Root>
+     <Tooltip.Trigger>
+      {#snippet child({ props })}
+       <InputGroup.Button
+        {...props}
+        onclick={() => (voiceEnabled = !voiceEnabled)}
+        size="icon-xs"
+        data-active={voiceEnabled}
+        class="data-[active=true]:bg-orange-100 data-[active=true]:text-orange-700 dark:data-[active=true]:bg-orange-800 dark:data-[active=true]:text-orange-100"
+        aria-pressed={voiceEnabled}
+       >
+        <AudioLines />
+       </InputGroup.Button>
+      {/snippet}
+     </Tooltip.Trigger>
+     <Tooltip.Content>Voice Mode</Tooltip.Content>
+    </Tooltip.Root>
+   </InputGroup.Addon>
+  </InputGroup.Root>
+ </ButtonGroup.Root>
 </ButtonGroup.Root>
 ```
 
@@ -384,64 +367,64 @@ Create a split button group with a `DropdownMenu` component.
 
 ```svelte
 <script lang="ts">
-  import AlertTriangle from "@lucide/svelte/icons/alert-triangle";
-  import ChevronDown from "@lucide/svelte/icons/chevron-down";
-  import Share from "@lucide/svelte/icons/share";
-  import Trash from "@lucide/svelte/icons/trash";
-  import UserRoundX from "@lucide/svelte/icons/user-round-x";
-  import VolumeOff from "@lucide/svelte/icons/volume-off";
-  import CheckIcon from "@tabler/icons-svelte/icons/check";
-  import CopyIcon from "@tabler/icons-svelte/icons/copy";
-  import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
-  import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
+ import AlertTriangle from "@lucide/svelte/icons/alert-triangle";
+ import ChevronDown from "@lucide/svelte/icons/chevron-down";
+ import Share from "@lucide/svelte/icons/share";
+ import Trash from "@lucide/svelte/icons/trash";
+ import UserRoundX from "@lucide/svelte/icons/user-round-x";
+ import VolumeOff from "@lucide/svelte/icons/volume-off";
+ import CheckIcon from "@tabler/icons-svelte/icons/check";
+ import CopyIcon from "@tabler/icons-svelte/icons/copy";
+ import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
+ import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
+ import { Button } from "$lib/components/ui/button/index.js";
 </script>
 <ButtonGroup.Root>
-  <Button variant="outline">Follow</Button>
-  <DropdownMenu.Root>
-    <DropdownMenu.Trigger>
-      {#snippet child({ props })}
-        <Button {...props} variant="outline" class="pl-2!">
-          <ChevronDown />
-        </Button>
-      {/snippet}
-    </DropdownMenu.Trigger>
-    <DropdownMenu.Content align="end" class="w-auto">
-      <DropdownMenu.Group>
-        <DropdownMenu.Item>
-          <VolumeOff />
-          Mute Conversation
-        </DropdownMenu.Item>
-        <DropdownMenu.Item>
-          <CheckIcon />
-          Mark as Read
-        </DropdownMenu.Item>
-        <DropdownMenu.Item>
-          <AlertTriangle />
-          Report Conversation
-        </DropdownMenu.Item>
-        <DropdownMenu.Item>
-          <UserRoundX />
-          Block User
-        </DropdownMenu.Item>
-        <DropdownMenu.Item>
-          <Share />
-          Share Conversation
-        </DropdownMenu.Item>
-        <DropdownMenu.Item>
-          <CopyIcon />
-          Copy Conversation
-        </DropdownMenu.Item>
-      </DropdownMenu.Group>
-      <DropdownMenu.Separator />
-      <DropdownMenu.Group>
-        <DropdownMenu.Item variant="destructive">
-          <Trash />
-          Delete Conversation
-        </DropdownMenu.Item>
-      </DropdownMenu.Group>
-    </DropdownMenu.Content>
-  </DropdownMenu.Root>
+ <Button variant="outline">Follow</Button>
+ <DropdownMenu.Root>
+  <DropdownMenu.Trigger>
+   {#snippet child({ props })}
+    <Button {...props} variant="outline" class="pl-2!">
+     <ChevronDown />
+    </Button>
+   {/snippet}
+  </DropdownMenu.Trigger>
+  <DropdownMenu.Content align="end" class="w-auto">
+   <DropdownMenu.Group>
+    <DropdownMenu.Item>
+     <VolumeOff />
+     Mute Conversation
+    </DropdownMenu.Item>
+    <DropdownMenu.Item>
+     <CheckIcon />
+     Mark as Read
+    </DropdownMenu.Item>
+    <DropdownMenu.Item>
+     <AlertTriangle />
+     Report Conversation
+    </DropdownMenu.Item>
+    <DropdownMenu.Item>
+     <UserRoundX />
+     Block User
+    </DropdownMenu.Item>
+    <DropdownMenu.Item>
+     <Share />
+     Share Conversation
+    </DropdownMenu.Item>
+    <DropdownMenu.Item>
+     <CopyIcon />
+     Copy Conversation
+    </DropdownMenu.Item>
+   </DropdownMenu.Group>
+   <DropdownMenu.Separator />
+   <DropdownMenu.Group>
+    <DropdownMenu.Item variant="destructive">
+     <Trash />
+     Delete Conversation
+    </DropdownMenu.Item>
+   </DropdownMenu.Group>
+  </DropdownMenu.Content>
+ </DropdownMenu.Root>
 </ButtonGroup.Root>
 ```
 
@@ -453,51 +436,51 @@ Pair with a `Select` component.
 
 ```svelte
 <script lang="ts">
-  import ArrowRight from "@lucide/svelte/icons/arrow-right";
-  import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
-  import * as Select from "$lib/components/ui/select/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
-  import { Input } from "$lib/components/ui/input/index.js";
-  const CURRENCIES = [
-    {
-      value: "$",
-      label: "US Dollar"
-    },
-    {
-      value: "",
-      label: "Euro"
-    },
-    {
-      value: "",
-      label: "British Pound"
-    }
- ];
-  let currency = $state("$");
+ import ArrowRight from "@lucide/svelte/icons/arrow-right";
+ import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
+ import * as Select from "$lib/components/ui/select/index.js";
+ import { Button } from "$lib/components/ui/button/index.js";
+ import { Input } from "$lib/components/ui/input/index.js";
+ const CURRENCIES = [
+  {
+   value: "$",
+   label: "US Dollar",
+  },
+  {
+   value: "",
+   label: "Euro",
+  },
+  {
+   value: "",
+   label: "British Pound",
+  },
+];
+ let currency = $state("$");
 </script>
 <ButtonGroup.Root>
-  <ButtonGroup.Root>
-    <Select.Root type="single" bind:value={currency}>
-      <Select.Trigger class="font-mono">
-        {currency}
-      </Select.Trigger>
-      <Select.Content align="start">
-        <Select.Group>
-          {#each CURRENCIES as currencyOption (currencyOption.value)}
-            <Select.Item value={currencyOption.value}>
-              {currencyOption.value}
-              <span class="text-muted-foreground">{currencyOption.label}</span>
-            </Select.Item>
-          {/each}
-        </Select.Group>
-      </Select.Content>
-    </Select.Root>
-    <Input placeholder="10.00" pattern="[0-9]*" />
-  </ButtonGroup.Root>
-  <ButtonGroup.Root>
-    <Button aria-label="Send" size="icon" variant="outline">
-      <ArrowRight />
-    </Button>
-  </ButtonGroup.Root>
+ <ButtonGroup.Root>
+  <Select.Root type="single" bind:value={currency}>
+   <Select.Trigger class="font-mono">
+    {currency}
+   </Select.Trigger>
+   <Select.Content align="start">
+    <Select.Group>
+     {#each CURRENCIES as currencyOption (currencyOption.value)}
+      <Select.Item value={currencyOption.value}>
+       {currencyOption.value}
+       <span class="text-muted-foreground">{currencyOption.label}</span>
+      </Select.Item>
+     {/each}
+    </Select.Group>
+   </Select.Content>
+  </Select.Root>
+  <Input placeholder="10.00" pattern="[0-9]*" />
+ </ButtonGroup.Root>
+ <ButtonGroup.Root>
+  <Button aria-label="Send" size="icon" variant="outline">
+   <ArrowRight />
+  </Button>
+ </ButtonGroup.Root>
 </ButtonGroup.Root>
 ```
 
@@ -509,47 +492,38 @@ Use with a `Popover` component.
 
 ```svelte
 <script lang="ts">
-  import Bot from "@lucide/svelte/icons/bot";
-  import ChevronDown from "@lucide/svelte/icons/chevron-down";
-  import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
-  import * as Field from "$lib/components/ui/field/index.js";
-  import * as Popover from "$lib/components/ui/popover/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
-  import { Textarea } from "$lib/components/ui/textarea/index.js";
+ import Bot from "@lucide/svelte/icons/bot";
+ import ChevronDown from "@lucide/svelte/icons/chevron-down";
+ import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
+ import * as Field from "$lib/components/ui/field/index.js";
+ import * as Popover from "$lib/components/ui/popover/index.js";
+ import { Button } from "$lib/components/ui/button/index.js";
+ import { Textarea } from "$lib/components/ui/textarea/index.js";
 </script>
 <ButtonGroup.Root>
-  <Button variant="outline">
-    <Bot /> Copilot
-  </Button>
-  <Popover.Root>
-    <Popover.Trigger>
-      {#snippet child({ props })}
-        <Button
-          {...props}
-          variant="outline"
-          size="icon"
-          aria-label="Open Popover"
-        >
-          <ChevronDown />
-        </Button>
-      {/snippet}
-    </Popover.Trigger>
-    <Popover.Content align="end" class="rounded-xl text-sm">
-      <Popover.Header>
-        <Popover.Title>Start a new task with Copilot</Popover.Title>
-        <Popover.Description
-          >Describe your task in natural language.</Popover.Description
-        >
-      </Popover.Header>
-      <Field.Field>
-        <Field.Label for="task" class="sr-only">Task Description</Field.Label>
-        <Textarea id="task" placeholder="I need to..." class="resize-none" />
-        <Field.Description
-          >Copilot will open a pull request for review.</Field.Description
-        >
-      </Field.Field>
-    </Popover.Content>
-  </Popover.Root>
+ <Button variant="outline">
+  <Bot /> Copilot
+ </Button>
+ <Popover.Root>
+  <Popover.Trigger>
+   {#snippet child({ props })}
+    <Button {...props} variant="outline" size="icon" aria-label="Open Popover">
+     <ChevronDown />
+    </Button>
+   {/snippet}
+  </Popover.Trigger>
+  <Popover.Content align="end" class="rounded-xl text-sm">
+   <Popover.Header>
+    <Popover.Title>Start a new task with Copilot</Popover.Title>
+    <Popover.Description>Describe your task in natural language.</Popover.Description>
+   </Popover.Header>
+   <Field.Field>
+    <Field.Label for="task" class="sr-only">Task Description</Field.Label>
+    <Textarea id="task" placeholder="I need to..." class="resize-none" />
+    <Field.Description>Copilot will open a pull request for review.</Field.Description>
+   </Field.Field>
+  </Popover.Content>
+ </Popover.Root>
 </ButtonGroup.Root>
 ```
 

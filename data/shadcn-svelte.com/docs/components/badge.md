@@ -10,13 +10,13 @@ Displays a badge or a component that looks like a badge.
 
 ```svelte
 <script lang="ts">
-  import { Badge } from "$lib/components/ui/badge/index.js";
+ import { Badge } from "$lib/components/ui/badge/index.js";
 </script>
 <div class="flex w-full flex-wrap justify-center gap-2">
-  <Badge>Badge</Badge>
-  <Badge variant="secondary">Secondary</Badge>
-  <Badge variant="destructive">Destructive</Badge>
-  <Badge variant="outline">Outline</Badge>
+ <Badge>Badge</Badge>
+ <Badge variant="secondary">Secondary</Badge>
+ <Badge variant="destructive">Destructive</Badge>
+ <Badge variant="outline">Outline</Badge>
 </div>
 ```
 
@@ -54,14 +54,14 @@ Use the `variant` prop to change the variant of the badge.
 
 ```svelte
 <script lang="ts">
-  import { Badge } from "$lib/components/ui/badge/index.js";
+ import { Badge } from "$lib/components/ui/badge/index.js";
 </script>
 <div class="flex flex-wrap gap-2">
-  <Badge>Default</Badge>
-  <Badge variant="secondary">Secondary</Badge>
-  <Badge variant="destructive">Destructive</Badge>
-  <Badge variant="outline">Outline</Badge>
-  <Badge variant="ghost">Ghost</Badge>
+ <Badge>Default</Badge>
+ <Badge variant="secondary">Secondary</Badge>
+ <Badge variant="destructive">Destructive</Badge>
+ <Badge variant="outline">Outline</Badge>
+ <Badge variant="ghost">Ghost</Badge>
 </div>
 ```
 
@@ -73,19 +73,19 @@ You can render an icon inside the badge. Use `data-icon="inline-start"` to rende
 
 ```svelte
 <script lang="ts">
-  import BadgeCheckIcon from "@lucide/svelte/icons/badge-check";
-  import BookmarkIcon from "@lucide/svelte/icons/bookmark";
-  import { Badge } from "$lib/components/ui/badge/index.js";
+ import BadgeCheckIcon from "@lucide/svelte/icons/badge-check";
+ import BookmarkIcon from "@lucide/svelte/icons/bookmark";
+ import { Badge } from "$lib/components/ui/badge/index.js";
 </script>
 <div class="flex flex-wrap gap-2">
-  <Badge variant="secondary">
-    <BadgeCheckIcon data-icon="inline-start" />
-    Verified
-  </Badge>
-  <Badge variant="outline">
-    Bookmark
-    <BookmarkIcon data-icon="inline-end" />
-  </Badge>
+ <Badge variant="secondary">
+  <BadgeCheckIcon data-icon="inline-start" />
+  Verified
+ </Badge>
+ <Badge variant="outline">
+  Bookmark
+  <BookmarkIcon data-icon="inline-end" />
+ </Badge>
 </div>
 ```
 
@@ -97,18 +97,18 @@ You can render a spinner inside the badge. Remember to add the `data-icon="inlin
 
 ```svelte
 <script lang="ts">
-  import { Badge } from "$lib/components/ui/badge/index.js";
-  import { Spinner } from "$lib/components/ui/spinner/index.js";
+ import { Badge } from "$lib/components/ui/badge/index.js";
+ import { Spinner } from "$lib/components/ui/spinner/index.js";
 </script>
 <div class="flex flex-wrap gap-2">
-  <Badge variant="destructive">
-    <Spinner data-icon="inline-start" />
-    Deleting
-  </Badge>
-  <Badge variant="secondary">
-    Generating
-    <Spinner data-icon="inline-end" />
-  </Badge>
+ <Badge variant="destructive">
+  <Spinner data-icon="inline-start" />
+  Deleting
+ </Badge>
+ <Badge variant="secondary">
+  Generating
+  <Spinner data-icon="inline-end" />
+ </Badge>
 </div>
 ```
 
@@ -120,11 +120,11 @@ Use the `href` prop to render a link as a badge.
 
 ```svelte
 <script lang="ts">
-  import ArrowUpRightIcon from "@lucide/svelte/icons/arrow-up-right";
-  import { Badge } from "$lib/components/ui/badge/index.js";
+ import ArrowUpRightIcon from "@lucide/svelte/icons/arrow-up-right";
+ import { Badge } from "$lib/components/ui/badge/index.js";
 </script>
 <Badge href="badge.md#link">
-  Open Link <ArrowUpRightIcon data-icon="inline-end" />
+ Open Link <ArrowUpRightIcon data-icon="inline-end" />
 </Badge>
 ```
 
@@ -136,26 +136,14 @@ You can customize the colors of a badge by adding custom classes such as `bg-gre
 
 ```svelte
 <script lang="ts">
-  import { Badge } from "$lib/components/ui/badge/index.js";
+ import { Badge } from "$lib/components/ui/badge/index.js";
 </script>
 <div class="flex flex-wrap gap-2">
-  <Badge class="bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300"
-    >Blue</Badge
-  >
-  <Badge
-    class="bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300"
-    >Green</Badge
-  >
-  <Badge class="bg-sky-50 text-sky-700 dark:bg-sky-950 dark:text-sky-300"
-    >Sky</Badge
-  >
-  <Badge
-    class="bg-purple-50 text-purple-700 dark:bg-purple-950 dark:text-purple-300"
-    >Purple</Badge
-  >
-  <Badge class="bg-red-50 text-red-700 dark:bg-red-950 dark:text-red-300"
-    >Red</Badge
-  >
+ <Badge class="bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300">Blue</Badge>
+ <Badge class="bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300">Green</Badge>
+ <Badge class="bg-sky-50 text-sky-700 dark:bg-sky-950 dark:text-sky-300">Sky</Badge>
+ <Badge class="bg-purple-50 text-purple-700 dark:bg-purple-950 dark:text-purple-300">Purple</Badge>
+ <Badge class="bg-red-50 text-red-700 dark:bg-red-950 dark:text-red-300">Red</Badge>
 </div>
 ```
 

@@ -14,20 +14,11 @@ A calendar component that allows users to select a date or a range of dates.
 
 ```svelte
 <script lang="ts">
-  import {
-    getLocalTimeZone,
-    today,
-    type CalendarDate
-  } from "@internationalized/date";
-  import { Calendar } from "$lib/components/ui/calendar/index.js";
-  let value = $state<CalendarDate | undefined>(today(getLocalTimeZone()));
+ import { getLocalTimeZone, today, type CalendarDate } from "@internationalized/date";
+ import { Calendar } from "$lib/components/ui/calendar/index.js";
+ let value = $state<CalendarDate | undefined>(today(getLocalTimeZone()));
 </script>
-<Calendar
-  type="single"
-  bind:value
-  class="rounded-lg border"
-  captionLayout="dropdown"
-/>
+<Calendar type="single" bind:value class="rounded-lg border" captionLayout="dropdown" />
 ```
 
 View Code
@@ -76,7 +67,7 @@ A basic calendar component. We used `class="rounded-lg border"` to style the cal
 
 ```svelte
 <script lang="ts">
-  import { Calendar } from "$lib/components/ui/calendar/index.js";
+ import { Calendar } from "$lib/components/ui/calendar/index.js";
 </script>
 <Calendar type="single" class="rounded-lg border" />
 ```
@@ -89,29 +80,25 @@ Use the [`RangeCalendar`](range-calendar) component to enable range selection.
 
 ```svelte
 <script lang="ts">
-  import {
-    CalendarDate,
-    getLocalTimeZone,
-    today
-  } from "@internationalized/date";
-  import * as Card from "$lib/components/ui/card/index.js";
-  import { RangeCalendar } from "$lib/components/ui/range-calendar/index.js";
-  import type { DateRange } from "bits-ui";
-  const start = new CalendarDate(today(getLocalTimeZone()).year, 1, 12);
-  let value = $state<DateRange | undefined>({
-    start,
-    end: start.add({ days: 30 })
-  });
+ import { CalendarDate, getLocalTimeZone, today } from "@internationalized/date";
+ import * as Card from "$lib/components/ui/card/index.js";
+ import { RangeCalendar } from "$lib/components/ui/range-calendar/index.js";
+ import type { DateRange } from "bits-ui";
+ const start = new CalendarDate(today(getLocalTimeZone()).year, 1, 12);
+ let value = $state<DateRange | undefined>({
+  start,
+  end: start.add({ days: 30 }),
+ });
 </script>
 <Card.Root class="mx-auto w-fit p-0">
-  <Card.Content class="p-0">
-    <RangeCalendar
-      bind:value
-      numberOfMonths={2}
-      minValue={new CalendarDate(1900, 1, 1)}
-      maxValue={today(getLocalTimeZone())}
-    />
-  </Card.Content>
+ <Card.Content class="p-0">
+  <RangeCalendar
+   bind:value
+   numberOfMonths={2}
+   minValue={new CalendarDate(1900, 1, 1)}
+   maxValue={today(getLocalTimeZone())}
+  />
+ </Card.Content>
 </Card.Root>
 ```
 
@@ -123,7 +110,7 @@ Use `captionLayout="dropdown"` to show month and year dropdowns.
 
 ```svelte
 <script lang="ts">
-  import { Calendar } from "$lib/components/ui/calendar/index.js";
+ import { Calendar } from "$lib/components/ui/calendar/index.js";
 </script>
 <Calendar type="single" captionLayout="dropdown" class="rounded-lg border" />
 ```
@@ -134,52 +121,48 @@ View Code
 
 ```svelte
 <script lang="ts">
-  import {
-    CalendarDate,
-    getLocalTimeZone,
-    today
-  } from "@internationalized/date";
-  import * as Card from "$lib/components/ui/card/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
-  import { Calendar } from "$lib/components/ui/calendar/index.js";
-  const presets = [
-    { label: "Today", value: 0 },
-    { label: "Tomorrow", value: 1 },
-    { label: "In 3 days", value: 3 },
-    { label: "In a week", value: 7 },
-    { label: "In 2 weeks", value: 14 }
- ];
-  let value = $state<CalendarDate | undefined>(
-    new CalendarDate(today(getLocalTimeZone()).year, 2, 12)
-  );
-  let placeholder = $state<CalendarDate>(today(getLocalTimeZone()));
+ import { CalendarDate, getLocalTimeZone, today } from "@internationalized/date";
+ import * as Card from "$lib/components/ui/card/index.js";
+ import { Button } from "$lib/components/ui/button/index.js";
+ import { Calendar } from "$lib/components/ui/calendar/index.js";
+ const presets = [
+  { label: "Today", value: 0 },
+  { label: "Tomorrow", value: 1 },
+  { label: "In 3 days", value: 3 },
+  { label: "In a week", value: 7 },
+  { label: "In 2 weeks", value: 14 },
+];
+ let value = $state<CalendarDate | undefined>(
+  new CalendarDate(today(getLocalTimeZone()).year, 2, 12)
+ );
+ let placeholder = $state<CalendarDate>(today(getLocalTimeZone()));
 </script>
 <Card.Root class="mx-auto w-fit max-w-[300px]" size="sm">
-  <Card.Content>
-    <Calendar
-      type="single"
-      bind:value
-      bind:placeholder
-      fixedWeeks
-      class="p-0 [--cell-size:--spacing(9.5)]"
-    />
-  </Card.Content>
-  <Card.Footer class="flex flex-wrap gap-2 border-t">
-    {#each presets as preset (preset.value)}
-      <Button
-        variant="outline"
-        size="sm"
-        class="flex-1"
-        onclick={() => {
-          const newDate = today(getLocalTimeZone()).add({ days: preset.value });
-          value = newDate;
-          placeholder = newDate;
-        }}
-      >
-        {preset.label}
-      </Button>
-    {/each}
-  </Card.Footer>
+ <Card.Content>
+  <Calendar
+   type="single"
+   bind:value
+   bind:placeholder
+   fixedWeeks
+   class="p-0 [--cell-size:--spacing(9.5)]"
+  />
+ </Card.Content>
+ <Card.Footer class="flex flex-wrap gap-2 border-t">
+  {#each presets as preset (preset.value)}
+   <Button
+    variant="outline"
+    size="sm"
+    class="flex-1"
+    onclick={() => {
+     const newDate = today(getLocalTimeZone()).add({ days: preset.value });
+     value = newDate;
+     placeholder = newDate;
+    }}
+   >
+    {preset.label}
+   </Button>
+  {/each}
+ </Card.Footer>
 </Card.Root>
 ```
 
@@ -189,59 +172,53 @@ View Code
 
 ```svelte
 <script lang="ts">
-  import Clock2Icon from "@lucide/svelte/icons/clock-2";
-  import {
-    CalendarDate,
-    getLocalTimeZone,
-    today
-  } from "@internationalized/date";
-  import * as Card from "$lib/components/ui/card/index.js";
-  import * as Field from "$lib/components/ui/field/index.js";
-  import * as InputGroup from "$lib/components/ui/input-group/index.js";
-  import { Calendar } from "$lib/components/ui/calendar/index.js";
-  const now = today(getLocalTimeZone());
-  let value = $state<CalendarDate | undefined>(
-    new CalendarDate(now.year, now.month, 12)
-  );
+ import Clock2Icon from "@lucide/svelte/icons/clock-2";
+ import { CalendarDate, getLocalTimeZone, today } from "@internationalized/date";
+ import * as Card from "$lib/components/ui/card/index.js";
+ import * as Field from "$lib/components/ui/field/index.js";
+ import * as InputGroup from "$lib/components/ui/input-group/index.js";
+ import { Calendar } from "$lib/components/ui/calendar/index.js";
+ const now = today(getLocalTimeZone());
+ let value = $state<CalendarDate | undefined>(new CalendarDate(now.year, now.month, 12));
 </script>
 <Card.Root size="sm" class="mx-auto w-fit">
-  <Card.Content>
-    <Calendar type="single" bind:value class="p-0" />
-  </Card.Content>
-  <Card.Footer class="border-t bg-card">
-    <Field.Group>
-      <Field.Field>
-        <Field.Label for="time-from">Start Time</Field.Label>
-        <InputGroup.Root>
-          <InputGroup.Input
-            id="time-from"
-            type="time"
-            step="1"
-            value="10:30:00"
-            class="appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
-          />
-          <InputGroup.Addon>
-            <Clock2Icon class="text-muted-foreground" />
-          </InputGroup.Addon>
-        </InputGroup.Root>
-      </Field.Field>
-      <Field.Field>
-        <Field.Label for="time-to">End Time</Field.Label>
-        <InputGroup.Root>
-          <InputGroup.Input
-            id="time-to"
-            type="time"
-            step="1"
-            value="12:30:00"
-            class="appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
-          />
-          <InputGroup.Addon>
-            <Clock2Icon class="text-muted-foreground" />
-          </InputGroup.Addon>
-        </InputGroup.Root>
-      </Field.Field>
-    </Field.Group>
-  </Card.Footer>
+ <Card.Content>
+  <Calendar type="single" bind:value class="p-0" />
+ </Card.Content>
+ <Card.Footer class="border-t bg-card">
+  <Field.Group>
+   <Field.Field>
+    <Field.Label for="time-from">Start Time</Field.Label>
+    <InputGroup.Root>
+     <InputGroup.Input
+      id="time-from"
+      type="time"
+      step="1"
+      value="10:30:00"
+      class="appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
+     />
+     <InputGroup.Addon>
+      <Clock2Icon class="text-muted-foreground" />
+     </InputGroup.Addon>
+    </InputGroup.Root>
+   </Field.Field>
+   <Field.Field>
+    <Field.Label for="time-to">End Time</Field.Label>
+    <InputGroup.Root>
+     <InputGroup.Input
+      id="time-to"
+      type="time"
+      step="1"
+      value="12:30:00"
+      class="appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
+     />
+     <InputGroup.Addon>
+      <Clock2Icon class="text-muted-foreground" />
+     </InputGroup.Addon>
+    </InputGroup.Root>
+   </Field.Field>
+  </Field.Group>
+ </Card.Footer>
 </Card.Root>
 ```
 
@@ -251,28 +228,20 @@ View Code
 
 ```svelte
 <script lang="ts">
-  import {
-    CalendarDate,
-    getLocalTimeZone,
-    today,
-    type DateValue
-  } from "@internationalized/date";
-  import * as Card from "$lib/components/ui/card/index.js";
-  import { Calendar } from "$lib/components/ui/calendar/index.js";
-  const year = today(getLocalTimeZone()).year;
-  let value = $state<CalendarDate | undefined>(new CalendarDate(year, 2, 3));
-  const bookedDates = Array.from(
-    { length: 15 },
-    (_, i) => new CalendarDate(year, 2, 12 + i)
-  );
-  function isBooked(date: DateValue) {
-    return bookedDates.some((d) => d.compare(date) === 0);
-  }
+ import { CalendarDate, getLocalTimeZone, today, type DateValue } from "@internationalized/date";
+ import * as Card from "$lib/components/ui/card/index.js";
+ import { Calendar } from "$lib/components/ui/calendar/index.js";
+ const year = today(getLocalTimeZone()).year;
+ let value = $state<CalendarDate | undefined>(new CalendarDate(year, 2, 3));
+ const bookedDates = Array.from({ length: 15 }, (_, i) => new CalendarDate(year, 2, 12 + i));
+ function isBooked(date: DateValue) {
+  return bookedDates.some((d) => d.compare(date) === 0);
+ }
 </script>
 <Card.Root class="mx-auto w-fit p-0">
-  <Card.Content class="p-0">
-    <Calendar type="single" bind:value isDateUnavailable={isBooked} />
-  </Card.Content>
+ <Card.Content class="p-0">
+  <Calendar type="single" bind:value isDateUnavailable={isBooked} />
+ </Card.Content>
 </Card.Root>
 ```
 
@@ -282,40 +251,35 @@ View Code
 
 ```svelte
 <script lang="ts">
-  import {
-    CalendarDate,
-    getLocalTimeZone,
-    isWeekend,
-    today
-  } from "@internationalized/date";
-  import * as Card from "$lib/components/ui/card/index.js";
-  import RangeCalendarDay from "$lib/components/ui/range-calendar/range-calendar-day.svelte";
-  import { RangeCalendar } from "$lib/components/ui/range-calendar/index.js";
-  import type { DateRange } from "bits-ui";
-  const start = new CalendarDate(today(getLocalTimeZone()).year, 12, 8);
-  let value = $state<DateRange | undefined>({
-    start,
-    end: start.add({ days: 10 })
-  });
+ import { CalendarDate, getLocalTimeZone, isWeekend, today } from "@internationalized/date";
+ import * as Card from "$lib/components/ui/card/index.js";
+ import RangeCalendarDay from "$lib/components/ui/range-calendar/range-calendar-day.svelte";
+ import { RangeCalendar } from "$lib/components/ui/range-calendar/index.js";
+ import type { DateRange } from "bits-ui";
+ const start = new CalendarDate(today(getLocalTimeZone()).year, 12, 8);
+ let value = $state<DateRange | undefined>({
+  start,
+  end: start.add({ days: 10 }),
+ });
 </script>
 <Card.Root class="mx-auto w-fit p-0">
-  <Card.Content class="p-0">
-    <RangeCalendar
-      bind:value
-      captionLayout="dropdown"
-      monthFormat="long"
-      class="[--cell-size:--spacing(10)] md:[--cell-size:--spacing(12)]"
-    >
-      {#snippet day({ day, outsideMonth })}
-        <RangeCalendarDay>
-          {day.day}
-          {#if !outsideMonth}
-            <span>{isWeekend(day, "en-US") ? "$120" : "$100"}</span>
-          {/if}
-        </RangeCalendarDay>
-      {/snippet}
-    </RangeCalendar>
-  </Card.Content>
+ <Card.Content class="p-0">
+  <RangeCalendar
+   bind:value
+   captionLayout="dropdown"
+   monthFormat="long"
+   class="[--cell-size:--spacing(10)] md:[--cell-size:--spacing(12)]"
+  >
+   {#snippet day({ day, outsideMonth })}
+    <RangeCalendarDay>
+     {day.day}
+     {#if !outsideMonth}
+      <span>{isWeekend(day, "en-US") ? "$120" : "$100"}</span>
+     {/if}
+    </RangeCalendarDay>
+   {/snippet}
+  </RangeCalendar>
+ </Card.Content>
 </Card.Root>
 ```
 

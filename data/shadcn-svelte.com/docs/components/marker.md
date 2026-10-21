@@ -10,33 +10,33 @@ Displays an inline status, system note, bordered row, or labeled separator in a 
 
 ```svelte
 <script lang="ts">
-  import GitBranchIcon from "@lucide/svelte/icons/git-branch";
-  import SearchIcon from "@lucide/svelte/icons/search";
-  import * as Marker from "$lib/components/ui/marker/index.js";
-  import { Spinner } from "$lib/components/ui/spinner/index.js";
+ import GitBranchIcon from "@lucide/svelte/icons/git-branch";
+ import SearchIcon from "@lucide/svelte/icons/search";
+ import * as Marker from "$lib/components/ui/marker/index.js";
+ import { Spinner } from "$lib/components/ui/spinner/index.js";
 </script>
 <div class="flex w-full max-w-sm flex-col gap-8 py-12">
-  <Marker.Root>
-    <Marker.Icon>
-      <GitBranchIcon />
-    </Marker.Icon>
-    <Marker.Content>Switched to a new branch</Marker.Content>
-  </Marker.Root>
-  <Marker.Root role="status">
-    <Marker.Icon>
-      <Spinner />
-    </Marker.Icon>
-    <Marker.Content class="shimmer">Thinking...</Marker.Content>
-  </Marker.Root>
-  <Marker.Root variant="separator">
-    <Marker.Content>Conversation compacted</Marker.Content>
-  </Marker.Root>
-  <Marker.Root>
-    <Marker.Icon>
-      <SearchIcon />
-    </Marker.Icon>
-    <Marker.Content>Explored 4 files</Marker.Content>
-  </Marker.Root>
+ <Marker.Root>
+  <Marker.Icon>
+   <GitBranchIcon />
+  </Marker.Icon>
+  <Marker.Content>Switched to a new branch</Marker.Content>
+ </Marker.Root>
+ <Marker.Root role="status">
+  <Marker.Icon>
+   <Spinner />
+  </Marker.Icon>
+  <Marker.Content class="shimmer">Thinking...</Marker.Content>
+ </Marker.Root>
+ <Marker.Root variant="separator">
+  <Marker.Content>Conversation compacted</Marker.Content>
+ </Marker.Root>
+ <Marker.Root>
+  <Marker.Icon>
+   <SearchIcon />
+  </Marker.Icon>
+  <Marker.Content>Explored 4 files</Marker.Content>
+ </Marker.Root>
 </div>
 ```
 
@@ -100,18 +100,18 @@ Use `variant` to switch between an inline marker, bordered row, and labeled sepa
 
 ```svelte
 <script lang="ts">
-  import * as Marker from "$lib/components/ui/marker/index.js";
+ import * as Marker from "$lib/components/ui/marker/index.js";
 </script>
 <div class="flex w-full max-w-sm flex-col gap-8 py-12">
-  <Marker.Root>
-    <Marker.Content>A default marker for inline notes.</Marker.Content>
-  </Marker.Root>
-  <Marker.Root variant="separator">
-    <Marker.Content>A separator marker</Marker.Content>
-  </Marker.Root>
-  <Marker.Root variant="border">
-    <Marker.Content>A border marker for row boundaries.</Marker.Content>
-  </Marker.Root>
+ <Marker.Root>
+  <Marker.Content>A default marker for inline notes.</Marker.Content>
+ </Marker.Root>
+ <Marker.Root variant="separator">
+  <Marker.Content>A separator marker</Marker.Content>
+ </Marker.Root>
+ <Marker.Root variant="border">
+  <Marker.Content>A border marker for row boundaries.</Marker.Content>
+ </Marker.Root>
 </div>
 ```
 
@@ -129,22 +129,22 @@ Set `role="status"` and include a [`Spinner`](spinner) for streaming or in-progr
 
 ```svelte
 <script lang="ts">
-  import * as Marker from "$lib/components/ui/marker/index.js";
-  import { Spinner } from "$lib/components/ui/spinner/index.js";
+ import * as Marker from "$lib/components/ui/marker/index.js";
+ import { Spinner } from "$lib/components/ui/spinner/index.js";
 </script>
 <div class="flex w-full max-w-sm flex-col gap-8 py-12">
-  <Marker.Root role="status">
-    <Marker.Icon>
-      <Spinner />
-    </Marker.Icon>
-    <Marker.Content>Compacting conversation</Marker.Content>
-  </Marker.Root>
-  <Marker.Root variant="separator" role="status">
-    <Marker.Icon>
-      <Spinner />
-    </Marker.Icon>
-    <Marker.Content>Running tests</Marker.Content>
-  </Marker.Root>
+ <Marker.Root role="status">
+  <Marker.Icon>
+   <Spinner />
+  </Marker.Icon>
+  <Marker.Content>Compacting conversation</Marker.Content>
+ </Marker.Root>
+ <Marker.Root variant="separator" role="status">
+  <Marker.Icon>
+   <Spinner />
+  </Marker.Icon>
+  <Marker.Content>Running tests</Marker.Content>
+ </Marker.Root>
 </div>
 ```
 
@@ -156,15 +156,15 @@ Add the [`shimmer`](../utils/shimmer) utility class to `Marker.Content` for an a
 
 ```svelte
 <script lang="ts">
-  import * as Marker from "$lib/components/ui/marker/index.js";
+ import * as Marker from "$lib/components/ui/marker/index.js";
 </script>
 <div class="flex w-full max-w-sm flex-col gap-8 py-12">
-  <Marker.Root role="status">
-    <Marker.Content class="shimmer">Thinking...</Marker.Content>
-  </Marker.Root>
-  <Marker.Root variant="separator" role="status">
-    <Marker.Content class="shimmer">Reading 4 files</Marker.Content>
-  </Marker.Root>
+ <Marker.Root role="status">
+  <Marker.Content class="shimmer">Thinking...</Marker.Content>
+ </Marker.Root>
+ <Marker.Root variant="separator" role="status">
+  <Marker.Content class="shimmer">Reading 4 files</Marker.Content>
+ </Marker.Root>
 </div>
 ```
 
@@ -176,18 +176,18 @@ Use the `separator` variant for labeled dividers, such as dates or section break
 
 ```svelte
 <script lang="ts">
-  import * as Marker from "$lib/components/ui/marker/index.js";
+ import * as Marker from "$lib/components/ui/marker/index.js";
 </script>
 <div class="flex w-full max-w-sm flex-col gap-8 py-12">
-  <Marker.Root variant="separator">
-    <Marker.Content>Today</Marker.Content>
-  </Marker.Root>
-  <Marker.Root variant="separator">
-    <Marker.Content>Worked for 42s</Marker.Content>
-  </Marker.Root>
-  <Marker.Root variant="separator">
-    <Marker.Content>Conversation compacted</Marker.Content>
-  </Marker.Root>
+ <Marker.Root variant="separator">
+  <Marker.Content>Today</Marker.Content>
+ </Marker.Root>
+ <Marker.Root variant="separator">
+  <Marker.Content>Worked for 42s</Marker.Content>
+ </Marker.Root>
+ <Marker.Root variant="separator">
+  <Marker.Content>Conversation compacted</Marker.Content>
+ </Marker.Root>
 </div>
 ```
 
@@ -199,30 +199,30 @@ Use the `border` variant for status rows that should keep the default marker ali
 
 ```svelte
 <script lang="ts">
-  import FileTextIcon from "@lucide/svelte/icons/file-text";
-  import GitBranchIcon from "@lucide/svelte/icons/git-branch";
-  import SearchIcon from "@lucide/svelte/icons/search";
-  import * as Marker from "$lib/components/ui/marker/index.js";
+ import FileTextIcon from "@lucide/svelte/icons/file-text";
+ import GitBranchIcon from "@lucide/svelte/icons/git-branch";
+ import SearchIcon from "@lucide/svelte/icons/search";
+ import * as Marker from "$lib/components/ui/marker/index.js";
 </script>
 <div class="flex w-full max-w-sm flex-col gap-3 py-12">
-  <Marker.Root variant="border">
-    <Marker.Icon>
-      <GitBranchIcon />
-    </Marker.Icon>
-    <Marker.Content>Switched to release-candidate</Marker.Content>
-  </Marker.Root>
-  <Marker.Root variant="border">
-    <Marker.Icon>
-      <SearchIcon />
-    </Marker.Icon>
-    <Marker.Content>Reviewed 8 related files</Marker.Content>
-  </Marker.Root>
-  <Marker.Root variant="border">
-    <Marker.Icon>
-      <FileTextIcon />
-    </Marker.Icon>
-    <Marker.Content>Opened implementation notes</Marker.Content>
-  </Marker.Root>
+ <Marker.Root variant="border">
+  <Marker.Icon>
+   <GitBranchIcon />
+  </Marker.Icon>
+  <Marker.Content>Switched to release-candidate</Marker.Content>
+ </Marker.Root>
+ <Marker.Root variant="border">
+  <Marker.Icon>
+   <SearchIcon />
+  </Marker.Icon>
+  <Marker.Content>Reviewed 8 related files</Marker.Content>
+ </Marker.Root>
+ <Marker.Root variant="border">
+  <Marker.Icon>
+   <FileTextIcon />
+  </Marker.Icon>
+  <Marker.Content>Opened implementation notes</Marker.Content>
+ </Marker.Root>
 </div>
 ```
 
@@ -234,30 +234,30 @@ Use `Marker.Icon` to render an icon alongside the content. Use `flex-col` to sta
 
 ```svelte
 <script lang="ts">
-  import BookOpenCheckIcon from "@lucide/svelte/icons/book-open-check";
-  import GitBranchIcon from "@lucide/svelte/icons/git-branch";
-  import SearchIcon from "@lucide/svelte/icons/search";
-  import * as Marker from "$lib/components/ui/marker/index.js";
+ import BookOpenCheckIcon from "@lucide/svelte/icons/book-open-check";
+ import GitBranchIcon from "@lucide/svelte/icons/git-branch";
+ import SearchIcon from "@lucide/svelte/icons/search";
+ import * as Marker from "$lib/components/ui/marker/index.js";
 </script>
 <div class="flex w-full max-w-sm flex-col gap-12 py-12">
-  <Marker.Root>
-    <Marker.Icon>
-      <GitBranchIcon />
-    </Marker.Icon>
-    <Marker.Content>Switched to a new branch</Marker.Content>
-  </Marker.Root>
-  <Marker.Root variant="separator">
-    <Marker.Icon>
-      <SearchIcon />
-    </Marker.Icon>
-    <Marker.Content>Explored 4 files</Marker.Content>
-  </Marker.Root>
-  <Marker.Root class="flex-col">
-    <Marker.Icon>
-      <BookOpenCheckIcon />
-    </Marker.Icon>
-    <Marker.Content>Syncing completed</Marker.Content>
-  </Marker.Root>
+ <Marker.Root>
+  <Marker.Icon>
+   <GitBranchIcon />
+  </Marker.Icon>
+  <Marker.Content>Switched to a new branch</Marker.Content>
+ </Marker.Root>
+ <Marker.Root variant="separator">
+  <Marker.Icon>
+   <SearchIcon />
+  </Marker.Icon>
+  <Marker.Content>Explored 4 files</Marker.Content>
+ </Marker.Root>
+ <Marker.Root class="flex-col">
+  <Marker.Icon>
+   <BookOpenCheckIcon />
+  </Marker.Icon>
+  <Marker.Content>Syncing completed</Marker.Content>
+ </Marker.Root>
 </div>
 ```
 
@@ -269,36 +269,32 @@ Turn a marker into a link or button with the `child` snippet on `Marker.Root`.
 
 ```svelte
 <script lang="ts">
-  import GitBranchIcon from "@lucide/svelte/icons/git-branch";
-  import RotateCcwIcon from "@lucide/svelte/icons/rotate-ccw";
-  import { toast } from "svelte-sonner";
-  import * as Marker from "$lib/components/ui/marker/index.js";
+ import GitBranchIcon from "@lucide/svelte/icons/git-branch";
+ import RotateCcwIcon from "@lucide/svelte/icons/rotate-ccw";
+ import { toast } from "svelte-sonner";
+ import * as Marker from "$lib/components/ui/marker/index.js";
 </script>
 <div class="flex w-full max-w-sm flex-col gap-8 py-12">
-  <Marker.Root>
-    {#snippet child({ props })}
-      <a href="marker.md#links-and-buttons" {...props}>
-        <Marker.Icon>
-          <GitBranchIcon />
-        </Marker.Icon>
-        <Marker.Content>View the pull request</Marker.Content>
-      </a>
-    {/snippet}
-  </Marker.Root>
-  <Marker.Root class="transition-colors hover:text-foreground">
-    {#snippet child({ props })}
-      <button
-        {...props}
-        type="button"
-        onclick={() => toast("You clicked the revert button")}
-      >
-        <Marker.Icon>
-          <RotateCcwIcon />
-        </Marker.Icon>
-        <Marker.Content>Revert this change</Marker.Content>
-      </button>
-    {/snippet}
-  </Marker.Root>
+ <Marker.Root>
+  {#snippet child({ props })}
+   <a href="marker.md#links-and-buttons" {...props}>
+    <Marker.Icon>
+     <GitBranchIcon />
+    </Marker.Icon>
+    <Marker.Content>View the pull request</Marker.Content>
+   </a>
+  {/snippet}
+ </Marker.Root>
+ <Marker.Root class="transition-colors hover:text-foreground">
+  {#snippet child({ props })}
+   <button {...props} type="button" onclick={() => toast("You clicked the revert button")}>
+    <Marker.Icon>
+     <RotateCcwIcon />
+    </Marker.Icon>
+    <Marker.Content>Revert this change</Marker.Content>
+   </button>
+  {/snippet}
+ </Marker.Root>
 </div>
 ```
 

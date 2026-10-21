@@ -10,21 +10,21 @@ An indicator that can be used to show a loading state.
 
 ```svelte
 <script lang="ts">
-  import * as Item from "$lib/components/ui/item/index.js";
-  import { Spinner } from "$lib/components/ui/spinner/index.js";
+ import * as Item from "$lib/components/ui/item/index.js";
+ import { Spinner } from "$lib/components/ui/spinner/index.js";
 </script>
 <div class="flex w-full max-w-xs flex-col gap-4 [--radius:1rem]">
-  <Item.Root variant="muted">
-    <Item.Media>
-      <Spinner />
-    </Item.Media>
-    <Item.Content>
-      <Item.Title class="line-clamp-1">Processing payment...</Item.Title>
-    </Item.Content>
-    <Item.Content class="flex-none justify-end">
-      <span class="text-sm tabular-nums">$100.00</span>
-    </Item.Content>
-  </Item.Root>
+ <Item.Root variant="muted">
+  <Item.Media>
+   <Spinner />
+  </Item.Media>
+  <Item.Content>
+   <Item.Title class="line-clamp-1">Processing payment...</Item.Title>
+  </Item.Content>
+  <Item.Content class="flex-none justify-end">
+   <span class="text-sm tabular-nums">$100.00</span>
+  </Item.Content>
+ </Item.Root>
 </div>
 ```
 
@@ -62,10 +62,10 @@ You can replace the default spinner icon with any other icon by editing the `Spi
 
 ```svelte
 <script lang="ts">
-  import LoaderIcon from "@lucide/svelte/icons/loader";
+ import LoaderIcon from "@lucide/svelte/icons/loader";
 </script>
 <div class="flex items-center gap-4">
-  <LoaderIcon role="status" aria-label="Loading" class="size-4 animate-spin" />
+ <LoaderIcon role="status" aria-label="Loading" class="size-4 animate-spin" />
 </div>
 ```
 
@@ -95,13 +95,13 @@ Use the `size-*` utility class to change the size of the spinner.
 
 ```svelte
 <script lang="ts">
-  import { Spinner } from "$lib/components/ui/spinner/index.js";
+ import { Spinner } from "$lib/components/ui/spinner/index.js";
 </script>
 <div class="flex items-center gap-6">
-  <Spinner class="size-3" />
-  <Spinner class="size-4" />
-  <Spinner class="size-6" />
-  <Spinner class="size-8" />
+ <Spinner class="size-3" />
+ <Spinner class="size-4" />
+ <Spinner class="size-6" />
+ <Spinner class="size-8" />
 </div>
 ```
 
@@ -113,22 +113,22 @@ Add a spinner to a button to indicate a loading state. Place the `<Spinner />` b
 
 ```svelte
 <script lang="ts">
-  import { Button } from "$lib/components/ui/button/index.js";
-  import { Spinner } from "$lib/components/ui/spinner/index.js";
+ import { Button } from "$lib/components/ui/button/index.js";
+ import { Spinner } from "$lib/components/ui/spinner/index.js";
 </script>
 <div class="flex flex-col items-center gap-4">
-  <Button disabled size="sm">
-    <Spinner data-icon="inline-start" />
-    Loading...
-  </Button>
-  <Button variant="outline" disabled size="sm">
-    <Spinner data-icon="inline-start" />
-    Please wait
-  </Button>
-  <Button variant="secondary" disabled size="sm">
-    <Spinner data-icon="inline-start" />
-    Processing
-  </Button>
+ <Button disabled size="sm">
+  <Spinner data-icon="inline-start" />
+  Loading...
+ </Button>
+ <Button variant="outline" disabled size="sm">
+  <Spinner data-icon="inline-start" />
+  Please wait
+ </Button>
+ <Button variant="secondary" disabled size="sm">
+  <Spinner data-icon="inline-start" />
+  Processing
+ </Button>
 </div>
 ```
 
@@ -140,22 +140,22 @@ Add a spinner to a badge to indicate a loading state. Place the `<Spinner />` be
 
 ```svelte
 <script lang="ts">
-  import { Badge } from "$lib/components/ui/badge/index.js";
-  import { Spinner } from "$lib/components/ui/spinner/index.js";
+ import { Badge } from "$lib/components/ui/badge/index.js";
+ import { Spinner } from "$lib/components/ui/spinner/index.js";
 </script>
 <div class="flex items-center gap-4 [--radius:1.2rem]">
-  <Badge>
-    <Spinner data-icon="inline-start" />
-    Syncing
-  </Badge>
-  <Badge variant="secondary">
-    <Spinner data-icon="inline-start" />
-    Updating
-  </Badge>
-  <Badge variant="outline">
-    <Spinner data-icon="inline-start" />
-    Processing
-  </Badge>
+ <Badge>
+  <Spinner data-icon="inline-start" />
+  Syncing
+ </Badge>
+ <Badge variant="secondary">
+  <Spinner data-icon="inline-start" />
+  Updating
+ </Badge>
+ <Badge variant="outline">
+  <Spinner data-icon="inline-start" />
+  Processing
+ </Badge>
 </div>
 ```
 
@@ -165,27 +165,27 @@ View Code
 
 ```svelte
 <script lang="ts">
-  import ArrowUpIcon from "@lucide/svelte/icons/arrow-up";
-  import * as InputGroup from "$lib/components/ui/input-group/index.js";
-  import { Spinner } from "$lib/components/ui/spinner/index.js";
+ import ArrowUpIcon from "@lucide/svelte/icons/arrow-up";
+ import * as InputGroup from "$lib/components/ui/input-group/index.js";
+ import { Spinner } from "$lib/components/ui/spinner/index.js";
 </script>
 <div class="flex w-full max-w-md flex-col gap-4">
-  <InputGroup.Root>
-    <InputGroup.Input placeholder="Send a message..." disabled />
-    <InputGroup.Addon align="inline-end">
-      <Spinner />
-    </InputGroup.Addon>
-  </InputGroup.Root>
-  <InputGroup.Root>
-    <InputGroup.Textarea placeholder="Send a message..." disabled />
-    <InputGroup.Addon align="block-end">
-      <Spinner /> Validating...
-      <InputGroup.Button class="ms-auto" variant="default">
-        <ArrowUpIcon />
-        <span class="sr-only">Send</span>
-      </InputGroup.Button>
-    </InputGroup.Addon>
-  </InputGroup.Root>
+ <InputGroup.Root>
+  <InputGroup.Input placeholder="Send a message..." disabled />
+  <InputGroup.Addon align="inline-end">
+   <Spinner />
+  </InputGroup.Addon>
+ </InputGroup.Root>
+ <InputGroup.Root>
+  <InputGroup.Textarea placeholder="Send a message..." disabled />
+  <InputGroup.Addon align="block-end">
+   <Spinner /> Validating...
+   <InputGroup.Button class="ms-auto" variant="default">
+    <ArrowUpIcon />
+    <span class="sr-only">Send</span>
+   </InputGroup.Button>
+  </InputGroup.Addon>
+ </InputGroup.Root>
 </div>
 ```
 
@@ -195,23 +195,23 @@ View Code
 
 ```svelte
 <script lang="ts">
-  import * as Empty from "$lib/components/ui/empty/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
-  import { Spinner } from "$lib/components/ui/spinner/index.js";
+ import * as Empty from "$lib/components/ui/empty/index.js";
+ import { Button } from "$lib/components/ui/button/index.js";
+ import { Spinner } from "$lib/components/ui/spinner/index.js";
 </script>
 <Empty.Root class="w-full">
-  <Empty.Header>
-    <Empty.Media variant="icon">
-      <Spinner />
-    </Empty.Media>
-    <Empty.Title>Processing your request</Empty.Title>
-    <Empty.Description>
-      Please wait while we process your request. Do not refresh the page.
-    </Empty.Description>
-  </Empty.Header>
-  <Empty.Content>
-    <Button variant="outline" size="sm">Cancel</Button>
-  </Empty.Content>
+ <Empty.Header>
+  <Empty.Media variant="icon">
+   <Spinner />
+  </Empty.Media>
+  <Empty.Title>Processing your request</Empty.Title>
+  <Empty.Description>
+   Please wait while we process your request. Do not refresh the page.
+  </Empty.Description>
+ </Empty.Header>
+ <Empty.Content>
+  <Button variant="outline" size="sm">Cancel</Button>
+ </Empty.Content>
 </Empty.Root>
 ```
 

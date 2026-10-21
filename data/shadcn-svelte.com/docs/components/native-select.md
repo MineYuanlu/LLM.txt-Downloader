@@ -14,14 +14,14 @@ View Code
 
 ```svelte
 <script lang="ts">
-  import * as NativeSelect from "$lib/components/ui/native-select/index.js";
+ import * as NativeSelect from "$lib/components/ui/native-select/index.js";
 </script>
 <NativeSelect.Root>
-  <NativeSelect.Option value="">Select status</NativeSelect.Option>
-  <NativeSelect.Option value="todo">Todo</NativeSelect.Option>
-  <NativeSelect.Option value="in-progress">In Progress</NativeSelect.Option>
-  <NativeSelect.Option value="done">Done</NativeSelect.Option>
-  <NativeSelect.Option value="cancelled">Cancelled</NativeSelect.Option>
+ <NativeSelect.Option value="">Select status</NativeSelect.Option>
+ <NativeSelect.Option value="todo">Todo</NativeSelect.Option>
+ <NativeSelect.Option value="in-progress">In Progress</NativeSelect.Option>
+ <NativeSelect.Option value="done">Done</NativeSelect.Option>
+ <NativeSelect.Option value="cancelled">Cancelled</NativeSelect.Option>
 </NativeSelect.Root>
 ```
 
@@ -64,33 +64,25 @@ Use `NativeSelect.OptGroup` to organize options into categories.
 
 ```svelte
 <script lang="ts">
-  import * as NativeSelect from "$lib/components/ui/native-select/index.js";
+ import * as NativeSelect from "$lib/components/ui/native-select/index.js";
 </script>
 <NativeSelect.Root>
-  <NativeSelect.Option value="">Select department</NativeSelect.Option>
-  <NativeSelect.OptGroup label="Engineering">
-    <NativeSelect.Option value="frontend">Frontend</NativeSelect.Option>
-    <NativeSelect.Option value="backend">Backend</NativeSelect.Option>
-    <NativeSelect.Option value="devops">DevOps</NativeSelect.Option>
-  </NativeSelect.OptGroup>
-  <NativeSelect.OptGroup label="Sales">
-    <NativeSelect.Option value="sales-rep">Sales Rep</NativeSelect.Option>
-    <NativeSelect.Option value="account-manager"
-      >Account Manager</NativeSelect.Option
-    >
-    <NativeSelect.Option value="sales-director"
-      >Sales Director</NativeSelect.Option
-    >
-  </NativeSelect.OptGroup>
-  <NativeSelect.OptGroup label="Operations">
-    <NativeSelect.Option value="support">Customer Support</NativeSelect.Option>
-    <NativeSelect.Option value="product-manager"
-      >Product Manager</NativeSelect.Option
-    >
-    <NativeSelect.Option value="ops-manager"
-      >Operations Manager</NativeSelect.Option
-    >
-  </NativeSelect.OptGroup>
+ <NativeSelect.Option value="">Select department</NativeSelect.Option>
+ <NativeSelect.OptGroup label="Engineering">
+  <NativeSelect.Option value="frontend">Frontend</NativeSelect.Option>
+  <NativeSelect.Option value="backend">Backend</NativeSelect.Option>
+  <NativeSelect.Option value="devops">DevOps</NativeSelect.Option>
+ </NativeSelect.OptGroup>
+ <NativeSelect.OptGroup label="Sales">
+  <NativeSelect.Option value="sales-rep">Sales Rep</NativeSelect.Option>
+  <NativeSelect.Option value="account-manager">Account Manager</NativeSelect.Option>
+  <NativeSelect.Option value="sales-director">Sales Director</NativeSelect.Option>
+ </NativeSelect.OptGroup>
+ <NativeSelect.OptGroup label="Operations">
+  <NativeSelect.Option value="support">Customer Support</NativeSelect.Option>
+  <NativeSelect.Option value="product-manager">Product Manager</NativeSelect.Option>
+  <NativeSelect.Option value="ops-manager">Operations Manager</NativeSelect.Option>
+ </NativeSelect.OptGroup>
 </NativeSelect.Root>
 ```
 
@@ -102,13 +94,13 @@ Add the `disabled` prop to the `NativeSelect.Root` component to disable the sele
 
 ```svelte
 <script lang="ts">
-  import * as NativeSelect from "$lib/components/ui/native-select/index.js";
+ import * as NativeSelect from "$lib/components/ui/native-select/index.js";
 </script>
 <NativeSelect.Root disabled>
-  <NativeSelect.Option value="">Disabled</NativeSelect.Option>
-  <NativeSelect.Option value="apple">Apple</NativeSelect.Option>
-  <NativeSelect.Option value="banana">Banana</NativeSelect.Option>
-  <NativeSelect.Option value="blueberry">Blueberry</NativeSelect.Option>
+ <NativeSelect.Option value="">Disabled</NativeSelect.Option>
+ <NativeSelect.Option value="apple">Apple</NativeSelect.Option>
+ <NativeSelect.Option value="banana">Banana</NativeSelect.Option>
+ <NativeSelect.Option value="blueberry">Blueberry</NativeSelect.Option>
 </NativeSelect.Root>
 ```
 
@@ -120,13 +112,13 @@ Use `aria-invalid` to show validation errors and the `data-invalid` attribute to
 
 ```svelte
 <script lang="ts">
-  import * as NativeSelect from "$lib/components/ui/native-select/index.js";
+ import * as NativeSelect from "$lib/components/ui/native-select/index.js";
 </script>
 <NativeSelect.Root aria-invalid="true">
-  <NativeSelect.Option value="">Error state</NativeSelect.Option>
-  <NativeSelect.Option value="apple">Apple</NativeSelect.Option>
-  <NativeSelect.Option value="banana">Banana</NativeSelect.Option>
-  <NativeSelect.Option value="blueberry">Blueberry</NativeSelect.Option>
+ <NativeSelect.Option value="">Error state</NativeSelect.Option>
+ <NativeSelect.Option value="apple">Apple</NativeSelect.Option>
+ <NativeSelect.Option value="banana">Banana</NativeSelect.Option>
+ <NativeSelect.Option value="blueberry">Blueberry</NativeSelect.Option>
 </NativeSelect.Root>
 ```
 

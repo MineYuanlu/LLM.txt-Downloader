@@ -10,18 +10,18 @@ Utilities for adding a fade effect to the edges of a scroll container.
 
 ```svelte
 <script lang="ts">
-  const items = Array.from({ length: 12 }, (_, index) => index + 1);
+ const items = Array.from({ length: 12 }, (_, index) => index + 1);
 </script>
 <div class="mx-auto w-full max-w-xs overflow-hidden rounded-2xl border">
-  <div class="no-scrollbar h-72 scroll-fade overflow-y-auto">
-    <div class="flex flex-col gap-1.5 p-1.5">
-      {#each items as item (item)}
-        <div class="rounded-lg bg-muted px-3 py-2.5 text-sm">
-          Item {item}
-        </div>
-      {/each}
+ <div class="no-scrollbar h-72 scroll-fade overflow-y-auto">
+  <div class="flex flex-col gap-1.5 p-1.5">
+   {#each items as item (item)}
+    <div class="rounded-lg bg-muted px-3 py-2.5 text-sm">
+     Item {item}
     </div>
+   {/each}
   </div>
+ </div>
 </div>
 ```
 
@@ -83,18 +83,18 @@ If the content does not overflow, no fade is shown. You can apply `scroll-fade` 
 
 ```svelte
 <script lang="ts">
-  const items = Array.from({ length: 3 }, (_, index) => index + 1);
+ const items = Array.from({ length: 3 }, (_, index) => index + 1);
 </script>
 <div class="mx-auto w-full max-w-xs overflow-hidden rounded-2xl border">
-  <div class="no-scrollbar scroll-fade overflow-y-auto">
-    <div class="flex flex-col gap-1.5 p-1.5">
-      {#each items as item (item)}
-        <div class="rounded-lg bg-muted px-3 py-2.5 text-sm">
-          Item {item}
-        </div>
-      {/each}
+ <div class="no-scrollbar scroll-fade overflow-y-auto">
+  <div class="flex flex-col gap-1.5 p-1.5">
+   {#each items as item (item)}
+    <div class="rounded-lg bg-muted px-3 py-2.5 text-sm">
+     Item {item}
     </div>
+   {/each}
   </div>
+ </div>
 </div>
 ```
 
@@ -106,31 +106,31 @@ Use `scroll-fade-x` on containers that scroll horizontally, i.e. the element tha
 
 ```svelte
 <script lang="ts">
-  const tags = [
-    "Design",
-    "Engineering",
-    "Marketing",
-    "Product",
-    "Research",
-    "Sales",
-    "Support",
-    "Operations",
-    "Finance",
-    "Legal",
-    "People",
-    "Security"
- ];
+ const tags = [
+  "Design",
+  "Engineering",
+  "Marketing",
+  "Product",
+  "Research",
+  "Sales",
+  "Support",
+  "Operations",
+  "Finance",
+  "Legal",
+  "People",
+  "Security",
+];
 </script>
 <div class="mx-auto w-full max-w-xs overflow-hidden rounded-2xl border">
-  <div class="no-scrollbar scroll-fade-x overflow-x-auto">
-    <div class="flex w-max gap-1.5 p-1.5">
-      {#each tags as tag (tag)}
-        <div class="shrink-0 rounded-lg bg-muted px-3 py-2.5 text-sm">
-          {tag}
-        </div>
-      {/each}
+ <div class="no-scrollbar scroll-fade-x overflow-x-auto">
+  <div class="flex w-max gap-1.5 p-1.5">
+   {#each tags as tag (tag)}
+    <div class="shrink-0 rounded-lg bg-muted px-3 py-2.5 text-sm">
+     {tag}
     </div>
+   {/each}
   </div>
+ </div>
 </div>
 ```
 
@@ -148,84 +148,76 @@ Use edge utilities when only one edge should track the scroll position.
 
 ```svelte
 <script lang="ts">
-  const items = [
-    "Inbox triage",
-    "Design review",
-    "API contract",
-    "QA pass",
-    "Launch notes",
-    "Metrics follow-up"
- ];
-  const tags = [
-    "Design",
-    "Engineering",
-    "Marketing",
-    "Product",
-    "Research",
-    "Sales",
-    "Support",
-    "Operations"
- ];
+ const items = [
+  "Inbox triage",
+  "Design review",
+  "API contract",
+  "QA pass",
+  "Launch notes",
+  "Metrics follow-up",
+];
+ const tags = [
+  "Design",
+  "Engineering",
+  "Marketing",
+  "Product",
+  "Research",
+  "Sales",
+  "Support",
+  "Operations",
+];
 </script>
 {#snippet edgeItems()}
-  <div class="flex flex-col gap-1.5 p-1.5">
-    {#each items as item (item)}
-      <div class="rounded-lg bg-muted px-3 py-2.5 text-sm">
-        {item}
-      </div>
-    {/each}
-  </div>
+ <div class="flex flex-col gap-1.5 p-1.5">
+  {#each items as item (item)}
+   <div class="rounded-lg bg-muted px-3 py-2.5 text-sm">
+    {item}
+   </div>
+  {/each}
+ </div>
 {/snippet}
 {#snippet edgeTags()}
-  <div class="flex w-max gap-1.5 p-1.5">
-    {#each tags as tag (tag)}
-      <div class="shrink-0 rounded-lg bg-muted px-3 py-2.5 text-sm">
-        {tag}
-      </div>
-    {/each}
-  </div>
+ <div class="flex w-max gap-1.5 p-1.5">
+  {#each tags as tag (tag)}
+   <div class="shrink-0 rounded-lg bg-muted px-3 py-2.5 text-sm">
+    {tag}
+   </div>
+  {/each}
+ </div>
 {/snippet}
 <div class="mx-auto flex max-w-xs min-w-0 flex-col gap-6">
-  <div class="flex flex-col gap-3">
-    <div class="overflow-hidden rounded-2xl border">
-      <div class="no-scrollbar h-36 scroll-fade-t overflow-y-auto">
-        {@render edgeItems()}
-      </div>
-    </div>
-    <p class="text-center font-mono text-xs text-muted-foreground">
-      scroll-fade-t
-    </p>
+ <div class="flex flex-col gap-3">
+  <div class="overflow-hidden rounded-2xl border">
+   <div class="no-scrollbar h-36 scroll-fade-t overflow-y-auto">
+    {@render edgeItems()}
+   </div>
   </div>
-  <div class="flex flex-col gap-3">
-    <div class="overflow-hidden rounded-2xl border">
-      <div class="no-scrollbar h-36 scroll-fade-b overflow-y-auto">
-        {@render edgeItems()}
-      </div>
-    </div>
-    <p class="text-center font-mono text-xs text-muted-foreground">
-      scroll-fade-b
-    </p>
+  <p class="text-center font-mono text-xs text-muted-foreground">scroll-fade-t</p>
+ </div>
+ <div class="flex flex-col gap-3">
+  <div class="overflow-hidden rounded-2xl border">
+   <div class="no-scrollbar h-36 scroll-fade-b overflow-y-auto">
+    {@render edgeItems()}
+   </div>
   </div>
-  <div class="flex flex-col gap-3">
-    <div class="overflow-hidden rounded-2xl border">
-      <div class="no-scrollbar scroll-fade-s overflow-x-auto">
-        {@render edgeTags()}
-      </div>
-    </div>
-    <p class="text-center font-mono text-xs text-muted-foreground">
-      scroll-fade-s
-    </p>
+  <p class="text-center font-mono text-xs text-muted-foreground">scroll-fade-b</p>
+ </div>
+ <div class="flex flex-col gap-3">
+  <div class="overflow-hidden rounded-2xl border">
+   <div class="no-scrollbar scroll-fade-s overflow-x-auto">
+    {@render edgeTags()}
+   </div>
   </div>
-  <div class="flex flex-col gap-3">
-    <div class="overflow-hidden rounded-2xl border">
-      <div class="no-scrollbar scroll-fade-e overflow-x-auto">
-        {@render edgeTags()}
-      </div>
-    </div>
-    <p class="text-center font-mono text-xs text-muted-foreground">
-      scroll-fade-e
-    </p>
+  <p class="text-center font-mono text-xs text-muted-foreground">scroll-fade-s</p>
+ </div>
+ <div class="flex flex-col gap-3">
+  <div class="overflow-hidden rounded-2xl border">
+   <div class="no-scrollbar scroll-fade-e overflow-x-auto">
+    {@render edgeTags()}
+   </div>
   </div>
+  <p class="text-center font-mono text-xs text-muted-foreground">scroll-fade-e</p>
+ </div>
 </div>
 ```
 
@@ -243,38 +235,34 @@ The fade depth defaults to `12%` of the container, capped at `40px` so tall scro
 
 ```svelte
 <script lang="ts">
-  const items = Array.from({ length: 8 }, (_, index) => index + 1);
+ const items = Array.from({ length: 8 }, (_, index) => index + 1);
 </script>
 {#snippet sizeItems()}
-  <div class="flex flex-col gap-1.5 p-1.5">
-    {#each items as item (item)}
-      <div class="rounded-lg bg-muted px-3 py-2.5 text-sm">
-        Item {item}
-      </div>
-    {/each}
-  </div>
+ <div class="flex flex-col gap-1.5 p-1.5">
+  {#each items as item (item)}
+   <div class="rounded-lg bg-muted px-3 py-2.5 text-sm">
+    Item {item}
+   </div>
+  {/each}
+ </div>
 {/snippet}
 <div class="mx-auto flex w-full max-w-xs flex-col gap-6">
-  <div class="flex flex-col gap-3">
-    <div class="overflow-hidden rounded-2xl border">
-      <div class="no-scrollbar h-48 scroll-fade overflow-y-auto scroll-fade-4">
-        {@render sizeItems()}
-      </div>
-    </div>
-    <p class="text-center font-mono text-xs text-muted-foreground">
-      scroll-fade-4
-    </p>
+ <div class="flex flex-col gap-3">
+  <div class="overflow-hidden rounded-2xl border">
+   <div class="no-scrollbar h-48 scroll-fade overflow-y-auto scroll-fade-4">
+    {@render sizeItems()}
+   </div>
   </div>
-  <div class="flex flex-col gap-3">
-    <div class="overflow-hidden rounded-2xl border">
-      <div class="no-scrollbar h-48 scroll-fade overflow-y-auto scroll-fade-24">
-        {@render sizeItems()}
-      </div>
-    </div>
-    <p class="text-center font-mono text-xs text-muted-foreground">
-      scroll-fade-24
-    </p>
+  <p class="text-center font-mono text-xs text-muted-foreground">scroll-fade-4</p>
+ </div>
+ <div class="flex flex-col gap-3">
+  <div class="overflow-hidden rounded-2xl border">
+   <div class="no-scrollbar h-48 scroll-fade overflow-y-auto scroll-fade-24">
+    {@render sizeItems()}
+   </div>
   </div>
+  <p class="text-center font-mono text-xs text-muted-foreground">scroll-fade-24</p>
+ </div>
 </div>
 ```
 
@@ -317,40 +305,34 @@ Use `scroll-fade-none` to remove the fade. It works in any class order, so the t
 
 ```svelte
 <script lang="ts">
-  const items = Array.from({ length: 8 }, (_, index) => index + 1);
+ const items = Array.from({ length: 8 }, (_, index) => index + 1);
 </script>
 {#snippet noneItems()}
-  <div class="flex flex-col gap-1.5 p-1.5">
-    {#each items as item (item)}
-      <div class="rounded-lg bg-muted px-3 py-2.5 text-sm">
-        Item {item}
-      </div>
-    {/each}
-  </div>
+ <div class="flex flex-col gap-1.5 p-1.5">
+  {#each items as item (item)}
+   <div class="rounded-lg bg-muted px-3 py-2.5 text-sm">
+    Item {item}
+   </div>
+  {/each}
+ </div>
 {/snippet}
 <div class="mx-auto flex max-w-xs min-w-0 flex-col gap-6">
-  <div class="flex flex-col gap-3">
-    <div class="overflow-hidden rounded-2xl border">
-      <div class="no-scrollbar h-48 scroll-fade overflow-y-auto">
-        {@render noneItems()}
-      </div>
-    </div>
-    <p class="text-center font-mono text-xs text-muted-foreground">
-      scroll-fade
-    </p>
+ <div class="flex flex-col gap-3">
+  <div class="overflow-hidden rounded-2xl border">
+   <div class="no-scrollbar h-48 scroll-fade overflow-y-auto">
+    {@render noneItems()}
+   </div>
   </div>
-  <div class="flex flex-col gap-3">
-    <div class="overflow-hidden rounded-2xl border">
-      <div
-        class="no-scrollbar h-48 scroll-fade overflow-y-auto scroll-fade-none"
-      >
-        {@render noneItems()}
-      </div>
-    </div>
-    <p class="text-center font-mono text-xs text-muted-foreground">
-      scroll-fade scroll-fade-none
-    </p>
+  <p class="text-center font-mono text-xs text-muted-foreground">scroll-fade</p>
+ </div>
+ <div class="flex flex-col gap-3">
+  <div class="overflow-hidden rounded-2xl border">
+   <div class="no-scrollbar h-48 scroll-fade overflow-y-auto scroll-fade-none">
+    {@render noneItems()}
+   </div>
   </div>
+  <p class="text-center font-mono text-xs text-muted-foreground">scroll-fade scroll-fade-none</p>
+ </div>
 </div>
 ```
 
@@ -366,32 +348,29 @@ Since the mask is applied to the scroll container itself, a visible scrollbar fa
 
 ```svelte
 <script lang="ts">
-  const tags = [
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    ""
- ];
+ const tags = [
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];
 </script>
-<div
-  class="mx-auto w-full max-w-xs overflow-hidden rounded-2xl border"
-  dir="rtl"
->
-  <div class="no-scrollbar scroll-fade-x overflow-x-auto">
-    <div class="flex w-max gap-1.5 p-1.5">
-      {#each tags as tag (tag)}
-        <div class="shrink-0 rounded-lg bg-muted px-3 py-2.5 text-sm">
-          {tag}
-        </div>
-      {/each}
+<div class="mx-auto w-full max-w-xs overflow-hidden rounded-2xl border" dir="rtl">
+ <div class="no-scrollbar scroll-fade-x overflow-x-auto">
+  <div class="flex w-max gap-1.5 p-1.5">
+   {#each tags as tag (tag)}
+    <div class="shrink-0 rounded-lg bg-muted px-3 py-2.5 text-sm">
+     {tag}
     </div>
+   {/each}
   </div>
+ </div>
 </div>
 ```
 
