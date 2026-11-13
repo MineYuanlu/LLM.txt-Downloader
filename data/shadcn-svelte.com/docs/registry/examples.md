@@ -176,7 +176,7 @@ login-01.json
       "path": "blocks/login-01/page.svelte",
       "content": "import { LoginForm } ...",
       "type": "registry:page",
-      "target": "src/routes/login/+page.svelte"
+      "target": "login/+page.svelte"
     },
     {
       "path": "blocks/login-01/components/login-form.svelte",

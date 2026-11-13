@@ -807,7 +807,20 @@ export const columns = columnHelper.columns([
   }),]);
 ```
 
-This will automatically sort the table (asc and desc) when the user toggles on the header cell. The table owns the sorting state  no wiring required.
+This will automatically sort the table when the user toggles on the header cell. By default each click cycles through the two sort directions and then back to the unsorted state.
+
+If you would rather keep a column sorted once the user has sorted it, so that it only switches between ascending and descending, set `enableSortingRemoval` to `false` in `createTable`:
+
+routes/payments/data-table.svelte
+
+```ts
+const table = createTable({
+  features,
+  columns,
+  // ...
+  enableSortingRemoval: false,
+});
+```
 
 ## [Filtering](data-table.md#filtering)
 
